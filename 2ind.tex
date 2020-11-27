@@ -1,0 +1,188 @@
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[version=3.21, pagesize, twoside=off, bibliography=totoc, DIV=calc, fontsize=12pt, a4paper]{scrartcl}
+\input{preamble/packages}
+\input{preamble/redac}
+\input{preamble/math_basics}
+\input{preamble/math_mine}
+%\input{preamble/draw}
+
+%I find these settings useful in draft mode. Should be removed for final versions.
+	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
+		\tolerance=2000
+	%Accept overfull hbox up to...
+		\hfuzz=2cm
+	%Reduces verbosity about the bad line breaks.
+		\hbadness 5000
+	%Reduces verbosity about the underful vboxes.
+		\vbadness=1300
+
+\title{Two-person SCRs in a unified framework}
+\author{Name}
+%\author{Olivier Cailloux}
+\affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
+%	\href{mailto:olivier.cailloux@dauphine.fr}{olivier.cailloux@dauphine.fr}
+}
+%\author{Name3}
+%\affil{Affil2}
+\hypersetup{
+	pdfsubject={},
+	pdfkeywords={},
+}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+\subsection{Basic notations}
+Let $N = \set{1, 2}$ be the set of individuals, $\allalts$ an infinite set of possible alternatives. 
+Let $\powersetz{\allalts}$ denote the non empty subsets of $\allalts$.
+Given $\alts \subseteq \allalts$, let $\linors$ be the set of linear orders over $\alts$.
+The set of possible profiles is $\allprofs$. 
+An SCR is a function of the form $f: \allprofs → \powersetz{\allalts}$.
+We will also deal with SCRs defined only for a fixed number of alternatives or for only odd number of alternatives. (To be fixed!)
+Given a profile $\prof$, let $m$ denote the number of alternatives in that profile ($m$ depends on $\prof$ but we do not mark it explicitly in order to lighten notation).
+Let $\PO$ be the Pareto-optimal alternatives in $\prof$.
+
+Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N = \set{k \in \N \suchthat j ≤ k ≤ l}$ denote the interval of integer numbers between $j$ and $l$.
+
+\commentOC{Should we focus right from the start on only the neutral and anonymous rules? This would readily exclude PV rules different than PVe.}
+
+The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$).
+
+\subsection{Rules}
+Given $\prof$, we say that an alternative has $k$ supports at rank $r$ iff exactly $k$ individuals place the alternative at rank $r$ or better. Let $\rho$ (depending on $\prof$, omitted in the notation) be the best rank at which some alternative receives unanimous support.
+The rule $\FB$ picks all alternatives with two supports at $\rho$. Note that this set contains either one or two alternatives.
+
+The class $\PV$ contains rules parameterized by $v_1 \in \intvl{0, m - 1}$. Given a parameter $v_1$, define $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference). The rule $\PVv$ picks all alternatives in $\PO$ that nobody vetoed. Let $\set{\PVef, \PVes} = \PVe \subset \PV$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVe = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. When $m$ is odd, we use $\PVe$ also to denote the rule $\PVef = \PVes$.
+
+The rule $\VR$ is defined only for $m$ odd. Each individual veto her worst $\frac{m - 1}{2}$ alternatives, then the Borda winners among the non vetoed alternatives are picked.
+
+The rule $\SL$ is defined only for $m$ odd. It picks the best alternative of $1$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $2$, and the best alternative of $2$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $1$.
+
+\subsection{Comparison}
+\begin{figure}
+	\caption{$[\FB(\prof) = \set{b}, \SL(\prof) = \set{a, c}] \subset [\VR(\prof) = \PVe(\prof) = \set{a, b, c}]$}
+	\label{fig:cbade}
+	$\begin{array}{l}
+		abcde\\
+		cbade
+	\end{array}$
+\end{figure}
+\begin{figure}
+	\caption{$[\VR(\prof) = \set{a}] \subset [\FB(\prof) = \SL(\prof) = \PVe(\prof) = \set{a, c}]$}
+	\label{fig:dcabe}
+	$\begin{array}{l}
+		abcde\\
+		dcabe
+	\end{array}$
+\end{figure}
+\begin{figure}
+	\caption{$\VR(\prof) = \set{b}, \SL(\prof) = \set{a, d}, \VR(\prof) \cap \SL(\prof) = \emptyset$}
+	\label{fig:dbcaefg}
+	$\begin{array}{l}
+		abcdefg\\
+		dbcaefg
+	\end{array}$
+\end{figure}
+\begin{figure}
+	\caption{$\VR(\prof) = \set{a}, \SL(\prof) = \set{a, c}, \FB(\prof) = \set{c}, \VR(\prof) \cap \FB(\prof) = \emptyset$}
+	\label{fig:fgcabde}
+	$\begin{array}{l}
+		abcdefg\\
+		fgcabde
+	\end{array}$
+\end{figure}
+\begin{figure}
+	\caption{$\VR(\prof) = \set{b}, \SL(\prof) = \set{a, g}, \FB(\prof) = \set{d}$}
+	\label{fig:disjoint}
+	$\begin{array}{llll lll | llll ll}
+		a&b&c&d&e&f&g&h&i&j&k&l&m\\
+		g&h&i&d&b&j&a&c&e&f&k&l&m\\
+	\end{array}$
+\end{figure}
+
+Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondance of $f'$.
+
+\Cref{fig:disjoint} illustrate that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+
+The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
+
+We can refer to this when we address the question of refining FB, SL and VR.
+
+\section{Questions}
+all four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
+
+\section{Caracterizations}
+\subsection{Intro}
+I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom. 
+
+For SL and VR we should look at Clippel. 
+
+\subsection{Properties}
+\begin{definition}[First half (FH)]
+	$\forall \prof$, $f(\prof)$ must pick among the alternatives that both individuals rank within the first $\ceil{(m + 1) / 2}$ ranks.
+\end{definition}
+\begin{definition}[Equal loss (EL)]
+	$f$ must pick at least some alternative ranked the same by everybody, if there is one.
+\end{definition}
+\begin{definition}[Paretian equal loss (PEL)]
+	$f$ must pick solely the alternative ranked the same by everybody and that is efficient, if there is one.
+\end{definition}
+\begin{definition}[Paretian compromism (PC)]
+	If $\prof$ contains $y$ with a loss vector $(k, k + 2)$ for some $k$ and $x$ with a loss vector $(0, l)$ for some $l ≥ 3$, then $f$ may not judge $x$ strictly better than $y$, in other words, $x \in f(\prof) ⇒ y \in f(\prof)$.
+\end{definition}
+\begin{definition}[Loss vector comparing (LVC)]
+	Let $\succeq$ be a preorder on $\losses$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+\end{definition}
+	
+\commentOC{I do not understand this.}
+A stronger version of PEL is what we used in the paper with Beatrice. Fix a set SIGMA of “acceptable” equality measures and ask from F to always pick an alternative with equal loss according to some member of SIGMA. This is stronger than PEL because being “acceptable” requires that an alternative at the same rank for both players as the most equal loss.
+
+We write FH for the set of rules satisfying FH, and so on.
+
+\subsection{Compatibility}
+$Paretianism ∩ EL = \emptyset$.
+
+\begin{proposition}
+	$\PV ∩ FH = \PVe$
+\end{proposition}
+\begin{proof}
+	$\PVv$ satisfies FH iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
+\end{proof}
+
+Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. For such a class, if it is non empty, $[(\forall f \in F, f \subseteq f') \land (f' \in F)] ⇔ [f' = \bigcup(F)]$.
+
+As Remzi noted, “I am pretty sure that PV is characterized by being Pareto, FH and maximal (in the sense that it doesn’t admit a supercorrespondence that is Pareto and FH).” and “I also think that PV-equalvetoes is the largest SCR that is Pareto and FH. In fact, two union of any two SCRs that satisfy FH and Pareto also satisfies FH and Pareto. Thus, there is a unique maximal SCR that satisfies both conditions, which is PV-equalvetoes.
+Thus, a SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
+\begin{proposition}
+	$\bigcup(Paretianism \cap FH) = \PVe$
+\end{proposition}
+\begin{proposition}
+	$\SL, \VR, \FB \subset \PVe$
+\end{proposition}
+
+\begin{proposition}
+VR, SL, and all rules in PV fail PEL
+\end{proposition}
+\begin{proposition}
+FB satisfies PEL
+\end{proposition}
+
+PV, FB, SL and VR, all fail strong PEL. 
+
+In fact, strong PEL and FH are incompatible conditions. 
+
+\subsection{Questions}
+What are interesting rules that satisfy this stronger version of PEL? 
+
+As Matias suggested, can we use strong PEL to refine VR, SL or FB?
+
+Can we identify an interesting SCR that satisfies strong PEL?
+
+I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
+
+%\bibliography{bibl}
+
+\end{document}
+
