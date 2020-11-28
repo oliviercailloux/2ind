@@ -34,8 +34,9 @@
 
 \section{Introduction}
 \label{sec:intro}
-\subsection{Basic notations}
-Let $N = \set{1, 2}$ be the set of individuals, $\allalts$ an infinite set of possible alternatives. 
+\subsection{Basic notation and notions}
+Let $N = \set{1, 2}$ be the set of individuals, $\allalts$ an infinite set of possible alternatives.
+\commentRS{Do you think we really need the generality of a variable alternative model?}
 Let $\powersetz{\allalts}$ denote the non empty subsets of $\allalts$.
 Given $\alts \subseteq \allalts$, let $\linors$ be the set of linear orders over $\alts$.
 The set of possible profiles is $\allprofs$. 
@@ -47,6 +48,7 @@ Let $\PO$ be the Pareto-optimal alternatives in $\prof$.
 Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N = \set{k \in \N \suchthat j ≤ k ≤ l}$ denote the interval of integer numbers between $j$ and $l$.
 
 \commentOC{Should we focus right from the start on only the neutral and anonymous rules? This would readily exclude PV rules different than PVe.}
+\commentRS{I don't think we should.}
 
 The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$).
 
@@ -54,7 +56,7 @@ The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that ass
 Given $\prof$, we say that an alternative has $k$ supports at rank $r$ iff exactly $k$ individuals place the alternative at rank $r$ or better. Let $\rho$ (depending on $\prof$, omitted in the notation) be the best rank at which some alternative receives unanimous support.
 The rule $\FB$ picks all alternatives with two supports at $\rho$. Note that this set contains either one or two alternatives.
 
-The class $\PV$ contains rules parameterized by $v_1 \in \intvl{0, m - 1}$. Given a parameter $v_1$, define $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference). The rule $\PVv$ picks all alternatives in $\PO$ that nobody vetoed. Let $\set{\PVef, \PVes} = \PVe \subset \PV$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVe = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. When $m$ is odd, we use $\PVe$ also to denote the rule $\PVef = \PVes$.
+The class $\PV$ contains rules parametrized by $v_1 \in \intvl{0, m - 1}$. Given a parameter $v_1$, define $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference). The rule $\PVv$ picks all alternatives in $\PO$ that nobody vetoed. Let $\set{\PVef, \PVes} = \PVe \subset \PV$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVe = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. When $m$ is odd, we use $\PVe$ also to denote the rule $\PVef = \PVes$.
 
 The rule $\VR$ is defined only for $m$ odd. Each individual veto her worst $\frac{m - 1}{2}$ alternatives, then the Borda winners among the non vetoed alternatives are picked.
 
@@ -102,7 +104,7 @@ The rule $\SL$ is defined only for $m$ odd. It picks the best alternative of $1$
 	\end{array}$
 \end{figure}
 
-Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondance of $f'$.
+Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
 \Cref{fig:disjoint} illustrate that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
 
@@ -113,7 +115,7 @@ We can refer to this when we address the question of refining FB, SL and VR.
 \section{Questions}
 all four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
 
-\section{Caracterizations}
+\section{Characterizations}
 \subsection{Intro}
 I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom. 
 
