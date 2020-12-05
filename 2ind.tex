@@ -35,20 +35,20 @@
 \section{Introduction}
 \label{sec:intro}
 \subsection{Basic notations}
-Let $N = \set{1, 2}$ be the set of individuals, $\allalts$ an infinite set of possible alternatives. 
+Let $N = \set{1, 2}$ be the set of individuals and $\allalts$ be the set of alternatives, with $\card{\allalts} = m$. 
 Let $\powersetz{\allalts}$ denote the non empty subsets of $\allalts$.
-Given $\alts \subseteq \allalts$, let $\linors$ be the set of linear orders over $\alts$.
+Let $\linors$ be the set of linear orders over $\alts$.
 The set of possible profiles is $\allprofs$. 
 An SCR is a function of the form $f: \allprofs → \powersetz{\allalts}$.
-We will also deal with SCRs defined only for a fixed number of alternatives or for only odd number of alternatives. (To be fixed!)
-Given a profile $\prof$, let $m$ denote the number of alternatives in that profile ($m$ depends on $\prof$ but we do not mark it explicitly in order to lighten notation).
+\commentOC{We said last time that we fix $m$ because we do not need to deal with properties across varying alternatives}
 Let $\PO$ be the Pareto-optimal alternatives in $\prof$.
 
 Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N = \set{k \in \N \suchthat j ≤ k ≤ l}$ denote the interval of integer numbers between $j$ and $l$.
 
 \commentOC{Should we focus right from the start on only the neutral and anonymous rules? This would readily exclude PV rules different than PVe.}
 
-The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$).
+The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$). 
+Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
 
 \subsection{Rules}
 Given $\prof$, we say that an alternative has $k$ supports at rank $r$ iff exactly $k$ individuals place the alternative at rank $r$ or better. Let $\rho$ (depending on $\prof$, omitted in the notation) be the best rank at which some alternative receives unanimous support.
@@ -119,6 +119,8 @@ I recall from a paper of Vincent that FB is characterized by using a Rawlsian ma
 
 For SL and VR we should look at Clippel. 
 
+Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winners?) is the set of Pareto efficient candidates that maximize the worst-of welfare (welfare = nb alternatives less good than the chosen one)
+
 \subsection{Properties}
 \begin{definition}[First half (FH)]
 	$\forall \prof$, $f(\prof)$ must pick among the alternatives that both individuals rank within the first $\ceil{(m + 1) / 2}$ ranks.
@@ -129,13 +131,26 @@ For SL and VR we should look at Clippel.
 \begin{definition}[Paretian equal loss (PEL)]
 	$f$ must pick solely the alternative ranked the same by everybody and that is efficient, if there is one.
 \end{definition}
-\begin{definition}[Paretian compromism (PC)]
-	If $\prof$ contains $y$ with a loss vector $(k, k + 2)$ for some $k$ and $x$ with a loss vector $(0, l)$ for some $l ≥ 3$, then $f$ may not judge $x$ strictly better than $y$, in other words, $x \in f(\prof) ⇒ y \in f(\prof)$.
+\begin{definition}[Paretian compromism compatibility (PCC)]
+	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
+	\commentOC{Could we perhaps define sigma as a weak order over the loss vectors?}
+	$f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PO] ≠ \emptyset$.
+\end{definition}
+
+Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
+Note that $d \in \Sigma$ and seems to coincide with multiple commonly used spread measures (to be verified). 
+Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
+\begin{definition}[Dispersion compromism]
+	$\forall \prof: f(\prof) \subseteq \mindisp[\PO]$.
+\end{definition}
+
+\begin{definition}[Dispersion phobia]
+	If $x$ has a strictly higher dispersion than $y$ at $\prof$, then $f$ may not pick $x$.
 \end{definition}
 \begin{definition}[Loss vector comparing (LVC)]
-	Let $\succeq$ be a preorder on $\losses$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+	Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
 \end{definition}
-	
+
 \commentOC{I do not understand this.}
 A stronger version of PEL is what we used in the paper with Beatrice. Fix a set SIGMA of “acceptable” equality measures and ask from F to always pick an alternative with equal loss according to some member of SIGMA. This is stronger than PEL because being “acceptable” requires that an alternative at the same rank for both players as the most equal loss.
 
@@ -181,6 +196,9 @@ As Matias suggested, can we use strong PEL to refine VR, SL or FB?
 Can we identify an interesting SCR that satisfies strong PEL?
 
 I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
+
+\section{Relationships}
+Danilo Coelho seems to be interested in implementation of FB and shortlisting and related rules (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar}
 
 %\bibliography{bibl}
 

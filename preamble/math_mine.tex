@@ -1,5 +1,5 @@
 %Decision Theory
-\NewDocumentCommand{\allalts}{}{\mathscr{A}}
+\NewDocumentCommand{\allalts}{}{A}
 \NewDocumentCommand{\allcrits}{}{\mathscr{C}}
 \NewDocumentCommand{\alts}{}{A}
 \NewDocumentCommand{\dm}{}{i}
@@ -18,7 +18,10 @@
 \NewDocumentCommand{\pref}{}{\succ}
 \NewDocumentCommand{\prefi}{O{i}}{\succ_{#1}}
 
-\NewDocumentCommand{\losses}{}{\intvl{0, m - 1}^N}
+\NewDocumentCommand{\lvs}{}{\intvl{0, m - 1}^N}
+\NewDocumentCommand{\losses}{}{\intvl{0, m - 1}}
+\NewDocumentCommand{\minspread}{O{A}}{\min_{#1}(\sigma \circ \lambda_{\bm{P}})}
+\NewDocumentCommand{\mindisp}{O{A}}{\min_{#1}(d \circ \lambda_{\bm{P}})}
 
 %Rules
 \NewDocumentCommand{\PD}{}{\mathit{PD}}
