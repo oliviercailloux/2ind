@@ -34,23 +34,27 @@
 
 \section{Introduction}
 \label{sec:intro}
-\subsection{Basic notations}
+\section{Basic notions and notation}
 Let $N = \set{1, 2}$ be the set of individuals and $\allalts$ be the set of alternatives, with $\card{\allalts} = m$. 
 Let $\powersetz{\allalts}$ denote the non empty subsets of $\allalts$.
 Let $\linors$ be the set of linear orders over $\alts$.
 The set of possible profiles is $\allprofs$. 
-An SCR is a function of the form $f: \allprofs → \powersetz{\allalts}$.
+A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 Let $\PO$ be the Pareto-optimal alternatives in $\prof$.
+\commentRS{define PO formally.}
+\commentRS{define loss formally without referring to rank.}
 
 Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N = \set{k \in \N \suchthat j ≤ k ≤ l}$ denote the interval of integer numbers between $j$ and $l$.
 
-\commentOC{Should we focus right from the start on only the neutral and anonymous rules? This would readily exclude PV rules different than PVe.}
-\commentRS{I don't think we should.}
+
 
 The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$). 
 Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
+\commentRS{define anonymity and neutrality}
 
-\subsection{Rules}
+\section{Four SCRs of the literature}
+
 Given $\prof$, we say that an alternative has $k$ supports at rank $r$ iff exactly $k$ individuals place the alternative at rank $r$ or better. Let $\rho$ (depending on $\prof$, omitted in the notation) be the best rank at which some alternative receives unanimous support.
 The rule $\FB$ picks all alternatives with two supports at $\rho$. Note that this set contains either one or two alternatives.
 
@@ -60,7 +64,44 @@ The rule $\VR$ is defined only for $m$ odd. Each individual veto her worst $\fra
 
 The rule $\SL$ is defined only for $m$ odd. It picks the best alternative of $1$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $2$, and the best alternative of $2$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $1$.
 
-\subsection{Comparison}
+\commentRS{define FB, VR, SL and the class PV specifying PVe a bit more formally. Distingush between script PV as a class and non script PV as a rule.}
+
+\commentRS{Make formal remarks about their anonymity and neutrality properties.}
+\Cref{fig:disjoint} illustrate that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+\commentRS{Show through a formal proposition that FB, SL and VR can be disjoint.}
+To discuss the relationship of FB, SL and VR to members of PVscript, we define condition we call the first-half property.
+\begin{definition}[First half (FH)]
+	$\forall \prof$, $f(\prof)$ must pick among the alternatives that both individuals rank within the first $\ceil{(m + 1) / 2}$ ranks.
+\end{definition}
+
+\commentRS{Show that FB, SL and VR satisfy FH.}
+
+\begin{proposition}
+	$\PV ∩ FH = \PVe$
+\end{proposition}
+\begin{proof}
+	$\PVv$ satisfies FH iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
+\end{proof}
+
+Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. For such a class, if it is non empty, $[(\forall f \in F, f \subseteq f') \land (f' \in F)] ⇔ [f' = \bigcup(F)]$.
+\commentRS{Show that there is a unique SCR that is PO, FH and set inclusion maximal which is PVe. Te proof remarks that FH and PO is closed under union.}
+
+\begin{proposition}
+	$\bigcup(Paretianism \cap FH) = \PVe$
+\end{proposition}
+Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
+
+
+
+
+\commentRS{Show also that FB, SL and VR are subcorrespondences of a PV rule iff that PV rule is PVe. Tje proposition below partly handles that}
+
+\begin{proposition}
+	$\SL, \VR, \FB \subset \PVe$
+\end{proposition}
+
+
+
 \begin{figure}
 	\caption{$[\FB(\prof) = \set{b}, \SL(\prof) = \set{a, c}] \subset [\VR(\prof) = \PVe(\prof) = \set{a, b, c}]$}
 	\label{fig:cbade}
@@ -102,29 +143,20 @@ The rule $\SL$ is defined only for $m$ odd. It picks the best alternative of $1$
 	\end{array}$
 \end{figure}
 
-Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
-\Cref{fig:disjoint} illustrate that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+\commentRS{Below are characterizations}
+PV-e iff PO, FH, MAskin monotonicity
 
-The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
-
-We can refer to this when we address the question of refining FB, SL and VR.
-
-\section{Questions}
-all four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
-
-\section{Characterizations}
-\subsection{Intro}
-I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom. 
+I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom plus maximality 
 
 For SL and VR we should look at Clippel. 
 
 Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winners?) is the set of Pareto efficient candidates that maximize the worst-of welfare (welfare = nb alternatives less good than the chosen one)
 
-\subsection{Properties}
-\begin{definition}[First half (FH)]
-	$\forall \prof$, $f(\prof)$ must pick among the alternatives that both individuals rank within the first $\ceil{(m + 1) / 2}$ ranks.
-\end{definition}
+
+
+\section{New SCRs}
+\subsection{Based on equal loss}
 \begin{definition}[Equal loss (EL)]
 	$f$ must pick at least some alternative ranked the same by everybody, if there is one.
 \end{definition}
@@ -154,28 +186,9 @@ Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
 \commentOC{I do not understand this.}
 A stronger version of PEL is what we used in the paper with Beatrice. Fix a set SIGMA of “acceptable” equality measures and ask from F to always pick an alternative with equal loss according to some member of SIGMA. This is stronger than PEL because being “acceptable” requires that an alternative at the same rank for both players as the most equal loss.
 
-We write FH for the set of rules satisfying FH, and so on.
-
-\subsection{Compatibility}
 $Paretianism ∩ EL = \emptyset$.
 
-\begin{proposition}
-	$\PV ∩ FH = \PVe$
-\end{proposition}
-\begin{proof}
-	$\PVv$ satisfies FH iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
-\end{proof}
 
-Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. For such a class, if it is non empty, $[(\forall f \in F, f \subseteq f') \land (f' \in F)] ⇔ [f' = \bigcup(F)]$.
-
-As Remzi noted, “I am pretty sure that PV is characterized by being Pareto, FH and maximal (in the sense that it doesn’t admit a supercorrespondence that is Pareto and FH).” and “I also think that PV-equalvetoes is the largest SCR that is Pareto and FH. In fact, two union of any two SCRs that satisfy FH and Pareto also satisfies FH and Pareto. Thus, there is a unique maximal SCR that satisfies both conditions, which is PV-equalvetoes.
-Thus, a SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
-\begin{proposition}
-	$\bigcup(Paretianism \cap FH) = \PVe$
-\end{proposition}
-\begin{proposition}
-	$\SL, \VR, \FB \subset \PVe$
-\end{proposition}
 
 \begin{proposition}
 VR, SL, and all rules in PV fail PEL
@@ -184,20 +197,38 @@ VR, SL, and all rules in PV fail PEL
 FB satisfies PEL
 \end{proposition}
 
+
 PV, FB, SL and VR, all fail strong PEL. 
 
 In fact, strong PEL and FH are incompatible conditions. 
 
-\subsection{Questions}
+
 What are interesting rules that satisfy this stronger version of PEL? 
 
 As Matias suggested, can we use strong PEL to refine VR, SL or FB?
 
 Can we identify an interesting SCR that satisfies strong PEL?
 
+\subsection{Based on refining}
+Discuss how discriminative the four rules are. ll four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
+The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
+
+We can refer to this when we address the question of refining FB, SL and VR.
+
+
+
+
+
+
+
+
+
+\subsection{Rules we invent}
+Anonymized PV rules
+\section{Miscellaneous comments}
 I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
 
-\section{Relationships}
+
 Danilo Coelho seems to be interested in implementation of FB and shortlisting and related rules (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar}
 
 %\bibliography{bibl}
