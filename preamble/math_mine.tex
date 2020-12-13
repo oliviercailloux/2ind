@@ -1,15 +1,15 @@
 %Decision Theory
-\NewDocumentCommand{\allalts}{}{A}
+\NewDocumentCommand{\allalts}{}{\mathcal{A}}
 \NewDocumentCommand{\allcrits}{}{\mathscr{C}}
 \NewDocumentCommand{\alts}{}{A}
 \NewDocumentCommand{\dm}{}{i}
 \NewDocumentCommand{\allF}{}{\mathscr{F}}
 \NewDocumentCommand{\allvoters}{}{\mathscr{N}}
 \NewDocumentCommand{\voters}{}{N}
-\NewDocumentCommand{\allprofs}{}{\bigcup_{\emptyset ≠ \alts \subseteq \allalts} \linors^N}
+\NewDocumentCommand{\allprofs}{}{\linors^N}
 \NewDocumentCommand{\prof}{}{\bm{P}}
 \NewDocumentCommand{\lprof}{}{\lambda_{\bm{P}}}
-\NewDocumentCommand{\linors}{}{\mathscr{L}(\alts)}
+\NewDocumentCommand{\linors}{}{\mathscr{L}(\allalts)}
 %Thanks to https://tex.stackexchange.com/q/154549
 	%\makeatletter
 	%\def\@myRgood@#1#2{\mathrel{R^X_{#2}}}
@@ -17,21 +17,30 @@
 	%\makeatother
 \NewDocumentCommand{\pref}{}{\succ}
 \NewDocumentCommand{\prefi}{O{i}}{\succ_{#1}}
+\NewDocumentCommand{\prefiinv}{O{i}}{\succ_{#1}^{-1}}
+\NewDocumentCommand{\ibar}{}{\overline{i}}
 
 \NewDocumentCommand{\lvs}{}{\intvl{0, m - 1}^N}
 \NewDocumentCommand{\losses}{}{\intvl{0, m - 1}}
-\NewDocumentCommand{\minspread}{O{A}}{\min_{#1}(\sigma \circ \lambda_{\bm{P}})}
-\NewDocumentCommand{\mindisp}{O{A}}{\min_{#1}(d \circ \lambda_{\bm{P}})}
+\NewDocumentCommand{\PD}{}{\mathit{PD}(\prof)}
+\NewDocumentCommand{\PE}{}{\mathit{PE}(\prof)}
 
 %Rules
-\NewDocumentCommand{\PD}{}{\mathit{PD}}
-\NewDocumentCommand{\PO}{}{\mathit{PO}(\prof)}
+\NewDocumentCommand{\rhoP}{}{\rho_P}
+\NewDocumentCommand{\minspread}{O{A}}{\min_{#1}(\sigma \circ \lambda_{\bm{P}})}
+\NewDocumentCommand{\mindisp}{O{A}}{\min_{#1}(d \circ \lambda_{\bm{P}})}
 \NewDocumentCommand{\FB}{}{\mathit{FB}}
-\NewDocumentCommand{\PV}{}{\mathit{PV}}
-\NewDocumentCommand{\PVv}{}{\mathit{PV}^{v_1}}
 \NewDocumentCommand{\VR}{}{\mathit{VR}}
 \NewDocumentCommand{\SL}{}{\mathit{SL}}
+\NewDocumentCommand{\PVv}{}{\mathit{PV}^{v_1}}
 \NewDocumentCommand{\PVef}{}{\mathit{PV}^{\floor{\frac{m - 1}{2}}}}%f for first
 \NewDocumentCommand{\PVes}{}{\mathit{PV}^{\ceil{\frac{m - 1}{2}}}}%s for second
 \NewDocumentCommand{\PVe}{}{\mathit{PVe}}%egalitarian distribution
+
+%Classes
+\NewDocumentCommand{\PVcl}{}{\mathcal{PV}}
+\NewDocumentCommand{\PVecl}{}{\mathcal{PV}e}%egalitarian distribution
+\NewDocumentCommand{\PEcl}{}{\mathcal{PE}}
+\NewDocumentCommand{\FHcl}{}{\mathcal{FH}}
+
 

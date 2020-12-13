@@ -35,72 +35,45 @@
 \section{Introduction}
 \label{sec:intro}
 \section{Basic notions and notation}
-Let $N = \set{1, 2}$ be the set of individuals and $\allalts$ be the set of alternatives, with $\card{\allalts} = m$. 
+Let $N = \set{1, 2}$ be the set of individuals and $\allalts$ be the non-empty set of alternatives, with $\card{\allalts} = m$. 
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual.
 Let $\powersetz{\allalts}$ denote the non empty subsets of $\allalts$.
-Let $\linors$ be the set of linear orders over $\alts$.
+Let $\linors$ be the set of linear orders over $\allalts$.
 The set of possible profiles is $\allprofs$. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
-Let $\PO$ be the Pareto-optimal alternatives in $\prof$.
-\commentRS{define PO formally.}
-\commentRS{define loss formally without referring to rank.}
+
+An SCR $f$ is anonymous iff $f(\prefi[1], \prefi[2]) = f(\prefi[2], \prefi[1])$.
+An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
 Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N = \set{k \in \N \suchthat j ≤ k ≤ l}$ denote the interval of integer numbers between $j$ and $l$.
-
-
-
-The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual the number of ranks the individual lost by having $x$ picked instead of his favorite alternative (that is, the number of alternatives that the individual prefers to $x$). 
+The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual her “loss” resulting of selecting $x$ instead his favorite alternative, that loss being defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
-\commentRS{define anonymity and neutrality}
+Given two loss vectors $l, l' \in \lvs$, say that a loss vector $l$ is strictly smaller than another one $l'$, $l < l'$, iff $\forall i: l_i ≤ l'_i \land l ≠ l'$. We also write $l ≤ l'$ to denote that $l$ is weakly smaller than $l'$, meaning, strictly smaller or equal. It follows that $l ≤ (k)^N$ iff $l$ is weakly smaller than the constant loss vector $(k, k)$. 
+Let $\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss level and the sum of the losses, considering the loss vector $\lprof(x)$.
+
+Let $\PD = \set{x \in \allalts \suchthat \exists y \suchthat \lprof(y) < \lprof(x)}$ be the Pareto-dominated alternatives in $\prof$. Let $\PE = \allalts \setminus \PD$ be the Pareto-efficient ones.
 
 \section{Four SCRs of the literature}
+Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k)^N}$ as the set of alternatives imposing losses not worst than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$.
+Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
+The \textbf{Fallback Bargaining} rule picks all alternatives with unanimous support at $\rho$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
-Given $\prof$, we say that an alternative has $k$ supports at rank $r$ iff exactly $k$ individuals place the alternative at rank $r$ or better. Let $\rho$ (depending on $\prof$, omitted in the notation) be the best rank at which some alternative receives unanimous support.
-The rule $\FB$ picks all alternatives with two supports at $\rho$. Note that this set contains either one or two alternatives.
+Given a profile $\prof \in \allprofs$, let $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \ceil{\frac{m - 1}{2}}} \subseteq \allalts$ denote the set of alternatives reaching the best half of the ranking of $i$. Let $H(\prof) = H^1(\prof) \cap H^2(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}})^N}$ denote the set of alternatives reaching the best half of everybody’s ranking.
 
-The class $\PV$ contains rules parametrized by $v_1 \in \intvl{0, m - 1}$. Given a parameter $v_1$, define $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference). The rule $\PVv$ picks all alternatives in $\PO$ that nobody vetoed. Let $\set{\PVef, \PVes} = \PVe \subset \PV$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVe = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. When $m$ is odd, we use $\PVe$ also to denote the rule $\PVef = \PVes$.
+The \textbf{Veto-rank} rule $\VR$ is defined only for $m$ odd. Each individual veto her worst $\frac{m - 1}{2}$ alternatives, then the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum_N \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum_N \lprof(x) ≤ \sum_N \lprof(y)}$.
 
-The rule $\VR$ is defined only for $m$ odd. Each individual veto her worst $\frac{m - 1}{2}$ alternatives, then the Borda winners among the non vetoed alternatives are picked.
+The \textbf{Short listing} rule $\SL$ is defined only for $m$ odd. It picks the best alternative of individual $1$ that is not among the worst $\frac{m - 1}{2}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $1$. Formally, $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
-The rule $\SL$ is defined only for $m$ odd. It picks the best alternative of $1$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $2$, and the best alternative of $2$ that is not among the worst $\frac{m - 1}{2}$ alternatives of $1$.
+The class of \textbf{Pareto and veto} rules, $\PVcl$, contains rules parameterized by $v_1 \in \intvl{0, m - 1}$. Given $v_1 \in \intvl{0, m - 1}$, define the value $v_2 \in \intvl{0, m - 1}$ as $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference). 
+Given $v_1 \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the worst acceptable loss level for individual $i$.
+The rule $\PVv = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all alternatives in $\PE$ that nobody vetoed. 
+The class $\PVcl = \set{\PVv \suchthat v_1 \in \intvl{0, m - 1}}$ is the set of those $m$ rules.
 
-\commentRS{define FB, VR, SL and the class PV specifying PVe a bit more formally. Distingush between script PV as a class and non script PV as a rule.}
+Let $\set{\PVef, \PVes} = \PVecl \subseteq \PVcl$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVecl = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. Note that $\PVecl$ contains one or two rules, depending on the parity of $m$. 
+When $m$ is odd, we use $\PVe$ to denote the rule $\PVef = \PVes$, thus with $\PVecl = \set{\PVe}$.
 
 \commentRS{Make formal remarks about their anonymity and neutrality properties.}
-\Cref{fig:disjoint} illustrate that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
-\commentRS{Show through a formal proposition that FB, SL and VR can be disjoint.}
-To discuss the relationship of FB, SL and VR to members of PVscript, we define condition we call the first-half property.
-\begin{definition}[First half (FH)]
-	$\forall \prof$, $f(\prof)$ must pick among the alternatives that both individuals rank within the first $\ceil{(m + 1) / 2}$ ranks.
-\end{definition}
-
-\commentRS{Show that FB, SL and VR satisfy FH.}
-
-\begin{proposition}
-	$\PV ∩ FH = \PVe$
-\end{proposition}
-\begin{proof}
-	$\PVv$ satisfies FH iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
-\end{proof}
-
-Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. For such a class, if it is non empty, $[(\forall f \in F, f \subseteq f') \land (f' \in F)] ⇔ [f' = \bigcup(F)]$.
-\commentRS{Show that there is a unique SCR that is PO, FH and set inclusion maximal which is PVe. Te proof remarks that FH and PO is closed under union.}
-
-\begin{proposition}
-	$\bigcup(Paretianism \cap FH) = \PVe$
-\end{proposition}
-Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
-
-
-
-
-\commentRS{Show also that FB, SL and VR are subcorrespondences of a PV rule iff that PV rule is PVe. Tje proposition below partly handles that}
-
-\begin{proposition}
-	$\SL, \VR, \FB \subset \PVe$
-\end{proposition}
-
-
 
 \begin{figure}
 	\caption{$[\FB(\prof) = \set{b}, \SL(\prof) = \set{a, c}] \subset [\VR(\prof) = \PVe(\prof) = \set{a, b, c}]$}
@@ -143,9 +116,74 @@ Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalveto
 	\end{array}$
 \end{figure}
 
+We start by observing that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+\begin{proposition}
+	$\exists \prof \suchthat \VR(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \FB(\prof) = \emptyset, \SL(\prof) \cap \FB(\prof) = \emptyset$.
+\end{proposition}
+\begin{proof}
+	\Cref{fig:disjoint} proves the statement.
+\end{proof}
+
+To discuss the relationship of $\FB$, $\SL$ and $\VR$ to members of $\PVcl$, we define a condition that we call the First half property, which mandates that the rule picks its winners among the alternatives placed in the best half of both rankings.
+\begin{definition}[First half (FH)]
+	$\forall \prof \in \allprofs: f(\prof) \subseteq H(\prof)$.
+\end{definition}
+Let $\PEcl$ denote the class of rules picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$); $\FHcl$ denote the class of rules satisfying the First half property, and similarly for other properties defined in this article.
+
+The next proposition shows that $\VR$, $\SL$ and $\FB$ satisfy FH.
+\begin{proposition}
+	$\VR, \SL, \FB \in \FHcl$.
+\end{proposition}
+\begin{proof}
+	This follows immediately from the definition of $\VR$ and $\FB$. \commentOC{Do we need to prove anything for $\SL$?}
+\end{proof}
+
+\begin{proposition}
+	$\PVcl ∩ \FHcl = \PVecl$
+\end{proposition}
+\begin{proof}
+	Consider a arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider a profile $\prof = (\prefi, \prefiinv)$. Observe that $\PVv(\prof) = \set{x \in \allalts \suchthat \lprof(x) = (a_1, a_2)}$. 
+	This permits to see that $\PVv$ satisfies FH iff $a_1, a_2 ≤ \ceil{\frac{m - 1}{2}}$, equivalently, iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
+	\commentOC{This is probably a bit too quick.}
+\end{proof}
+
+Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
+Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
+Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. 
+Given any non empty class of SCRs $F$ closed under union, the maximal SCR formed by unions of rules of $F$ is a member of $F$, and (evidently) is less resolute than any other member of $F$. Formally: $[f = \bigcup(F)] ⇔ [(\forall f' \in F, f' \subseteq f) \land (f \in F)]$.
+
+\commentRS{Show that there is a unique SCR that is PE, FH and set inclusion maximal which is PVe. Te proof remarks that FH and PE is closed under union.}
+
+\begin{proposition}
+	For $m$ odd, $\bigcup(\PEcl \cap \FHcl) = \PVe$.
+\end{proposition}
+\begin{proof}
+	%Both classes $\PEcl$ and $\FHcl$ are closed under union. Thus, $\PEcl \cap \FHcl$ is closed under union.
+	Define $f$ as the rule that always picks all efficient alternatives ranked in both first halves. This is the least resolute SCR among the class $\PEcl \cap \FHcl$. And it equals $\PVe$.
+	\commentOC{To be continued, I suppose. But it seems we do not need the union-closed stuff here.}
+\end{proof}
+
+In the next proposition, in fact, conjecture, we use max in the sense of set inclusion (irresoluteness).
+\begin{proposition}
+	$\max {(\PEcl \cap \FHcl \cap \PVcl)} = \PVecl$.
+\end{proposition}
+
+Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
+
+
+
+
+\commentRS{Show also that FB, SL and VR are subcorrespondences of a PV rule iff that PV rule is PVe. Tje proposition below partly handles that}
+
+\begin{proposition}
+	$\SL, \VR, \FB \subset \PVe$
+\end{proposition}
+
+
+
 
 \commentRS{Below are characterizations}
-PV-e iff PO, FH, MAskin monotonicity
+PV-e iff PE, FH, MAskin monotonicity
 
 I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom plus maximality 
 
@@ -166,14 +204,14 @@ Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winn
 \begin{definition}[Paretian compromism compatibility (PCC)]
 	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
 	\commentOC{Could we perhaps define sigma as a weak order over the loss vectors?}
-	$f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PO] ≠ \emptyset$.
+	$f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
 \end{definition}
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Note that $d \in \Sigma$ and seems to coincide with multiple commonly used spread measures (to be verified). 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
 \begin{definition}[Dispersion compromism]
-	$\forall \prof: f(\prof) \subseteq \mindisp[\PO]$.
+	$\forall \prof: f(\prof) \subseteq \mindisp[\PE]$.
 \end{definition}
 
 \begin{definition}[Dispersion phobia]
