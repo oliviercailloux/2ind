@@ -74,6 +74,10 @@ Let $\set{\PVef, \PVes} = \PVecl \subseteq \PVcl$ be the class of Pareto and Vet
 When $m$ is odd, we use $\PVe$ to denote the rule $\PVef = \PVes$, thus with $\PVecl = \set{\PVe}$.
 
 \commentRS{Make formal remarks about their anonymity and neutrality properties.}
+\begin{remark}
+    All rules just defined, namely, $\FB, \VR, \SL$ and all rules in $\PVcl$ are neutral. The rules $\FB$, $\VR$ and $\SL$ are anonymous, the latter being such because we take the union of winners. Rules in the class $\PVcl$ are anonymous iff $v_1 = v_2$.
+    \commentOC{To be checked!}
+\end{remark}
 
 \begin{figure}
 	\caption{$[\FB(\prof) = \set{b}, \SL(\prof) = \set{a, c}] \subset [\VR(\prof) = \PVe(\prof) = \set{a, b, c}]$}
@@ -154,6 +158,8 @@ Given any non empty class of SCRs $F$ closed under union, the maximal SCR formed
 
 \commentRS{Show that there is a unique SCR that is PE, FH and set inclusion maximal which is PVe. Te proof remarks that FH and PE is closed under union.}
 
+\commentOC{Phrase this as: For all $m$, this union is the union of PVecl.}
+
 \begin{proposition}
 	For $m$ odd, $\bigcup(\PEcl \cap \FHcl) = \PVe$.
 \end{proposition}
@@ -175,11 +181,12 @@ Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalveto
 
 \commentRS{Show also that FB, SL and VR are subcorrespondences of a PV rule iff that PV rule is PVe. Tje proposition below partly handles that}
 
+\commentOC{Show that this is strict by using the same figure.}
 \begin{proposition}
 	$\SL, \VR, \FB \subset \PVe$
 \end{proposition}
 
-
+\commentOC{Say that PVe is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
 
 
 \commentRS{Below are characterizations}
@@ -265,6 +272,7 @@ We can refer to this when we address the question of refining FB, SL and VR.
 
 \subsection{Rules we invent}
 Anonymized PV rules
+PV when the sum of vetoes is less than m-1
 \section{Miscellaneous comments}
 I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
 
