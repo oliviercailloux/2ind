@@ -51,13 +51,10 @@ Let $\PD = \set{x \in \allalts \suchthat \exists y \text{ s.t. } \lprof(y) < \lp
 
 \section{Four SCRs of the literature}
 Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$.
-Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. \commentOC{TODO cite BK.}
+Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. By Theorem 1 of Brams and Kilgour (2001) we have $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 
-Note that we use the term “half” in a rather liberal way. We fix it at $\ceil{\frac{m - 1}{2}}$ because $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$, as shown by BK. 
-
-
-Given a profile $\prof \in \allprofs$, let $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \ceil{\frac{m - 1}{2}}} \subseteq \allalts$ denote the set of alternatives reaching the best half of the preference of $i$. Let $H(\prof) = H^1(\prof) \cap H^2(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference.
-
+Given a profile $\prof \in \allprofs$, let H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference.
+In concordance with the ceiling established by Theorem 1 of Brams and Kilgour (2001), we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -65,76 +62,15 @@ The \textbf{Veto-rank} rule $\VR$ \footnote{\label{ft:modd} The rules $\VR$ and 
 
 The \textbf{Shortlisting} rule $\SL$ \footref{ft:modd} picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$. Formally, $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
-The class of \textbf{Pareto-and-veto} rules, $\PVcl$, contains rules parameterized by $v_1 \in \intvl{0, m - 1}$. Given $v_1 \in \intvl{0, m - 1}$, define the value $v_2 \in \intvl{0, m - 1}$ as $v_2 = (m - 1) - v_1$. The value $v_i$ represents the number of alternatives vetoed by individual $i$, with $i \in N$ (individuals veto the alternatives at the bottom of their preference).
-\commentOC{We decided to enlarge this definition, and adapt the rest.}
-Given $v_1 \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the worst acceptable loss level for individual $i$.
+The class of \textbf{Pareto-and-veto} rules, $\PVcl$, contains rules parameterized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2  ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual i \in N$ (individuals veto the alternatives at the bottom of their preference).
+Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.
 The rule $\PVv = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all alternatives in $\PE$ that no individual vetoes. 
-The class $\PVcl = \set{\PVv \suchthat v_1 \in \intvl{0, m - 1}}$ is the set of those $m$ rules.
+The class $\PVcl = \set{\PVv \suchthat v_1 \in \intvl{0, m - 1}}$ is the set of those rules.
 
-\textbf{CHECKED UNTIL HERE (Feb 9th)}
-
-Let $\set{\PVef, \PVes} = \PVecl \subseteq \PVcl$ be the class of Pareto and Veto rules that distribute veto power in the most egalitarian manner possible. Equivalently, $\PVecl = \set{\PVv \suchthat \abs{v_1 - v_2} ≤ 1}$. Note that $\PVecl$ contains one or two rules, depending on the parity of $m$. 
-When $m$ is odd, we use $\PVe$ to denote the rule $\PVef = \PVes$, thus with $\PVecl = \set{\PVe}$.
-
-\begin{proposition}
-	Given $m$ even, $\cup\PVecl \notin \PVcl$.
-\end{proposition}
-\begin{proof}
-	Consider the profile $\prof$:
-	$\begin{array}{cccccc}
-		a_1 & \ldots & a_{\frac{m}{2}} & a_{\frac{m}{2} + 1} & \ldots & a_m\\
-		a_m & \ldots & a_{\frac{m}{2} + 1} & a_{\frac{m}{2}} & \ldots & a_1
-	\end{array}$.
-	
-	Note that $\PVecl = \set{\PVef, \PVes} = \set{\PVv[\frac{m}{2} - 1], \PVv[\frac{m}{2}]}$, $\PVv[\frac{m}{2} - 1](\prof) = \set{a_{\frac{m}{2} + 1}}$ and $\PVv[\frac{m}{2}](\prof) = \set{a_{\frac{m}{2}}}$. 
-\end{proof}
-	
-\commentRS{Make formal remarks about their anonymity and neutrality properties.}
 \begin{remark}
     All rules just defined, namely, $\FB, \VR, \SL$ and all rules in $\PVcl$ are neutral. The rules $\FB$, $\VR$ and $\SL$ are anonymous, the latter being such because we take the union of winners. Rules in the class $\PVcl$ are anonymous iff $v_1 = v_2$.
-    \commentOC{To be checked!}
 \end{remark}
 
-\begin{figure}
-	\caption{$[\FB(\prof) = \set{b}, \SL(\prof) = \set{a, c}] \subset [\VR(\prof) = \PVe(\prof) = \set{a, b, c}]$}
-	\label{fig:cbade}
-	$\begin{array}{l}
-		abcde\\
-		cbade
-	\end{array}$
-\end{figure}
-\begin{figure}
-	\caption{$[\VR(\prof) = \set{a}] \subset [\FB(\prof) = \SL(\prof) = \PVe(\prof) = \set{a, c}]$}
-	\label{fig:dcabe}
-	$\begin{array}{l}
-		abcde\\
-		dcabe
-	\end{array}$
-\end{figure}
-\begin{figure}
-	\caption{$\VR(\prof) = \set{b}, \SL(\prof) = \set{a, d}, \VR(\prof) \cap \SL(\prof) = \emptyset$}
-	\label{fig:dbcaefg}
-	$\begin{array}{l}
-		abcdefg\\
-		dbcaefg
-	\end{array}$
-\end{figure}
-\begin{figure}
-	\caption{$\VR(\prof) = \set{a}, \SL(\prof) = \set{a, c}, \FB(\prof) = \set{c}, \VR(\prof) \cap \FB(\prof) = \emptyset$}
-	\label{fig:fgcabde}
-	$\begin{array}{l}
-		abcdefg\\
-		fgcabde
-	\end{array}$
-\end{figure}
-\begin{figure}
-	\caption{$\VR(\prof) = \set{b}, \SL(\prof) = \set{a, g}, \FB(\prof) = \set{d}$}
-	\label{fig:disjoint}
-	$\begin{array}{llll lll | llll ll}
-		a&b&c&d&e&f&g&h&i&j&k&l&m\\
-		g&h&i&d&b&j&a&c&e&f&k&l&m\\
-	\end{array}$
-\end{figure}
 
 We start by observing that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
 \begin{proposition}
