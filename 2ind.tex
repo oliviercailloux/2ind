@@ -54,7 +54,7 @@ Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in
 Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. By Theorem 1 of Brams and Kilgour (2001) we have $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 
 Given a profile $\prof \in \allprofs$, let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference.
-In concordance with the ceiling established by Theorem 1 of Brams and Kilgour (2001), we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
+In concordance with the ceiling established by Theorem 1 of Brams and Kilgour (2001) \commentOC{To cite (and other such refs)}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -63,11 +63,11 @@ The \textbf{Veto-rank} rule $\VR$\footnote{\label{ft:modd} Both $\VR$ and $\SL$ 
 The \textbf{Shortlisting} rule $\SL$\footref{ft:modd} picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$. Formally, $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
 The class of \textbf{Pareto-and-veto} rules, $\PVcl$, contains rules parameterized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2  ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
-Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $PV^v = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all alternatives in $\PE$ that no individual vetoes. 
-The class $\PVcl = \set{PV^v \suchthat v_1,v_2 \in \intvl{0, m - 1} \: \text{ with } v_1+v_2\leq m-1}$ is the set of those rules.
+Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all alternatives in $\PE$ that no individual vetoes. 
+The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules.
 
 \begin{remark}
-     $\FB, \VR, \SL$ and all SCSs in $\PVcl$ are  neutral. $\FB$, $\VR$ and $\SL$ are also anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
+     $\FB, \VR, \SL$ and all SCRs in $\PVcl$ are  neutral. $\FB$, $\VR$ and $\SL$ are also anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 
 \begin{figure}
@@ -91,29 +91,32 @@ To discuss the relationship of $\FB$, $\SL$ and $\VR$ to members of $\PVcl$, we 
 \begin{definition}[First half (FH)]
 	$\forall \prof \in \allprofs: f(\prof) \subseteq H(\prof)$.
 \end{definition}
-Let $\PEcl$ denote the class of rules picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$); $\FHcl$ denote the class of rules satisfying the First half property, and similarly for other properties defined in this article.
+Let $\PEcl$ denote the class of rules picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$); $\FHcl$ denote the class of rules satisfying the First half property \commentOC{First half or first half? (I prefer First half to distinguish from the informal phrase.)}, and similarly for other properties defined in this article.
 
 The next proposition shows that $\VR$, $\SL$ and $\FB$ satisfy FH.
 \begin{proposition}
 	$\VR, \SL, \FB \in \FHcl$.
 \end{proposition}
 \begin{proof}
-	This follows immediately from the definition of $\VR$ and $\FB$. \commentOC{Do we need to prove anything for $\SL$?}
+	This follows immediately from the definition of these rules. \commentOC{It follows literally immediately for $\VR$, and for the other two, it is an easy consequence, considering what we wrote above. Is a proof required?}
 \end{proof}
 
 \begin{proposition}
-	$\PVcl ∩ \FHcl = \{PV^v \in \mathcal{PV} \mid v_i \geq \floor{\frac{m - 1}{2}} \forall i \}$
+	$\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \suchthat v_i \geq \floor{\frac{m - 1}{2}}, \forall i }$. 
 \end{proposition}
 \begin{proof}
-	Consider a arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider a profile $\prof = (\prefi, \prefiinv)$. Observe that $PV^v(\prof) = \set{x \in \allalts \suchthat \lprof(x) = (a_1, a_2) \text{ when } v_1+v_2=m-1}$. 
-	This permits to see that $PV^v$ with $v_1+v_2=m-1$ satisfies FH iff $a_1, a_2 ≤ \ceil{\frac{m - 1}{2}}$, equivalently, iff $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$.
-	\commentOC{This is probably a bit too quick.}
+	We prove that $\PVv$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$.
+	Consider a arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider a profile $\prof = (\prefi, \prefiinv)$. 
+	Observe that, for each $i$, $\PVv(\prof)$ will pick winners exclusively in the first “half” of voter $i$ exactly when $v_i ≥ \floor{\frac{m - 1}{2}}$. \commentOC{Formally: $[x \in \PVv(\prof) ⇒ \lprof(x)_i ≤ \ceil{\frac{m - 1}{2}}] ⇔ v_i ≥ \floor{\frac{m - 1}{2}}$.}
+	Also, given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$.
+	Therefore, that condition is necessary and sufficient.
 \end{proof}
 
 \begin{corollary}
-For $m$ odd only, $v_1=v_2=\frac{m-1}{2}$ is FH.\\
-For $m$ even, there are SCRs that are FH: $v_1=v_2=\frac{m}{2}-1$; $v_1=\frac{m}{2}$, $v_2=\frac{m}{2}-1$ and $v_1=\frac{m}{2}-1$, $v_2=\frac{m}{2}$.
+	For $m$ odd, only $v_1=v_2=\frac{m-1}{2}$ is FH among $\PVcl$.
+	For $m$ even, three SCRs are FH among $\PVcl$: $v_1=v_2=\frac{m}{2}-1$; $v_1=\frac{m}{2}$, $v_2=\frac{m}{2}-1$ and $v_1=\frac{m}{2}-1$, $v_2=\frac{m}{2}$.
 \end{corollary}
+
 Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
 Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. 
