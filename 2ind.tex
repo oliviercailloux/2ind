@@ -100,9 +100,10 @@ The next proposition shows that $\VR$, $\SL$ and $\FB$ satisfy FH.
 \begin{proof}
 	This follows immediately from the definition of these rules. \commentOC{It follows literally immediately for $\VR$, and for the other two, it is an easy consequence, considering what we wrote above. Is a proof required?}
 \end{proof}
-
+\commentRS{Define here PVe for m odd and even separately. When m is odd each vi is (m-1)/2 and when m is even each vi is (m/2)-1}
+\commentRS{I suggest to state the following proposition in two parts: when m is odd, the intersection of the two classes PV and FH is a singleton that contains PVe. When m is even, this intersection contains three rules, namely PVe, one where v1=(m/2)-1, v2=m/2 and a third where v1=(m/2), v2=(m/2)-1. The proof will exploit 	$\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \suchthat v_i \geq \floor{\frac{m - 1}{2}}, \forall i }$.}
 \begin{proposition}
-	$\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \suchthat v_i \geq \floor{\frac{m - 1}{2}}, \forall i }$. 
+	$\PVcl ∩ \FHcl = xxxxx$. 
 \end{proposition}
 \begin{proof}
 	We prove that $\PVv$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -112,27 +113,20 @@ The next proposition shows that $\VR$, $\SL$ and $\FB$ satisfy FH.
 	Therefore, that condition is necessary and sufficient.
 \end{proof}
 
-\begin{corollary}
-	For $m$ odd, only $v_1=v_2=\frac{m-1}{2}$ is FH among $\PVcl$.
-	For $m$ even, three SCRs are FH among $\PVcl$: $v_1=v_2=\frac{m}{2}-1$; $v_1=\frac{m}{2}$, $v_2=\frac{m}{2}-1$ and $v_1=\frac{m}{2}-1$, $v_2=\frac{m}{2}$.
-\end{corollary}
 
 Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
-Say that a class of rules $F$ is closed under union whenever $\forall f, f' \in F: f \cup f' \in F$. 
-Given any non empty class of SCRs $F$ closed under union, the maximal SCR formed by unions of rules of $F$ is a member of $F$, and (evidently) is less resolute than any other member of $F$. Formally: $[f = \bigcup(F)] ⇔ [(\forall f' \in F, f' \subseteq f) \land (f \in F)]$.
 
-\commentRS{Show that there is a unique SCR that is PE, FH and set inclusion maximal which is PVe. Te proof remarks that FH and PE is closed under union.}
 
-\commentOC{Phrase this as: For all $m$, this union is the union of PVecl.}
 
 \begin{proposition}
-	For $m$ odd, $\bigcup(\PEcl \cap \FHcl) = \PVe$.
+	\bigcup(\PEcl \cap \FHcl) = \PVe$.
 \end{proposition}
 \begin{proof}
 	%Both classes $\PEcl$ and $\FHcl$ are closed under union. Thus, $\PEcl \cap \FHcl$ is closed under union.
 	Define $f$ as the rule that always picks all efficient alternatives ranked in both first halves. This is the least resolute SCR among the class $\PEcl \cap \FHcl$. And it equals $\PVe$.
 	\commentOC{To be continued, I suppose. But it seems we do not need the union-closed stuff here.}
+		\commentRS{I agree.}
 \end{proof}
 
 In the next proposition, in fact, conjecture, we use max in the sense of set inclusion (irresoluteness).
