@@ -101,7 +101,8 @@ Let $\FHcl$ denote the class of rules satisfying the First Half (FH) property. T
 \commentRS{Define here PVe for m odd and even separately. When m is odd each vi is (m-1)/2 and when m is even each vi is (m/2)-1}
 \commentRS{I suggest to state the following proposition in two parts: when m is odd, the intersection of the two classes PV and FH is a singleton that contains PVe. When m is even, this intersection contains three rules, namely PVe, one where v1=(m/2)-1, v2=m/2 and a third where v1=(m/2), v2=(m/2)-1. The proof will exploit 	$\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \suchthat v_i \geq \floor{\frac{m - 1}{2}}, \forall i }$.}
 \begin{proposition}
-	$\PVcl ∩ \FHcl = xxxxx$. 
+	When $m$ is odd, $\PVcl ∩ \FHcl = {PVe}$. 
+	When $m$ is even, $\PVcl ∩ \FHcl = {PVe}\cup{\PVv \suchthat vi=(m/2), vj=(m/2)-1 \forall i} $
 \end{proposition}
 \begin{proof}
 	We prove that $\PVv$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$.
