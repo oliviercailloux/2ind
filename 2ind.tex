@@ -249,5 +249,36 @@ Danilo Coelho seems to be interested in implementation of FB and shortlisting an
 
 %\bibliography{bibl}
 
+\appendix
+
+I restore here a consideration by Remzi.
+
+\begin{remark}[Consideration]
+Now, suppose, under a given sigma, we pick among the PV alternatives the one with the smallest loss spread. For example, at the profile 
+\begin{center}
+	$
+	\begin{array}{cccccc}
+		\mathbf{i_1} \quad &a&b&c&d&e\\
+		\mathbf{i_2} \quad &d&c&a&b&e\\
+	\end{array}
+	$
+\end{center}
+
+PV would pick a-c and the approach suggest, under a reasonable sigma, would refine this to the singleton c (which is also a refinement of FB).
+
+Question: what is this new rule? It refines PV. It is not FB. At the profile
+
+\begin{center}
+	$
+	\begin{array}{cccccc}
+		\mathbf{i_1} \quad &a&b&c&d&e\\
+		\mathbf{i_2} \quad &c&b&a&d&e\\
+	\end{array}
+	$
+\end{center}
+
+PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL picks a-c.
+\end{remark}
+ 
 \end{document}
 
