@@ -116,29 +116,21 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 	$\bigcup(\PEcl \cap \FHcl) = \PVe$.
 \end{proposition}
 \begin{proof}
-    \commentOC{Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the rule that, for each profile, picks all and only the pareto and first half alternatives. We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.}
-    
-Take any preference profile P. We first show 	$\bigcup(\PEcl \cap \FHcl) \subset \PVe$.
-We now show 	$\bigcup(\PEcl \cap \FHcl) \supset \PVe$.
-	%Both classes $\PEcl$ and $\FHcl$ are closed under union. Thus, $\PEcl \cap \FHcl$ is closed under union.
-	Define $f$ as the rule that always picks all efficient alternatives ranked in both first halves. This is the least resolute SCR among the class $\PEcl \cap \FHcl$. And it equals $\PVe$.
+    Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both players' preferences and only those alternatives. We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
 
-Corollary: A SCR F is FH and Pareto iff F is a subcorrespondence of PV-equalvetoes.”
-
-
-
-
-\commentRS{Show also that FB, SL and VR are subcorrespondences of a PV rule iff that PV rule is PVe. Tje proposition below partly handles that}
-
-\commentOC{Show that this is strict by using the same figure.}
 \begin{proposition}
-	$\SL, \VR, \FB \subset PV^=$
+ A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subset PV^=$.
 \end{proposition}
 
-\commentOC{Say that PVe is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
-We start by observing that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+ \commentRS{Revise the statement of the above proposition so as to state that F is not $PV^=$ and add a proof} 
+
+\begin{corollary}
+   	$\SL, \VR, \FB \subset PV^=$
+\end{corollary}
+
+Now, We observe that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
 \begin{proposition}
 	$\exists \prof \suchthat \VR(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \FB(\prof) = \emptyset, \SL(\prof) \cap \FB(\prof) = \emptyset$.
 \end{proposition}
@@ -156,6 +148,7 @@ We start by observing that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
 \end{proof}
 
 
+\commentOC{Say that PVe is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
 
 \commentRS{Below are characterizations}
 PV-e iff PE, FH, MAskin monotonicity
