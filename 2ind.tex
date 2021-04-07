@@ -83,12 +83,10 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
     $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 \begin{remark}
-    $\VR, \SL, \FB \in \FHcl$.
+    $\VR, \SL, \FB \in \PEcl \cap \FHcl$.
 \end{remark}
 
-We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To this end, we define a particular PV rule which gives equal veto power to both individuals. 
-
-For each $m$, we define $PV^=$ as the $PV^v$ rule with $v_1=v_2$ such that $v_i$ takes the possible highest value that ensures that $PV^v$ is well-defined for each $\prof$. It follows that $v_1=v_2= \floor{\frac{m - 1}{2}}$. This implies that, when $m$ is odd each $v_i=\frac{(m-1)}{2}$ and when $m$ is even each $v_i$ equals $\frac{m}{2}-1$.
+We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To this end, we define $PV^=$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. Thus, under PV^=$, we have v_1=v_2= \floor{\frac{m - 1}{2}}$, implying v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and v_1=v_2= $\frac{m}{2}-1$ when $m$ is even. Note that when $m$ is odd PV^=$\in\PVbcl$ while PV^=$\in\PVcl\minusPVbcl$ when $m$ is even.  \commentRS{the m even part must be corrected as PV minus PVb} 
 
 \begin{proposition}
     $\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \text{ such that } \abs{v_1 - v_2} ≤ 1}$.
@@ -102,7 +100,7 @@ For each $m$, we define $PV^=$ as the $PV^v$ rule with $v_1=v_2$ such that $v_i$
 	Consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$. 
 	Observe that, since $v_i < \floor{\frac{m - 1}{2}}$,   $\PVv(\prof)$ will not exclusively pick winners in the first half of voter $i$. 
 \end{proof}
-
+The following remarks is a consequence of Proposition 1. \commentRS{I am sure there is a way to refer to Proposition 1 without writing it explicitly} 
 \begin{remark}
 	When $m$ is odd, $\PVcl ∩ \FHcl = \{PV^=\}$. 
 	When $m$ is even, $\PVcl ∩ \FHcl = \{PV^=\}\cup \{\PVv \in \PVcl \suchthat v_i=(m/2), v_{\ibar}=(m/2)-1 \forall i\in \{1,2\}\} $.
@@ -128,8 +126,7 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 \begin{proof}
 Observe that, by construction, $PV^=$ selects all alternatives that are both $PE$ and $FH$, which directly implies the claim.
 \end{proof}
- \commentRS{Revise the statement of the above proposition so as to state that F is not $PV^=$ and add a proof} 
- \color{blue} Please check \color{black}
+ \commentRS{There is a point I want to discuss. It will be quicker face to face} 
 
 \begin{corollary}
    	$\SL, \VR, \FB \subset PV^=$
