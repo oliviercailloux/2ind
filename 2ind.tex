@@ -100,7 +100,7 @@ We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To
 	Consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$. 
 	Observe that, since $v_i < \floor{\frac{m - 1}{2}}$,   $\PVv(\prof)$ will not exclusively pick winners in the first half of voter $i$. 
 \end{proof}
-A direct implication of the previous result is that the set of $\PVcl$ rules satisfying $FH$ is quite reduced, as made explicit by the following remark.
+A direct implication of Proposition 1 \commentRS{Can't we cite Proposition 1 automatically so that if the numbering changes the citation also changes}  is that the set of $\PVcl$ rules satisfying $FH$ is quite reduced, as made explicit by the following remark.
 \begin{remark}
 	When $m$ is odd, $\PVcl ∩ \FHcl = \{PV^=\}$. 
 	When $m$ is even, $\PVcl ∩ \FHcl = \{PV^=\}\cup \{\PVv \in \PVcl \suchthat v_i=(m/2), v_{\ibar}=(m/2)-1 \forall i\in \{1,2\}\} $.
@@ -118,21 +118,16 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
     Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both players' preferences and only those alternatives. We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
-
-\begin{proposition}
- A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subseteq PV^=$.
-\end{proposition}
-
-\begin{proof}
-Observe that, by construction, $PV^=$ selects all alternatives that are both $PE$ and $FH$, which directly implies the claim.
-\end{proof}
- \commentRS{There is a point I want to discuss. It will be quicker face to face} 
-
+The two observations below follow Proposition 2: \commentRS{Can't we cite Proposition 2 automatically so that if the numbering changes the citation also changes} 
+\begin{corollary}
+ A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subseteq PV^=$.      
+\end{corollary}
+ 
 \begin{corollary}
    	$\SL, \VR, \FB \subset PV^=$
 \end{corollary}
 
-Now, We observe that $\VR$, $\SL$ and $\FB$ can pick disjoint winners.
+We now establish the relationship between $\VR$, $\SL$ and $\FB$ and show that they can pick disjoint winners.
 \begin{proposition}
 	$\exists \prof \suchthat \VR(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \FB(\prof) = \emptyset, \SL(\prof) \cap \FB(\prof) = \emptyset$.
 \end{proposition}
