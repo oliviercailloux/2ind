@@ -76,22 +76,26 @@ Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1}$ is the set of rules where the inequality is binding.
 
 \begin{remark}
-    $\FB, \VR, \SL$ and all SCRs in $\PVcl$ are  neutral.
+    $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
 \begin{remark}
     $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 \begin{remark}
-    $\VR, \SL, \FB \in \PEcl \cap \FHcl$.
+    $\FB, \VR, \SL \in \PEcl \cap \FHcl$.
 \end{remark}
 
-We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To this end, we define $PV^=$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that when $m$ is odd $PV^=\in\PVbcl$ while $PV^=\in\PVcl\setminus \PVbcl$ when $m$ is even.  
+We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
+\commentOC{I indicated the relationship with $\PVv$, is this appropriate or confusing?}
+Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that when $m$ is odd $PV^=\in\PVbcl$ while $PV^=\in\PVcl\setminus \PVbcl$ when $m$ is even.  
+\commentOC{(Very minor.) Shall we rather write “Note that $PV^=\in\PVbcl$ iff $m$ is odd.”?}
 
 \begin{proposition}
     $\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \text{ such that } \abs{v_1 - v_2} ≤ 1}$.
 \end{proposition}
 \begin{proof}
-	We first show that $\PVv \in \PVcl$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$, which is equivalent to $\abs{v_1 - v_2} ≤ 1$. 
+	We show that $\PVv \in \PVcl$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$, which is equivalent to $\abs{v_1 - v_2} ≤ 1$. 
+	\commentOC{This equivalence is incorrect, isn’t it?}
 	
 	For the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$.
 	
@@ -99,10 +103,11 @@ We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To
 	Consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$. 
 	Observe that, since $v_i < \floor{\frac{m - 1}{2}}$,   $\PVv(\prof)$ will not exclusively pick winners in the first half of voter $i$. 
 \end{proof}
-A direct implication of Proposition 1 \commentRS{Can't we cite Proposition 1 automatically so that if the numbering changes the citation also changes}  is that the set of $\PVcl$ rules satisfying $FH$ is quite reduced, as made explicit by the following remark.
+A direct implication of Proposition 1 \commentRS{Can't we cite Proposition 1 automatically so that if the numbering changes the citation also changes}  is that the set of $\PVcl$ rules satisfying $\FHcl$ is quite reduced, as made explicit by the following remark.
 \begin{remark}
 	When $m$ is odd, $\PVcl ∩ \FHcl = \{PV^=\}$. 
-	When $m$ is even, $\PVcl ∩ \FHcl = \{PV^=\}\cup \{\PVv \in \PVcl \suchthat v_i=(m/2), v_{\ibar}=(m/2)-1 \forall i\in \{1,2\}\} $.
+	When $m$ is even, $\PVcl ∩ \FHcl = \set{PV^=} \cup \set{\PVv \in \PVcl \suchthat v_i=(m/2), v_{\ibar}=(m/2)-1 \forall i\in \set{1, 2}}$.
+\commentOC{(Very minor.) Could we rather write: “When $m$ is even, $\PVcl ∩ \FHcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$”?}
 \end{remark}
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
@@ -114,21 +119,24 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 	$\bigcup(\PEcl \cap \FHcl) = \PVe$.
 \end{proposition}
 \begin{proof}
-    Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both players' preferences and only those alternatives. We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
+    Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both players’ preferences and only those alternatives. \commentOC{Seems like some game theorist is hacking our paper.}
+    We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
-The two observations below follow Proposition 2: \commentRS{Can't we cite Proposition 2 automatically so that if the numbering changes the citation also changes} 
+The two observations below follow from Proposition 2. \commentRS{Can't we cite Proposition 2 automatically so that if the numbering changes the citation also changes} 
 \begin{corollary}
- A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subseteq PV^=$.      
+	A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subseteq \PVe$.
+	\commentOC{Shall we write $f$?}
 \end{corollary}
  
 \begin{corollary}
-   	$\SL, \VR, \FB \subset PV^=$
+   	$\FB, \VR, \SL \subset \PVe$.
+   	\commentOC{This requires to ensure that these three rules differ from $\PVe$. Is this sufficiently obvious that we don’t even state it? (I don’t mind, just asking.) Also, this seems to require both Prop. 2 and Remark 3, so perhaps we need to rephrase anyway.}
 \end{corollary}
 
-We now establish the relationship between $\VR$, $\SL$ and $\FB$ and show that they can pick disjoint winners.
+We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
 \begin{proposition}
-	$\exists \prof \suchthat \VR(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \FB(\prof) = \emptyset, \SL(\prof) \cap \FB(\prof) = \emptyset$.
+	$\exists \prof \suchthat \FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \SL(\prof) = \emptyset$.
 \end{proposition}
 \begin{proof}
 	Consider the following profile $\prof$:
@@ -138,9 +146,9 @@ We now establish the relationship between $\VR$, $\SL$ and $\FB$ and show that t
                 g&h&i&d&b&j&a&c&e&f&k&l&m\\
         \end{array},
     \end{equation}
-    where the first individual prefers $a$ to $b$, $b$ to $c$, and so on, and the second individual prefers $g$ to $h$, $h$ to $i$, and so on. 
-    The bar denotes the “half” position.
-    The proposition is proven by noting that $\VR(\prof) = \set{b}, \SL(\prof) = \set{a, g}, \FB(\prof) = \set{d}$.
+    where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
+    The bar shows the “half” position.
+    The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
 \end{proof}
 
 
