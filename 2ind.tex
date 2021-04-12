@@ -47,7 +47,8 @@ The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that ass
 %Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
 Given two loss vectors $l, l' \in \lvs$, we say that $l$ is strictly smaller than $l'$, $l < l'$, iff $\forall i: l_i ≤ l'_i \land l ≠ l'$. We also write $l ≤ l'$ to denote that $l$ is weakly smaller than $l'$, meaning, strictly smaller or equal. Let $\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss level and the sum of the losses, considering the loss vector $\lprof(x)$.
 
-Let $\PD = \set{x \in \allalts \suchthat \exists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the Pareto-dominated alternatives in $\prof$. Let $\PE = \allalts \setminus \PD$ be the Pareto-efficient ones. Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$); 
+Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
+Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$).
 
 \section{Four SCRs of the literature}
 Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$.
@@ -60,8 +61,6 @@ In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour20
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 Let $\FHcl$ denote the class of rules satisfying the First Half (FH) property.
-
-
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -81,33 +80,29 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \begin{remark}
     $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
-\begin{remark}
+\begin{remark}\label{th:inFH}
     $\FB, \VR, \SL \in \PEcl \cap \FHcl$.
 \end{remark}
 
 We now discuss the relationship of the class $\PVcl$ to the $\FHcl$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
-\commentOC{I indicated the relationship with $\PVv$, is this appropriate or confusing?}
-Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that when $m$ is odd $PV^=\in\PVbcl$ while $PV^=\in\PVcl\setminus \PVbcl$ when $m$ is even.  
-\commentOC{(Very minor.) Shall we rather write “Note that $PV^=\in\PVbcl$ iff $m$ is odd.”?}
+Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
+Note that $PV^=\in\PVbcl$ iff $m$ is odd.
+\commentOC{Remove the square after propositions. Maj for propositions, …}
 
-\begin{proposition}
-    $\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \text{ such that } \abs{v_1 - v_2} ≤ 1}$.
+\begin{proposition}\label{propo:diff}
+    $\PVcl ∩ \FHcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
 \end{proposition}
 \begin{proof}
-	We show that $\PVv \in \PVcl$ satisfies FH iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$, which is equivalent to $\abs{v_1 - v_2} ≤ 1$. 
-	\commentOC{This equivalence is incorrect, isn’t it?}
-	
 	For the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$.
 	
-	To see the “only if” part, let $v_i < \floor{\frac{m - 1}{2}}$ for some $i$.
-	Consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$. 
-	Observe that, since $v_i < \floor{\frac{m - 1}{2}}$,   $\PVv(\prof)$ will not exclusively pick winners in the first half of voter $i$. 
+	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
+	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of voter $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof}
-A direct implication of Proposition 1 \commentRS{Can't we cite Proposition 1 automatically so that if the numbering changes the citation also changes}  is that the set of $\PVcl$ rules satisfying $\FHcl$ is quite reduced, as made explicit by the following remark.
+A direct implication of Proposition \ref{propo:diff}   is that the set of $\PVcl$ rules satisfying $\FHcl$ is quite reduced, as made explicit by the following remark.
 \begin{remark}
-	When $m$ is odd, $\PVcl ∩ \FHcl = \{PV^=\}$. 
-	When $m$ is even, $\PVcl ∩ \FHcl = \set{PV^=} \cup \set{\PVv \in \PVcl \suchthat v_i=(m/2), v_{\ibar}=(m/2)-1 \forall i\in \set{1, 2}}$.
-\commentOC{(Very minor.) Could we rather write: “When $m$ is even, $\PVcl ∩ \FHcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$”?}
+    When $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$, we have $\abs{v_1 - v_2} ≤ 1$.
+	Thus, when $m$ is odd, $\PVcl ∩ \FHcl = \{PV^=\}$, and
+	when $m$ is even, $\PVcl ∩ \FHcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
 \end{remark}
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
@@ -115,28 +110,22 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 
 
 
-\begin{proposition}
+\begin{proposition}\label{propo:equal}
 	$\bigcup(\PEcl \cap \FHcl) = \PVe$.
 \end{proposition}
 \begin{proof}
-    Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both players’ preferences and only those alternatives. \commentOC{Seems like some game theorist is hacking our paper.}
+    Note that $\bigcup(\PEcl \cap \FHcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
     We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
-The two observations below follow from Proposition 2. \commentRS{Can't we cite Proposition 2 automatically so that if the numbering changes the citation also changes} 
-\begin{corollary}
-	A SCR $F \in \PEcl \cap \FHcl$ if and only if $F\subseteq \PVe$.
-	\commentOC{Shall we write $f$?}
-\end{corollary}
- 
-\begin{corollary}
-   	$\FB, \VR, \SL \subset \PVe$.
-   	\commentOC{This requires to ensure that these three rules differ from $\PVe$. Is this sufficiently obvious that we don’t even state it? (I don’t mind, just asking.) Also, this seems to require both Prop. 2 and Remark 3, so perhaps we need to rephrase anyway.}
+The observation below follows from \cref{propo:equal}.
+\begin{corollary}\label{th:subPVe}
+	A SCR $f \in \PEcl \cap \FHcl$ if and only if $f \subseteq \PVe$.
 \end{corollary}
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
-\begin{proposition}
-	$\exists \prof \suchthat \FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \SL(\prof) = \emptyset$.
+\begin{proposition}\label{th:different}
+	$\exists \prof \suchthat \FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$, $\PVe(\prof) ≠ \SL(\prof)$.
 \end{proposition}
 \begin{proof}
 	Consider the following profile $\prof$:
@@ -148,11 +137,26 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
     \end{equation}
     where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
     The bar shows the “half” position.
-    The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
+    The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$, $\SL(\prof) = \set{a, g}$ and $\PVe(\prof) = \set{a, b, d, g}$.
 \end{proof}
 
+\Cref{th:inFH}, \cref{th:subPVe} and \cref{th:different} lead to the corollary below.
+\begin{corollary}
+   	$\FB, \VR, \SL \subset \PVe$.
+\end{corollary}
 
-\commentOC{Say that PVe is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
+\commentOC{Say that $\PVe$ is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
+
+\begin{remark}
+    The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
+    \begin{equation}
+        \begin{array}{lllll|l}
+                a&b&c&d&e&…\\
+                e&c&d&b&a&…\\
+        \end{array}.
+    \end{equation}
+    Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
+\end{remark}
 
 \commentRS{Below are characterizations}
 PV-e iff PE, FH, MAskin monotonicity
