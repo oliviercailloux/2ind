@@ -149,9 +149,9 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 \begin{remark}
     The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
     \begin{equation}
-        \begin{array}{lllll|l}
-                a&b&c&d&e&…\\
-                e&c&d&b&a&…\\
+        \begin{array}{lllll|llll}
+                a&b&c&d&e&f&g&h&i\\
+                e&c&d&b&a&f&g&h&i\\
         \end{array}.
     \end{equation}
     Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
@@ -161,20 +161,20 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 
 Namely,
 
-Consider an order of players $\{1,2,1,2\}$ and the following naive algorithm as follows:\\
-\noindent Step 1: player 1 removes his worst $B_1$ in $A$\\
-\noindent Step 2: player 2 removes his worst $B_2$ in $A\setminus B_1$\\
-\noindent Step 3: player 1 removes his worst $B_3$ in $A\setminus B_1\cup B_2$\\
-\noindent Step 4: player 2 removes his worst $B_4$ in $A\setminus B_1\cup B_2 \cup B_3$\\
+Consider an order of players $\{1,2,1,2,1,2,1,2\}$ and the following naive algorithm as follows:\\
+\noindent Step 1: player 1 removes his worst alternative in $A$ (denoted $B_1$)\\
+\noindent Step 2: player 2 removes his worst alternative in $A\setminus B_1$ (denoted $B_2$)\\
+\noindent Step 3: player 1 removes his worst alternative in $A\setminus B_1\cup B_2$ (denoted $B_3$)\\
+\noindent Step 4: player 2 removes his worst alternative in $A\setminus B_1\cup B_2 \cup B_3$\\
 
 
 In the example of Remark 5, this sequence leads to $c$, the $FB$ outcome.
 
 \textbf{Question 1:} Is it always the case that this alternating sequence leads to $FB$?
 
-To obtain $e$ again in the example of Remark 5, the sequence $\{1,1,2,2\}$ seems to work. Similarly, to obtain $a$, the sequence $\{2,2,1,1\}$ seems to work.
+To obtain $e$ again in the example of Remark 5, the sequence $\{1,1,1,1,2,2,2,2\}$ seems to work. Similarly, to obtain $a$, the sequence $\{2,2,2,2,1,1,1,1\}$ seems to work.
 
-Finally, to isolate $b$, the sequence $\{1,1,1,2\}$ seems to work.
+Finally, to isolate $b$, the sequence $\{1,1,1,1,1,1,1,2\}$ seems to work.
 
 This leads me to think that
 
@@ -198,25 +198,51 @@ Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winn
 
 
 
-\section{New SCRs}
-\subsection{Based on equal loss}
+\section{The equal loss principle}
 \begin{definition}[Equal loss (EL)]
 \color{green}	$f$ picks some alternative ranked the same by everybody, if any. \color{black}
 \end{definition}
+
+$Paretianism ∩ EL = \emptyset$.
+
 \begin{definition}[Paretian equal loss (PEL)]
-	$f$ must pick solely the alternative ranked the same by everybody and that is efficient, if there is one.
+	$f$ must pick solely the (unique) Pareto efficient alternative ranked the same by everybody, if there is one.
 \end{definition}
+
+\begin{proposition}
+VR, SL, and all rules in PV fail PEL
+\end{proposition}
+\begin{proposition}
+FB satisfies PEL
+\end{proposition}
+
+Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
+
+\commentRS{Define here strong PEL as follows: There is some k such that if the dispersion of the loss vector of x exceeds the dispersion of the loss vector of y by k, then x is not elected (for any x, y that are Pareto)}
+
+
+Note that $d \in \Sigma$ and seems to coincide with multiple commonly used spread measures (to be verified). 
+Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
+
+
+PV, FB, SL and VR, all fail strong PEL. 
+
+In fact, strong PEL and FH are incompatible conditions. 
+
+Can we identify an interesting SCR that satisfies strong PEL?
+
+
+As Matias suggested, can we use strong PEL to refine VR, SL or FB? Discuss how discriminative the four rules are. All four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
+The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
+
+We can refer to this when we address the question of refining FB, SL and VR.
+
+\commentRS{I am not sure we need the four definitions that follow}
+
 \begin{definition}[Paretian compromism compatibility (PCC)]
 	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
 	\commentOC{Could we perhaps define sigma as a weak order over the loss vectors?}
 	$f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
-\end{definition}
-
-Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
-Note that $d \in \Sigma$ and seems to coincide with multiple commonly used spread measures (to be verified). 
-Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
-\begin{definition}[Dispersion compromism]
-	$\forall \prof: f(\prof) \subseteq \mindisp[\PE]$.
 \end{definition}
 
 \begin{definition}[Dispersion phobia]
@@ -226,43 +252,9 @@ Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
 	Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
 \end{definition}
 
-\commentOC{I do not understand this.}
-A stronger version of PEL is what we used in the paper with Beatrice. Fix a set SIGMA of “acceptable” equality measures and ask from F to always pick an alternative with equal loss according to some member of SIGMA. This is stronger than PEL because being “acceptable” requires that an alternative at the same rank for both players as the most equal loss.
-
-$Paretianism ∩ EL = \emptyset$.
-
-
-
-\begin{proposition}
-VR, SL, and all rules in PV fail PEL
-\end{proposition}
-\begin{proposition}
-FB satisfies PEL
-\end{proposition}
-
-
-PV, FB, SL and VR, all fail strong PEL. 
-
-In fact, strong PEL and FH are incompatible conditions. 
-
-
-What are interesting rules that satisfy this stronger version of PEL? 
-
-As Matias suggested, can we use strong PEL to refine VR, SL or FB?
-
-Can we identify an interesting SCR that satisfies strong PEL?
-
-\subsection{Based on refining}
-Discuss how discriminative the four rules are. ll four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
-The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
-
-We can refer to this when we address the question of refining FB, SL and VR.
-
-
-
-
-
-
+\begin{definition}[Dispersion compromism]
+	$\forall \prof: f(\prof) \subseteq \mindisp[\PE]$.
+\end{definition}
 
 
 
