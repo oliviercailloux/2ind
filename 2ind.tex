@@ -158,6 +158,34 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
     Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
 \end{remark}
 
+\color{blue} MN: I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
+
+Namely,
+
+Consider an order of players $\{1,2,1,2\}$ and the following naive algorithm as follows:\\
+\noindent Step 1: player 1 removes his worst $B_1$ in $A$\\
+\noindent Step 2: player 2 removes his worst $B_2$ in $A\setminus B_1$\\
+\noindent Step 3: player 1 removes his worst $B_3$ in $A\setminus B_1\cup B_2$\\
+\noindent Step 4: player 2 removes his worst $B_4$ in $A\setminus B_1\cup B_2 \cup B_3$\\
+
+
+In the example of Remark 5, this sequence leads to $c$, the $FB$ outcome.
+
+\textbf{Question 1:} Is it always the case that this alternating sequence leads to $FB$?
+
+To obtain $e$ again in the example of Remark 5, the sequence $\{1,1,2,2\}$ seems to work. Similarly, to obtain $a$, the sequence $\{2,2,1,1\}$ seems to work.
+
+Finally, to isolate $b$, the sequence $\{1,1,1,2\}$ seems to work.
+
+This leads me to think that
+
+\textbf{Question 2:} $PV^=$ could be the union of any sequence of length $n-1$. 
+
+\textbf{Question 3:} Similarly, $FB$ consists only of the extreme sequences $\{1,1,1,...,1,2,\ldots,2\}$ and $\{2,2,2,...,2,1,\ldots,1\}$.
+
+\textbf{Question 4:} Which are the sequences that isolate $FB$?
+\color{black}
+
 \commentRS{Below are characterizations}
 PV-e iff PE, FH, MAskin monotonicity
 
