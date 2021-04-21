@@ -173,7 +173,34 @@ This leads me to think that
 \textbf{Question 4:} Which are the sequences that isolate $FB$?
 }
 
-Let $s$ be a sequence of size $m - 1$.
+Let $s \in \set{1, 2}^{m - 1}$ be a sequence of turns. Define a corresponding sequence of subsets of alternatives, $A^s \in \powersetz{\allalts}^{m - 1}$, as follows: $A^s_1 = \allalts$ and $A^s_{i + 1} = A^s_i \setminus \argmax_{x \in A^s_i} \lprof(x)_{s_i}$. Note that $\card{A^s_{m - 1}} = 1$. The \emph{simple veto core} rule $f^s$ is the SCR $f^s(\prof) = A^s_{m - 1}$ (TODO cite Moulin).
+Let $\emptyset ≠ S \subseteq \set{1, 2}^{m - 1}$. Define $f^S = \cup_{s \in S} f^s$.
+The set of \emph{veto core} rules is the set $\set{f^S \suchthat \emptyset ≠ S \subseteq \set{1, 2}^{m - 1}}$.
+The set of \emph{veto core egalitarian} rules is $\VCecl = \set{f^S \suchthat \emptyset ≠ S \subseteq \set{1, 2}^{m - 1} \land \card{S^{-1}(1)} = \card{S^{-1}(2)}}$.
+
+\begin{conjecture}
+	\label{th:vce}
+	$\bigcup \VCecl = \bigcup (\PEcl \cap \FHcl)$.
+\end{conjecture}
+
+\begin{conjecture}
+	\label{th:vrNotVce}
+	$\VR \notin \VCecl$.
+\end{conjecture}
+\commentOC{Can we prove \cref{th:vrNotVce} by simply referring to a result from Moulin comparing veto core rules to scoring rules, as I assume he studied this?}
+
+\begin{corollary}
+	\label{th:vceIncl}
+	If $m$ is “large enough”, $\VCecl \subset \PEcl \cap \FHcl$.
+\end{corollary}
+\commentOC{Even if \cref{th:vrNotVce} turns out to be false, it is likely that the inclusion in \cref{th:vceIncl} is strict: as Matías observed, suffices to consider a rule that selects $\SL(\prof)$ at some profiles and $\FB(\prof')$ at others.}
+
+\begin{conjecture}
+	\label{th:slVce}
+	$\FB = f^{\set{(1, 2, …), (2, 1, …)}}$ and $\SL = f^{\set{(1, 1, …), (2, 2, …)}}$.
+\end{conjecture}
+
+\commentOC{Is $\VCecl$ the set of anonymous veto core rules, by chance?}
 
 \commentRS{Below are characterizations}
 PV-e iff PE, FH, MAskin monotonicity
