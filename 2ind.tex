@@ -16,7 +16,7 @@
 	%Reduces verbosity about the underful vboxes.
 		\vbadness=1300
 
-\title{Two-person SCRs in a unified framework}
+\title{Two principles for two-person social choice}
 \author{Name}
 %\author{Olivier Cailloux}
 \affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
@@ -50,7 +50,7 @@ Given two loss vectors $l, l' \in \lvs$, we say that $l$ is strictly smaller tha
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
 Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$).
 
-\section{Four SCRs of the literature}
+\section{The first half principle}
 Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$.
 Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. By Theorem 1 of \cite{BramsKilgour2001} we have $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 
@@ -155,33 +155,25 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
     Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
 \end{remark}
 
-\color{blue} MN: I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
-
+\subsection{Veto core}
+\commentMN{I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
 Namely,
-
 Consider an order of players $\{1,2,1,2,1,2,1,2\}$ and the following naive algorithm as follows:\\
 \noindent Step 1: player 1 removes his worst alternative in $A$ (denoted $B_1$)\\
 \noindent Step 2: player 2 removes his worst alternative in $A\setminus B_1$ (denoted $B_2$)\\
 \noindent Step 3: player 1 removes his worst alternative in $A\setminus B_1\cup B_2$ (denoted $B_3$)\\
 \noindent Step 4: player 2 removes his worst alternative in $A\setminus B_1\cup B_2 \cup B_3$\\
-
-
 In the example of Remark 5, this sequence leads to $c$, the $FB$ outcome.
-
 \textbf{Question 1:} Is it always the case that this alternating sequence leads to $FB$?
-
 To obtain $e$ again in the example of Remark 5, the sequence $\{1,1,1,1,2,2,2,2\}$ seems to work. Similarly, to obtain $a$, the sequence $\{2,2,2,2,1,1,1,1\}$ seems to work.
-
 Finally, to isolate $b$, the sequence $\{1,1,1,1,1,1,1,2\}$ seems to work.
-
 This leads me to think that
-
 \textbf{Question 2:} $PV^=$ could be the union of any sequence of length $n-1$. 
-
 \textbf{Question 3:} Similarly, $FB$ consists only of the extreme sequences $\{1,1,1,...,1,2,\ldots,2\}$ and $\{2,2,2,...,2,1,\ldots,1\}$.
-
 \textbf{Question 4:} Which are the sequences that isolate $FB$?
-\color{black}
+}
+
+Let $s$ be a sequence of size $m - 1$.
 
 \commentRS{Below are characterizations}
 PV-e iff PE, FH, MAskin monotonicity
