@@ -173,7 +173,10 @@ This leads me to think that
 \textbf{Question 4:} Which are the sequences that isolate $FB$?
 }
 
-Let $s \in \set{1, 2}^{m - 1}$ be a sequence of turns. Define a corresponding sequence of subsets of alternatives, $A^s \in \powersetz{\allalts}^{m - 1}$, as follows: $A^s_1 = \allalts$ and $A^s_{i + 1} = A^s_i \setminus \argmax_{x \in A^s_i} \lprof(x)_{s_i}$. Note that $\card{A^s_{m - 1}} = 1$. The \emph{simple veto core} rule $f^s$ is the SCR $f^s(\prof) = A^s_{m - 1}$ (TODO cite Moulin).
+Let $s \in \set{1, 2}^{m - 1}$ be a sequence of turns. 
+Define a corresponding sequence of subsets of alternatives, $A^s \in \powersetz{\allalts}^m$, as follows: $A^s_1 = \allalts$ and $A^s_{i + 1} = A^s_i \setminus \argmax_{x \in A^s_i} \lprof(x)_{s_i}$. 
+Note that $\card{A^s_m} = 1$. 
+The \emph{simple veto core} rule $f^s$ is the SCR $f^s(\prof) = A^s_m$ (TODO cite Moulin).
 Let $\emptyset ≠ S \subseteq \set{1, 2}^{m - 1}$. Define $f^S = \cup_{s \in S} f^s$.
 The set of \emph{veto core} rules is the set $\set{f^S \suchthat \emptyset ≠ S \subseteq \set{1, 2}^{m - 1}}$.
 
@@ -183,8 +186,17 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 
 \begin{conjecture}
 	\label{th:sUnique}
-	$\forall s, s' \in \set{1, 2}^{m - 1}: s ≠ s' ⇒ f^s ≠ f^{s'}$.
+	$\forall m, s, s' \in \set{1, 2}^{m - 1}: s ≠ s' ⇒ f^s ≠ f^{s'}$.
 \end{conjecture}
+\begin{proof}
+	If $s$ and $s'$ have $s^{-1}(1) ≠ {s'}^{-1}(1)$, use an opposite profile, such as $abcde$ and $edcba$. $f^s$ will veto the last $s^{-1}(1)$ from the first voter and pick the next worst one while $f^{s'}$ will veto the last ${s'}^{-1}(1)$ from the first voter and pick the next worst one, which is thus different.
+	
+	If $s$ and $s'$ have $s^{-1}(1) = {s'}^{-1}(1)$, define $x = $ longest common prefix plus one and define $\prof$ by setting both voters last $x$ alternatives the same, and the $m-x$ first alternatives opposite. For example, $abcdef$ and $cbadef$ for $x = 3$. Define $r$ and $r'$ as $s$ and $s'$, respectively, without the $x$ prefix, thus as sequences of $m-1-x$ turns. Define $\prof'$ as $\prof$ without its common suffix, thus, as an opposite profile over $m-x$ alternatives. Observe that $f^s(\prof) = f^r(\prof')$ and similarly for $s'$. Observe that $r^{-1}(1) ≠ {r'}^{-1}(1)$. The first paragraph of this proof permits to conclude.
+	
+	TODO rephrase in terms of longest common prefix $x$, then $y = 1$ or $y = 0$, so that $r$, the rest, satisfies $r^{-1}(1) ≠ {r'}^{-1}(1)$. Except that it fails for $s = (1), s' = (2)$, for example (whenever there is nothing after first difference).
+\end{proof}
+
+\commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
 
 \begin{conjecture}
 	\label{th:vce}
