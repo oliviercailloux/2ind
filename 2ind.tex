@@ -203,6 +203,32 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 	For $m$ odd, $f^{S^=} = \bigcup (\PEcl \cap \FHcl) = \PVe$.
 \end{conjecture}
 
+
+\emph{Proof:} 
+
+
+To see that $f^{S^=} \subseteq \bigcup (\PEcl \cap \FHcl)$. Any sequence leads to Pareto efficient (to be detailed). Let $2k+1$ be the number of alternatives. Since any sequence in $S^=$ gives each voter the same number of turns (hence $k$), the outcome is never among the worst $k$ alternatives of each voter. It follows that the outcome is Pareto-efficient and in the first half of each voter's preferences, concluding the proof.
+
+
+The other direction seems harder.
+
+
+Example (Preliminary):
+
+abcdefg
+gbacdef\\
+b $\Longrightarrow$ 112212
+
+
+Pareto efficiency : if x Pareto efficient, at least 2k alternatives in the union of the lower contour sets of $x$
+
+First half: at least k alternatives in the lower contour set of $x$ for each voter
+
+Thus, there is a sequence that isolates $x$.
+
+General idea?
+
+
 \begin{conjecture}
 	\label{th:vrNotVce}
 	$\forall \emptyset ≠ S \subseteq S^=: \VR ≠ f^{S}$.
@@ -219,14 +245,14 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 \begin{remark}
 	\label{th:fbVce}
 	It is false that
-	$\FB = f^{\set{(1, 2, …), (2, 1, …)}}$.
+	$\FB = f^{\set{(1, 2,1,2, …), (2, 1,2,1 …)}}$.
     \begin{equation}
         \begin{array}{lllll}
                 a&b&c&d&e\\
                 d&c&b&e&a\\
         \end{array}.
     \end{equation}
-    $\FB(\prof) = \set{b, c}$.
+    $\FB(\prof) = \set{b, c}$ and $f^{\set{(1, 2,1,2, …), (2, 1,2,1 …)}}=\{c\}$.
 \end{remark}
 
 \commentOC{Is $\VCecl$ the set of anonymous veto core rules, by chance?}
