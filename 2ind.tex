@@ -143,8 +143,6 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
    	$\FB, \VR, \SL \subset \PVe$.
 \end{corollary}
 
-\commentOC{Say that $\PVe$ is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain.}
-
 \begin{remark}
     The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
     \begin{equation}
@@ -155,6 +153,19 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
     \end{equation}
     Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
 \end{remark}
+
+\subsection{Characterisations}
+\commentOC{Attempt for describing formally that $\PVe$ is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain. Mistakes are highly possible.}
+
+Any rule $f$ can be viewed as a combination of two principles: one that gives required conditions for being among the set of winners; and one that gives required conditions for not being among the set of winners; or equivalently, one “necessity” principle (having the form $f(\prof) \subseteq g(\prof)$ for some $g: \allprofs → \powersetz{\allalts}$) and one “sufficiency” principle (having the form $g(\prof) \subseteq f(\prof)$. We apply this observation, together with the observation that $\FB$, $\VR$, $\SL$ and $\PVe$ satisfy $FH$ to obtain simple characterisations of these four rules. (We obviously do not claim that these characterisations are particulary ingenious, as they mainly reflect the principles that have been adopted when designing them; but we think that they summarize efficiently some of the above observations and permit to compare these four rules easily.)
+
+The FH property is the “necessity” principle for all four rules: $f(\prof) \subseteq H(\prof)$.
+
+Our first “sufficiency” principle is the least demanding of all four: any “first half” alternative wins. Formally: $H(\prof) \subseteq f(\prof)$. FH and this principle together characterise $\PVe$.
+
+Another sufficiency principle demands that any alternative that is not FH or that is dominated by an FH alternative in terms of maximal welfare loses. FH and this principle characterise $\SL$. This principle can also be described as follows. Define $≥$ as the following preorder on the set of loss vectors: $(a, b) ≥ (c, d) ⇔ \min\set{a, b} ≥ \min\set{c, d} \lor c ≥ half \lor d ≥ half$. Then, the sufficiency principle of $\SL$ is that if $x$ is a maximal element among the loss vectors that exist in $\prof$, then $x \in f(\prof)$; formally, $\argmax^{≥}_{x \in \allalts} \lprof(x) \subseteq f(\prof)$.
+
+And so on.
 
 \subsection{Veto core}
 \commentMN{I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
