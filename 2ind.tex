@@ -214,16 +214,11 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 
 For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$.
 \begin{lemma}
-	Consider $m = 2k + 1$ odd, $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$, $K_1 \subseteq {\prefi[1]}(x)$, $K_2 \subseteq {\prefi[2]}(x)$, $K_1 \cap K_2 = \emptyset$, $\card{K_1} = \card{K_2} = k$, $K_1 \cup K_2 = \allalts \setminus \set{x}$. 
-%	Define $K_1^\mathit{u} = {\prefone}(x) \setminus {\preftwo}(x)$. 
-%	Also, $K_1^\mathit{u} \subseteq K_1$ and $K_1 \setminus K_1^u \subseteq {\prefone}(x) \cap {\preftwo}(x)$. 
-	Also, there exists a sequence $X \in \allalts^{2k}$ with $X(\intvl{1, 2k}) = K_1 \cup K_2$ (equivalently, $X$ bijective onto $\allalts \setminus \set{x}$) such that: given $j \in \intvl{0, 2k - 1}$, define $A_j = \allalts \setminus X(\intvl{1, j})$ (so that $A_0 = \allalts$, $\card{A_j} = m - j$ and $A_{2k} = \set{x}$) and $\forall j \in \intvl{0, 2k - 1}: \exists i \in \set{1, 2} \suchthat \min_{A_j} {\prefi} \in K_i$ and $X_{j + 1} \in \set{\min_{A_j} {\prefi} \suchthat i \in \set{1, 2}}$.
+	Consider $m = 2k + 1$ odd, $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$, $K_1 \subseteq {\prefi[1]}(x)$, $K_2 \subseteq {\prefi[2]}(x)$, $K_1 \cap K_2 = \emptyset$, $K_1 \cup K_2 = \allalts \setminus \set{x}$. 
+	Assume that there exists a bijective sequence $X: \intvl{1, 2k} → \allalts \setminus \set{x}$ such that: given $j \in \intvl{0, 2k - 1}$, define $A_j = \allalts \setminus X(\intvl{1, j})$ (so that $A_0 = \allalts$, $\card{A_j} = m - j$ and $A_{2k} = \set{x}$) and $\forall j \in \intvl{0, 2k - 1}: \exists i \in \set{1, 2} \suchthat \min_{A_j} {\prefi} \in K_i$ and $X_{j + 1} \in \set{\min_{A_j} {\prefi} \suchthat i \in \set{1, 2}}$.
 	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = x$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = \card{K_i}$.
 \end{lemma}
 \begin{proof}
-%	Let us first build a sequence $X \in \allalts^{2k}$ with $X(\intvl{1, 2k}) = K_1 \cup K_2$.
-%	Define $A_0 = \allalts$.
-%	Consider the set of last (minimal) alternatives in $\prof$, that is, $\set{\min_{A_0} {\prefone}, \min_{A_0} {\preftwo}}$. (Note that it may be a singleton.) Pick any alternative 
 	Define $s_j = i$ iff $X_j \in K_i$.
 \end{proof}
 
