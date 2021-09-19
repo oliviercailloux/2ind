@@ -36,10 +36,10 @@
 \label{sec:intro}
 \section{Basic notions and notation}
 Let $N = \set{1, 2}$ be the set of two individuals and $\allalts$ be the set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let $\succ \in \linors$ stand for the preference of an individual, written as $\succ_i$ when it belongs to $i\in N$. We write $\prof =(\succ_1,\succ_2) \in \allprofs$ for a (preference) profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let ${\pref} \in \linors$ stand for the preference of an individual, written as $\prefi$ when it belongs to $i \in N$. We write $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a (preference) profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
-An SCR $f$ is anonymous iff $f(\prefi[1], \prefi[2]) = f(\prefi[2], \prefi[1])$ for all $(\succ_1,\succ_2) \in \allprofs$.
+An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
 An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
 Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N $ denote the interval of integer numbers between $j$ and $l$.
@@ -211,6 +211,21 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 \end{proof}
 
 \commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
+
+For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$.
+\begin{lemma}
+	Consider $m = 2k + 1$ odd, $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$, $K_1 \subseteq {\prefi[1]}(x)$, $K_2 \subseteq {\prefi[2]}(x)$, $K_1 \cap K_2 = \emptyset$, $\card{K_1} = \card{K_2} = k$, $K_1 \cup K_2 = \allalts \setminus \set{x}$. 
+%	Define $K_1^\mathit{u} = {\prefone}(x) \setminus {\preftwo}(x)$. 
+%	Also, $K_1^\mathit{u} \subseteq K_1$ and $K_1 \setminus K_1^u \subseteq {\prefone}(x) \cap {\preftwo}(x)$. 
+	Also, there exists a sequence $X \in \allalts^{2k}$ with $X(\intvl{1, 2k}) = K_1 \cup K_2$ (equivalently, $X$ bijective onto $\allalts \setminus \set{x}$) such that: given $j \in \intvl{0, 2k - 1}$, define $A_j = \allalts \setminus X(\intvl{1, j})$ (so that $A_0 = \allalts$, $\card{A_j} = m - j$ and $A_{2k} = \set{x}$) and $\forall j \in \intvl{0, 2k - 1}: \exists i \in \set{1, 2} \suchthat \min_{A_j} {\prefi} \in K_i$ and $X_{j + 1} \in \set{\min_{A_j} {\prefi} \suchthat i \in \set{1, 2}}$.
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = x$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = \card{K_i}$.
+\end{lemma}
+\begin{proof}
+%	Let us first build a sequence $X \in \allalts^{2k}$ with $X(\intvl{1, 2k}) = K_1 \cup K_2$.
+%	Define $A_0 = \allalts$.
+%	Consider the set of last (minimal) alternatives in $\prof$, that is, $\set{\min_{A_0} {\prefone}, \min_{A_0} {\preftwo}}$. (Note that it may be a singleton.) Pick any alternative 
+	Define $s_j = i$ iff $X_j \in K_i$.
+\end{proof}
 
 \begin{conjecture}
 	\label{th:vce}
