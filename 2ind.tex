@@ -212,8 +212,8 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 
 \commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
 
-For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$.
 \begin{lemma}[To be verified]
+	\label{th:seqATos}
 	Consider $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and a bijective sequence $X: \intvl{1, m} → \allalts$. Define $x = X(m)$.
 	
 	Given $j \in \intvl{1, m}$, define $A_j = \allalts \setminus X(\intvl{1, j - 1}) = X(\intvl{j, m})$ (so that $A_1 = \allalts$, $\card{A_j} = m + 1 - j$ and $A_{m} = \set{x}$).
@@ -234,36 +234,37 @@ For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict 
 	Define $s_j = i$ iff $X_j \in K_i$.
 \end{proof}
 
+For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$ and ${\prefeqi}(x) \subseteq \allalts$ designate the lower contour set of $x$ including $x$.
+\begin{lemma}
+	\label{th:coveringToSeqs}
+	Consider $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$.
+	Assume that $\cup_i {\prefeqi}(x) = \allalts$ (equivalently, $x \in \PE$).
+	
+	Define $K_1^u = \allalts \setminus {\prefeqtwo}(x)$.
+	Consider any $k_1 \in \intvl{\card{K_1^u}, \card{{\prefone}(x)}}$. Define $k_2 = m - 1 - k_1$.
+
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{x}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
+\end{lemma}
+\begin{proof}
+	Define $B$ as the bottom $k_1 - \card{K_1^u}$ alternatives from ${\prefone}(x) \setminus K_1^u$.
+	Define $K_1 = K_1^u \cup B$.
+	Note that $K_1^u \subseteq K_1 \subseteq {\prefone}(x)$ and $\card{K_1} = k_1$.
+	Define $K_2 = \allalts \setminus \set{x} \setminus K_1$.
+	
+	Define $X$ as any sequence that satisfies $\forall i: [y \in K_i ⇒ {\prefi}(y) \text{ is before } y \text{ in } X]$. Apply \cref{th:seqATos}.
+\end{proof}
+
 \begin{conjecture}
 	\label{th:vce}
 	For $m$ odd, $f^{S^=} = \bigcup (\PEcl \cap \FHcl) = \PVe$.
 \end{conjecture}
-
-
-\emph{Proof:} 
-
-
-To see that $f^{S^=} \subseteq \bigcup (\PEcl \cap \FHcl)$. Any sequence leads to Pareto efficient (to be detailed). Let $2k+1$ be the number of alternatives. Since any sequence in $S^=$ gives each voter the same number of turns (hence $k$), the outcome is never among the worst $k$ alternatives of each voter. It follows that the outcome is Pareto-efficient and in the first half of each voter's preferences, concluding the proof.
-
-
-The other direction seems harder.
-
-
-Example (Preliminary):
-
-abcdefg
-gbacdef\\
-b $\Longrightarrow$ 112212
-
-
-Pareto efficiency : if x Pareto efficient, at least 2k alternatives in the union of the lower contour sets of $x$
-
-First half: at least k alternatives in the lower contour set of $x$ for each voter
-
-Thus, there is a sequence that isolates $x$.
-
-General idea?
-
+\begin{proof}
+	To see that $f^{S^=} \subseteq \bigcup (\PEcl \cap \FHcl)$. Any sequence leads to Pareto efficient (to be detailed). Let $2k+1$ be the number of alternatives. Since any sequence in $S^=$ gives each voter the same number of turns (hence $k$), the outcome is never among the worst $k$ alternatives of each voter. It follows that the outcome is Pareto-efficient and in the first half of each voter's preferences, concluding the proof.
+	
+	About the other direction. Example (Preliminary): abcdefg, gbacdef, b $\Longrightarrow$ 112212
+	
+	From first half: at least k alternatives in the lower contour set of $x$ for each voter. Apply \cref{th:coveringToSeqs}.
+\end{proof}
 
 \begin{conjecture}
 	\label{th:vrNotVce}
