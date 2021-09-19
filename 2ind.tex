@@ -213,12 +213,24 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 \commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
 
 For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$.
-\begin{lemma}
-	Consider $m = 2k + 1$ odd, $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$, $K_1 \subseteq {\prefi[1]}(x)$, $K_2 \subseteq {\prefi[2]}(x)$, $K_1 \cap K_2 = \emptyset$, $K_1 \cup K_2 = \allalts \setminus \set{x}$. 
-	Assume that there exists a bijective sequence $X: \intvl{1, 2k} → \allalts \setminus \set{x}$ such that: given $j \in \intvl{0, 2k - 1}$, define $A_j = \allalts \setminus X(\intvl{1, j})$ (so that $A_0 = \allalts$, $\card{A_j} = m - j$ and $A_{2k} = \set{x}$) and $\forall j \in \intvl{0, 2k - 1}: \exists i \in \set{1, 2} \suchthat \min_{A_j} {\prefi} \in K_i$ and $X_{j + 1} \in \set{\min_{A_j} {\prefi} \suchthat i \in \set{1, 2}}$.
-	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = x$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = \card{K_i}$.
+\begin{lemma}[To be verified]
+	Consider $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and a bijective sequence $X: \intvl{1, m} → \allalts$. Define $x = X(m)$.
+	
+	Given $j \in \intvl{1, m}$, define $A_j = \allalts \setminus X(\intvl{1, j - 1}) = X(\intvl{j, m})$ (so that $A_1 = \allalts$, $\card{A_j} = m + 1 - j$ and $A_{m} = \set{x}$).
+	
+	Assume that $\forall j \in \intvl{1, m - 1}: \exists i \in \set{1, 2} \suchthat X_j = \min_{A_j} {\prefi}$.
+	
+	For each $i \in \set{1, 2}$, define $X^i \subseteq \allalts$ as: $X^i = \set{\min_{A_j} {\prefi} \suchthat j \in \intvl{1, m - 1}}$.
+	Pick any two numbers $(k_1, k_2)$ such that $k_1 + k_2 = m - 1$ and $k_i ≥ \card{(X^i \setminus X^{\ibar})}$.
+	
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{x}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
 \end{lemma}
 \begin{proof}
+	Noting that $X^1 \cup X^2 = \allalts \setminus \set{x}$, we can partition $X^1 \cup X^2$ into disjoint sets $K_1, K_2$ such that $K_i \subseteq X^i$, $\card{K_i} = k_i$ and $K_1 \cup K_2 = \allalts \setminus \set{x}$.
+%	define $X^\cap = X^1 \cap X^2$ and define $K_i^\mathit{u} = X^i \setminus X^\cap$.
+%	Pick any two disjoint sets $K_i^\cap$ that cover $X^\cap$. Define $K_i = K_i^u \cup K_i^\cap$.
+%	
+%	Note that $K_i \subseteq X^i$, $K_1 \cap K_2 = \emptyset$, $K_1 \cup K_2 = \allalts \setminus \set{x}$.
 	Define $s_j = i$ iff $X_j \in K_i$.
 \end{proof}
 
