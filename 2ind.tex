@@ -208,14 +208,40 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 	$\forall m, s, s' \in \set{1, 2}^{m - 1}: s ≠ s' ⇒ f^s ≠ f^{s'}$.
 \end{conjecture}
 \begin{proof}
-	If $s$ and $s'$ satisfy $\card{s^{-1}(1)} ≠ \card{{s'}^{-1}(1)}$, use an opposite profile, such as $abcde$ and $edcba$. $f^s$ will veto the last $s^{-1}(1)$ from the first voter and pick the next worst one while $f^{s'}$ will veto the last ${s'}^{-1}(1)$ from the first voter and pick the next worst one, which is thus different. (In fact, $f^s(P)$ is the alt ranked $k$ for voter $1$, where $k = \card{s^{-1}(2)} + 1$.)
+	Given a sequence $s$, let $s \circ (+k)$ denote the sequence in $\set{1, 2}^{m - 1 - k}$ that skips the first $k$ elements, thus such that $(s \circ (+k))_i = s_{i + k}$.
 	
-	If $s$ and $s'$ satisfy $\card{s^{-1}(1)} = \card{{s'}^{-1}(1)}$, define $k$ as the longest common prefix plus one and define $\prof$ by setting both voters last $k$ alternatives the same, and the $m - k$ first alternatives opposite. For example, $abcdef$ and $cbadef$ for $k = 3$. Define $r$ and $r'$ as $s$ and $s'$, respectively, without the $k$ first steps, thus as sequences of $m-1-k$ turns. Define $\prof'$ as $\prof$ restricted over the $m-k$ alternatives:  the preferences of both agents are opposed over these $m-k$ alternatives. Observe that $f^s(\prof) = f^r(\prof')$ and similarly for $s'$. Observe that $r^{-1}(1) ≠ {r'}^{-1}(1)$. The first paragraph of this proof permits to conclude.
+	Observe first that if $s ≠ s'$, there must be some suffixes of these sequences, of a common length, that give different number of turns to the players (equivalently, to the player $1$).
+	Formally: $\exists k \in \intvl{0, m - 2} \suchthat \card{(s \circ (+k))}^{-1}(1) ≠ \card{(s' \circ (+k))}^{-1}(1)$.
+	Pick such a $k$ and define $r = (s \circ +k)$ and $r' = (s' \circ +k)$, thus with $r, r' \in \set{1, 2}^{m - 1 - k}$.
+
+	Define $\prof$ by assigning to the voters opposite preferences to the $m - k$ first alternatives and equal preferences to the last $k$ alternatives; more explicitly, ${\prefi[1]} = (a_1, …, a_{m - k}, a_{m - k + 1}, …, a_m)$ and ${\prefi[2]} = (a_{m - k}, …, a_1, a_{m - k + 1}, …, a_m)$. 
 	
-	TODO rephrase in terms of longest common prefix $x$, then $y = 1$ or $y = 0$, so that $r$, the rest, satisfies $r^{-1}(1) ≠ {r'}^{-1}(1)$. Except that it fails for $s = (1), s' = (2)$, for example (whenever there is nothing after first difference).
+	Considering $f^s(\prof)$ and $f^{s'}(\prof)$, the first $k$ alternatives “vetoed“ by both $s$ and $s'$ are the $k$ alternatives that the voters agree are the worst, namely, $\set{a_{m - k + 1}, … a_m}$. Considering now any of the rest of the sequences, say (wlog) $r$, we see that the remaining “vetoed” alternatives depends only on the number of turns that each player plays in $r$, namely, $\card{r^{-1}(1)}$ and $\card{r^{-1}(2)}$, as the voters have opposite preferences on the alternatives that have not yet been vetoed after $k$ turns: from the remaining alternatives $\set{a_1, …, a_{m - k}}$, the worst $\card{r^{-1}(i)}$ alternatives from voter $i$ will be vetoed (for $i \in \set{1, 2}$). Thus, $f^s(\prof) = \set{a_{m - k - \card{r^{-1}(1)}}}$ and $f^{s'}(\prof) = \set{a_{m - k - \card{{r'}^{-1}(1)}}}$. These are distinct, as $\card{r^{-1}(1)} ≠ \card{{r'}^{-1}(1)}$.
 \end{proof}
 
 \commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
+
+A bijective sequence of $m$ alternatives is a sequence $e \in \allalts^m$ that covers all the alternatives, thus, such that $e_{\intvl{1, m}} = \allalts$.
+We can interpret any such bijective sequence $e \in \allalts^m$ as a “veto sequence” and associate to it the sequence of subsets of alternatives, defined, for $0 ≤ j ≤ m - 1$, as $e_{\intvl{1, j}} \subset \allalts$, representing all the alternatives that have been vetoed after turn $j$ (thus with $e_{\intvl{1, 0}} = \emptyset$); and the sequence of complements, defined, for $1 ≤ j ≤ m$, as $\allalts \setminus e_{\intvl{1, j - 1}}$, or equivalently, as $e_{\intvl{j, m}}$, representing the alternatives that remain before turn $j$.
+
+We say that a bijective sequence $e \in \allalts^m$ is a possible elimination sequence for $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ iff $\forall j \in \intvl{1, m - 1}: \exists i \in \set{1, 2} \suchthat e_j = \min_{e_{\intvl{j, m}}} {\prefi}$.
+
+Given a bijective sequence $e \in \allalts^m$ and a preference ${\pref} \in \linors$, we say that the possible vetoes associated to $e$ and $\pref$ are $A^{e, {\pref}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat j \in \intvl{1, m - 1}} \subseteq \allalts$.
+
+\begin{lemma}[Re-write]
+	Consider a profile $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and $e \in \allalts^m$, a possible elimination sequence for $\prof$.
+	Let $A^{e, {\prefi}}$ be the corresponding possible vetoes for each voter $i \in \set{1, 2}$.
+	Pick any two numbers $(k_1, k_2)$ such that $k_1 + k_2 = m - 1$ and $k_i ≥ \card{(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}})}$.
+	
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{e_m}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
+\end{lemma}
+\begin{proof}
+	Observe that $\cup_{i \in \set{1, 2}} A^{e, {\prefi}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat i \in \set{1, 2}, j \in \intvl{1, m - 1}}$ (by definition of $A^{e, {\prefi}}$), the latter set being also equal to $e_{\intvl{1, m - 1}} = \allalts \setminus \set{e_m}$, as $e$ is a possible elimination sequence for $\prof$. Also, $\cup_{i \in \set{1, 2}} A^{e, {\prefi}}$ can be written as $(A^{e, {\prefone}} \setminus A^{e, {\preftwo}}) \cup (A^{e, {\preftwo}} \setminus A^{e, {\prefone}}) \cup (A^{e, {\prefone}} \cap A^{e, {\preftwo}})$.
+	
+	Thus, we can partition $A^{e, {\prefone}} \cup A^{e, {\preftwo}}$ into disjoint sets $K_1, K_2$ such that $(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}} \subseteq K_i \subseteq A^{e, {\prefi}}$, $\card{K_i} = k_i$ and $K_1 \cup K_2 = e_{\intvl{1, m - 1}}$.
+	
+	Define, $\forall j \in \intvl{1, m - 1}$: $s_j = i$ iff $e_j \in K_i$.
+\end{proof}
 
 \begin{lemma}[To be verified]
 	\label{th:seqATos}
@@ -226,7 +252,6 @@ For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
 	Assume that $\forall j \in \intvl{1, m - 1}: \exists i \in \set{1, 2} \suchthat X_j = \min_{A_j} {\prefi}$.
 	
 	For each $i \in \set{1, 2}$, define $X^i \subseteq \allalts$ as: $X^i = \set{\min_{A_j} {\prefi} \suchthat j \in \intvl{1, m - 1}}$.
-	Pick any two numbers $(k_1, k_2)$ such that $k_1 + k_2 = m - 1$ and $k_i ≥ \card{(X^i \setminus X^{\ibar})}$.
 	
 	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{x}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
 \end{lemma}
