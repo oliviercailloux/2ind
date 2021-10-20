@@ -228,7 +228,8 @@ We say that a bijective sequence $e \in \allalts^m$ is a possible elimination se
 
 Given a bijective sequence $e \in \allalts^m$ and a preference ${\pref} \in \linors$, we say that the possible vetoes associated to $e$ and $\pref$ are $A^{e, {\pref}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat j \in \intvl{1, m - 1}} \subseteq \allalts$.
 
-\begin{lemma}[Re-write]
+\begin{lemma}[To be verified]
+	\label{th:seqATos}
 	Consider a profile $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and $e \in \allalts^m$, a possible elimination sequence for $\prof$.
 	Let $A^{e, {\prefi}}$ be the corresponding possible vetoes for each voter $i \in \set{1, 2}$.
 	Pick any two numbers $(k_1, k_2)$ such that $k_1 + k_2 = m - 1$ and $k_i ≥ \card{(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}})}$.
@@ -241,27 +242,6 @@ Given a bijective sequence $e \in \allalts^m$ and a preference ${\pref} \in \lin
 	Thus, we can partition $A^{e, {\prefone}} \cup A^{e, {\preftwo}}$ into disjoint sets $K_1, K_2$ such that $(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}} \subseteq K_i \subseteq A^{e, {\prefi}}$, $\card{K_i} = k_i$ and $K_1 \cup K_2 = e_{\intvl{1, m - 1}}$.
 	
 	Define, $\forall j \in \intvl{1, m - 1}$: $s_j = i$ iff $e_j \in K_i$.
-\end{proof}
-
-\begin{lemma}[To be verified]
-	\label{th:seqATos}
-	Consider $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and a bijective sequence $X: \intvl{1, m} → \allalts$. Define $x = X(m)$.
-	
-	Given $j \in \intvl{1, m}$, define $A_j = \allalts \setminus X(\intvl{1, j - 1}) = X(\intvl{j, m})$ (so that $A_1 = \allalts$, $\card{A_j} = m + 1 - j$ and $A_{m} = \set{x}$).
-	
-	Assume that $\forall j \in \intvl{1, m - 1}: \exists i \in \set{1, 2} \suchthat X_j = \min_{A_j} {\prefi}$.
-	
-	For each $i \in \set{1, 2}$, define $X^i \subseteq \allalts$ as: $X^i = \set{\min_{A_j} {\prefi} \suchthat j \in \intvl{1, m - 1}}$.
-	
-	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{x}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
-\end{lemma}
-\begin{proof}
-	Noting that $X^1 \cup X^2 = \allalts \setminus \set{x}$, we can partition $X^1 \cup X^2$ into disjoint sets $K_1, K_2$ such that $K_i \subseteq X^i$, $\card{K_i} = k_i$ and $K_1 \cup K_2 = \allalts \setminus \set{x}$.
-%	define $X^\cap = X^1 \cap X^2$ and define $K_i^\mathit{u} = X^i \setminus X^\cap$.
-%	Pick any two disjoint sets $K_i^\cap$ that cover $X^\cap$. Define $K_i = K_i^u \cup K_i^\cap$.
-%	
-%	Note that $K_i \subseteq X^i$, $K_1 \cap K_2 = \emptyset$, $K_1 \cup K_2 = \allalts \setminus \set{x}$.
-	Define $s_j = i$ iff $X_j \in K_i$.
 \end{proof}
 
 For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$ and ${\prefeqi}(x) \subseteq \allalts$ designate the lower contour set of $x$ including $x$.
