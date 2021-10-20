@@ -155,7 +155,7 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 \end{remark}
 
 \subsection{Characterisations}
-\commentOC{Attempt for describing formally that $\PVe$ is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain. Mistakes are highly possible.}
+\commentOC{Attempt for describing formally the useful observation of Matías that $\PVe$ is the FH; SL is max max among the FH; VR maximizes the sum of gains; and FB maximizes the min gain. Mistakes are highly possible.}
 
 In this section, in order to clarify how the four rules that we study here compare, we characterize a rule $f$ by stating conditions under which $f$ is the biggest rule satisfying all those conditions. Those conditions are “necessity” principles, indicating a required condition to be a winner, equivalently, a sufficient condition to lose, thus, they have the form: $f(\prof) \subseteq g(\prof)$ for some $g: \allprofs → \powersetz{\allalts}$, indicating that winning requires to be a member of $g(\prof)$, equivalently, that being not in $g(\prof)$ is sufficient to lose.
 
@@ -228,6 +228,7 @@ We say that a bijective sequence $e \in \allalts^m$ is a possible elimination se
 
 Given a bijective sequence $e \in \allalts^m$ and a preference ${\pref} \in \linors$, we say that the possible vetoes associated to $e$ and $\pref$ are $A^{e, {\pref}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat j \in \intvl{1, m - 1}} \subseteq \allalts$.
 
+The following lemma shows, losely speaking, that any profile and possible elimination sequence corresponds to sequences of turns that give to each voter the “responsability of vetoing” some of the alternatives among its possible vetoes.
 \begin{lemma}[To be verified]
 	\label{th:seqATos}
 	Consider a profile $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and $e \in \allalts^m$, a possible elimination sequence for $\prof$.
@@ -261,7 +262,7 @@ For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict 
 	Note that $K_1^u \subseteq K_1 \subseteq {\prefone}(x)$ and $\card{K_1} = k_1$.
 	Define $K_2 = \allalts \setminus \set{x} \setminus K_1$.
 	
-	Define $X$ as any sequence that satisfies $\forall i: [y \in K_i ⇒ {\prefi}(y) \text{ is before } y \text{ in } X]$. Apply \cref{th:seqATos}.
+	Define $e$ as any sequence that satisfies $\forall i: [y \in K_i ⇒ {\prefi}(y) \text{ is before } y \text{ in } e]$. Apply \cref{th:seqATos}.
 \end{proof}
 
 \begin{conjecture}
@@ -271,8 +272,8 @@ For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict 
 \begin{proof}
 	To see that $f^{S^=} \subseteq \bigcup (\PEcl \cap \FHcl)$. Any sequence leads to Pareto efficient (to be detailed). Let $2k+1$ be the number of alternatives. Since any sequence in $S^=$ gives each voter the same number of turns (hence $k$), the outcome is never among the worst $k$ alternatives of each voter. It follows that the outcome is Pareto-efficient and in the first half of each voter's preferences, concluding the proof.
 	
-	About the other direction. Example (Preliminary): abcdefg, gbacdef, b $\Longrightarrow$ 112212
-	
+	About the other direction. 
+	\footnote{Example (Preliminary): abcdefg, gbacdef, b $\Longrightarrow$ 112212.}
 	From first half: at least k alternatives in the lower contour set of $x$ for each voter. Apply \cref{th:coveringToSeqs}.
 \end{proof}
 
