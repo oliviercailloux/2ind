@@ -389,6 +389,10 @@ Note that $d \in \Sigma$ and seems to coincide with multiple commonly used sprea
 
 \commentRS{Define here strong PEL as follows: There is some k such that if the dispersion of the loss vector of x exceeds the dispersion of the loss vector of y by k, then x is not elected (for any x, y that are Pareto)}
 \commentOC{I made an attempt below, but the property I defined is always satisfied (because for $m$ fixed, $d \circ \lprof$ is bounded by $m - 1$). I suppose the intuition works only for variable $m$. To be discussed…}
+\commentRS{SPEL is a defined for a given k that varies between 1 and m-1. In other words, the condition is SPEL(k) and the bigger k is the weaker the condition is. When k=1, it implies to pick among alternatives with a minimal spread. As Olivier notes, when k=m, the condition is trivially satisfied. However, as such, it is not stronger than PEL for all values of k.}
+
+
+
 \begin{definition}
 	A rule $f$ satisfies strong PEL, SPEL, iff $\exists k \suchthat \forall \prof \in \allprofs, x \in \allalts: [\exists y \in \allalts \suchthat (d \circ \lprof)(x) - (d \circ \lprof)(y) ≥ k] ⇒ x \notin f(\prof)$.
 \end{definition}
