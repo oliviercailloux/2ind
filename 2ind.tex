@@ -35,29 +35,41 @@
 \section{Introduction}
 \label{sec:intro}
 \section{Basic notions and notation}
-Let $N = \set{1, 2}$ be the set of two individuals and $\allalts$ be the set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let ${\pref} \in \linors$ stand for the preference of an individual, written as $\prefi$ when it belongs to $i \in N$. We write $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a (preference) profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let $\prefi \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
 An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
 An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $j, l \in \N$, let $\intvl{j, l} = [j, l] \cap \N $ denote the interval of integer numbers between $j$ and $l$.
-The loss vector of $x$ at $\prof$ is $\lprof(x) \in \intvl{0, m - 1}^N$ that associates to each individual her “loss” resulting of selecting $x$ instead of his favorite alternative, that loss being defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
+Given $p, q \in \N$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
+The loss vector of $x$ at $\prof$, $\lprof(x)=($\lprof(x)_1,$\lprof(x)_2) \in \intvl{0, m - 1}^N$, associates to each individual her loss associated to $x$.
+
 %Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
-Given two loss vectors $l, l' \in \lvs$, we say that $l$ is strictly smaller than $l'$, $l < l'$, iff $\forall i: l_i ≤ l'_i \land l ≠ l'$. We also write $l ≤ l'$ to denote that $l$ is weakly smaller than $l'$, meaning, strictly smaller or equal. Let $\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss level and the sum of the losses, considering the loss vector $\lprof(x)$.
+Given two loss vectors $l, l' \in \lvs$, we say that $l$ is strictly smaller than $l'$, $l < l'$, iff $\forall i: l_i ≤ l'_i \land l ≠ l'$. We also write $l ≤ l'$ to denote that $l$ is weakly smaller than $l'$, meaning, strictly smaller or equal. Let \color{red}$\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ This notation can be improved, what about $\lprof^{min}(x)$?? \color{black} and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
+
+
+\color{red}I changed the previous paragraph, please check \color{black}
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
-Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives ($\forall \prof: f(\prof) \subseteq \PE$).
+Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$.
 
 We now define several SCRs that we analyze in the paper. 
+
+
+Formally, given a profile $\prof \in \allprofs$ and an individual $i$, let $H^i(\prof) = \{x \in \allalts \suchthat \lprof_i(x) ≤ \ceil{\frac{m - 1}{2}}\} $ denote the set of alternatives in the best half of player $i$'s preference. 
+Given a profile $\prof \in \allprofs$, let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. 
+In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
+
+Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. By Theorem 1 of \cite{BramsKilgour2001} we have $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
 The \textbf{Veto-rank} rule $\VR$ is defined as follows. Each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, then the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum_N \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum_N \lprof(x) ≤ \sum_N \lprof(y)}$.
 
-The \textbf{Shortlisting} rule $\SL$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$. Formally, $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
+The \textbf{Shortlisting} rule $\SL$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$. The Shortlisting rule is such that
+$\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
 Both $\VR$ and $\SL$ are defined in \cite{Clippel} for $m$ odd only.
 
@@ -75,11 +87,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \section{Minimal Rawlsian principle}
 
 
-Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$.
-Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support. By Theorem 1 of \cite{BramsKilgour2001} we have $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 
-Given a profile $\prof \in \allprofs$, let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. 
-In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
 
 \begin{definition}[Minimal Rawlsian (MR)] A SCR satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
@@ -87,12 +95,16 @@ In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour20
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
 
-\begin{proposition}
+\begin{remark}
    \label{th:inFH}
-    $\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$.
-\end{proposition}
+    $\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$. 
+\end{remark}
+   
 
-\textbf{Proof to be completed.}
+The remark follows from the definition of the different rules since each of these rules selects only alternatives among the top-half alternatives of both individuals. 
+
+
+
 
 We now discuss the relationship of the class $\PVcl$ to the $\mathcal{MR}$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
