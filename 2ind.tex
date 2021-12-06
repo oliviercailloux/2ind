@@ -43,7 +43,7 @@ An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\pref
 An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
 Given $p, q \in \N$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
-The loss vector of $x$ at $\prof$, $\lprof(x)=($\lprof(x)_1,$\lprof(x)_2) \in \intvl{0, m - 1}^N$, associates to each individual her loss associated to $x$.
+The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, associates to each individual her loss associated to $x$.
 
 %Let $\bigcup_{k \in \losses}(k^N)$ denote the set of constant loss vectors.
 Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $\forall i: l_i ≤ l'_i$. We also write $l < l'$ to denote that $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. Let $\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
@@ -57,7 +57,7 @@ Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives:
 We now define several SCRs that we analyze in the paper. 
 
 
-Formally, given a profile $\prof \in \allprofs$ and an individual $i$, let $H^i(\prof) = \{x \in \allalts \suchthat \lprof_i(x) ≤ \ceil{\frac{m - 1}{2}}\} $ denote the set of alternatives in the best half of player $i$'s preference. 
+Formally, given a profile $\prof \in \allprofs$ and an individual $i$, let $H^i(\prof) = \{x \in \allalts \suchthat \lprof(x)_i ≤ \ceil{\frac{m - 1}{2}}\} $ denote the set of alternatives in the best half of player $i$'s preference. 
 Given a profile $\prof \in \allprofs$, let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. 
 In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
 
