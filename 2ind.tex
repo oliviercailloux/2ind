@@ -56,12 +56,13 @@ Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives:
 
 We now define several SCRs that we analyze in the paper. 
 
-
 Formally, given a profile $\prof \in \allprofs$ and an individual $i$, let $H^i(\prof) = \{x \in \allalts \suchthat \lprof(x)_i ≤ \ceil{\frac{m - 1}{2}}\} $ denote the set of alternatives in the best half of player $i$'s preference. 
 Given a profile $\prof \in \allprofs$, let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. 
 In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$.
 
-Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
+Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
+\commentOC{I suggest to use $\lprof^{-1}(\intvl{0, k - 1} × \intvl{0, k - 1})$ instead of $U(\prof, k)$.}
+We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
@@ -75,6 +76,7 @@ Both $\VR$ and $\SL$ are defined in \cite{Clippel} for $m$ odd only.
 
 The class of \textbf{Pareto-and-veto} rules, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2  ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all alternatives in $\PE$ that no individual vetoes. 
+\commentOC{Here we could use our previously defined notation.}
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1}$ is the set of rules where the inequality is binding.
 
 \begin{remark}
@@ -85,15 +87,10 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{remark}
 
 \section{Minimal Rawlsian principle}
-
-
-
-
 \begin{definition}[Minimal Rawlsian (MR)] A SCR satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
-
 
 \begin{remark}
    \label{th:inFH}
@@ -102,6 +99,7 @@ Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR
    
 
 The remark follows from the definition of $\VR$ and $\SL$ since each of these rules selects only alternatives among the top-half alternatives of both individuals; and from Theorem 1 of \cite{BramsKilgour2001} which shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
+\commentOC{Perhaps here we could substitute the definition of $\rho$, otherwise the reader will almost surely have to seek upwards for its definition.}
 
 We now discuss the relationship of the class $\PVcl$ to the $\mathcal{MR}$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
@@ -112,6 +110,7 @@ Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 \end{proposition}
 \begin{proof}
 	For the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$.
+	\commentOC{Here as well, I propose to substitute the definition of $H(P)$ (and perhaps recall the definition of $\PVv$).}
 	
 	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of voter $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -175,6 +174,7 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 
 \section{The equal loss principle}
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
+\commentOC{If I dared, I’d propose something similar to the notations I suggested here above.}
     
 \begin{definition}[Weak equal loss (WEL)]
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
@@ -190,7 +190,7 @@ Thus, Pareto efficiency is a fortiori incompatible with the following stronger v
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
 \end{definition}
 
-We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individual, if there is one.
+We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
 
 \begin{definition}[Weak Paretian equal loss (WPEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
@@ -230,7 +230,7 @@ The rules that fail WPEL will a fortiori fail the following stronger version of 
 \begin{definition}[Paretian equal loss (PEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
 \end{definition}
-Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. On the other hand, even the rules in PV that satisfy WPEL fail PEL.
+Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. On the other hand \commentOC{Furthermore?}, even the rules in PV that satisfy WPEL fail PEL.
 \begin{proposition}
 	All rules in PV fail PEL.
 \end{proposition}
@@ -247,13 +247,12 @@ If PV picks b, it also picks something else.
     \commentOC{TODO!}
 \end{proof}
 
-NOW: determine a version of Strong PEL that is sufficiently strong for incompatibility with MR. (Use an appropriately restricted class of measures sigma.)
-Introduce (if we want to) MD as a refinement of that Strong PEL and, perhaps, study a rule that satisfies it. Variants of the definitions below could be useful.
+NOW: introduce variable sized rules from the start, in supplement to (even, using) fixed sized rules. Introduce something like PCC below, observe that it is equivalent to WPEL but that it can be used to straighten it, restrict the class $\Sigma$ of acceptable spread measures and observe that it is equivalent to MD (defined over variable sized electorates). In other words, determine a version of Strong PEL that is sufficiently strong for incompatibility with MR using an appropriately restricted class of measures sigma.
+Variants of the definitions below could be useful.
 
 \begin{definition}[Paretian compromism compatibility (PCC)]
 	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
-	\commentOC{Could we perhaps define sigma as a weak order over the loss vectors?}
-	$f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
+	The rule $f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
 \end{definition}
 
 %\begin{definition}[Dispersion phobia]
@@ -307,7 +306,6 @@ We can refer to this when we address the question of refining FB, SL and VR.
 
 This shows an incompatibility between the minimal Rawlsian and minimal dispersion principles. As a specific instance, SPEL is incompatible with the minimal Rawlsian principle. We had already see that PEL is failed by VR, SL and all rules in PV while satisfied by FB which, by the result above, fails SPEL.
 
-
 QUESTIONS:
 
 - Can we identify an interesting SCR that satisfies SPEL?
@@ -340,7 +338,6 @@ Anonymized PV rules
 PV when the sum of vetoes is less than m-1
 \section{Miscellaneous comments}
 I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
-
 
 Danilo Coelho seems to be interested in implementation of FB and shortlisting and related rules (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar})
 
