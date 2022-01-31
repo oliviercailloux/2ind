@@ -34,6 +34,42 @@
 
 \section{Introduction}
 \label{sec:intro}
+
+
+Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of Nash (1950), for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of Nash (1950) excludes several real-life situations. 
+
+Mariotti (1998) is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by Nagahisa and Tanaka (2002) who, again in a finite setting, characterize the solution of Kalai and Smorodinsky (1975). Both characterizations are built in a cardinal framework. 
+ 
+An ordinal framework of two-person finite bargaining problems is presented by Brams and Kilgour (2001) who introduce and analyze an ordinal solution, namely \textit{fallback bargaining}, that is based on compromising where each of the two bargainers begins by claiming the best outcome with respect to his ranking of alternatives. When the claims of the two bargainers differ, they continue by falling back, in lockstep, to lower ranked alternatives until a mutually (hence unanimously) agreed outcome is found. As this solution is presented in a model that does not admit a disagreement point, fallback bargaining is rather an arbitration rule than being a bargaining solution. An analysis of fallback bargaining in a model with a disagreement point is made by Kıbrıs and Sertel (2007) who rebaptize the solution as \textit{unanimity compromise} and define several variants of it. One of these variants, the \textit{imputational compromise}, is further studied by Conley and Wilkie (2012).
+ 
+As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by Hurwicz and Sertel (1997) and the \textit{majoritarian compromise} by Sertel and Yilmaz (1999). It also paved the way to new axioms for social choice, such as \textit{efficiency in the degree of compromise} by Ozkal Sanver and Sanver (2004).  Merlin et al. (2019) present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
+ 
+A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Congar and Merlin (2012) show the equivalence between the Rawlsian principle and fallback bargaining. Moreover, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. 
+
+Another principle for two-person social choice is proposed by Cailloux et al. (2022) who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
+ 
+Although the minimal Rawlsian and equal loss principles cover many of the two-person social choice rules, the literature is missing an axiomatic analysis of these rules from this perspective, an observation which forms the subject matter of our paper. We consider the following rules:
+
+Fallback bargaining, as defined by Brams and Kilgour (2001);
+
+The \textit{veto-rank mechanism} where, given an odd number m of alternatives, each individual vetoes $(m−1) / 2$ alternatives and ranks the remaining $(m+1) / 2$. The outcome is the alternative with the minimal sum of ranks among those that have not been vetoed. This mechanism, used for the selection of arbitrators, is comprehensively analyzed by de Clippel et al. (2014).
+
+
+The \textit{shortlisting procedure} where one individual selects $(m+1) / 2$ alternatives and the other individual decides on the outcome out of that shortlist. This is also a mechanism that is used for the selection of arbitrators and comprehensively analyzed by de Clippel et al. (2014).
+
+
+The class of \textit{Pareto-and-veto rules} where each individual i vetoes a fixed number $v_i$ of alternatives with $v_1$ + $v_2$ being lower than the total number of alternatives m. The outcome is the set of Pareto optimal alternatives that are not vetoed. This class generalizes the Pareto-and-veto rules analyzed by Laslier et al. (2021) which impose $v_1$ + $v_2$ = $m-1$.
+  
+This list of rules we consider covers most of the two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in Anbarci (1993, 2006) and Barberà and Coelho (2021). However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. 
+
+We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank mechanism and the shortlisting procedure are minimally Rawlsian. The class of Pareto-and-veto rules admits a single minimally Rawlsian member: the one that gives the highest equal veto power to both individuals, i.e., $v_1$ = $v_2$ = $m/2$ when the number $m$ of alternatives is odd and $v_1$ = $v_2$ = $(m-2)/2$ when $m$ is even. Moreover, this Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank mechanism and the shortlisting procedure are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
+
+The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle.  While some Pareto-and-veto rules, namely xxxxx satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong version of the Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian. 
+
+
+
+Within the spirit of equal loss, one can also define a class of principles parametrized over an integer $k$ that varies between 1 and the number $m$ of alternatives: The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The \textit{minimal dispersion principle} requires that an alternative whose dispersion exceeds the dispersion of some other alternative by $k$ should not be chosen. The principle gets weaker with growing $k$. For $k = 1$, it implies to pick among alternatives with a minimal dispersion. For $k = m-1$, it only requires that an alternative with extreme dispersion (i.e., ranked first by a voter and last by another) should not be elected in the presence of a Pareto efficient alternative that is ranked at the same level by both voters. For $k = m$ the principle is vacuous. For $k = 1$ or $2$, the minimal dispersion principle presents the strongest version of the Paretian equal loss principle and as such, it becomes logically incompatible with the minimal Rawlsian principle.
+
 \section{Basic notions and notation}
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let $\prefi \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
@@ -247,24 +283,7 @@ If PV picks b, it also picks something else.
     \commentOC{TODO!}
 \end{proof}
 
-NOW: introduce variable sized rules from the start, in supplement to (even, using) fixed sized rules. Introduce something like PCC below, observe that it is equivalent to WPEL but that it can be used to straighten it, restrict the class $\Sigma$ of acceptable spread measures and observe that it is equivalent to MD (defined over variable sized electorates). In other words, determine a version of Strong PEL that is sufficiently strong for incompatibility with MR using an appropriately restricted class of measures sigma.
-Variants of the definitions below could be useful.
 
-\begin{definition}[Paretian compromism compatibility (PCC)]
-	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
-	The rule $f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
-\end{definition}
-
-%\begin{definition}[Dispersion phobia]
-%	If $x$ has a strictly higher dispersion than $y$ at $\prof$, then $f$ may not pick $x$.
-%\end{definition}
-\begin{definition}[Loss vector comparing (LVC)]
-	Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
-\end{definition}
-
-\begin{definition}[Dispersion compromism]
-	$\forall \prof: f(\prof) \subseteq \mindisp[\PE]$.
-\end{definition}
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
@@ -288,28 +307,22 @@ Note that MD(k) gets weaker with growing k. MD(1) implies to pick among alternat
 \begin{proof}
     TODO
 \end{proof}
-
+We refer to MD(1) or MD(2) as the strong Paretian equal loss principle (SPEL). 
 The FH principle and MD(k) are compatible iff k is greater than (m/2)-3. (Some more precision is needed for this number). In other words,the FH principle and MD(k) are incompatible iff k is less than than (m/2)-3.
 \begin{theorem}
  There is no $f\in \mathcal{MR}$ that satisfies $MD(k)$ when $k\leq \frac{m-2}{3}$
 %	$k ≥ \frac{m}{2} - 3$ iff there exists a rule that satisfy both FH and $MD(k)$.
 \end{theorem}
 
-This implies that PV, FB, SL and VR all fail MD(k) for small k.
-
-Can we identify an interesting SCR that satisfies MD(1)?
-
-As Matias suggested, can we use MD(1) to refine VR, SL or FB? Discuss how discriminative the four rules are. All four rules are irresolute. Do they have refinements that are anonymous and neutral? The answer is obviously affirmative for PV (as the remaining three rules do the job) but should be addressed for FB, SL and VR. 
-The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
-
-We can refer to this when we address the question of refining FB, SL and VR.
-
-This shows an incompatibility between the minimal Rawlsian and minimal dispersion principles. As a specific instance, SPEL is incompatible with the minimal Rawlsian principle. We had already see that PEL is failed by VR, SL and all rules in PV while satisfied by FB which, by the result above, fails SPEL.
+Thus the minimal Rawlsian principle and SPEL are logically incompatible. We had already see that PEL is failed by VR, SL and all rules in PV while satisfied by FB which, by the result above, fails SPEL.
 
 QUESTIONS:
 
-- Can we identify an interesting SCR that satisfies SPEL?
-- What interesting refinements VR, SL or FB have? How to use SPEL to refine them? I give a few examples that illustrates the point of the question. For example, at the profile 
+1. Can we characterize FB in terms of MR, PEL and some other axioms?
+
+2. Can we identify an interesting SCR that satisfies SPEL?
+
+3. Can we use MD(1) to refine PV, VR, SL or FB? Discuss refinements of these rules. The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB. Here are a few examples that illustrate the point of the question. At the profile 
 \begin{center}
 	$
 	\begin{array}{cccccc}
@@ -331,17 +344,27 @@ PV would pick a-c and through SPEL we could refine this to the singleton c (whic
 
 PV picks a-b-c, SPEL refines it to b (which is the FB outcome) while SL picks a-c.
 
-The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB.
 
-\subsection{Rules we invent}
-Anonymized PV rules
-PV when the sum of vetoes is less than m-1
-\section{Miscellaneous comments}
-I proposed: [VR selects equal loss ⇒ VR selects all alternatives with "almost equal loss"], but this is contradicted by: (abc; cba).
 
-Danilo Coelho seems to be interested in implementation of FB and shortlisting and related rules (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar})
+\section{Miscellaneous material}
+NOW: introduce variable sized rules from the start, in supplement to (even, using) fixed sized rules. Introduce something like PCC below, observe that it is equivalent to WPEL but that it can be used to straighten it, restrict the class $\Sigma$ of acceptable spread measures and observe that it is equivalent to MD (defined over variable sized electorates). In other words, determine a version of Strong PEL that is sufficiently strong for incompatibility with MR using an appropriately restricted class of measures sigma.
+Variants of the definitions below could be useful.
 
-\color{green}MN: Yes, I agree. By the way, in his paper, he cites a paper by Clippel with a new characterization of Fallback, we might want to cite it.\color{black}
+\begin{definition}[Paretian compromism compatibility (PCC)]
+	Define $\Sigma = \set{\sigma \in (\R^+)^{(\lvs)} \suchthat \sigma^{-1}(0) = \cup_{k \in \losses}(k^N)}$ be the set of all spread measures that attribute the minimal inequality measure to the constant loss vectors and none others.
+	The rule $f$ is PCC iff there exists a spread measure $\sigma \in \Sigma$ such that $\forall \prof: f(\prof) \cap \minspread[\PE] ≠ \emptyset$.
+\end{definition}
+
+%\begin{definition}[Dispersion phobia]
+%	If $x$ has a strictly higher dispersion than $y$ at $\prof$, then $f$ may not pick $x$.
+%\end{definition}
+\begin{definition}[Loss vector comparing (LVC)]
+	Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+\end{definition}
+
+\begin{definition}[Dispersion compromism]
+	$\forall \prof: f(\prof) \subseteq \mindisp[\PE]$.
+\end{definition}
 
 \bibliography{bibliototal}
 
