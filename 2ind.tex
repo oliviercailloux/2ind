@@ -266,7 +266,7 @@ The rules that fail WPEL will a fortiori fail the following stronger version of 
 \begin{definition}[Paretian equal loss (PEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
 \end{definition}
-Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. On the other hand \commentOC{Furthermore?}, even the rules in PV that satisfy WPEL fail PEL.
+Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. Furthermore, as we state and show below, even the rules in PV that satisfy WPEL fail PEL.
 \begin{proposition}
 	All rules in PV fail PEL.
 \end{proposition}
@@ -283,7 +283,7 @@ If PV picks b, it also picks something else.
     \commentOC{TODO!}
 \end{proof}
 
-
+Thus, by satisfying both conditions, FB establishes the compatibility between PEL and MR. However, as discussed below, this compatibility vanishes when a stronger version of PL is adopted. 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
