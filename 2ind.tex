@@ -44,7 +44,7 @@ An ordinal framework of two-person finite bargaining problems is presented by Br
  
 As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by Hurwicz and Sertel (1997) and the \textit{majoritarian compromise} by Sertel and Yilmaz (1999). It also paved the way to new axioms for social choice, such as \textit{efficiency in the degree of compromise} by Ozkal Sanver and Sanver (2004).  Merlin et al. (2019) present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
  
-A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Congar and Merlin (2012) show the equivalence between the Rawlsian principle and fallback bargaining. Moreover, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. 
+A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Theorem 3 of Brams and Kilgour (2001) shows the equivalence between the Rawlsian principle and fallback bargaining. Moreover, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. 
 
 Another principle for two-person social choice is proposed by Cailloux et al. (2022) who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
  
@@ -70,12 +70,11 @@ The equal loss principle we consider favors outcomes that have the same rank for
 
 Within the spirit of equal loss, we propose the \textit{weak minimal dispersion principle} as another strengthening of the weak equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The weak minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. This principle turns out to be logically incompatible with the minimal Rawlsian principle, thus being failed by fallback bargaining.
 
-\commentRS{Say something about characterizations here and cite Kongar and Merlin. We cited this paper above but in a wrong place, this should be corrected.} 
+\commentRS{Say something about characterizations here and cite Congar and Merlin (2012).}
 
+\commentRS{I unwantedly erased the starting part below, sorry}
 
-
-\section{Basic notions and notation}
-Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
+a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let $\prefi \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
@@ -311,9 +310,64 @@ Define the weak minimal dispersion ($WMD$) condition as follows.
 
 Thus the minimal Rawlsian principle and WMD are logically incompatible. \commentOC{$\set{FB, VR, SL}$ are MR, thus, they fail WPEL. Also, all rules in PV fail PEL. Not all rules in PV fail WPEL. But do all rules in PV fail WMD?}
 
+\section{Further axiomatizations of the rules}
+
+We define WMD restricted to MR alternatives, namely WMDMR.
+
+WMDMR and WMD are logically independent.
+
+The set of WMDMR alternatives forms a subcorrespondence of FB.
+
+This inclusion can be strict. Here is a description of what this refinement is. Observe that at every profile, FB picks at most two alternatives. Profiles where it picks two alternatives, say x and y, must be of the following form:
+
+…. x ……….y
+
+ ……y………x
+
+where in the dots no alternative appears twice. (Some of the dots may be empty.) Moreover, y for voter 1 and x for voter 2 are at the same level.
+
+Now, x for voter 1 and y for voter 2 may or may not be at the same level. The first WMDMR refines FB when and only when they are not. 
+
+Now consider another axiom, Rawlsian neutrality (RN): Define the social welfare of an alternative x at P, sw(x, P), as the lowest rank at which is is ranked by a voter. We say that F is RN iff given any P and any x, y with sw(x, P) = sw(y, P), we have x is in F(P) iff y is in F(P).
+
+RN and MWDMR are logically independent and their conjunction is in turn equivalent to the maximin principle, thus characterizing FB.
+
+
+Interestingly, I realize that the veto-rank of Clippel, by its very definition, may have a characterization similar to WMDFH. Isn’t it Borda constrained to the first half.
+
+Short listing should be something around “maximax within the first half.”.
+
+
+\commentOC{Attempt for describing formally the useful observation of Matías that $\PVe$ is the MR; SL is max max among the MR; VR maximizes the sum of gains; and FB maximizes the min gain. Mistakes are highly possible.}
+
+In this section, in order to clarify how the four rules that we study here compare, we characterize a rule $f$ by stating conditions under which $f$ is the biggest rule satisfying all those conditions. Those conditions are “necessity” principles, indicating a required condition to be a winner, equivalently, a sufficient condition to lose, thus, they have the form: $f(\prof) \subseteq g(\prof)$ for some $g: \allprofs → \powersetz{\allalts}$, indicating that winning requires to be a member of $g(\prof)$, equivalently, that being not in $g(\prof)$ is sufficient to lose.
+
+The least stringent condition is the MR property: $f(\prof) \subseteq H(\prof)$. The rule $\PVe$ is the biggest rule satisfying MR.
+
+Another condition requires that if $\exists y \in H(\prof) \suchthat \min(\lprof(y)) < \min(\lprof(x))$, then $x$ loses. Equivalently, $x \in f(\prof) ⇒ \min(\lprof(x)) ≤ \min_{y \in H(\prof)} \min(\lprof(y))$. The rule $\SL$ is the biggest rule satisfying both MR and that condition. (Note that these two conditions are independent.)
+
+Similarly, $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
+
+These four rules can also be compared by describing them as follows. \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
+Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
+\commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
+
+\commentRS{Below are characterizations}
+PV-e iff PE, MR, MAskin monotonicity
+
+
+
+For SL and VR we should look at Clippel. 
+
+\color{green} MN: no characterization of VR to the best of my knowledge \color{black}
+
+
+Danilo Coelho  (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar})
+
+cites a paper by Clippel with a new characterization of Fallback, we might want to cite it.
+
 QUESTIONS:
 
-1. Can we characterize FB in terms of MR, PEL and some other axioms? Noter que une sous-correspondance de FB est caractérisée par MD subject to MR.
 
 2. Can we identify an interesting SCR that satisfies WMD (or rather MD)?
 
@@ -363,35 +417,8 @@ Variants of the definitions below could be useful.
 
 \appendix
 \section{Previously in Section 3}
-\subsection{Characterisations}
-\commentOC{Attempt for describing formally the useful observation of Matías that $\PVe$ is the MR; SL is max max among the MR; VR maximizes the sum of gains; and FB maximizes the min gain. Mistakes are highly possible.}
 
-In this section, in order to clarify how the four rules that we study here compare, we characterize a rule $f$ by stating conditions under which $f$ is the biggest rule satisfying all those conditions. Those conditions are “necessity” principles, indicating a required condition to be a winner, equivalently, a sufficient condition to lose, thus, they have the form: $f(\prof) \subseteq g(\prof)$ for some $g: \allprofs → \powersetz{\allalts}$, indicating that winning requires to be a member of $g(\prof)$, equivalently, that being not in $g(\prof)$ is sufficient to lose.
 
-The least stringent condition is the MR property: $f(\prof) \subseteq H(\prof)$. The rule $\PVe$ is the biggest rule satisfying MR.
-
-Another condition requires that if $\exists y \in H(\prof) \suchthat \min(\lprof(y)) < \min(\lprof(x))$, then $x$ loses. Equivalently, $x \in f(\prof) ⇒ \min(\lprof(x)) ≤ \min_{y \in H(\prof)} \min(\lprof(y))$. The rule $\SL$ is the biggest rule satisfying both MR and that condition. (Note that these two conditions are independent.)
-
-Similarly, $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
-
-These four rules can also be compared by describing them as follows. \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
-Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
-\commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
-
-\commentRS{Below are characterizations}
-PV-e iff PE, MR, MAskin monotonicity
-
-I recall from a paper of Vincent that FB is characterized by using a Rawlsian maximin axiom plus maximality 
-
-For SL and VR we should look at Clippel. 
-
-\color{green} MN: no characterization of VR to the best of my knowledge \color{black}
-
-Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winners?) is the set of Pareto efficient candidates that maximize the worst-of welfare (welfare = nb alternatives less good than the chosen one). \color{green} MN: This is true, right? \color{black}
-
-Danilo Coelho  (see the \href{https://www.cmss.auckland.ac.nz/2020/06/03/online-social-choice-seminar-series/}{Online Social Choice Seminar})
-
-cites a paper by Clippel with a new characterization of Fallback, we might want to cite it.
 
 \subsection{Veto core}
 \commentMN{I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
@@ -541,33 +568,4 @@ For SL and VR we should look at Clippel.
 Sertel shows (says Danilo Coelho) that the unanimous compromise set (the FB winners?) is the set of Pareto efficient candidates that maximize the worst-of welfare (welfare = nb alternatives less good than the chosen one). \color{green} MN: This is true, right? \color{black}
 
 \commentOC{Would it be interesting to attempt to characterize scoring rules that attribute an infinitely negative weight to the ranks in the bottom half?}
-
-\section{Various}
-I restore here a consideration by Remzi.
-
-\begin{remark}[Consideration]
-Now, suppose, under a given sigma, we pick among the PV alternatives the one with the smallest loss spread. For example, at the profile 
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &a&b&c&d&e\\
-		\mathbf{i_2} \quad &d&c&a&b&e\\
-	\end{array}
-	$
-\end{center}
-\end{remark}
-
-PV would pick a-c and the approach suggest, under a reasonable sigma, would refine this to the singleton c (which is also a refinement of FB).
-
-Question: what is this new rule? It refines PV. It is not FB. At the profile
-
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &a&b&c&d&e\\
-		\mathbf{i_2} \quad &c&b&a&d&e\\
-	\end{array}
-	$
-\end{center}
-\end{document}
 
