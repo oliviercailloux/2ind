@@ -1,0 +1,136 @@
+\section{veto core}
+\commentMN{I have been reading Moulin (1983)'s book on veto core correspondence (that is Pareto and veto rule). He mentions that for each outcome in the Pareto and veto rule, there is an order of sincere vetoes that isolates it.
+Namely,
+Consider an order of players $\{1,2,1,2,1,2,1,2\}$ and the following naive algorithm as follows:\\
+\noindent Step 1: player 1 removes his worst alternative in $A$ (denoted $B_1$)\\
+\noindent Step 2: player 2 removes his worst alternative in $A\setminus B_1$ (denoted $B_2$)\\
+\noindent Step 3: player 1 removes his worst alternative in $A\setminus B_1\cup B_2$ (denoted $B_3$)\\
+\noindent Step 4: player 2 removes his worst alternative in $A\setminus B_1\cup B_2 \cup B_3$\\
+In the example of Remark 5, this sequence leads to $c$, the $FB$ outcome.
+\textbf{Question 1:} Is it always the case that this alternating sequence leads to $FB$?
+To obtain $e$ again in the example of Remark 5, the sequence $\{1,1,1,1,2,2,2,2\}$ seems to work. Similarly, to obtain $a$, the sequence $\{2,2,2,2,1,1,1,1\}$ seems to work.
+Finally, to isolate $b$, the sequence $\{1,1,1,1,1,1,1,2\}$ seems to work.
+This leads me to think that
+\textbf{Question 2:} $PV^=$ could be the union of any sequence of length $n-1$. 
+\textbf{Question 3:} Similarly, $FB$ consists only of the extreme sequences $\{1,1,1,...,1,2,\ldots,2\}$ and $\{2,2,2,...,2,1,\ldots,1\}$.
+\textbf{Question 4:} Which are the sequences that isolate $FB$?
+}
+
+Let $s \in \set{1, 2}^{m - 1}$ be a sequence of turns. 
+Define a corresponding sequence of subsets of alternatives, $A^s \in \powersetz{\allalts}^m$, as follows: $A^s_1 = \allalts$ and $A^s_{i + 1} = A^s_i \setminus \argmax_{x \in A^s_i} \lprof(x)_{s_i}$. 
+Note that $\card{A^s_m} = 1$. 
+The \emph{simple veto core} rule $f^s$ is the SCR $f^s(\prof) = A^s_m$ (TODO cite Moulin).
+Let $\emptyset ≠ S \subseteq \set{1, 2}^{m - 1}$. Define $f^S = \cup_{s \in S} f^s$.
+The set of \emph{veto core} rules is the set $\set{f^S \suchthat \emptyset ≠ S \subseteq \set{1, 2}^{m - 1}}$.
+
+Define $S^= = \set{s \in \set{1, 2}^{m - 1} \suchthat \card{s^{-1}(1)} = \card{s^{-1}(2)}}$.
+%%%%%The set of \emph{veto core egalitarian} rules is $\VCecl = \set{f^S \suchthat \emptyset ≠ S \subseteq \set{1, 2}^{m - 1} \land \card{S^{-1}(1)} = \card{S^{-1}(2)}}$.
+For $m$ odd, the \emph{veto core egalitarian} rule is $f^{S^=}$.
+
+\begin{proposition}[Might be in Moulin]
+    For any sequence of turn $s \in \set{1, 2}^{m - 1}$, $f^s$ is Pareto. 
+    Therefore, for any set of sequences $\emptyset ≠ S \subseteq \set{1, 2}^{m - 1}$, $f^S$ is Pareto.
+\end{proposition}
+
+\begin{conjecture}
+	\label{th:sUnique}
+	$\forall m, s, s' \in \set{1, 2}^{m - 1}: s ≠ s' ⇒ f^s ≠ f^{s'}$.
+\end{conjecture}
+\begin{proof}
+	Given a sequence $s$, let $s \circ (+k)$ denote the sequence in $\set{1, 2}^{m - 1 - k}$ that skips the first $k$ elements, thus such that $(s \circ (+k))_i = s_{i + k}$.
+	
+	Observe first that if $s ≠ s'$, there must be some suffixes of these sequences, of a common length, that give different number of turns to the players (equivalently, to the player $1$).
+	Formally: $\exists k \in \intvl{0, m - 2} \suchthat \card{(s \circ (+k))}^{-1}(1) ≠ \card{(s' \circ (+k))}^{-1}(1)$.
+	Pick such a $k$ and define $r = (s \circ +k)$ and $r' = (s' \circ +k)$, thus with $r, r' \in \set{1, 2}^{m - 1 - k}$.
+
+	Define $\prof$ by assigning to the voters opposite preferences to the $m - k$ first alternatives and equal preferences to the last $k$ alternatives; more explicitly, ${\prefi[1]} = (a_1, …, a_{m - k}, a_{m - k + 1}, …, a_m)$ and ${\prefi[2]} = (a_{m - k}, …, a_1, a_{m - k + 1}, …, a_m)$. 
+	
+	Considering $f^s(\prof)$ and $f^{s'}(\prof)$, the first $k$ alternatives “vetoed“ by both $s$ and $s'$ are the $k$ alternatives that the voters agree are the worst, namely, $\set{a_{m - k + 1}, … a_m}$. Considering now any of the rest of the sequences, say (wlog) $r$, we see that the remaining “vetoed” alternatives depends only on the number of turns that each player plays in $r$, namely, $\card{r^{-1}(1)}$ and $\card{r^{-1}(2)}$, as the voters have opposite preferences on the alternatives that have not yet been vetoed after $k$ turns: from the remaining alternatives $\set{a_1, …, a_{m - k}}$, the worst $\card{r^{-1}(i)}$ alternatives from voter $i$ will be vetoed (for $i \in \set{1, 2}$). Thus, $f^s(\prof) = \set{a_{m - k - \card{r^{-1}(1)}}}$ and $f^{s'}(\prof) = \set{a_{m - k - \card{{r'}^{-1}(1)}}}$. These are distinct, as $\card{r^{-1}(1)} ≠ \card{{r'}^{-1}(1)}$.
+\end{proof}
+
+\commentOC{What about $S ≠ S'$ but $f^S = f^{S'}$?}
+
+A bijective sequence of $m$ alternatives is a sequence $e \in \allalts^m$ that covers all the alternatives, thus, such that $e_{\intvl{1, m}} = \allalts$.
+We can interpret any such bijective sequence $e \in \allalts^m$ as a “veto sequence” and associate to it the sequence of subsets of alternatives, defined, for $0 ≤ j ≤ m - 1$, as $e_{\intvl{1, j}} \subset \allalts$, representing all the alternatives that have been vetoed after turn $j$ (thus with $e_{\intvl{1, 0}} = \emptyset$); and the sequence of complements, defined, for $1 ≤ j ≤ m$, as $\allalts \setminus e_{\intvl{1, j - 1}}$, or equivalently, as $e_{\intvl{j, m}}$, representing the alternatives that remain before turn $j$.
+
+We say that a bijective sequence $e \in \allalts^m$ is a possible elimination sequence for $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ iff $\forall j \in \intvl{1, m - 1}: \exists i \in \set{1, 2} \suchthat e_j = \min_{e_{\intvl{j, m}}} {\prefi}$.
+
+Given a bijective sequence $e \in \allalts^m$ and a preference ${\pref} \in \linors$, we say that the possible vetoes associated to $e$ and $\pref$ are $A^{e, {\pref}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat j \in \intvl{1, m - 1}} \subseteq \allalts$.
+
+The following lemma shows, losely speaking, that any profile and possible elimination sequence corresponds to sequences of turns that give to each voter the “responsability of vetoing” some of the alternatives among its possible vetoes.
+\begin{lemma}[To be verified]
+	\label{th:seqATos}
+	Consider a profile $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$ and $e \in \allalts^m$, a possible elimination sequence for $\prof$.
+	Let $A^{e, {\prefi}}$ be the corresponding possible vetoes for each voter $i \in \set{1, 2}$.
+	Pick any two numbers $(k_1, k_2)$ such that $k_1 + k_2 = m - 1$ and $k_i ≥ \card{(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}})}$.
+	
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{e_m}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
+\end{lemma}
+\begin{proof}
+	Observe that $\cup_{i \in \set{1, 2}} A^{e, {\prefi}} = \set{\min_{e_{\intvl{j, m}}} {\prefi} \suchthat i \in \set{1, 2}, j \in \intvl{1, m - 1}}$ (by definition of $A^{e, {\prefi}}$), the latter set being also equal to $e_{\intvl{1, m - 1}} = \allalts \setminus \set{e_m}$, as $e$ is a possible elimination sequence for $\prof$. Also, $\cup_{i \in \set{1, 2}} A^{e, {\prefi}}$ can be written as $(A^{e, {\prefone}} \setminus A^{e, {\preftwo}}) \cup (A^{e, {\preftwo}} \setminus A^{e, {\prefone}}) \cup (A^{e, {\prefone}} \cap A^{e, {\preftwo}})$.
+	
+	Thus, we can partition $A^{e, {\prefone}} \cup A^{e, {\preftwo}}$ into disjoint sets $K_1, K_2$ such that $(A^{e, {\prefi}} \setminus A^{e, {\prefi[\ibar]}} \subseteq K_i \subseteq A^{e, {\prefi}}$, $\card{K_i} = k_i$ and $K_1 \cup K_2 = e_{\intvl{1, m - 1}}$.
+	
+	Define, $\forall j \in \intvl{1, m - 1}$: $s_j = i$ iff $e_j \in K_i$.
+\end{proof}
+
+For $x \in \allalts$, let ${\prefi}(x) \subseteq \allalts$ designate the strict lower contour set of $x$ and ${\prefeqi}(x) \subseteq \allalts$ designate the lower contour set of $x$ including $x$.
+\begin{lemma}
+	\label{th:coveringToSeqs}
+	Consider $x \in \allalts$, $\prof = \set{(1, {\prefi[1]}), (2, {\prefi[2]})}$.
+	Assume that $\cup_i {\prefeqi}(x) = \allalts$ (equivalently, $x \in \PE$).
+	
+	Define $K_1^u = \allalts \setminus {\prefeqtwo}(x)$.
+	Consider any $k_1 \in \intvl{\card{K_1^u}, \card{{\prefone}(x)}}$. Define $k_2 = m - 1 - k_1$.
+
+	Then, $\exists s \in \set{1, 2}^{m - 1} \suchthat f^s(\prof) = \set{x}$ satisfying $\forall i \in \set{1, 2}: \card{s^{-1}(i)} = k_i$.
+\end{lemma}
+\begin{proof}
+	Define $B$ as the bottom $k_1 - \card{K_1^u}$ alternatives from ${\prefone}(x) \setminus K_1^u$.
+	Define $K_1 = K_1^u \cup B$.
+	Note that $K_1^u \subseteq K_1 \subseteq {\prefone}(x)$ and $\card{K_1} = k_1$.
+	Define $K_2 = \allalts \setminus \set{x} \setminus K_1$.
+	
+	Define $e$ as any sequence that satisfies $\forall i: [y \in K_i ⇒ {\prefi}(y) \text{ is before } y \text{ in } e]$. Apply \cref{th:seqATos}.
+\end{proof}
+
+\begin{conjecture}
+	\label{th:vce}
+	For $m$ odd, $f^{S^=} = \bigcup (\PEcl \cap \mathcal{MR}) = \PVe$.
+\end{conjecture}
+\begin{proof}
+	To see that $f^{S^=} \subseteq \bigcup (\PEcl \cap \mathcal{MR})$. Any sequence leads to Pareto efficient (to be detailed). Let $2k+1$ be the number of alternatives. Since any sequence in $S^=$ gives each voter the same number of turns (hence $k$), the outcome is never among the worst $k$ alternatives of each voter. It follows that the outcome is Pareto-efficient and in the first half of each voter's preferences, concluding the proof.
+	
+	About the other direction. 
+	\footnote{Example (Preliminary): abcdefg, gbacdef, b $\Longrightarrow$ 112212.}
+	From first half: at least k alternatives in the lower contour set of $x$ for each voter. Apply \cref{th:coveringToSeqs}.
+\end{proof}
+
+\begin{conjecture}
+	\label{th:vrNotVce}
+	$\forall \emptyset ≠ S \subseteq S^=: \VR ≠ f^{S}$.
+\end{conjecture}
+\begin{proof}
+    ?
+\end{proof}
+
+\begin{conjecture}
+	\label{th:slVce}
+	$\SL = f^{\set{(1, 1, …), (2, 2, …)}}$.
+\end{conjecture}
+
+\begin{remark}
+	\label{th:fbVce}
+	It is false that
+	$\FB = f^{\set{(1, 2,1,2, …), (2, 1,2,1 …)}}$.
+    \begin{equation}
+        \begin{array}{lllll}
+                a&b&c&d&e\\
+                d&c&b&e&a\\
+        \end{array}.
+    \end{equation}
+    $\FB(\prof) = \set{b, c}$ and $f^{\set{(1, 2,1,2, …), (2, 1,2,1 …)}}=\{c\}$.
+\end{remark}
+
+\commentOC{Is $\VCecl$ the set of anonymous veto core rules, by chance?}
+
