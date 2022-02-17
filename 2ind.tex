@@ -123,6 +123,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \begin{definition}[Minimal Rawlsian (MR)] A SCR satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
+\commentOC{I now wonder if this definition is appropriate, wrt the name.}
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
 \begin{remark}
@@ -281,10 +282,14 @@ When $m = 3$, $PV^{(1, 1)}$ satisfies PEL.
 	FB satisfies PEL.
 \end{proposition}
 \begin{proof}
-    \commentOC{TODO}
-    If an alternative is Pareto and equal-loss, FB chooses it.
-    
-    Let $x$ be such an alternative and assume that FB does not pick it. Hence, there is some $y$ that Pareto dominates $x$, a contradiction.
+	\commentOC{TODO}
+	If an alternative is Pareto and equal-loss, FB chooses it.
+
+	Let $x$ be such an alternative and assume that FB does not pick it. Hence, there is some $y$ that Pareto dominates $x$, a contradiction.
+
+	\commentOC{Suggestion (same idea with slightly more detail). 
+	Consider any profile $\prof$, let $x \in PD(\prof)$ and $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $FB(\prof) = \set{x}$.
+	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x)$ (as FB picks minimal worst loss alternatives). Thus, $y$ Pareto-dominates $x$. As also $x$ is Pareto-dominant, $x = y$.}
 \end{proof}
 
 Thus, by satisfying both conditions, FB establishes the compatibility between PEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of WPEL is adopted. 
