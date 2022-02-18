@@ -44,7 +44,7 @@ An ordinal framework of two-person finite bargaining problems is presented by Br
  
 As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by Hurwicz and Sertel (1997) and the \textit{majoritarian compromise} by Sertel and Yilmaz (1999). It also paved the way to new axioms for social choice, such as \textit{efficiency in the degree of compromise} by Ozkal Sanver and Sanver (2004).  Merlin et al. (2019) present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
  
-A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Theorem 3 of Brams and Kilgour (2001) shows the equivalence between the Rawlsian principle and fallback bargaining. Moreover, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. Congar and Merlin (2012) propose a characterization of the Rawlsian principle within the framework of social welfare functions. 
+A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Theorem 3 of Brams and Kilgour (2001) shows the equivalence between the Rawlsian principle and fallback bargaining. (See Congar and Merlin (2012) for a characterization of the Rawlsian principle within the framework of social welfare functions.0 As a matter of fact, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. 
 
 Another principle for two-person social choice is proposed by Cailloux et al. (2022) who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
  
@@ -62,7 +62,7 @@ The class of \textit{Pareto-and-veto rules} where each individual i vetoes a fix
   
 This list of rules we consider covers most of the two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in Anbarci (1993, 2006) and Barberà and Coelho (2021). However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. 
 
-We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank mechanism and the shortlisting procedure are minimally Rawlsian. The class of Pareto-and-veto rules admits a single minimally Rawlsian member: the one that gives the highest equal veto power to both individuals, i.e., $v_1$ = $v_2$ = $m/2$ when the number $m$ of alternatives is odd and $v_1$ = $v_2$ = $(m-2)/2$ when $m$ is even. Moreover, this Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank mechanism and the shortlisting procedure are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
+We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank mechanism and the shortlisting procedure are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that gives the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank mechanism and the shortlisting procedure are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle.  While some Pareto-and-veto rules, namely xxxxx satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong version of the Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian. 
 
@@ -90,13 +90,11 @@ and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the mi
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
 Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$.
 
-We now define several SCRs that we analyze in the paper. 
 
-In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. 
-
-
-Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
+In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
+
+We now define several SCRs that we analyze in the paper. 
 
 \textbf{Fallback Bargaining} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -311,52 +309,26 @@ Define the minimal dispersion ($MD$) condition as follows.
     \commentOC{TODO}.
 \end{proof}
 
-Thus the minimal Rawlsian principle and MD are logically incompatible. \commentOC{$\set{FB, VR, SL}$ are MR, thus, they fail PEL. Also, all rules in PV fail SPEL. Not all rules in PV fail PEL. But do all rules in PV fail MD?}
+In other words, the minimal Rawlsian and minimal dispersion principles are logically incompatible. Thus, the rules that satisfy MR (namely FB, VR, SL and the PV rules as described by Remark 4) all fail MD. This raises the question whether the PV rules that fail MR satisfy MD.
+
+Start by defining MD restricted to MR alternatives (RMD).
+
+RMD and MD are logically independent.
+
+B doesn’t minimize dispersion among the Paretian alternatives within the first half. Look at the following profile with 11 alternatives.
+
+x a b c d y w ……
+e f g y x h w …….
+
+FB bargaining picks x while y, which is also in the first half, has a lower dispersion.
+
+ 
+
+
+Finally can we characterize WMD as a rule?
 
 \section{Further axiomatizations of the rules}
 
-
-
-Start by defining WMD restricted to MR alternatives (WMDMR).
-
-WMDMR and WMD are logically independent.
-
-The set of WMDMR alternatives forms a sub correspondence of FB.
-
-This inclusion is proper. To describe the strictness of the inclusion, observe that at every profile, FB picks at most two alternatives. Profiles where it picks two alternatives, say x and y, must be of the following form:
-
-…. x ……….y
-
- ……y………x
-
-where in the dots no alternative appears twice. (Some of the dots may be empty.) Moreover, y for voter 1 and x for voter 2 are at the same level.
-
-Now, x for voter 1 and y for voter 2 may or may not be at the same level. The first WMDMR refines FB when and only when they are not. 
-
-Now consider another axiom, Rawlsian neutrality (RN): Define the social welfare of an alternative x at P, sw(x, P), as the lowest rank at which is is ranked by a voter. We say that F is RN iff given any P and any x, y with sw(x, P) = sw(y, P), we have x is in F(P) iff y is in F(P).
-
-RN and MWDMR are logically independent and their conjunction is in turn equivalent to the maximin principle, thus characterizing FB.
-
-Two papers two look at:
-
-1. The Theorem, stated at the end of page 4 (\hrefblue{https://link.springer.com/article/10.1007/BF00187429}{Sprumont}), is about refinements of FB. It says that FB admits refinements that satisfy the two conditions of the paper, namely CPB and SO. Moreover, any rule that satisfies CPB and SO is a refinement of FB. 
-
-2. de Clippel, G. and Eliaz, F. "Reason Based Choice: a Bargaining Rationale for the
-Attraction and Compromise E§ects." Theoretical Economics, Vol. 7 (2012), pp. 125-162.
-
-Now, our rules other than FB:
-
-$\PVe$ is equivalent to MR
-
-VR is "Borda constrained to MR". This is very similar to the relationship between FB and WMDMR. Olivier claims that $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
-
-Short listing should be something around “maximax within the first half.” Again a claim of Olivier: Another condition requires that if $\exists y \in H(\prof) \suchthat \min(\lprof(y)) < \min(\lprof(x))$, then $x$ loses. Equivalently, $x \in f(\prof) ⇒ \min(\lprof(x)) ≤ \min_{y \in H(\prof)} \min(\lprof(y))$. The rule $\SL$ is the biggest rule satisfying both MR and that condition. (Note that these two conditions are independent.)
-
-These four rules can also be compared by describing them as follows. \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
-Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
-\commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
-
-Finally can we characterize WMD as a rule?
 
 \subsection{A attempt using a Leftist Principle}
 Define the transformation $\prof$ to $\prof'_x$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative just above it for $v \suchthat \lprof(x)(v) ≥ \lprof(x)(v')$ and swap $x$ with the alternative just below it for $v'$.
@@ -368,6 +340,18 @@ I think that FB satisfies it. It seems that Borda does not.
 It seems that Pareto and LP are satisfied by FB and by the rule that picks all paretian alternatives.
 
 Perhaps we need to add symmetry conditions and specificity ($\exists \prof \suchthat \card{f(\prof)} = 1$).
+
+\subsection{Axiomatization of rules other than FB}
+
+$\PVe$ is equivalent to MR
+
+VR is "Borda constrained to MR". This is very similar to the relationship between FB and WMDMR. Olivier claims that $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
+
+Short listing should be something around “maximax within the first half.” Again a claim of Olivier: Another condition requires that if $\exists y \in H(\prof) \suchthat \min(\lprof(y)) < \min(\lprof(x))$, then $x$ loses. Equivalently, $x \in f(\prof) ⇒ \min(\lprof(x)) ≤ \min_{y \in H(\prof)} \min(\lprof(y))$. The rule $\SL$ is the biggest rule satisfying both MR and that condition. (Note that these two conditions are independent.)
+
+These four rules can also be compared by describing them as follows. \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
+Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
+\commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
 
 \bibliography{bibliototal}
 \end{document}
