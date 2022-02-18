@@ -64,7 +64,7 @@ This list of rules we consider covers most of the two-person social choice rules
 
 We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank mechanism and the shortlisting procedure are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that gives the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank mechanism and the shortlisting procedure are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
 
-The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle.  While some Pareto-and-veto rules, namely xxxxx satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong version of the Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian. 
+The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that doesn't exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
 
 
 
@@ -214,7 +214,7 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
-\begin{definition}[Strong equal loss (SEL)]
+\begin{definition}[Strong equal loss]
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
 \end{definition}
 
@@ -311,16 +311,19 @@ Define the minimal dispersion ($MD$) condition as follows.
 
 In other words, the minimal Rawlsian and minimal dispersion principles are logically incompatible. Thus, the rules that satisfy MR (namely FB, VR, SL and the PV rules as described by Remark 4) all fail MD. This raises the question whether the PV rules that fail MR satisfy MD.
 
+
+
 Start by defining MD restricted to MR alternatives (RMD).
 
 RMD and MD are logically independent.
 
-B doesn’t minimize dispersion among the Paretian alternatives within the first half. Look at the following profile with 11 alternatives.
+Look at the following profile with 11 alternatives.
 
 x a b c d y w ……
+
 e f g y x h w …….
 
-FB bargaining picks x while y, which is also in the first half, has a lower dispersion.
+FB bargaining picks x while y, which is also in the first half, has a lower dispersion. Thus, FB fails RMD.
 
  
 
