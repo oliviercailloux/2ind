@@ -68,7 +68,7 @@ The equal loss principle we consider favors outcomes that have the same rank for
 
 
 
-Within the spirit of equal loss, we propose the \textit{weak minimal dispersion principle} as another strengthening of the weak equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The weak minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. This principle turns out to be logically incompatible with the minimal Rawlsian principle, thus being failed by fallback bargaining.
+Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. This principle turns out to be logically incompatible with the minimal Rawlsian principle, thus being failed by fallback bargaining.
 
 
 \section{Basic notions and notation}
@@ -206,28 +206,28 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 \section{The equal loss principle}
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
 
-\begin{definition}[Weak equal loss (WEL)]
+\begin{definition}[Equal loss (EL)]
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
 \begin{proposition}
-    $\forall m ≥ 3: \PEcl ∩ \WELcl = \emptyset$.
+    $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
 \end{proposition}
 
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
-\begin{definition}[Equal loss (EL)]
+\begin{definition}[Strong equal loss (SEL)]
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
 \end{definition}
 
 We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
 
-\begin{definition}[Weak Paretian equal loss (WPEL)]
+\begin{definition}[Paretian equal loss (PEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
 \begin{proposition}
-	VR and SL fail WPEL.
+	VR and SL fail PEL.
 \end{proposition}
 \begin{proof}
 	Consider the following profile $\prof$, reused from \cref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
@@ -237,29 +237,29 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 			g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array}.
 	\end{equation}
-	WPEL requires to choose at least $d$.
+	PEL requires to choose at least $d$.
 \end{proof}
 
-Some rules from the class $\PVcl$ satisfy WPEL, $\PVe$ being among those.
+Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 \begin{proposition}
-	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies WPEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
+	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
 \end{proposition}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, because all alternatives before $x$ for the first voter must be placed after $x$ for the second voter.
-	A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by WPEL.
+	A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL.
 	
 	For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\ceil{\frac{m - 1}{2}} = \floor{\frac{m}{2}}$ positions behind $x$).
-	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail WPEL.
+	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
 
-The rules that fail WPEL will a fortiori fail the following stronger version of the Paretian equal loss property.
+The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property.
 
-\begin{definition}[Paretian equal loss (PEL)]
+\begin{definition}[Strong Paretian equal loss (SPEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
 \end{definition}
-Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. Furthermore, as we state and show below, even the rules in PV that satisfy WPEL fail PEL.
+Thus, VR, SL and those rules in PV that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in PV that satisfy PEL fail SPEL.
 \begin{proposition}
-	When $m ≥ 4$, all rules in PV fail PEL.
+	When $m ≥ 4$, all rules in PV fail SPEL.
 \end{proposition}
 \begin{proof}
     Let $m = \set{a, b, c, a_4, a_5, …}$.
@@ -269,16 +269,16 @@ Thus, VR, SL and those rules in PV that fail WPEL all fail PEL. Furthermore, as 
 			a&b&c&a_4&a_5&…\\	c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
-    PEL requires to pick solely $b$. Any PV rule will pick at least either $a$ or $c$ in supplement to $b$. 
+    SPEL requires to pick solely $b$. Any PV rule will pick at least either $a$ or $c$ in supplement to $b$. 
     Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$, it is impossible to have both $a \notin f(\prof)$ and $c \notin f(\prof)$.
 \end{proof}
 
 \begin{remark}
-When $m = 3$, $PV^{(1, 1)}$ satisfies PEL.
+When $m = 3$, $PV^{(1, 1)}$ satisfies SPEL.
 \end{remark}
 
 \begin{proposition}
-	FB satisfies PEL.
+	FB satisfies SPEL.
 \end{proposition}
 \begin{proof}
 	\commentOC{TODO}
@@ -291,7 +291,7 @@ When $m = 3$, $PV^{(1, 1)}$ satisfies PEL.
 	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x) = k$ (as FB picks minimal worst loss alternatives). Thus, $y$ Pareto-dominates $x$. As also $x$ is Pareto-dominant, $x = y$.}
 \end{proof}
 
-Thus, by satisfying both conditions, FB establishes the compatibility between PEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of WPEL is adopted. 
+Thus, by satisfying both conditions, FB establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
@@ -299,19 +299,19 @@ Note that $d \in \Sigma$ seems to coincide with multiple commonly used spread me
 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
-Define the weak minimal dispersion ($WMD$) condition as follows.
-\begin{definition}[Weak minimal dispersion]
+Define the minimal dispersion ($MD$) condition as follows.
+\begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 
 \begin{theorem}
- There is no $f \in \mathcal{MR}$ that satisfies WMD.
+ There is no $f \in \mathcal{MR}$ that satisfies MD.
 \end{theorem}
 \begin{proof}
     \commentOC{TODO}.
 \end{proof}
 
-Thus the minimal Rawlsian principle and WMD are logically incompatible. \commentOC{$\set{FB, VR, SL}$ are MR, thus, they fail WPEL. Also, all rules in PV fail PEL. Not all rules in PV fail WPEL. But do all rules in PV fail WMD?}
+Thus the minimal Rawlsian principle and MD are logically incompatible. \commentOC{$\set{FB, VR, SL}$ are MR, thus, they fail PEL. Also, all rules in PV fail SPEL. Not all rules in PV fail PEL. But do all rules in PV fail MD?}
 
 \section{Further axiomatizations of the rules}
 
