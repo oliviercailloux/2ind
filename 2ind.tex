@@ -123,33 +123,36 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \commentOC{I now wonder if this definition is appropriate, wrt the name.}
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
-\begin{remark}
-   \label{th:inFH}
-    $\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$. 
-\end{remark}
+\begin{theorem}
+   $\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$. 
+\end{theorem}
+
+ \begin{proof}
+	For $\VR$ and $\SL$, the proof follows from the definition of the rules since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \cite{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
+	
+\end{proof} 
    
 
-The remark follows from the definition of $\VR$ and $\SL$ since each of these rules selects only alternatives among the top-half alternatives of both individuals; and from Theorem 1 of \cite{BramsKilgour2001} which shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
+
 
 We now discuss the relationship of the class $\PVcl$ to the $\mathcal{MR}$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
-\begin{proposition}\label{propo:diff}
-    $\PVcl ∩ \mathcal{MR} = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
-\end{proposition}
-\begin{proof}
-	For the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$.
-
-	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
+\begin{theorem}
+ 	When $m$ is odd, $\PVcl ∩ \mathcal{MR} = \{PV^=\}$, and
+	when $m$ is even, $\PVcl ∩ \mathcal{MR} = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
+\end{theorem}
+ \begin{proof}
+	We start by claiming that $\PVcl ∩ \mathcal{MR} = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$. To show the “if” part of the claim, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of voter $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
-\end{proof}
-A direct implication of Proposition \ref{propo:diff}   is that the set of $\PVcl$ rules satisfying $\mathcal{MR}$ is quite reduced, as made explicit by the following remark.
-\begin{remark}
-    When $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$, we have $\abs{v_1 - v_2} ≤ 1$.
+	
+	Having shown the claim, note that When $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$, we have $\abs{v_1 - v_2} ≤ 1$.
 	Thus, when $m$ is odd, $\PVcl ∩ \mathcal{MR} = \{PV^=\}$, and
 	when $m$ is even, $\PVcl ∩ \mathcal{MR} = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
-\end{remark}
+	
+\end{proof} 
+
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
@@ -364,11 +367,11 @@ Does FB satisfy the Upwards and Downwards Principles? Is it the only rule that s
 
 $\PVe$ is equivalent to MR
 
-VR is "Borda constrained to MR". This is very similar to the relationship between FB and WMDMR. Olivier claims that $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
+VR is "Borda constrained to MR". Olivier claims that $\VR$ is the biggest rule satisfying both MR and the condition: $x \in f(\prof) ⇒ \sum(\lprof(x)) ≤ \min_{y \in H(\prof)} \sum(\lprof(y))$.
 
 Short listing should be something around “maximax within the first half.” Again a claim of Olivier: Another condition requires that if $\exists y \in H(\prof) \suchthat \min(\lprof(y)) < \min(\lprof(x))$, then $x$ loses. Equivalently, $x \in f(\prof) ⇒ \min(\lprof(x)) ≤ \min_{y \in H(\prof)} \min(\lprof(y))$. The rule $\SL$ is the biggest rule satisfying both MR and that condition. (Note that these two conditions are independent.)
 
-These four rules can also be compared by describing them as follows. \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
+\commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
 Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
 \commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
 
