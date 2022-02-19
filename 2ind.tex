@@ -336,7 +336,7 @@ Finally can we characterize WMD as a rule?
 
 
 \subsection{A attempt using a Leftist Principle}
-Define the transformation $\prof$ to $\prof'_x$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative just above it for $v \suchthat \lprof(x)(v) ≥ \lprof(x)(v')$ and swap $x$ with the alternative just below it for $v'$.
+Define the transformation $\prof$ to $\prof'_x$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative just above it for $i \suchthat \lprof(x)(i) > \lprof(x)(\ibar)$ and swap $x$ with the alternative just below it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
 
 Then, the Leftist Principle requires: $x \in f(\prof) ⇒ x \in f(\prof')$.
 
@@ -344,7 +344,21 @@ I think that FB satisfies it. It seems that Borda does not.
 
 It seems that Pareto and LP are satisfied by FB and by the rule that picks all paretian alternatives.
 
-Perhaps we need to add symmetry conditions and specificity ($\exists \prof \suchthat \card{f(\prof)} = 1$).
+Define the transformation $\prof$ to $\prof^\mathit{up}_{x, j}$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative $j$ positions above it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
+
+Then, the Upwards $j$ Principle requires: $x \in f(\prof) ⇒ x \in f(\prof^\mathit{up}_{x, j})$.
+The Upwards Principle requires Upwards $j$ for all $j$.
+
+Define the downward transformation $\prof$ to $\prof^\mathit{down}_{x, j}$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative $j$ positions below it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
+
+Then, the Downwards $j$ Principle requires: $x \in f(\prof) \land \max \lprof(x) - \min \lprof(x) ≤ j ⇒ x \in f(\prof^\mathit{down}_{x, j})$.
+The Downwards Principle requires Dowwards $j$ for all $j$.
+
+\begin{definition}[Loss vector comparing (LVC)]
+        Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+\end{definition}
+
+Does FB satisfy the Upwards and Downwards Principles? Is it the only rule that satisfy those and LP and Pareto and LVC? Note that such a rule will hopefully prefer the losses (4, 4) to (2, 5) because (4, 4) indifferent to (1, 4), itself Pareto dominating (2, 5).
 
 \subsection{Axiomatization of rules other than FB}
 
