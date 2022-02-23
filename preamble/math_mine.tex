@@ -8,7 +8,7 @@
 \NewDocumentCommand{\voters}{}{N}
 \NewDocumentCommand{\allprofs}{}{\linors^N}
 \NewDocumentCommand{\prof}{}{\bm{P}}
-\NewDocumentCommand{\lprof}{}{\lambda_{\bm{P}}}
+\NewDocumentCommand{\lprof}{O{\bm{P}}}{\lambda_{#1}}
 \NewDocumentCommand{\linors}{}{\mathscr{L}(\allalts)}
 %Thanks to https://tex.stackexchange.com/q/154549
 	%\makeatletter
@@ -28,7 +28,7 @@
 \NewDocumentCommand{\lvs}{}{\intvl{0, m - 1}^N}
 \NewDocumentCommand{\losses}{}{\intvl{0, m - 1}}
 \NewDocumentCommand{\PD}{}{\mathit{PD}(\prof)}
-\NewDocumentCommand{\PE}{}{\mathit{PE}(\prof)}
+\NewDocumentCommand{\PE}{O{\prof}}{\mathit{PE}(#1)}
 
 %Rules
 \NewDocumentCommand{\rhoP}{}{\rho_{\prof}}
