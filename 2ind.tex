@@ -337,113 +337,12 @@ What about for the other rules?
 Finally can we characterize WMD as a rule?
 
 \section{Further axiomatizations of the rules}
-
-
-\subsection{A attempt using a Leftist Principle}
-\begin{definition}[LP]
-	Define the transformation $\prof$ to $\prof'_x$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative just above it for $i \suchthat \lprof(x)(i) > \lprof(x)(\ibar)$ and swap $x$ with the alternative just below it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
-	Then, the Leftist Principle requires: $y \notin f(\prof) ⇒ y \notin f(\prof'_x)$.
-\end{definition}
-Intuition: (3, 6) worst than (4, 5).
-Problem: also (3, 5) worst than (4, 4).
-
-I think that FB satisfies it. It seems that Borda does not.
-
-It seems that Pareto and LP are satisfied by FB and by the rule that picks all paretian alternatives.
-
-Define the transformation $\prof$ to $\prof^\mathit{up}_{x, j}$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative $j$ positions above it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
-
-Then, the Upwards $j$ Principle requires: $x \in f(\prof) ⇒ x \in f(\prof^\mathit{up}_{x, j})$.
-The Upwards Principle requires Upwards $j$ for all $j$.
-
-Define the downward transformation $\prof$ to $\prof^\mathit{down}_{x, j}$, with $x \suchthat \lprof(x) ≠ (k, k)$, as: swap $x$ with the alternative $j$ positions below it for $i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$.
-
-Then, the Downwards $j$ Principle requires: $x \in f(\prof) \land \max \lprof(x) - \min \lprof(x) ≤ j ⇒ x \in f(\prof^\mathit{down}_{x, j})$.
-The Downwards Principle requires Dowwards $j$ for all $j$.
-
-It seems to me that FB satisfies the Upwards and Downwards Principles. 
-
-Is FB the only rule that satisfies the Upwards and Downwards Principles, LP, Pareto and LVC? Note that such a rule will hopefully prefer the losses (4, 4) to (2, 5) because (4, 4) indifferent to (1, 4), itself Pareto dominating (2, 5).
-
-\subsection{Capturing the tension between egalitarianism and individualism}
-We want to consider the disutility of $\ibar$ losing less than $i$.
-
-Given $w_\mathit{ineq}, w_\mathit{min}$, define $u(x)$ at some profile as: $- w_\mathit{min} \min \lprof(x) - w_\mathit{ineq} (\max \lprof(x) - \min \lprof(x))$. (The notation omits the profile and the weights for economy.)
-
-Consider a rule which maximizes the utility of $x$ in $\prof$, computed as $w_\mathit{min} \min \lprof(x) + w_\mathit{ineq} \max \lprof(x) - \min \lprof(x)$, given weights $w_\mathit{min}$ and $w_\mathit{ineq}$ that sum to one. Maybe SPEL is equivalent to mandate that $w_\mathit{ineq} ≥ w_\mathit{min}$ and the additional FB principle requires that $w_\mathit{ineq} ≤ w_\mathit{min}$.
-Maybe, also, LVC is equivalent to counting utility as described here above.
-
-\begin{definition}[big ineq]
-	A rule $f$ has big ineq iff $\forall x \in f(\prof), \exists w_\mathit{ineq} ≥ w_\mathit{min} \suchthat u(x) ≥ u(y) \forall y ≠ x$.
-\end{definition}
-\begin{theorem}
-	If $f$ big-ineq, then $f$ is SPEL.
-\end{theorem}
-\begin{proof}
-	Consider $\prof$ with some $x \in PE$ and $x$ equal loss. We show that $y \in f(\prof)$ is impossible, for any $y ≠ x$. Consider any $y ≠ x$. 
-	We know that $y$ does not Pareto dominate $x$. 
-	As $f$ is big-ineq, if $\nexists w_i ≥ w_m \suchthat u(y) ≥ u(x)$, then $y \notin f(\prof)$.
-	Now $u(x) - u(y) = w_i (\max \lprof(y) - \min \lprof(y)) - w_m (\min \lprof(x) - \min \lprof(y)$,
-	equivalently, $u(x) - u(y) = w_i ((\max \lprof(y) - \min \lprof(x)) + \min \lprof(x) - \min \lprof(y)) - w_m (\min \lprof(x) - \min \lprof(y)$.
-	If $\min \lprof(x) < \min \lprof(y)$, then write $u(x) - u(y) = w_i (\max \lprof(y) - \min \lprof(y)) + w_m (\min \lprof(y) - \min \lprof(x)$, observe that it is a weighted sum of non-negative terms with the second one strictly positive, so the result is positive.
-	Otherwise, as $w_i ≥ w_m$ and $\max \lprof(y) > \min \lprof(x)$ (otherwise, $y$ Pareto-dominates $x$), the result is also strictly postive.
-	In all cases, $u(x) > u(y)$ and $y$ cannot win.
-\end{proof}
-
-\begin{definition}[big ineq, variant]
-	A rule $f$ has big ineq iff $\forall x \in f(\prof), y \notin f(\prof), \exists w_\mathit{ineq} ≥ w_\mathit{min} \suchthat u(x) ≥ u(y)$.
-\end{definition}
-
-If $f$ is SPEL, is $f$ big-ineq? No: $f$ takes $x$ with $\lprof(x) = (4, 2)$ against $y$ with $\lprof(y) = (1, 3)$, violates big-ineq (as for all weights, $u(x)$ is worst than $u(y)$) but $f$ may be SPEL.
-
-Consider $f$ Anonymous, SPEL and LVC and pareto-with-ineq ($(min, ineq, max) ≥ (min', ineq', max')$ implies better). Is $f$ weight-comparing? 
-
-\begin{definition}[DP-excl]
-	If $y \notin f(\prof), x \in f(\prof), i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$, then $y \notin f(\prof'_x)$ where $\prof'_x$ swaps $x$ with the alternative just below it for $i$.
-\end{definition}
-
-%\begin{definition}[UP-excl]
-%	If $y \notin f(\prof), x \in f(\prof), i \suchthat \lprof(x)(i) ≥ \lprof(x)(\ibar), \lprof(x)(i) ≠ 0$, then $y \notin f(\prof'_x)$ where $\prof'_x$ puts the top alternative of $i$ at the bottom, shifting every other alternative one rank upwards.
-%\end{definition}
-%Intuition: trading one point more equality against one point less on MIN is not damaging. (TO BE FIXED.)
-
-\begin{definition}[DP-sized]
-	If $y \notin f(\prof), x \in f(\prof), i \suchthat \lprof(x)(i) < \lprof(x)(\ibar)$, then $y \notin f(\prof'_x)$ where $\prof'_x$ has a new alternative on top for $i$ and every other alternative lose one rank accordingly.
-\end{definition}
-
-Consider $f$ Anonymous, UP-excl, SPEL, LVC. Is $f$ weight-comparing?
-$(3, 3)$ is taken rather than $(1, 5)$.
-$(3, 2)$ is taken rather than $(1, 4)$.
-
-%$(3, 4)$ VS $(1, 5)$? Also. Is this correct?
-%$(3, 3 + \delta)$ VS $(1, 4 + \delta)$, same.
-%$(a, \delta)_{m, i}) VS $(a', \delta)_{m, i}$, $a > a'$, same.
-%$(b, \delta)_{m, i}) VS $(b', \delta')_{m, i}$, ?
-%$(3, 1)$ VS $(1, 2)$ ? Thus, $(3, 4)$ VS $(1, 3)$? Same as $(3, 3)$ VS $(1, 2)$. I can bring the smallest $\delta$ to zero and substract it from the bigger one. Remains: $(3, 3)$ VS $(a, \delta)$. So always take the smallest delta!
-%So it seems that we ought to take the most equal one, always?
-
-
-Can we take an inequal one such as (1, 8)?
-Take (4, 5) vs (1, 8)?
-Take (4, 4) vs (1, 8).
-$(2, 3)$ is taken as $(3, 3)$ is taken?
-
-%Consider $f$ Anonymous, SPEL, LP and weight-comparing (uses $w_i$ and $w_m$). Is $f$ big-ineq? 
-%Consider $x \in f(\prof)$. Are there suitable weights? 
-%We know that $x$ is Pareto in the domain (ineq, min), as $f$ uses weights. (This excludes (4, 2) being taken against (1, 3).)
-%What if $y$ pareto-dominates $x$? Fine, perhaps.
-
-
-Consider $f$ Anonymous, Pareto and LVC. Is $f$ big-ineq? No. Consider Borda.
-
-We need to find conditions on the losses of $x, y$ iff exists suitable weights.
-
-FB is SPEL and LVC and exclude-big-$w_i$. To exclude big $w_i$, Pareto and large voting population should suffice. If $w_i = 2/3$, then $f$ will prefer $(10, 10)$ to $(1, 9)$.
-
-We can’t use LP or DP: this almost entails SPEL. We want to use SPEL plus the weighting principle to get from $3, 3$ > $4, 1$ that $w_i$ is big enough.
-
-\subsection{A new start}
+\subsection{A caracterisation of FB based on weight comparison}
 Given $w_m, w_i \in [0, 1], w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects maximal elements according to disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$.
+
+\begin{remark}
+	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.
+\end{remark}
 
 \begin{definition}[Weight-comparing]
 	$f$ is weight-comparing iff $\exists w_m, w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
@@ -483,7 +382,7 @@ Given $w_m, w_i \in [0, 1], w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule t
 	Consider $f$ on variable number of candidates, Paretian and weight-comparing. Then, $\exists w_m ≥ w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
 \end{theorem}
 \begin{proof}
-	Consider the losses $(100, 100)$ versus $(0, 99)$, thus in basis (min, ineq), $(100, 0)$ versus $(0, 99)$. The first one can be made Pareto-dominated with a suitable choice of profile (assuming $m$ big enough), but will be picked if $-100 w_m > -99 w_i$, which will happen if $w_i > 100/99 w_m$.
+	Consider the losses $(100, 100)$ versus $(0, 99)$, thus in basis (min, ineq), $(100, 0)$ versus $(0, 99)$. The first one will be picked if $-100 w_m > -99 w_i$, which will happen if $w_i > 100/99 w_m$. (The argument can and should be completed by defining a profile where only $a$ and $b$ with losses $(0, 99)$ and $(99, 0)$ are pareto-dominant: on a smaller scale, this is $a, c, d, e, b, x, f, g, h$ and $b, f, g, h, a, x, c, d, e$.)
 \end{proof}
 
 \begin{theorem}[FB as weighter]
@@ -521,7 +420,7 @@ Intuition: $2, 3$ VS $4, 6$ same as $2 + \delta, 3 + \delta$ VS $4 + \delta, 6 +
 \end{definition}
 
 \begin{remark}
-	The rule $f$ with weights $w_{max} = \frac{m - 1}{m}$ and $w_i = \frac{1}{m}$ is, I believe, the subcorrespondance of FB that lexicographically first minimizes the worst loss, then minimizes the best loss. It is weight-comparing when defined on a fixed $m$, but not when defined on variable number of candidates. I think it would be interesting to define a weaker version of weight-comparing to allow for this.
+	The rule $f$ with weights $w_{max} = \frac{m - 1}{m}$ and $w_i = \frac{1}{m}$ is, I believe, the subcorrespondance of FB that lexicographically first minimizes the worst loss, then minimizes the best loss. It is weight-comparing when defined on a fixed $m$, but not when defined on variable number of candidates. I think it would be interesting to define a weaker version of weight-comparing to allow for this. Perhaps some difficulty will stem from the fact that, from LVC, Pareto and a principle of indifference, FB will perhaps prefer the losses (4, 4) to (2, 5) because (4, 4) indifferent to (1, 4), itself Pareto dominating (2, 5).
 \end{remark}
 
 \subsection{Axiomatization of rules other than FB}
