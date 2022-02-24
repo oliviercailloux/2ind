@@ -254,7 +254,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 \end{proof}
 
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property.
-\commentOC{Perhaps we can say right here that we introduce this because it allows to distinguish FB from the other rules we consider?}
+\commentMN{This property allows to distinguish FB from the other rules that we consider. This stronger version requires that $f$ selects uniquely the Pareto efficient alternatives that satisfy equal loss.}
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
@@ -338,7 +338,7 @@ Finally can we characterize WMD as a rule?
 
 \section{Further axiomatizations of the rules}
 \subsection{A caracterisation of FB based on weight comparison}
-Given $w_m, w_i \in [0, 1], w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects maximal elements according to disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$.
+For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects the maximal elements according to the disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$. \commentMN{Why do we have $\max \lprof(x) - \min \lprof(x)$?? Maybe add Remark 6 here and mention that Borda satisfies it. It is not simple to understand this point. Actually, the class of these rules is not immediate to me.}
 
 \begin{remark}
 	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.
@@ -361,6 +361,8 @@ Given $w_m, w_i \in [0, 1], w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule t
 			a_k&…&a_{2k - 1}&x&a_0&…&a_{k - 1}&a_{2k}&…&a_{m - 2}\\
 		\end{array}.
 	\end{equation}
+
+	
 	The following argument holds for all $k \in \intvl{0, \floor{\frac{m}{2}}}$.
 	Observe that $\lprof[\prof^k](x) = (k, k)$ and $\lprof[\prof^k](a_0) = (1, k + 1)$.
 	As $f$ is weight-comparing, $f(\prof^k) = \set{x}$ iff $-k w_m > -1 w_m -k w_i$;
@@ -375,7 +377,15 @@ Given $w_m, w_i \in [0, 1], w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule t
 	The forward direction follows from \cref{th:spelTo}.
 	
 	Consider any profile where $x \in \PE$ and $\lprof(x) = (k, k)$ (for any $k$). Then, $f(\prof) = \set{x}$ (thus, is SPEL).
-	Indeed, $\forall y \in \allalts$, letting $y_m$ denote $\min \lprof(y)$ and $y_i$ denote $\max \lprof(y) - \min \lprof(y)$: $y \in f(\prof)$ only if $-w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) ≥ -w_m k$, equivalently, $w_m (k - \min \lprof(y)) ≥ w_i (\max \lprof(y) - \min \lprof(y))$, which, with $w_i ≥ w_m$, requires $k - \min \lprof(y) ≥ \max \lprof(y) - \min \lprof(y)$, equivalently, $k ≥ \max \lprof(y)$. This requires that $y$ Pareto-dominates $x$, and as $x \in \PE$, entails that $y = x$.
+	Indeed, $\forall y \in \allalts$, letting $y_m$ denote $\min \lprof(y)$ and $y_i$ denote $\max \lprof(y) - \min \lprof(y)$, we obtain that: 
+	
+	\begin{align*}
+	    y \in f(\prof) \text{ only if }& -w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) ≥ -w_m k,\\
+	    &\Longleftrightarrow w_m (k - \min \lprof(y)) \geq w_i (\max \lprof(y) - \min \lprof(y)) \\
+	    &\Longrightarrow k - \min \lprof(y) \geq  \max \lprof(y) - \min \lprof(y) \: (\:\text{since } w_i \geq w_m \:)\\
+	    &\Longleftrightarrow k \geq  \max \lprof(y).
+	\end{align*}
+This requires that $y$ Pareto-dominates $x$, and since $x \in \PE$, entails that $y = x$.
 \end{proof}
 
 \begin{theorem}[Paretianism limits inequality consideration]
@@ -420,7 +430,7 @@ Intuition: $2, 3$ VS $4, 6$ same as $2 + \delta, 3 + \delta$ VS $4 + \delta, 6 +
 \end{definition}
 
 \begin{remark}
-	The rule $f$ with weights $w_{max} = \frac{m - 1}{m}$ and $w_i = \frac{1}{m}$ is, I believe, the subcorrespondance of FB that lexicographically first minimizes the worst loss, then minimizes the best loss. It is weight-comparing when defined on a fixed $m$, but not when defined on variable number of candidates. I think it would be interesting to define a weaker version of weight-comparing to allow for this. Perhaps some difficulty will stem from the fact that, from LVC, Pareto and a principle of indifference, FB will perhaps prefer the losses (4, 4) to (2, 5) because (4, 4) indifferent to (1, 4), itself Pareto dominating (2, 5).
+	The rule $f$ with weights $w_{max} = \frac{m - 1}{m}$ and $w_i = \frac{1}{m}$ is, I believe, the subcorrespondence of FB that lexicographically first minimizes the worst loss, then minimizes the best loss. It is weight-comparing when defined on a fixed $m$, but not when defined on variable number of candidates. I think it would be interesting to define a weaker version of weight-comparing to allow for this.\commentMN{I agree} Perhaps some difficulty will stem from the fact that, from LVC, Pareto and a principle of indifference, FB will perhaps prefer the losses (4, 4) to (2, 5) because (4, 4) indifferent to (1, 4), itself Pareto dominating (2, 5).
 \end{remark}
 
 \subsection{Axiomatization of rules other than FB}
