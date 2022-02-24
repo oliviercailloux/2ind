@@ -314,29 +314,24 @@ Define the minimal dispersion ($MD$) condition as follows.
 
 In other words, the minimal Rawlsian and minimal dispersion principles are logically incompatible. Thus, the rules that satisfy MR (namely FB, VR, SL and the PV rules as described by Remark 4) all fail MD. This raises the question whether the PV rules that fail MR satisfy MD.
 
-\commentRS{I think many, if not all, PV rules that fail MR will satisfy MD. This can be shown within the spirit of Proposition 6. However, I think all PV rules will fail the stronger version of MD that requires the minimally dispersed alternative to be the unique outcome.}
+CONJECTURE: A PV rule satisfies MD iff the rule endows no individual with a veto power that exceeds 1/3 of the alternatives.
+\commentRS{Compare this conjecture with Proposition 5.}
 
-\commentRS{I think I have been able to show that a PV rule that fails MR satisfies MD iff the rule endows no individual with a veto power hat exceeds 1/3 of the alternatives.}
-
-Another question is whether MR rules that have to fail MD will satisfy MD restricted to MR alternatives (Rawlsian MD).
-
-RMD and MD are logically independent.
-
-Look at the following profile with 11 alternatives.
+Another question is whether MR rules, which all fail MD, will satisfy MD restricted to MR alternatives (Rawlsian MD). Define RMD and note that it is logically independent of MD. Now, look at the following profile with 11 alternatives.
 
 x a b c d y w ……
 
 e f g y x h w …….
 
-FB bargaining picks x while y, which is also in the first half, has a lower dispersion. Thus, FB fails RMD.
+FB picks x while y, which is also in the first half, has a lower dispersion. Thus, FB fails RMD.
 
-What about for the other rules?
-
+What about the other rules?
  
-Finally can we characterize WMD as a rule?
+
+
 
 \section{Further axiomatizations of the rules}
-\subsection{A caracterisation of FB based on weight comparison}
+\subsection{A characterisation of FB based on weight comparison}
 For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects the maximal elements according to the disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$. \commentMN{Why do we have $\max \lprof(x) - \min \lprof(x)$?? Maybe add Remark 6 here and mention that Borda satisfies it. It is not simple to understand this point. Actually, the class of these rules is not immediate to me.}
 
 \begin{remark}
@@ -443,6 +438,8 @@ Short listing should be something around “maximax within the first half.” Ag
 \commentOC{Here is the description of $\SL$, which can be suitably adapted to other rules.} The $\SL$ rule is the rule that selects any alternative that is MR and that is not dominated by an MR alternative in terms of minimal welfare loses. More precisely, define $\prec$ as the following partial order on the set of loss vectors: $(a, b) \prec (c, d) ⇔ [(a, b) ≤^\text{MR} (c, d) \land \min\set{a, b} < \min\set{c, d}] \lor [(a, b) <^\text{MR} (c, d)]$, where $(a, b) ≤^\text{MR} (c, d)$ iff $(a, b)$ is first half. Then, $\SL$ selects $x$ iff it is an undominated element among the loss vectors that exist in $\prof$; formally, $f(\prof) = \set{x \in \allalts \suchthat \nexists y \in \allalts \suchthat y \prec x}$. 
 Defining the uncomparability relation $\sim$ as $l_1 \sim l_2$ iff $l_1 \sim^\text{MR} l_2 \land \min l_1 = \min l_2$, we obtain the weak order ${\preceq} = {\prec} \cup {\sim}$, and $f(\prof) = \argmin^{\preceq}_{x \in \allalts} \lprof(x)$.
 \commentOC{We could perhaps also describe $\prec$ as a union of relations, one of which is common to all rules.}
+
+\commentRS{Finally can we characterize WMD as a rule?}
 
 \bibliography{bibliototal}
 \end{document}
