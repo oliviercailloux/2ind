@@ -253,8 +253,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
 
-The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property.
-\commentMN{This property allows to distinguish FB from the other rules that we consider. This stronger version requires that $f$ selects uniquely the Pareto efficient alternatives that satisfy equal loss.}
+The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
@@ -293,7 +292,7 @@ When $m = 3$, $PV^{(1, 1)}$ satisfies SPEL.
 	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x) = k$ (as FB picks minimal worst loss alternatives). Thus, $y$ (weakly) Pareto-dominates $x$. As also $x$ is Pareto-dominant, $x = y$.}
 \end{proof}
 
-Thus, by satisfying both conditions, FB establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
+SPEL, failed by all rules we consider but one, allows to distinguish FB from the rest. Moreover, by satisfying both conditions, FB establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
