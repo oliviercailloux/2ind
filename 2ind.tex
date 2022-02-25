@@ -16,7 +16,8 @@
 	%Reduces verbosity about the underful vboxes.
 		\vbadness=1300
 
-\title{Two principles for two-person social choice}
+\title{Two principles for two-person social choice//
+\color{red}Two-person compromises?\color{black}}
 \author{Name}
 %\author{Olivier Cailloux}
 \affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
@@ -332,10 +333,36 @@ What about the other rules?
 
 \section{Further axiomatizations of the rules}
 \subsection{A characterisation of FB based on weight comparison}
-For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects the maximal elements according to the disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$. \commentMN{Why do we have $\max \lprof(x) - \min \lprof(x)$?? Maybe add Remark 6 here and mention that Borda satisfies it. It is not simple to understand this point. Actually, the class of these rules is not immediate to me.}
+For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects the maximal elements according to the disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$. \commentMN{Why do we have $\max \lprof(x) - \min \lprof(x)$?? What I mean is that the previous expression calls for an explanation. I can add that but it maybe safer to discuss a bit before. Actually, the class of these rules is not immediate to me.}
 
+\commentMN{I added a proof that Borda is weight-comparing. Are other scoring rules representable via a weight-comparing rule? Should we use weight-comparing or other name?}
 \begin{remark}
-	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.
+	Borda satisfies Paretian and weight-comparing and fails SPEL. It uses  $w_m = 2/3$ and $w_i = 1/3$. Indeed, by definition,
+	
+	
+	$$\textsc{Borda}(\prof) = \argmin_{\mathcal{A}} \sum_N \lprof = \set{x \in \mathcal{A} \suchthat \forall y \in\mathcal{A}: \sum_N \lprof(x) ≤ \sum_N \lprof(y)}.$$
+	\end{remark}
+	
+	
+	This makes sense since the loss of an alternative for a player is equal to $m-$(ranking of the alternative in the preference profile), wheres the usual definition of the Borda score assigned by a voter is that this score equals the ranking of the alternative in the voter's profile. Hence, they are equivalent.
+	
+	It is Paretian by definition since an alternative $x$ ranked higher by both voters than an alternative $y$ obtains a higher Borda score. It fails SPEL due to the same example as the one in Proposition 4. To see why Borda rule is a weight-comparing rule, take some $f$ with weights $w_i = 1/3$ and $w_m = 2/3$ so that:
+\begin{align*}f(\prof) &= \argmax_{x \in \allalts} -(2/3)(\min\lprof(x)) - (1/3)(\max \lprof(x) - \min \lprof(x))\\
+&\equiv \argmax_{x \in \allalts} -(1/3)(\min\lprof(x)+\max \lprof(x))\\
+&\equiv \argmax_{x \in \allalts} -(\sum\lprof(x))\\
+&\equiv \argmin_{x \in \allalts} (\sum\lprof(x))=\textsc{Borda}(\prof).\\
+\end{align*}
+	
+	\begin{remark}
+			The egalitarian rule that minimizes inequality of losses (disregarding efficiency) satisfies SPEL and weight-comparing and fails Paretianism. It uses $w_i = 1$.
+	 
+	\end{remark}
+
+\commentMN{When $w_m=1$, how is $f$? It selects the max of the minimum loss so quite uninteresting, right?}
+	
+	
+\begin{remark}
+	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.\commentMN{What about $w_{ineq}$ rather than $w_i$ and $w_{min}$ for $w_m$?}
 \end{remark}
 
 \begin{definition}[Weight-comparing]
@@ -403,10 +430,7 @@ This requires that $y$ Pareto-dominates $x$, and since $x \in \PE$, entails that
 	Follows (more or less) from the previous results.
 \end{proof}
 
-\begin{remark}
-	Borda satisfies Paretian and weight-comparing and fails SPEL. It uses $w_i = 1/3$ and $w_m = 2/3$.
-	The egalitarian rule that minimizes inequality of losses (disregarding efficiency) satisfies SPEL and weight-comparing and fails Paretianism. It uses $w_i = 1$.
-\end{remark}
+
 
 \begin{remark}
 	The weight-comparing property could perhaps be turned into more behavioral axioms with the help of something like Shifting (see \cref{def:shifting}). I suspect there is a classical trick to do this.
