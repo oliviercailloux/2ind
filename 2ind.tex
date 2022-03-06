@@ -88,7 +88,6 @@ and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the mi
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
 Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$.
 
-
 In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
@@ -359,11 +358,11 @@ For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote th
 	This makes sense since the loss of an alternative for a player is equal to $m-$(ranking of the alternative in the preference profile), wheres the usual definition of the Borda score assigned by a voter is that this score equals the ranking of the alternative in the voter's profile. Hence, they are equivalent.
 	
 	It is Paretian by definition since an alternative $x$ ranked higher by both voters than an alternative $y$ obtains a higher Borda score. It fails SPEL due to the same example as the one in Proposition 4. To see why Borda rule is a weight-comparing rule, take some $f$ with weights $w_i = 1/3$ and $w_m = 2/3$ so that:
-\begin{align*}f(\prof) &= \argmax_{x \in \allalts} -(2/3)(\min\lprof(x)) - (1/3)(\max \lprof(x) - \min \lprof(x))\\
+\begin{align}f(\prof) &= \argmax_{x \in \allalts} -(2/3)(\min\lprof(x)) - (1/3)(\max \lprof(x) - \min \lprof(x))\\
 &\equiv \argmax_{x \in \allalts} -(1/3)(\min\lprof(x)+\max \lprof(x))\\
 &\equiv \argmax_{x \in \allalts} -(\sum\lprof(x))\\
 &\equiv \argmin_{x \in \allalts} (\sum\lprof(x))=\textsc{Borda}(\prof).\\
-\end{align*}
+\end{align}
 \end{remark}
 
 \begin{remark}[Egalitarianism]
