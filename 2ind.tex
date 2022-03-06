@@ -4,7 +4,6 @@
 \input{preamble/redac}
 \input{preamble/math_basics}
 \input{preamble/math_mine}
-%\input{preamble/draw}
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
@@ -16,8 +15,7 @@
 	%Reduces verbosity about the underful vboxes.
 		\vbadness=1300
 
-\title{Two principles for two-person social choice//
-\color{red}Two-person compromises?\color{black}}
+\title{Two principles for two-person social choice}
 \author{Name}
 %\author{Olivier Cailloux}
 \affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
@@ -35,8 +33,7 @@
 
 \section{Introduction}
 \label{sec:intro}
-
-
+\commentOC{Someone suggests to rename the title to: Two-person compromises}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of Nash (1950), for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of Nash (1950) excludes several real-life situations. 
 
 Mariotti (1998) is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by Nagahisa and Tanaka (2002) who, again in a finite setting, characterize the solution of Kalai and Smorodinsky (1975). Both characterizations are built in a cardinal framework. 
@@ -328,21 +325,36 @@ FB picks x while y, which is also in the first half, has a lower dispersion. Thu
 
 What about the other rules?
  
-
-
-
 \section{Further axiomatizations of the rules}
 \subsection{A characterisation of FB based on weight comparison}
 For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote the rule that selects the maximal elements according to the disutility of the loss vectors weighted by $w_m$ and $w_i$, as follows: $f(\prof) = \argmax_{x \in \allalts} -w_m(\min\lprof(x)) - w_i(\max \lprof(x) - \min \lprof(x))$. \commentMN{Why do we have $\max \lprof(x) - \min \lprof(x)$?? What I mean is that the previous expression calls for an explanation. I can add that but it maybe safer to discuss a bit before. Actually, the class of these rules is not immediate to me.}
 
+\begin{remark}
+	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.\commentMN{What about $w_{ineq}$ rather than $w_i$ and $w_{min}$ for $w_m$?}
+\end{remark}
+
+\begin{definition}[Weight-comparing]
+	$f$ is weight-comparing iff $\exists w_m, w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
+\end{definition}
+
 \commentMN{I added a proof that Borda is weight-comparing. Are other scoring rules representable via a weight-comparing rule? Should we use weight-comparing or other name?}
+\commentOC{Thank you for the proof; it suggests that perhaps it will be good (also wrt your previous remark) to state this “change of basis” argument more generally, as I need it as well for the argument related to Pareto (\cref{th:paretoIneq}). I have attempted this below (\cref{rq:basis}).}
+\commentOC{I think (without proof and far from being sure) that most other scoring rules are not w-c rules, as they do not treat losing ranks uniformly across the ranks. Tops is one of the exceptions, see below, perhaps the sole other exception; and this is specific to two players as only in this case does Tops equal Plurality.}
+\commentOC{The LVC property (\cref{def:lvc}) plus anonymity, perhaps, capture the scoring rules feature (not sure at all); adding an “equal consideration for tradeoffs across ranks” condition (something like Shifting, \cref{def:shifting}) might yield w-c.}
+\commentOC{I’m not good with names, I agree that weight comparing is not a good name.}
+
+\begin{remark}[Alternative basis]
+	\label{rq:basis}
+	If $f$ is a weight-comparing rule with weights $(w_m, w_i)$, it is equally described as a rule that weights minimal and maximal losses with weights $(w'_m, w'_M)$ where $w'_m = w_m - w_i$ and $w'_M = w_i$.
+	Indeed, such a rule selects the alternatives that minimize $-w_m (l_m) - w_i (l_M - l_m)$, which equals $-(w_m - w_i) (l_m) - w_i (l_M)$.
+	
+	However, the relationship and the bounds on those alternate weights for an equivalent class of rules are less nice. Consider the egalitarian rule, \cref{rq:egalitarianism}, for an illustration.
+	We have that $w'_M = 1 - \frac{w'_m + 1}{2}$, and the bounds are $w'_m \in [-1, 1]$ and $w'_M \in [0, 1]$.
+\end{remark}
+
 \begin{remark}
 	Borda satisfies Paretian and weight-comparing and fails SPEL. It uses  $w_m = 2/3$ and $w_i = 1/3$. Indeed, by definition,
-	
-	
-	$$\textsc{Borda}(\prof) = \argmin_{\mathcal{A}} \sum_N \lprof = \set{x \in \mathcal{A} \suchthat \forall y \in\mathcal{A}: \sum_N \lprof(x) ≤ \sum_N \lprof(y)}.$$
-	\end{remark}
-	
+	\[\textsc{Borda}(\prof) = \argmin_{\mathcal{A}} \sum_N \lprof = \set{x \in \mathcal{A} \suchthat \forall y \in\mathcal{A}: \sum_N \lprof(x) ≤ \sum_N \lprof(y)}.\]
 	
 	This makes sense since the loss of an alternative for a player is equal to $m-$(ranking of the alternative in the preference profile), wheres the usual definition of the Borda score assigned by a voter is that this score equals the ranking of the alternative in the voter's profile. Hence, they are equivalent.
 	
@@ -352,22 +364,56 @@ For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote th
 &\equiv \argmax_{x \in \allalts} -(\sum\lprof(x))\\
 &\equiv \argmin_{x \in \allalts} (\sum\lprof(x))=\textsc{Borda}(\prof).\\
 \end{align*}
-	
-	\begin{remark}
-			The egalitarian rule that minimizes inequality of losses (disregarding efficiency) satisfies SPEL and weight-comparing and fails Paretianism. It uses $w_i = 1$.
-	 
-	\end{remark}
-
-\commentMN{When $w_m=1$, how is $f$? It selects the max of the minimum loss so quite uninteresting, right?}
-	
-	
-\begin{remark}
-	The currently, and temporarily, adopted notations for $w_m$ and $w_i$ use $m$ and $i$ to stand for \emph{minimal loss aversion} and \emph{inequality aversion}, and these letters in that context have nothing to do with the $m$ and $i$ previously defined for the number of candidates and a generic voter. I leave this is as-is for now and hope this introduces no confusion.\commentMN{What about $w_{ineq}$ rather than $w_i$ and $w_{min}$ for $w_m$?}
 \end{remark}
 
-\begin{definition}[Weight-comparing]
-	$f$ is weight-comparing iff $\exists w_m, w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
-\end{definition}
+\begin{remark}[Egalitarianism]
+	\label{rq:egalitarianism}
+	The egalitarian rule that minimizes inequality of losses (disregarding efficiency) satisfies SPEL and weight-comparing and fails Paretianism. It uses $w_i = 1$.
+\end{remark}
+
+\commentMN{When $w_m=1$, how is $f$? It selects the max of the minimum loss so quite uninteresting, right?}
+\commentOC{Such a rule is extremely averse to min losses, and does not care about inequality. In other words, it minimizes the minimum loss. Thus, it is the rule “Top”, that selects the top alternatives.}
+
+\begin{theorem}[Under w-c, SPEL equivalent to care for equality, at once]
+	\label{th:spelEquiv}
+	Consider $f$ on variable number of candidates, weight-comparing. Then, $f$ is SPEL iff $\exists w_i ≥ w_m \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
+\end{theorem}
+\begin{proof}
+	We will need the following fact.
+	Given $m \in \N$, $m ≥ 3$ odd, with $\allalts = \set{x, y, a_1, …, a_{m - 2}}$: 
+	\begin{equation}
+		\label{eq:bigIneq}
+		\exists \prof \suchthat x, y \in \PE \land \lprof[\prof](x) = \left(\frac{m - 1}{2}, \frac{m - 1}{2}\right) \land \lprof[\prof](y) = \left(0, \frac{m + 1}{2}\right). 
+	\end{equation}
+	Letting $S_1$ denote the sequence of $\frac{m - 1}{2}$ alternatives $(y, a_1, …, a_{\frac{m - 1}{2} - 1})$ and $S_2$, the sequence of $\frac{m - 1}{2}$ alternatives $(a_{\frac{m - 1}{2}}, …, a_{m - 2})$, such a profile can be defined as the rankings $(S_1, x, S_2)$ and $(S_2, x, S_1)$. Here is a visual description of it.
+	\begin{equation}
+		\begin{array}{lllll lllll ll}
+			y&a_1&…&a_{\frac{m - 1}{2} - 1}&x&a_{\frac{m - 1}{2}}&a_{\frac{m - 1}{2} + 1}&…&a_{m - 2}\\
+			a_{\frac{m - 1}{2}}&a_{\frac{m - 1}{2} + 1}&…&a_{m - 2}&x&y&a_1&…&a_{\frac{m - 1}{2} - 1}\\
+		\end{array}.
+	\end{equation}
+	
+	Back to our main claim, given $m \in \N$ and $k \in \intvl{0, m - 1}$, let $\mathcal{P}^{x, k}$ denote the set of profiles $\prof$ where an alternative $x \in \PE$ has losses $(k, k)$. By definition, a rule $f$ is SPEL iff
+	$\forall m \in \N, k \in \intvl{0, m - 1}, \prof \in \mathcal{P}^{x, k}$: 
+	\begin{equation}
+		\label{eq:condNotInF}
+		\forall y ≠ x \in \PE: y \notin f(\prof).
+	\end{equation}
+	When $f$ is weight-comparing, \eqref{eq:condNotInF} is equivalent to:
+	\begin{equation}
+		\forall y ≠ x \in \PE: [-w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) < -w_m k],
+	\end{equation}
+	itself equivalent to
+	\begin{equation}
+		\label{eq:wNotInF}
+		\forall y ≠ x \in \PE: [w_m (k - \min \lprof(y)) < w_i (\max \lprof(y) - \min \lprof(y))].
+	\end{equation}
+	To conclude, we show that $w_m ≤ w_i$ implies \eqref{eq:wNotInF} and that \eqref{eq:wNotInF} implies $w_m ≤ w_i$.
+	
+	Observe first that $\forall y ≠ x \in \PE: k < \max \lprof(y)$ (otherwise, $y$ is Pareto-dominated by $x$); equivalently, $k - \min \lprof(y) < \max \lprof(y) - \min \lprof(y)$. Thus, $m_m ≤ w_i$ implies \eqref{eq:wNotInF}.
+	
+	Second, considering any $\prof$ satisfying \eqref{eq:bigIneq} and considering $k = \frac{m - 1}{2}$, the condition implies that $w_m (\frac{m - 1}{2}) < w_i (\frac{m + 1}{2})$, equivalently, $w_m < w_i \frac{m + 1}{m - 1}$, and because this must be true for all $m$, this implies $w_m ≤ w_i$.
+\end{proof}
 
 \begin{theorem}[SPEL and weight-comparing cares for equality]
 	\label{th:spelTo}
@@ -382,10 +428,9 @@ For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote th
 			a_k&…&a_{2k - 1}&x&a_0&…&a_{k - 1}&a_{2k}&…&a_{m - 2}\\
 		\end{array}.
 	\end{equation}
-
 	
 	The following argument holds for all $k \in \intvl{0, \floor{\frac{m}{2}}}$.
-	Observe that $\lprof[\prof^k](x) = (k, k)$ and $\lprof[\prof^k](a_0) = (1, k + 1)$.
+	Observe that $\lprof[\prof^k](x) = (k, k)$ and $\lprof[\prof^k](a_0) = (1, k + 1)$ \commentOC{pbl here}.
 	As $f$ is weight-comparing, $f(\prof^k) = \set{x}$ iff $-k w_m > -1 w_m -k w_i$;
 	equivalently, $k w_i > (k - 1) w_m$, and still equivalently, $w_i ≥ \frac{k - 1}{k} w_m$.
 	Also, $x \in \PE[\prof^k]$, hence, by SPEL, $f(\prof^k) = \set{x}$.
@@ -399,24 +444,27 @@ For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote th
 	
 	Consider any profile where $x \in \PE$ and $\lprof(x) = (k, k)$ (for any $k$). Then, $f(\prof) = \set{x}$ (thus, is SPEL).
 	Indeed, $\forall y \in \allalts$, letting $y_m$ denote $\min \lprof(y)$ and $y_i$ denote $\max \lprof(y) - \min \lprof(y)$, we obtain that: 
-	
 	\begin{align*}
-	    y \in f(\prof) \text{ only if }& -w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) ≥ -w_m k,\\
-	    &\Longleftrightarrow w_m (k - \min \lprof(y)) \geq w_i (\max \lprof(y) - \min \lprof(y)) \\
-	    &\Longrightarrow k - \min \lprof(y) \geq  \max \lprof(y) - \min \lprof(y) \: (\:\text{since } w_i \geq w_m \:)\\
-	    &\Longleftrightarrow k \geq  \max \lprof(y).
+		y \in f(\prof) \text{ only if }& -w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) ≥ -w_m k,\\
+		&⇔ w_m (k - \min \lprof(y)) \geq w_i (\max \lprof(y) - \min \lprof(y)) \\
+		&⇔ k - \min \lprof(y) \geq  \max \lprof(y) - \min \lprof(y) \: (\:\text{since } w_i \geq w_m \:)\\
+		&⇔ k \geq  \max \lprof(y).
 	\end{align*}
-This requires that $y$ Pareto-dominates $x$, and since $x \in \PE$, entails that $y = x$.
+	This requires that $y$ Pareto-dominates $x$, and since $x \in \PE$, entails that $y = x$.
 \end{proof}
 
 \begin{theorem}[Paretianism limits inequality consideration]
-	Consider $f$ on variable number of candidates, Paretian and weight-comparing. Then, $\exists w_m ≥ w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
+	\label{th:paretoIneq}
+	Consider $f$ on variable number of candidates, weight-comparing. Then, $f$ is Paretian iff $\exists w_m ≥ w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
 \end{theorem}
 \begin{proof}
-	Consider the losses $(100, 100)$ versus $(0, 99)$, thus in basis (min, ineq), $(100, 0)$ versus $(0, 99)$. The first one will be picked if $-100 w_m > -99 w_i$, which will happen if $w_i > 100/99 w_m$. (The argument can and should be completed by defining a profile where only $a$ and $b$ with losses $(0, 99)$ and $(99, 0)$ are pareto-dominant: on a smaller scale, this is $a, c, d, e, b, x, f, g, h$ and $b, f, g, h, a, x, c, d, e$.)
+	For the forward direction, consider the losses $(100, 100)$ versus $(0, 99)$, thus in basis (min, ineq), $(100, 0)$ versus $(0, 99)$. The first one will be picked if $-100 w_m > -99 w_i$, which will happen if $w_i > 100/99 w_m$. (The argument can and should be completed by defining a profile where only $a$ and $b$ with losses $(0, 99)$ and $(99, 0)$ are pareto-dominant: on a smaller scale, this is $a, c, d, e, b, x, f, g, h$ and $b, f, g, h, a, x, c, d, e$.)
+	
+	The backwards direction follows from \cref{rq:basis}: from $w_m ≥ w_i$ follows that $w'_m ≥ 0$, and as $w'_M ≥ 0$ anyway, $f$ will respect dominance of losses (formally, $\lprof(y) > \lprof(x) ⇒ y \notin f(\prof)$).
 \end{proof}
 
 \begin{theorem}[FB as weighter]
+	\label{th:fbW}
 	FB = $f^{\frac{1}{2}, \frac{1}{2}}$.
 \end{theorem}
 \begin{proof}
@@ -427,13 +475,18 @@ This requires that $y$ Pareto-dominates $x$, and since $x \in \PE$, entails that
 	The rule $f$ defined on variable number of candidates is Paretian, SPEL and weight-comparing iff it is FB.
 \end{theorem}
 \begin{proof}
-	Follows (more or less) from the previous results.
+	We show that the rule $f$ defined on variable number of candidates is Paretian, SPEL and weight-comparing iff it is $f^{\frac{1}{2}, \frac{1}{2}}$, as \cref{th:fbW} then brings the result.
+	
+	Considering a rule $f$ defined on variable number of candidates and weight-comparing, \cref{th:spelEquiv,th:paretoIneq} apply.
+	From \cref{th:spelEquiv}, and assuming $f$ is also SPEL, $\exists w_i ≥ w_m \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
+	From \cref{th:paretoIneq}, and assuming $f$ is also Paretian, $\exists w_m ≥ w_i \in [0, 1], w_m + w_i = 1 \suchthat f = f^{w_m, w_i}$.
+	It follows that $f = f^{\frac{1}{2}, \frac{1}{2}}$.
+	
+	\Cref{th:spelEquiv,th:paretoIneq} also show that the converse holds.
 \end{proof}
 
-
-
 \begin{remark}
-	The weight-comparing property could perhaps be turned into more behavioral axioms with the help of something like Shifting (see \cref{def:shifting}). I suspect there is a classical trick to do this.
+	The weight-comparing property could perhaps be turned into more behavioral axioms with the help of something like Shifting (see \cref{def:shifting}). I suspect that there is a classical trick to do this.
 	It might also be useful to note that weight-comparing is a stronger version of LVC (see \cref{def:lvc}).
 \end{remark}
 \begin{definition}[Shifting]
