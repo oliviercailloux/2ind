@@ -402,18 +402,18 @@ For any $w_m, w_i \in [0, 1]$ with $w_m + w_i = 1$, let $f^{w_m, w_i}$ denote th
 	\end{equation}
 	When $f$ is weight-comparing, \eqref{eq:condNotInF} is equivalent to:
 	\begin{equation}
-		\forall y ≠ x \in \PE: [-w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) < -w_m k],
+		\forall y  \in \PE\setminus \{x\}: [-w_m \min \lprof(y) - w_i (\max \lprof(y) - \min \lprof(y)) < -w_m k],
 	\end{equation}
 	itself equivalent to
 	\begin{equation}
 		\label{eq:wNotInF}
-		\forall y ≠ x \in \PE: [w_m (k - \min \lprof(y)) < w_i (\max \lprof(y) - \min \lprof(y))].
+		\forall y \in \PE\setminus \{x\}: [w_m (k - \min \lprof(y)) < w_i (\max \lprof(y) - \min \lprof(y))].
 	\end{equation}
 	To conclude, we show that $w_m ≤ w_i$ implies \eqref{eq:wNotInF} and that \eqref{eq:wNotInF} implies $w_m ≤ w_i$.
 	
-	Observe first that $\forall y ≠ x \in \PE: k < \max \lprof(y)$ (otherwise, $y$ is Pareto-dominated by $x$); equivalently, $k - \min \lprof(y) < \max \lprof(y) - \min \lprof(y)$. Thus, $m_m ≤ w_i$ implies \eqref{eq:wNotInF}.
+	Observe first that $\forall y,x\in \PE$ with $y ≠ x$,  $k < \max \lprof(y)$ (otherwise, $y$ is Pareto-dominated by $x$); equivalently, $k - \min \lprof(y) < \max \lprof(y) - \min \lprof(y)$. Thus, $w_m ≤ w_i$ implies \eqref{eq:wNotInF}.
 	
-	Second, considering any $\prof$ satisfying \eqref{eq:bigIneq} and considering $k = \frac{m - 1}{2}$, the condition implies that $w_m (\frac{m - 1}{2}) < w_i (\frac{m + 1}{2})$, equivalently, $w_m < w_i \frac{m + 1}{m - 1}$, and because this must be true for all $m$, this implies $w_m ≤ w_i$.
+	Second, considering any $\prof$ satisfying \eqref{eq:bigIneq} and $k = \frac{m - 1}{2}$. The inequality \eqref{eq:wNotInF} implies that any alternative $y$ that satisfies \eqref{eq:bigIneq},  $w_m \left(\frac{m - 1}{2} - 0\right) < w_i \left(\frac{m + 1}{2} - 0\right)$, equivalently, $w_m < w_i \frac{m + 1}{m - 1}$, and because this must be true for all $m$, this implies $w_m ≤ w_i$.
 \end{proof}
 
 \begin{theorem}[Paretianism limits inequality consideration]
