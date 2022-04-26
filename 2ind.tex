@@ -348,6 +348,7 @@ That number is (strictly) positive iff $f^{w_m, w_i}$ considers $x$ (strictly) w
 Note that $\Delta^{x, y}_\mathit{min} = - \Delta^{y, x}_\mathit{min}$.
 
 \begin{proposition}
+	\label{th:wcDelta}
 	The rule $f^{w_m, w_i}$ selects the maximal elements of $\succeq$ defined as 
 	$x \succeq y ⇔ \frac{w_i}{w_m} \Delta^{y, x}_\mathit{ineq} ≥ \Delta^{x, y}_\mathit{min}$.
 \end{proposition}
@@ -484,27 +485,71 @@ Note that $\Delta^{x, y}_\mathit{min} = - \Delta^{y, x}_\mathit{min}$.
 \end{remark}
 
 \subsection{A characterisation via marginal tradeoffs}
-\begin{remark}
-	The weight-comparing property could perhaps be turned into more behavioral axioms with the help of something like Shifting (see \cref{def:shifting}). I suspect that there is a classical trick to do this.
-	It might also be useful to note that weight-comparing is a stronger version of LVC (see \cref{def:lvc}).
-\end{remark}
+We will need the concept of a tradeoff function, intuitively, a function of the form $t(a, b)$, where $a$ is the ineq level and $b$ is the delta min, which indicates the delta ineq that compensates that delta min.
+\begin{definition}[tradeoff function]
+	A tradeoff function is a function of the form $t: \N^2 → \N \cup (\N + \frac{1}{2})$, with $t(a, 0) = 0$.
+\end{definition}
+Tradeoff functions are used to determine tradeoff preferences. To define this concept we first need to generalize the notion of Pareto dominance.
+\begin{definition}[min-ineq Pareto relation]
+	The min-ineq Pareto relation is a binary relation $R \subseteq \N^2 × \N^2$, defined on the loss tuples using minimal loss and inequality as a basis (from now on called the min-ineq losses), as follows. The min-ineq loss $(m, i)$ wealky Pareto-dominates the min-ineq loss $(m', i')$ iff it has a not worst min loss (that is, $m ≤ m'$) and a not worst ineq (that is, $i ≤ i'$). In other words, the min-ineq Pareto relation coincides with the $≤$ relation over ordered pairs of natural numbers.
+\end{definition}
+\begin{definition}[tradeoff preference]
+	A tradeoff function $t$ determines a corresponding tradeoff preference, $\mathbin{\succeq^t} \subseteq \N^2 × \N^2$, defined on the min-ineq losses, as follows.
+	Intuitively, given $d_m \in \N$ (a delta min), the function $t$ indicates that $(m, i)$ is indifferent to $(m, i) + (d_m, t(i, d_m))$.
+	Considering in supplement the min-ineq Pareto relation, we obtain our formal definition: $(m, i) \succeq^t (m, i) + (d_m, d_i)$ iff $d_i ≥ t(i, d_m)$.
+\end{definition}
 
-A tradeoff function is $t(a, b) \in \N \cup (\N + \frac{1}{2})$ where $a$ is the ineq level and $b$ is the delta min, and it indicates the least delta ineq improvement acceptable for that min worsening. 
+\begin{conjecture}[Requirement on $t$]
+	The preference $\succeq^t$ corresponding to a given tradeoff function $t$ is acyclic and complete iff $t$ satisfies: $t(i, d_m) < 0 ⇔ d_m > 0$.
+\end{conjecture}
+\begin{proof}[Intuition for the proof]
+	The requirement is a generalization of the requirement that $(1, 3) \succeq (2, 3)$, very intuitively speaking.
+	Consider $d_m > 0$.
+	$(1, 3) \succeq (1, 3) + (d_m, 0)$ iff $t(i, d_m) < 0 ⇔ d_m > 0$.
+\end{proof}
 
-A tradeoff rule is $f^t$, parameterized by a tradeoff function, defined as $f^t(\prof)$ selecting maximal elements according to losses $(min, ineq)$ according to the preference as determined by the tradeoff function. More precisely, $(m, i)$ is preferred to $(m', i')$ iff loss min is not compensated enough by gain ineq: $i - i' < t(i', m' - m)$. Note that $i - i'$ is the gain ineq; $m' - m$ is the loss min; $t(i, m' - m)$ is the least delta ineq acceptable for that min worsening.
+\begin{definition}[tradeoff rule]
+	A tradeoff rule $f^t$ is a rule parameterized by a tradeoff function $t$, defined as $f^t(\prof)$ selecting maximal elements according to the relation $\succeq^t$ determined by the tradeoff function. Formally, given $l$ a loss tuple (in the usual basis), define $i(l) = \max l - \min l$ as the inequality of that loss tuple, and given $x, x' \in \allalts$, say that $f^t(\prof)$ wealy prefers $x$ to $x'$ iff $(\min \lprof(x), i(\lprof(x))) \succeq^t (\min \lprof(x), i(\lprof(x)))$, and define $f^t(\prof)$ as the maximal elements of that preference relation.
+\end{definition}
 
-\begin{example}
-$t(5, 1) = 2$ indicates that at ineq 5, a worsening of 1 min (thus, plus 1 min) is acceptable in exchange of an improvement of at least 2 ineq (thus, minus 2 ineq) (or 3 ineq, thus, minus 3 ineq, …), thus, $(1, 5) ≤ (2, 3)$ (and, of course, $(1, 5) ≤ (2, 2)$).
-Also, $t(3, -1) = -2$ indicates that at ineq 3, an improvement of 1 min (thus, minus 1 min) is acceptable in exchange of a worsening of at most 2 ineq (thus, plus 2 ineq) (or 1 ineq, thus, plus 1 ineq, …), means we want a worsening of at least 2 ineq (thus, plus 2 ineq, or plus 3 ineq, …): $(1, 4) ≥ (1, 5) ≥ (2, 3)$.
-
-Given $t(5, 1) = 1.5$, with $(m, i) = (1, 5)$ and $(m', i') = (2, 3)$: $(1, 5)$ preferred to $(2, b)$ iff $5 - b < 1.5$ (that is, $b > 3.5$), thus, $(2, 4) ≤ (1, 5) ≤ (2, 3) ≤ (2, 2)$.
-%Equivalently, given $t(3, -1) = -1.5$, with $(m, i) = (1, 5)$ and $(m', i') = (2, 3)$: $(1, b)$ preferred to $(2, 3)$ iff $b - 3 < $(2, 3) ≥ (1, 5)$.
-%$(m, i) = (2, 3)$ and $(m', i') = (1, 5)$: 
-\end{example}
+These definitions thus lead naturally to the following conjecture.
+\begin{conjecture}
+	$f^t$ satisfies the natural [min, ineq] Pareto relation (lower is better) iff $t$ satisfies $t(i, d_m) < 0 ⇔ d_m > 0$.
+\end{conjecture}
+%For this reason, for now on we consider $t$ satisfying $t(i, d_m) < 0 ⇔ d_m > 0$.
 
 \begin{definition}[Shifting]
 	\label{def:shifting}
 	From $\prof$, define $\prof'$ by adding a new alternative $z$ on top of $i$’s ranking and a new alternative $w$ at bottom of $i$’s ranking, and adding $w$ on top of $\ibar$’s ranking and $z$ at bottom of $\ibar$’s ranking, thereby shifting every previous alternatives one rank down. Shifting requires that $\forall \prof: f(\prof) = f(\prof')$ (unless $z$ or $w$ is taken -- details should be worked up).
+\end{definition}
+
+\begin{definition}[Shift up]
+	\label{def:shiftUp}
+	Consider $\prof$ and let $\set{w, z}$ designate the bottom alternatives (first voter $w$, second one $z$, with possibly $w = z$).
+	Define $\prof'$ as $\prof$ where all alternatives are shifted one rank downwards, except that for the first voter, $w$ goes first, and for the last voter, $z$ goes first.
+	Then, $[f(\prof') \cap \set{w, z} = \emptyset] ⇒ f(\prof') = f(\prof)$.
+\end{definition}
+
+\begin{definition}[Shift down]
+	\label{def:shiftDown}
+	Consider $\prof$ where the top alternatives $\set{w, z}$ (first voter $w$, second one $z$, with possibly $w = z$) do not win ($f(\prof) \cap \set{w, z} = \emptyset$). 
+	Define $\prof'$ as $\prof$ where all alternatives are shifted one rank upwards, except that for the first voter, $w$ goes last, and for the last voter, $z$ goes last.
+	Then, $f(\prof') = f(\prof)$.
+\end{definition}
+
+\begin{conjecture}
+	Shift up implies Shift down.
+\end{conjecture}
+
+\begin{definition}[Finite shifting]
+	\label{def:finiteShifting}
+	$f$ satisfies finite shifting iff it satisfies Shift up (hence, iff it satisfies Shift down and Shift up).
+\end{definition}
+
+\begin{definition}[Half shift]
+	Consider $\prof$ and let $w$ designate the bottom alternative of voter $i$.
+	Define $\prof'$ as $\prof$ except that all alternatives of voter $i$ are shifted one rank downwards, except that $w$ goes first.
+	Then, $[f(\prof') \cap \set{w} = \emptyset] ⇒ f(\prof') = f(\prof)$.
 \end{definition}
 
 \begin{definition}[Loss vector comparing (LVC)]
@@ -515,25 +560,59 @@ Given $t(5, 1) = 1.5$, with $(m, i) = (1, 5)$ and $(m', i') = (2, 3)$: $(1, 5)$ 
 \begin{conjecture}
 	LVC and shifting implies $\exists t \suchthat f = f^t$.
 \end{conjecture}
-\begin{proof}
+\begin{proof}[Intuition for the proof]
 	Assume that $x$ with losses $(2, 5)$ is preferred (according to $\succeq$) to $y$ with losses $(1, 6)$.
-
-	Intuition: $2, 3$ VS $4, 6$ same as $2 + \delta, 3 + \delta$ VS $4 + \delta, 6 + \delta$. Thus, in basis min, ineq: $2, 1$ VS $4, 2$ same as $2 + \delta, 1$ VS $4 + \delta, 2$. At min 2, I am ready to pay $\alpha$ ineq to get one min (to min 3), then at min 4, same.
+	Thus, in min-ineq basis: $(2, 3) \succeq (1, 5)$.
+	We have to prove that then, $(1, 3) \succeq (0, 5)$ [m-i].
+	Thus, that $(1, 4) \succeq (0, 5)$ [losses].
+	This is clear from shifting.
 \end{proof}
 
 \begin{conjecture}
-	LVC and shifting does not imply w-c.
+	LVC and finite shifting and Half shift equivalent to w-c.
+\end{conjecture}
+
+\begin{conjecture}
+	w-c implies finite shifting.
 \end{conjecture}
 \begin{proof}
-	Assume that $x$ with losses $(2, 5)$ is preferred (according to $\succeq$) to $y$ with losses $(1, 6)$.
-	Then, any pair with $\Delta^{y, x}_\mathit{ineq} = 2$ and $\Delta^{x, y}_\mathit{min} = 1$ will have $x \succeq y$.
-	FURTHERMORE, any pair with $\Delta^{y, x}_\mathit{ineq} = 4$ and $\Delta^{x, y}_\mathit{min} = 2$ will have $x \succeq y$?
-	In fact, any trade of 2 $\Delta^{y, x}_\mathit{ineq}$ for 1 $\Delta^{x, y}_\mathit{min}$ will be accepted.
+	Seems to follow from \cref{th:wcDelta}.
+\end{proof}
+
+\begin{conjecture}
+	LVC and finite shifting and min-ineq Pareto implies $\exists t \suchthat f = f^t$.
+\end{conjecture}
+\begin{proof}[Rough sketch of a proof]
+	Assume that $x$ with losses $(2, 2)$ is preferred (according to $\succeq$) to $y$ with losses $(1, 3)$.
+	Thus, in min-ineq basis: $(2, 0) \succeq (1, 2)$.
+	We have to prove that then, $(1, 0) \succeq (0, 2)$ [m-i].
+	Thus, that $(1, 1) \succeq (0, 2)$ [losses].
+	This is clear from shifting.
 	
-	Consider $x$ with losses $(1, 5)$ and $y$ with losses $(0, 6)$. Ineq $x$ is $4$ and ineq $y$ is 6.
-	to prove: $x$ is preferred to $y$.
+	More generally.
+	Define $x = (2, 0)$ [m-i], and let $y = (1, b)$ be indifferent to it. Then define $t_2$ accordingly. Proceed similarly for other vectors $(2, a)$ indifferent to $(1, b)$, which defines $t_2$ completely. Proceed similarly for $t_m$, for other values of min $m$. Then prove that $t_m$ are equal for all $m$.
+\end{proof}
+
+\begin{conjecture}
+	Consider $f^t$, SPEL. Then, $t(0, d_m) = inf$. BUT NOT $t(i, d_m) = d_i ≤ d_m$. (Intuitively, inequality matters more than min.)
+\end{conjecture}
+\begin{conjecture}
+	Consider $f^t$, Paretian. Then, $t(i, d_m) = d_i ≥ d_m$. (Intuitively, inequality matters less than min.)
+\end{conjecture}
+
+\begin{conjecture}
+	LVC and shifting do not imply w-c.
+\end{conjecture}
+\begin{proof}[Idea of a proof]
+%	Assume that $x$ with losses $(2, 5)$ is preferred (according to $\succeq$) to $y$ with losses $(1, 6)$.
+%	Then, any pair with $\Delta^{y, x}_\mathit{ineq} = 2$ and $\Delta^{x, y}_\mathit{min} = 1$ will have $x \succeq y$.
+%	FURTHERMORE, any pair with $\Delta^{y, x}_\mathit{ineq} = 4$ and $\Delta^{x, y}_\mathit{min} = 2$ will have $x \succeq y$?
+%	In fact, any trade of 2 $\Delta^{y, x}_\mathit{ineq}$ for 1 $\Delta^{x, y}_\mathit{min}$ will be accepted.
+%	
+%	Consider $x$ with losses $(1, 5)$ and $y$ with losses $(0, 6)$. Ineq $x$ is $4$ and ineq $y$ is 6.
+%	to prove: $x$ is preferred to $y$.
 	
-	Not guaranteed, it seems: I could have $(1, 4) > (0, 5) > (0, 6) > (1, 5)$.
+	We could have $(1, 4) > (0, 5) > (0, 6) > (1, 5)$.
 \end{proof}
 
 \subsection{Axiomatization of rules other than FB}
