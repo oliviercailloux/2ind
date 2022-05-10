@@ -310,13 +310,16 @@ $MD$ requires the outcome to contain Paretian alternatives whose loss vectors ha
     \commentOC{TODO}.
 \end{proof}
 
-As the minimal Rawlsian and minimal dispersion principles are logically incompatible, the rules that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As most PV rules fail MR, determining the class of PV rules that satisfy MD is of interest. As MD implies PEL, this will be a subclass of class of PV rules that satisfy PEL, which is identified by Proposition 5.
+The minimal Rawlsian and minimal dispersion principles being logically incompatible, the rules that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result that determines the class of PV rules satisfying MD is of interest. 
 
 \begin{proposition}
 	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff its veto levels are both at most $\floor{\frac{m}{3}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{3}}$.
 \end{proposition}
 \commentRS{Prove the proposition}
-\commentRS{Look at the recent papers of Ozgur}
+
+\begin{remark}
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This general observation can be more intelligible by comparing Propositions 5 and 8. 
+\end{remark}
 
 Another question is whether MR rules, which all fail MD, will satisfy MD restricted to MR alternatives (Rawlsian MD). Define RMD and note that it is logically independent of MD. Now, look at the following profile with 11 alternatives.
 
@@ -327,6 +330,8 @@ e f g y x h w …….
 FB picks x while y, which is also in the first half, has a lower dispersion. Thus, FB fails RMD.
 
 What about the other rules?
+
+\commentRS{Look at the recent papers of Ozgur}
  
 \section{Further axiomatizations of the rules}
 \subsection{A characterisation of FB based on weight comparison}
