@@ -33,7 +33,7 @@
 
 \section{Introduction}
 \label{sec:intro}
-\commentOC{Someone suggests to rename the title to: Two-person compromises}
+
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of Nash (1950), for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of Nash (1950) excludes several real-life situations. 
 
 Mariotti (1998) is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by Nagahisa and Tanaka (2002) who, again in a finite setting, characterize the solution of Kalai and Smorodinsky (1975). Both characterizations are built in a cardinal framework. 
@@ -42,7 +42,7 @@ An ordinal framework of two-person finite bargaining problems is presented by Br
  
 As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by Hurwicz and Sertel (1997) and the \textit{majoritarian compromise} by Sertel and Yilmaz (1999). It also paved the way to new axioms for social choice, such as \textit{efficiency in the degree of compromise} by Ozkal Sanver and Sanver (2004).  Merlin et al. (2019) present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
  
-A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Theorem 3 of Brams and Kilgour (2001) shows the equivalence between the Rawlsian principle and fallback bargaining. (See Congar and Merlin (2012) for a characterization of the Rawlsian principle within the framework of social welfare functions.0 As a matter of fact, every individual ranks a fallback bargaining outcome in the upper half of his ranking (Brams and Kilgour 2001). Thus, asking from a social choice rule to always pick an alternative that is ranked among the first half of both players’ rankings presents a well-defined principle, which we qualify as being \textit{minimally Rawlsian}. 
+A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Brams and Kilgour (2001) establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference ranking. We qualify a social choice rule that complies with this possibility as \textit{minimally Rawlsian}. (See Congar and Merlin (2012) for a characterization of the Rawlsian principle within the framework of social welfare functions.) 
 
 Another principle for two-person social choice is proposed by Cailloux et al. (2022) who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
  
@@ -113,11 +113,12 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
     $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 
-\section{Minimal Rawlsian principle}
+\section{The minimal Rawlsian principle}
 \begin{definition}[Minimal Rawlsian (MR)] A SCR satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 \commentOC{I now wonder if this definition is appropriate, wrt the name.}
+\commentRS{I tried to resolve the matter by revising the relevant paragraph at the intro. Can you have a look?}
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
 \begin{theorem}
