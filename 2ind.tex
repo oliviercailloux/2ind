@@ -119,6 +119,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{definition}
 \commentOC{I now wonder if this definition is appropriate, wrt the name.}
 \commentRS{I tried to resolve the matter by revising the relevant paragraph at the intro. Can you have a look?}
+\commentMN{I agree with the modification}
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
 \begin{theorem}
@@ -276,18 +277,13 @@ Thus, VR, SL and those rules in PV that fail PEL all fail SPEL. Furthermore, as 
 When $m = 3$, $PV^{(1, 1)}$ satisfies SPEL.
 \end{remark}
 
+\commentMN{Proof of Proposition 7 improved}
 \begin{proposition}
 	FB satisfies SPEL.
 \end{proposition}
 \begin{proof}
-	\commentOC{Original sketch.
-	If an alternative is Pareto and equal-loss, FB chooses it.
-	Let $x$ be such an alternative and assume that FB does not pick it. Hence, there is some $y$ that Pareto dominates $x$, a contradiction.
-	}
-
-	\commentOC{Suggestion (same idea with slightly more detail). 
-	Consider any profile $\prof$, let $x \in PD(\prof)$ and $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $FB(\prof) = \set{x}$.
-	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x) = k$ (as FB picks minimal worst loss alternatives). Thus, $y$ (weakly) Pareto-dominates $x$. As also $x$ is Pareto-dominant, $x = y$.}
+	Consider some profile $\prof$ with $x \in PE(\prof)$ and $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $FB(\prof) = \set{x}$.
+	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x) = k$ (as FB picks minimal worst loss alternatives). Thus, $y$ (weakly) Pareto-dominates $x$. Since $x$ is Pareto-efficient, $x = y$.
 \end{proof}
 
 SPEL, failed by all rules we consider but one, allows to distinguish FB from the rest. Moreover, by satisfying both conditions, FB establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
@@ -318,12 +314,14 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 \commentRS{Prove the proposition}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This general observation can be more intelligible by comparing Propositions 5 and 8. 
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions 5 and 8. 
 \end{remark}
+
+\section{Reconciling the two principles}
 
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. 
 \commentRS{Define Rawlsian MD}
-Rawlsian MD implies being MR while it is logically independent of MD. 
+Rawlsian MD implies MR, hence being logically incompatible with MD. 
 
 \commentRS{I think all four rules we consider fail Rawlsian MD. Look at the following profile with 11 alternatives.
 
