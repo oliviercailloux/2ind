@@ -278,12 +278,12 @@ When $m = 3$, $PV^{(1, 1)}$ satisfies SPEL.
 \end{remark}
 
 \commentMN{Proof of Proposition 7 improved}
+\commentRS{I proposed a further improvement to the proof of Proposition 7}
 \begin{proposition}
 	FB satisfies SPEL.
 \end{proposition}
 \begin{proof}
-	Consider some profile $\prof$ with $x \in PE(\prof)$ and $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $FB(\prof) = \set{x}$.
-	Observe that for any $y \in FB(\prof)$, $\max \lprof(y) ≥ \max \lprof(x) = k$ (as FB picks minimal worst loss alternatives). Thus, $y$ (weakly) Pareto-dominates $x$. Since $x$ is Pareto-efficient, $x = y$.
+	Pick any profile $\prof$ and any $x \in PE(\prof)$ with $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. As FB minimizes the maximal loss, we have $\max \lprof(y) ≥ \max \lprof(x) = \min \lprof(x) = k$ for all $y \in FB(\prof)$. Since $x \in PE(\prof)$, we have $x = y$, hence $FB(\prof) = \set{x}$, showing that FB satisfies SPEL.
 \end{proof}
 
 SPEL, failed by all rules we consider but one, allows to distinguish FB from the rest. Moreover, by satisfying both conditions, FB establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
