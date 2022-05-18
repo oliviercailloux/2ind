@@ -285,7 +285,7 @@ Thus, VR, SL and those rules in PV that fail PEL all fail SPEL. Furthermore, as 
 		\end{array}.
 	\end{equation}
     SPEL requires to pick solely $b$. Any PV rule will pick at least either $a$ or $c$ in supplement to $b$. 
-    Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$ and $m ≥ 4$, we know that $v_1 + v_2 ≤ m - 1 + (m - 4)$. Now if $c \notin f(\prof)$ (equivalently, $- v_1 ≤ -m + 2$), then $v_2 ≤ m - 1 + (m - 4) - m + 2$, then $v_2 ≤ m - 3$, then $a \in f(\prof)$.
+    Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$ and $m ≥ 4$, we know that $v_1 + v_2 ≤ m - 1 + (m - 4) = m - 2 + m - 3$. Now if $c \notin f(\prof)$ (equivalently, $m - 2 ≤ v_1$), then $v_1 + v_2≤ v_1 + m - 3$, then $a \in f(\prof)$.
 \end{proof}
 
 \begin{remark}
