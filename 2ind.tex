@@ -122,6 +122,19 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \commentOC{I now wonder if this definition is appropriate, wrt the name.}
 \commentRS{I tried to resolve the matter by revising the relevant paragraph at the intro. Can you have a look?}
 \commentMN{I agree with the modification}
+\commentOC{I had in mind to obtain the current definition of MR as a formal result rather than as a defintion, something like the following (which unfortunately is too complex to be satisfactory).}
+\begin{definition}[$k$-Bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, a SCR satisfies $k$-Bounded Rawlsianism iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
+	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
+\end{definition}
+\begin{definition}[Minimal Rawlsian (MR)]
+	A SCR satisfies MR iff it satisfies $k$-Bounded Rawlsianism for the smallest $k$ such that $k$-Bounded Rawlsianism is satisfiable.
+\end{definition}
+As noted in the introduction, it is possible to satisfy $k$-Bounded Rawlsianism only for $k$ at least “half”.
+\begin{proposition}
+	Given $k  < \khalf$, no rule is $k$-Bounded Rawlsianism.
+\end{proposition}
+We define “Minimal Rawlsian (MR)” as the minimal $k$ for which $k$-Bounded Rawlsianism is satisfiable. Hence, “Minimal Rawlsian (MR)” is identical to $\khalf$-Bounded Rawlsianism.
+
 Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
 
 \begin{theorem}
