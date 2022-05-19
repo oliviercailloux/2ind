@@ -359,7 +359,7 @@ $MD$ requires the outcome to contain Paretian alternatives whose loss vectors ha
 \end{remark}
 
 \section{Reconciling the two principles}
-\commentRS{Thanks Matias, I think what you wrote below is fine. I made a few minor changes.}
+
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. 
 
 The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
@@ -367,9 +367,14 @@ The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contai
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 
-\commentRS{Can we put below a formal proposition claiming that FB, VR, SL and all PV rules except $PV^{=}$ fail RMD. The proof for PV rules is missing but seems to be more or less obvious.}
+\commentRS{I worked on the proof below but its latex needs to be corrected and the end must be completed.}
 
-Consider the following profile with 11 alternatives.
+\begin{proposition}
+     FB, VR, SL and all PV rules except $PV^{=}$ fail RMD.
+\end{proposition}
+
+\begin{proof}
+Consider the following profile P with 11 alternatives.
 
 	\begin{equation}
 		\begin{array}{llllllll}
@@ -378,12 +383,9 @@ Consider the following profile with 11 alternatives.
 	\end{equation}
 
 
+H(\mathbf{P})={x, y} and for a rule f to satisfy RMD, we must have y element of f(P). However, Only alternatives $x$ and $y$ are in the first half. $RMD$ requires $y$ to be among the picked alternatives. Both $FB$(P) = $VR$(P)={$x$} thus both rules fail RMD. 
 
-
-Only alternatives $x$ and $y$ are in the first half. $RMD$ requires $y$ to be among the picked alternatives. Both $FB$ and $VR$ pick $x$, thus fail the principle. 
-
-To see that $SL$ fails the principle, consider the following profile where $SL$ picks both $a$ and $c$ while $b$ should be picked according to the principle.
-
+To see that $SL$ fails RMD, consider the following profile P with $SL$(P)={a, c} while RMD requires b element of SL(P). 
 
 
 	\begin{equation}
@@ -393,7 +395,17 @@ To see that $SL$ fails the principle, consider the following profile where $SL$ 
 	\end{equation}
 
 
-Using Theorem 2, I think we can show that $PV^{=}$ and only this satisfies the principle. Note that for $m$ even, the two almost equal $PV$ rules of Theorem will fail the principle. (need to be shown). \commentMN{I agree}
+Regarding PV rules, note that for $m$ even, the rules  $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see why, consider the following profile:
+
+	\begin{equation}
+		\begin{array}{llll}
+			a&b&c&d \\		d&c&a&b
+		\end{array}.
+	\end{equation}
+$\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar idea applies to $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$. 
+
+Thus, by Theorem 2, $\PVe$ is the only candidate to satisfy RMD. Show this. 
+\end{proof}
 
 
 
