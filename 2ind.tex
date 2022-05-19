@@ -321,8 +321,8 @@ $MD$ requires the outcome to contain Paretian alternatives whose loss vectors ha
 \begin{proof}
 	Let $m = \set{a_0, …, a_{m - 1}}$.
 	Define $k  = \khalf$, define $\epsilon = 2k - m + 1 = \khalf - \floor{\frac{m - 1}{2}}$, equivalently, $\epsilon = 1$ iff $m$ is even. Thus $k - \epsilon = \floor{\frac{m - 1}{2}}$.
-	Observe that the sequences $S_1 = (a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
-	and the sequences $S_3 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
+	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
+	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
 	Consider the following profile $P$:
 	\begin{equation}
 		\begin{array}{*{8}{c}}
@@ -333,7 +333,7 @@ $MD$ requires the outcome to contain Paretian alternatives whose loss vectors ha
 	Note that any alternative $a_j$ is preceded, in the preference of $v_1$, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
 	The alternative $a_{\khalf + 1}$ is preceded, in the preference of $v_2$, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_{\khalf + 1})_2 = \floor{\frac{m - 1}{2}} - 1$.
 
-	It follows that the alternative $a_{\khalf + 1}$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{k + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_3$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
+	It follows that the alternative $a_{\khalf + 1}$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{k + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
 	
 	But any rule that satisfies $MR$ may not include the alternative $a_{\khalf + 1}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
 \end{proof}
@@ -345,7 +345,7 @@ $MD$ requires the outcome to contain Paretian alternatives whose loss vectors ha
 	
 	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote the worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$.
 
-	If $k > \khalf = \frac{m}{2}$, equivalently, $k ≥ \frac{m}{2} + 1$ or $m ≤ 2k - 2$, then $\lprof(x)_{\ibar} ≤ k - 3$. Thus the dispersion of $x$ is at least $3$. This implies that another alternative in first half has a dispersion of at most 3, as it is impossible to place the $\frac{m}{2}$ first alternatives for voter $i$ beyond $x$ for $\ibar$ without any of those having a dispersion of 3 or less. \commentOC{End of the argument to be clarified.}
+	If $k > \khalf = \frac{m}{2}$, equivalently, $k ≥ \frac{m}{2} + 1$ or $m ≤ 2k - 2$, then $\lprof(x)_{\ibar} ≤ k - 3$. Thus the dispersion of $x$ is at least $3$. This implies that another alternative in first half has a dispersion of at most 3, as it is impossible to place the $\frac{m}{2}$ first alternatives for voter $i$ beyond $x$ for $\ibar$ without any of those having a dispersion of 3 or less. \commentOC{End of the argument to be corrected.}
 \end{proof}
 	
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the rules that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
