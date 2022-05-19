@@ -316,24 +316,6 @@ Define the minimal dispersion ($MD$) condition as follows.
 \end{definition}
 $MD$ requires the outcome to contain Paretian alternatives whose loss vectors have minimal dispersion \commentOC{I’d write \emph{some} Paretian alternatives}. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
 \begin{theorem}
-	When $m ≥ 7$ is odd, there is no $f \in \mathcal{MR}$ that satisfies MD.
-\end{theorem}
-\begin{proof}
-	Let $m = \set{a_0, …, a_{m - 1}}$.
-	Define $k  = \frac{m - 1}{2}$. 
-	Observe that the sequences $(a_0, …, a_{k - 2})$ and $(a_{k + 2}, …, a_{m - 1})$ have length $k - 1$ (as $m - 1 - (k + 2) + 1 = 2k - k - 2 + 1$); 
-	and the sequences $(a_0, …, a_k)$ and $(a_k, …, a_{m - 1})$ have length $k + 1$. 
-	Observe also that $k - 1 ≥ 2$.
-	Consider the following profile $P$:
-	\begin{equation}
-		\begin{array}{*{9}{c}}
-			a_0&…&a_{k - 2} & a_{k - 1} & a_k & a_{k + 1} & a_{k + 2} & … & a_{m - 1}\\
-			a_{k + 2} & … & a_{m - 1} & a_{k + 1} & a_0 & … & a_{k - 2} & a_{k - 1} & a_k
-		\end{array}.
-	\end{equation}
-	The alternative $a_{k + 1}$ with losses $(k + 1, k - 1)$ is the sole minimizer of dispersion, thus any rule that satisfies $MD$ must include it as a winner, but it is not in the first half.
-\end{proof}
-\begin{theorem}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \mathcal{MR}$ that satisfies MD.
 \end{theorem}
 \begin{proof}
