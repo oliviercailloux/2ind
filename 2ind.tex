@@ -115,7 +115,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 
 \section{The minimal Rawlsian principle}
 
-\commentRS{I made the changes proposed by Olivier and agreed by Matias. A question: why we say k-bounded? What kind of a bound we mean.}
+\commentRS{I made the changes proposed by Olivier and agreed by Matias. A question: why we say k-bounded? What kind of a bound we mean. Another issue: For proposition 1, we must cite the related result in Brams and Kilgour.}
 
 \begin{definition}[$k$-bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, a SCR is $k$-bounded Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
@@ -286,10 +286,9 @@ Thus, VR, SL and those rules in PV that fail PEL all fail SPEL. Furthermore, as 
 When $m = 3$, $PV^{(1, 1)}$ satisfies SPEL.
 \end{remark}
 
-\commentMN{Proof of Proposition 7 improved}
-\commentRS{I proposed a further improvement to the proof of Proposition 7}
-\commentOC{Beautifully short, but with a tiny bit left to the reader. I have extended it to cover this remaining bit, though it is now no more beautifully short. To be decided…}
-\commentRS{May bad. I wrote "Proposition 7 but I meant Proposition 8. I hadn't touch the proof of Proposition 7, which I find fine, except that the set of alternatives is called m.}\commentMN{I corrected $m$ being the set of alternatives in the proof of Prop 7. I also meant Prop 8 ..}
+
+\commentRS{We had issues about the proofs of Propositions 7 and 8 which seem to be fixed.}
+
 
 \begin{proposition}
 	FB satisfies SPEL.
@@ -310,7 +309,7 @@ Define the minimal dispersion ($MD$) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-$MD$ requires the outcome to contain Paretian alternatives whose loss vectors have minimal dispersion \commentOC{I’d write \emph{some} Paretian alternatives}. \commentRS{I agree.}As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
+$MD$ requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
 \begin{theorem}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \mathcal{MR}$ that satisfies MD.
 \end{theorem}
@@ -363,13 +362,10 @@ The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contai
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 
-\commentRS{I worked on the proof below but its latex needs to be corrected and the end must be completed.}
-
-\commentMN{Thanks for the nice work, I updated Tex and the end of the proof as suggested.}
 
 \begin{proposition}
      FB, VR, SL and all PV rules except $PV^{=}$ fail RMD.
-\end{proposition
+\end{proposition}
 
 \begin{proof}
 Consider the following profile $\mathbf{P}$ with 11 alternatives.
@@ -381,7 +377,7 @@ Consider the following profile $\mathbf{P}$ with 11 alternatives.
 	\end{equation}
 
 
-$H(\mathbf{P})=\{x, y\}$ and for a rule $f$ to satisfy $RMD$, we must have $y\in   f(\mathbf{P})$. However, only alternatives $x$ and $y$ are in the first half. $RMD$ requires $y$ to be among the picked alternatives. Both $FB(\mathbf{P})$ = $VR(\mathbf{P})=\{x\}$ thus both rules fail $RMD$. 
+$H(\mathbf{P})=\{x, y\}$ and for a rule $f$ to satisfy $RMD$, we must have $y\in   f(\mathbf{P})$. As $FB(\mathbf{P})$ = $VR(\mathbf{P})=\{x\}$, both rules fail $RMD$. 
 
 To see that $SL$ fails $RMD$, consider the following profile $\mathbf{P}$ with $SL(\mathbf{P})=\{a, c\}$ while $RMD$ requires $b\in SL(\mathbf{P})$. 
 
@@ -393,20 +389,20 @@ To see that $SL$ fails $RMD$, consider the following profile $\mathbf{P}$ with $
 	\end{equation}
 
 
-Regarding $PV$ rules, note that for $m$ even, the rules  $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see why, consider the following profile:
+Regarding $PV$ rules, we first show that for $m$ even, $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see this, consider the profile \mathbf{P}
 
 	\begin{equation}
 		\begin{array}{llll}
 			a&b&c&d \\		d&c&a&b
-		\end{array}.
+		\end{array}
 	\end{equation}
-$\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar idea applies to $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$. 
+where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\mathbf{P})=\{a\}$ while $RMD$ requires $c\in \PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\mathbf{P})$.  selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar argument shows that $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fails $RMD$.
 
-Thus, by Theorem 2, $\PVe$ is the only candidate to satisfy $RMD$. Indeed, when $m$ is even, $\PVe$ is the only $PV$ rule that selects only alternatives in $H(\mathbf{P})$. When $m$ is odd, $\PVe$ is the only $PV$ rule that selects only alternatives in $H(\mathbf{P})$ (it suffices to consider perfectly opposed preferences). Moreover, $\PVe$ chooses all Pareto efficient alternatives in $H(\mathbf{P})$. Thus, it includes for all profiles, the alternative which minimizes the loss dispersion, proving the claim. \commentMN{Much better, thanks}
+Thus, by Theorem 2, among the $PV$ rules, $\PVe$ is the only candidate to satisfy $RMD$. As $\PVe$ chooses all Pareto efficient alternatives in $H(\mathbf{P})$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 
 
-
+\commentRS{I think the proposition above is fine. We must decide what to do with the paragraph below.}
 A rule that satisfies this principle is the rule that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The rule $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
 \appendix
