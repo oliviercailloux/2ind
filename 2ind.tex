@@ -114,26 +114,22 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{remark}
 
 \section{The minimal Rawlsian principle}
-\begin{definition}[Minimal Rawlsian (MR)] A SCR satisfies MR if 
-	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
-\end{definition}
-\commentOC{I now wonder if this definition is appropriate, wrt the name.}
-\commentRS{I tried to resolve the matter by revising the relevant paragraph at the intro. Can you have a look?}
-\commentMN{I agree with the modification}
-\commentOC{I had in mind to obtain the current definition of MR as a formal result rather than as a definition, something like the following (which unfortunately is too complex to be satisfactory).} \commentRS{What you propose is very fine for me. If Matias also agrees, please go ahead. Howeveri the interval from which k comes has an upper bound of k-1, no?}
-\begin{definition}[$k$-Bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, a SCR satisfies $k$-Bounded Rawlsianism iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
+
+\commentRS{I made the changes proposed by Olivier and agreed by Matias. A question: why we say k-bounded? What kind of a bound we mean.}
+
+\begin{definition}[$k$-bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, a SCR is $k$-bounded Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
-\begin{definition}[Minimal Rawlsian (MR)]
-	A SCR satisfies MR iff it satisfies $k$-Bounded Rawlsianism for the smallest $k$ such that $k$-Bounded Rawlsianism is satisfiable.
-\end{definition}
-As noted in the introduction, it is possible to satisfy $k$-Bounded Rawlsianism only for $k$ at least “half”.
+As noted in the introduction, $k$-Bounded Rawlsianism can be satisfied only when $k$ is at least “half”.
 \begin{proposition}
-	Given $k  < \khalf$, no rule is $k$-Bounded Rawlsianism.
+	Given $k  < \khalf$, no rule is $k$-bounded Rawlsian.
 \end{proposition}
-We define “Minimal Rawlsian (MR)” as the minimal $k$ for which $k$-Bounded Rawlsianism is satisfiable. Hence, “Minimal Rawlsian (MR)” is identical to $\khalf$-Bounded Rawlsianism.
+We define “minimal Rawlsianism (MR)” through the minimal $k$ for which $k$-Bounded Rawlsianism is satisfiable. Hence, being “minimally Rawlsian (MR)” is identical to $\khalf$-Bounded Rawlsianism. 
+\begin{definition}[Minimal Rawlsianism (MR)] A rule f satisfies MR if 
+	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
+\end{definition}
 
-Let $\mathcal{MR}$ denote the class of rules satisfying the Minimal Rawlsian (MR) property.
+Let $\mathcal{MR}$ denote the class of minimally Rawlsian (MR) rules.
 
 \begin{theorem}
 	\label{th:inFH}
@@ -369,12 +365,14 @@ The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contai
 
 \commentRS{I worked on the proof below but its latex needs to be corrected and the end must be completed.}
 
+\commentMN{Thanks for the nice work, I updated Tex and the end of the proof as suggested.}
+
 \begin{proposition}
      FB, VR, SL and all PV rules except $PV^{=}$ fail RMD.
-\end{proposition}
+\end{proposition
 
 \begin{proof}
-Consider the following profile P with 11 alternatives.
+Consider the following profile $\mathbf{P}$ with 11 alternatives.
 
 	\begin{equation}
 		\begin{array}{llllllll}
@@ -383,9 +381,9 @@ Consider the following profile P with 11 alternatives.
 	\end{equation}
 
 
-H(\mathbf{P})={x, y} and for a rule f to satisfy RMD, we must have y element of f(P). However, Only alternatives $x$ and $y$ are in the first half. $RMD$ requires $y$ to be among the picked alternatives. Both $FB$(P) = $VR$(P)={$x$} thus both rules fail RMD. 
+$H(\mathbf{P})=\{x, y\}$ and for a rule $f$ to satisfy $RMD$, we must have $y\in   f(\mathbf{P})$. However, only alternatives $x$ and $y$ are in the first half. $RMD$ requires $y$ to be among the picked alternatives. Both $FB(\mathbf{P})$ = $VR(\mathbf{P})=\{x\}$ thus both rules fail $RMD$. 
 
-To see that $SL$ fails RMD, consider the following profile P with $SL$(P)={a, c} while RMD requires b element of SL(P). 
+To see that $SL$ fails $RMD$, consider the following profile $\mathbf{P}$ with $SL(\mathbf{P})=\{a, c\}$ while $RMD$ requires $b\in SL(\mathbf{P})$. 
 
 
 	\begin{equation}
@@ -395,7 +393,7 @@ To see that $SL$ fails RMD, consider the following profile P with $SL$(P)={a, c}
 	\end{equation}
 
 
-Regarding PV rules, note that for $m$ even, the rules  $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see why, consider the following profile:
+Regarding $PV$ rules, note that for $m$ even, the rules  $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see why, consider the following profile:
 
 	\begin{equation}
 		\begin{array}{llll}
@@ -404,12 +402,12 @@ Regarding PV rules, note that for $m$ even, the rules  $\PVv[(\frac{m}{2}, \frac
 	\end{equation}
 $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar idea applies to $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$. 
 
-Thus, by Theorem 2, $\PVe$ is the only candidate to satisfy RMD. Show this. 
+Thus, by Theorem 2, $\PVe$ is the only candidate to satisfy $RMD$. Indeed, when $m$ is even, $\PVe$ is the only $PV$ rule that selects only alternatives in $H(\mathbf{P})$. When $m$ is odd, $\PVe$ is the only $PV$ rule that selects only alternatives in $H(\mathbf{P})$ (it suffices to consider perfectly opposed preferences). Moreover, $\PVe$ chooses all Pareto efficient alternatives in $H(\mathbf{P})$. Thus, it includes for all profiles, the alternative which minimizes the loss dispersion, proving the claim. \commentMN{Much better, thanks}
 \end{proof}
 
 
 
-A rule that satisfies this principle is the rule that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The rule $f^*$ satisfies MR ans is hence logically incompatible with MD. 
+A rule that satisfies this principle is the rule that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The rule $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
 \appendix
 \section{Spread measures}
