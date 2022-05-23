@@ -117,26 +117,26 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 
 \commentRS{I made the changes proposed by Olivier and agreed by Matias. A question: why we say k-bounded? What kind of a bound we mean. Another issue: For proposition 1, we must cite the related result in Brams and Kilgour.}
 
-\begin{definition}[$k$-bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, a SCR is $k$-bounded Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
+\begin{definition}[$k$-bounded Rawlsianism] Given $k \in \intvl{0, m - 1}$, an SCR is $k$-bounded Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
 As noted in the introduction, $k$-Bounded Rawlsianism can be satisfied only when $k$ is at least “half”.
 \begin{proposition}
-	Given $k  < \khalf$, no rule is $k$-bounded Rawlsian.
+	Given $k  < \khalf$, no SCR is $k$-bounded Rawlsian.
 \end{proposition}
 We define “minimal Rawlsianism (MR)” through the minimal $k$ for which $k$-Bounded Rawlsianism is satisfiable. Hence, being “minimally Rawlsian (MR)” is identical to $\khalf$-Bounded Rawlsianism. 
-\begin{definition}[Minimal Rawlsianism (MR)] A rule f satisfies MR if 
+\begin{definition}[Minimal Rawlsianism (MR)] An SCR $f$ satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-Let $\mathcal{MR}$ denote the class of minimally Rawlsian (MR) rules.
+Let $\mathcal{MR}$ denote the class of minimally Rawlsian (MR) SCRs.
 
 \begin{theorem}
 	\label{th:inFH}
 	$\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$. 
 \end{theorem}
  \begin{proof}
-	For $\VR$ and $\SL$, the proof follows from the definition of the rules since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \cite{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
+	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \cite{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.
 	
 \end{proof} 
    
@@ -331,8 +331,9 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 	
 	But any rule that satisfies $MR$ may not include the alternative $a_{\khalf + 1}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
 \end{proof}
+\commentRS{What is the connection between Theorem 3 and Theorem 5.1 in our paper with Beatrice?}
 \begin{proposition}
-	When $m = 8$ or $m ≤ 6$, the rule $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD.
+	When $m = 8$ or $m ≤ 6$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD.
 \end{proposition}
 \begin{proof}
 	If the rule is well-defined, it satisfies MR and MD by construction. We only need to show that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
@@ -342,7 +343,7 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 	If $k > \khalf = \frac{m}{2}$, equivalently, $k ≥ \frac{m}{2} + 1$ or $m ≤ 2k - 2$, then $\lprof(x)_{\ibar} ≤ k - 3$. Thus the dispersion of $x$ is at least $3$. This implies that another alternative in first half has a dispersion of at most 3, as it is impossible to place the $\frac{m}{2}$ first alternatives for voter $i$ beyond $x$ for $\ibar$ without any of those having a dispersion of 3 or less. \commentOC{End of the argument to be corrected.}
 \end{proof}
 	
-\commentRS{I will read the proofs of Theorem 3 and Proposition 9.}The minimal Rawlsian and minimal dispersion principles being logically incompatible, the rules that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
+\commentRS{Perhaps we can call Proposition 9 a remark. I suggest to start the proof of Theorem 3 by saying that we will indeed show that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is empty. So, Proposition 9 (or the Remark) can simply state and show the non-emptiness of $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$.}The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 \begin{proposition}
 	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff its veto levels are both at most $\floor{\frac{m}{3}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{3}}$.
@@ -377,7 +378,7 @@ Consider the following profile $\mathbf{P}$ with 11 alternatives.
 	\end{equation}
 
 
-$H(\mathbf{P})=\{x, y\}$ and for a rule $f$ to satisfy $RMD$, we must have $y\in   f(\mathbf{P})$. As $FB(\mathbf{P})$ = $VR(\mathbf{P})=\{x\}$, both rules fail $RMD$. 
+$H(\mathbf{P})=\{x, y\}$ and for an SCR $f$ to satisfy $RMD$, we must have $y\in   f(\mathbf{P})$. As $FB(\mathbf{P})$ = $VR(\mathbf{P})=\{x\}$, both rules fail $RMD$. 
 
 To see that $SL$ fails $RMD$, consider the following profile $\mathbf{P}$ with $SL(\mathbf{P})=\{a, c\}$ while $RMD$ requires $b\in SL(\mathbf{P})$. 
 
@@ -403,7 +404,7 @@ Thus, by Theorem 2, among the $PV$ rules, $\PVe$ is the only candidate to satisf
 
 
 \commentRS{I think the proposition above is fine. We must decide what to do with the paragraph below.}
-A rule that satisfies this principle is the rule that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The rule $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
+An SCR that satisfies this principle is the SCR that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The SCR $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
 \appendix
 \section{Spread measures}
