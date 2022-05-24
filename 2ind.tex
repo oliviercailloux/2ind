@@ -34,15 +34,22 @@
 \section{Introduction}
 \label{sec:intro}
 
-Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of Nash (1950), for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of Nash (1950) excludes several real-life situations. 
+Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
-Mariotti (1998) is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by Nagahisa and Tanaka (2002) who, again in a finite setting, characterize the solution of Kalai and Smorodinsky (1975). Both characterizations are built in a cardinal framework. 
+\cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
  
-An ordinal framework of two-person finite bargaining problems is presented by Brams and Kilgour (2001) who introduce and analyze an ordinal solution, namely \textit{fallback bargaining}, that is based on compromising where each of the two bargainers begins by claiming the best outcome with respect to his ranking of alternatives. When the claims of the two bargainers differ, they continue by falling back, in lockstep, to lower ranked alternatives until a mutually (hence unanimously) agreed outcome is found. A characterization of fallback bargaining is provided by de Clippel and Eliaz (2012). As this solution is presented in a model that does not admit a disagreement point, fallback bargaining is rather an arbitration rule than being a bargaining solution. An analysis of fallback bargaining in a model with a disagreement point is made by Kıbrıs and Sertel (2007) who rebaptize the solution as \textit{unanimity compromise} and define several variants of it. One of these variants, the \textit{imputational compromise}, is further studied by Conley and Wilkie (2012).
+An ordinal framework of two-person finite bargaining problems is presented by \cite{BramsKilgour2001} who introduce and analyze an ordinal solution, namely \textit{fallback bargaining}, that is based on compromising where each of the two bargainers begins by claiming the best outcome with respect to his ranking of alternatives. When the claims of the two bargainers differ, they continue by falling back, in lockstep, to lower ranked alternatives until a mutually (hence unanimously) agreed outcome is found. A characterization of fallback bargaining is provided by \cite{de2012reason}. As this solution is presented in a model that does not admit a disagreement point, fallback bargaining is rather an arbitration rule than being a bargaining solution. An analysis of fallback bargaining in a model with a disagreement point is made by \cite{KibrisSertel2007} who rebaptize the solution as \textit{unanimity compromise} and define several variants of it. One of these variants, the \textit{imputational compromise}, is further studied by \cite{ConleyWilkie2012}.
  
-As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by Hurwicz and Sertel (1997) and the \textit{majoritarian compromise} by Sertel and Yilmaz (1999). It also paved the way to new axioms for social choice, such as \textit{efficiency in the degree of compromise} by Ozkal Sanver and Sanver (2004).  Merlin et al. (2019) present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
+As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by \cite{HurwiczSertel1997}  and the \textit{majoritarian compromise} by \cite{sertel1999majoritarian}. It also paved the way to new axioms for social choice, such as \textit{majoritarian approval} and \textit{majoritarian optimality} as well as \textit{efficiency in the degree of compromise} by \cite{ozkal2004efficiency}.
+\cite{merlin2019compromise} present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
+
+\commentRS{I cited majoritarian approval and majoritarian optimality in the above paragraph but didn't apologize for not using it instead of minimal rawlsianism as the the concepts are related but different.}
  
-A closer look at fallback bargaining reveals a principle for two-person social choice. Sprumont (1993) qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. Brams and Kilgour (2001) establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference ranking. We qualify a social choice rule that complies with this possibility as \textit{minimally Rawlsian}. (See Congar and Merlin (2012) for a characterization of the Rawlsian principle within the framework of social welfare functions.) 
+A closer look at fallback bargaining reveals a principle for two-person social choice.
+
+\cite{Sprumont1993} qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. \cite{congar2012characterization} characterize the Rawlsian principle within the framework of social welfare functions. For social choice rules, \cite{brams establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference ranking. We qualify a social choice rule that complies with this possibility as \textit{minimally Rawlsian}.
+
+\commentRS{In a footnote at the end of the paragraph above, we can say the following: In a two-person collective choice framework with an interpretation that is more specified than ours, de Clippel et al. (2014) call this condition the \textit{minimal satisfaction test}.}
 
 Another principle for two-person social choice is proposed by Cailloux et al. (2022) who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
  
@@ -124,9 +131,9 @@ As noted in the introduction, $k$-Rawlsianism can be satisfied only when $k$ is 
 \begin{proposition}
 	Given $k  < \khalf$, no SCR is $k$-Rawlsian.
 \end{proposition}
-It follows that the strongest  feasible version of $k$-Rawlsianism is that where $k$ equals $\khalf$.
-We define “minimal Rawlsianism (MR)” as equal to $\khalf$-Rawlsianism because while $k$ is chosen to give the strongest general bound possible for every profiles, at a given profile, it is usually possible to do better (in terms of minimization of the worst loss).
+It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism satisfiable at every preference profile while there are several profiles where the minial loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism” which we formally define as follows:
 \commentOC{Can somebody try to phrase this better?}
+\commentRS{I made an attempt.}
 \begin{definition}[Minimal Rawlsianism (MR)] An SCR $f$ satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
@@ -346,7 +353,75 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 \begin{proposition}
 	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff its veto levels are both at most $\floor{\frac{m}{3}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{3}}$.
 \end{proposition}
-\commentRS{I'll send a hand-written sketch of the proof.}
+\commentRS{I'll send a hand-written sketch of the proof.}\commentMN{I added the proof by Remzi }
+
+
+\begin{proof}
+Let $m=3k+r$ for some $k\in 
+\mathbb{N}$.
+
+
+
+
+
+
+The necessity part. Suppose $v_{i}>$ $\floor{ \frac{m}{3}}$
+for some $i$, let $i=1$ without loss of generality.
+
+Case 1: $r=0$
+
+Thus, $v_{i}>$ $k$. Consider the following profile (where the first and
+second lines give the preferences of individuals 1 and 2, respectively):
+
+
+	\begin{equation}
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&a_{2k+1}&\ldots&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&a_{2k}&a_1 &\ldots&a_{2k-1}\\
+		\end{array}.
+	\end{equation}
+	
+	
+
+
+$\bigskip $
+
+There are 3 Pareto efficient alternatives, $a_{1}$, $a_{2k+1},a_{2k}$ whose
+respective dispersions are $k+1$, $2k$, $k-1$. Thus, a rule that satisfies
+MD must pick $a_{2k}$ which is vetoed by individual 1.
+
+\bigskip Case 2: $r=1$
+
+Thus, $v_{i}>$ $k$. Consider the following profile:
+
+	\begin{equation}
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}\\
+		\end{array}.
+	\end{equation}
+
+
+There are 3 Pareto efficient alternatives, $a_{1}$, $a_{2k+1},$ $x$ whose
+respective dispersions are $k+1$, $2k+1$, $k$. Thus, a rule that satisfies
+MD must pick $x$ which is vetoed by individual 1.
+
+\bigskip Case 3: $r=2$
+
+Thus, $v_{i}>$ $k+1$. Consider the following profile:
+
+
+	\begin{equation}
+		\begin{array}{llllllll}
+			a_1&\ldots&a_{2k}&x&y&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&y&a_1 &\ldots&a_{2k}\\
+		\end{array}.
+	\end{equation}
+
+
+
+There are 3 Pareto efficient alternatives, $a_{1}$, $a_{2k+1},$ $x$ whose
+respective dispersions are $k+2$, $2k+2$, $k$. Thus, a rule that satisfies
+MD must pick $x$ which is vetoed by individual 1.
+
+\end{proof}
 
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions 5 and 8. 
