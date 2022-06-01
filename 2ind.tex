@@ -71,8 +71,6 @@ We now summarize our findings. All rules we consider are Paretian. Fallback barg
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that doesn't exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
-
-
 Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. This principle turns out to be logically incompatible with the minimal Rawlsian principle, thus being failed by fallback bargaining.\footnote{
 In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} (see \cite{thomson1994cooperative}) minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.}
 
@@ -80,7 +78,7 @@ In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that t
 \section{Basic notions and notation}
 
 Let $N$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\mathcal{A}$. We let $\prefi \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let $\prefi \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
 An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
@@ -138,11 +136,13 @@ It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-Let $\mathcal{MR}$ denote the class of minimally Rawlsian (MR) SCRs.
+\commentOC{I took care of consistency for typography of classes of rules, properties, rules (I may have missed some). Not sure how to deal with the property VS class typography, for example we often write “fail SPEL”. Also, we use $\PE$ for the rule and it also suggests the property, is this all right?}
+Let $\MRcl$ denote the class of minimally Rawlsian (MR) SCRs.
+Similarily, we systematically use caligraphic letters to denote the class of rules satisfying a given property.
 
 \begin{theorem}
 	\label{th:inFH}
-	$\FB, \VR, \SL \in \PEcl \cap \mathcal{MR}$. 
+	$\FB, \VR, \SL \in \PEcl \cap \MRcl$. 
 \end{theorem}
  \begin{proof}
 	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \cite{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.\end{proof} 
@@ -150,37 +150,37 @@ Let $\mathcal{MR}$ denote the class of minimally Rawlsian (MR) SCRs.
 
 
 
-We now discuss the relationship of the class $\PVcl$ to the $\mathcal{MR}$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
+We now discuss the relationship of the class $\PVcl$ to the $\MRcl$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
 \begin{theorem}
- 	When $m$ is odd, $\PVcl ∩ \mathcal{MR} = \{PV^=\}$, and
-	when $m$ is even, $\PVcl ∩ \mathcal{MR} = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
+ 	When $m$ is odd, $\PVcl ∩ \MRcl = \{PV^=\}$, and
+	when $m$ is even, $\PVcl ∩ \MRcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
 \end{theorem}
  \begin{proof}
-	We start by claiming that $\PVcl ∩ \mathcal{MR} = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$. To show the “if” part of the claim, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
+	We start by claiming that $\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$. To show the “if” part of the claim, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of voter $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 	
 	Having shown the claim, note that When $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$, we have $\abs{v_1 - v_2} ≤ 1$.
-	Thus, when $m$ is odd, $\PVcl ∩ \mathcal{MR} = \{PV^=\}$, and
-	when $m$ is even, $\PVcl ∩ \mathcal{MR} = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.\end{proof} 
+	Thus, when $m$ is odd, $\PVcl ∩ \MRcl = \{PV^=\}$, and
+	when $m$ is even, $\PVcl ∩ \MRcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.\end{proof} 
 
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
 
 \begin{proposition}\label{propo:equal}
-	$\bigcup(\PEcl \cap \mathcal{MR}) = \PVe$.
+	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
 \end{proposition}
 \begin{proof}
-    Note that $\bigcup(\PEcl \cap \mathcal{MR})$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
+    Note that $\bigcup(\PEcl \cap \MRcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
     We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
 The observation below follows from \cref{propo:equal}.
 \begin{corollary}\label{th:subPVe}
-	A SCR $f \in \PEcl \cap \mathcal{MR}$ if and only if $f \subseteq \PVe$.
+	A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$.
 \end{corollary}
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
@@ -256,7 +256,7 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 
 Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 \begin{proposition}
-	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
 \end{proposition}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, because all alternatives before $x$ for the first voter must be placed after $x$ for the second voter.
@@ -272,7 +272,6 @@ The rules that fail PEL will a fortiori fail the following stronger version of t
     $\forall \prof \in \allprofs: [S(\prof) \cap PE(\prof) ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap PE(\prof)$.
 \end{definition}
 Thus, VR, SL and those rules in PV that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in PV that satisfy PEL fail SPEL.
-\commentOC{I will take care of consistency for typography of classes of rules.}
 \begin{proposition}
 	When $m ≥ 4$, all rules in PV fail SPEL.
 \end{proposition}
@@ -319,7 +318,7 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 
 \begin{theorem}
 	\label{th:noMRMD}
-	When $m = 7$ or $m ≥ 9$, there is no $f \in \mathcal{MR}$ that satisfies MD.
+	When $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{theorem}
 \begin{proof}
 	We will define a profile $P$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
@@ -576,7 +575,7 @@ Note that $\Delta^{x, y}_\mathit{min} = - \Delta^{y, x}_\mathit{min}$.
 
 \begin{remark}
 	Borda satisfies Paretian and weight-comparing and fails SPEL. It uses  $w_m = 2/3$ and $w_i = 1/3$. Indeed, by definition,
-	\[\textsc{Borda}(\prof) = \argmin_{\mathcal{A}} \sum_N \lprof = \set{x \in \mathcal{A} \suchthat \forall y \in\mathcal{A}: \sum_N \lprof(x) ≤ \sum_N \lprof(y)}.\]
+	\[\textsc{Borda}(\prof) = \argmin_{\allalts} \sum_N \lprof = \set{x \in \allalts \suchthat \forall y \in \allalts: \sum_N \lprof(x) ≤ \sum_N \lprof(y)}.\]
 	
 	This makes sense since the loss of an alternative for a player is equal to $m-$(ranking of the alternative in the preference profile), wheres the usual definition of the Borda score assigned by a voter is that this score equals the ranking of the alternative in the voter's profile. Hence, they are equivalent.
 	
