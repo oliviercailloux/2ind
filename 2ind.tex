@@ -325,24 +325,23 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 	We will define a profile $P$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 	
 	Let $m = \set{a_0, …, a_{m - 1}}$.
-	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
-	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
-	Consider the following profile $P$:
-	\begin{equation}
-		\begin{array}{*{8}{c}}
-			a_0&…&a_{\floor{\frac{m - 1}{2}} - 2} & a_{\floor{\frac{m - 1}{2}} - 1} & a_{\floor{\frac{m - 1}{2}}} & a_{\floor{\frac{m - 1}{2}} + 1} & … & a_{m - 1}\\
-			a_{\khalf + 2} & … & a_{m - 1} & a_{\khalf + 1} & a_0 & a_1 & … & a_{\khalf}
-		\end{array}.
-	\end{equation}
-	Note that any alternative $a_j$ is preceded, in the preference of $v_1$, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
-	The alternative $a_{\khalf + 1}$ is preceded, in the preference of $v_2$, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_{\khalf + 1})_2 = \floor{\frac{m - 1}{2}} - 1$.
+	Define the sequences $S_1 = (a_0, …, a_{\khalf})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$; define $k = \khalf + 1$.
+	Observe that $S_1$ has length $\khalf + 1$ and $S_2$ has length $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 1 = \floor{\frac{m - 1}{2}} - 1$.
 
-	It follows that the alternative $a_{\khalf + 1}$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
+%	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
+%	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
+	Define the profile $P$ as containing for the first voter the preference ordering $(a_0, …, a_{m - 1})$ and for the second voter the ordering defined as $S_2$ followed by $a_k$ followed by $S_1$.
+	
+	Note that any alternative $a_j$ is preceded, in the preference of $v_1$, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
+	In particular, $\lprof(a_k)_1 = \khalf + 1$.
+	The alternative $a_k$ is preceded, in the preference of $v_2$, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_k)_2 = \floor{\frac{m - 1}{2}} - 1$.
+
+	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
 	
 	But any rule that satisfies $MR$ may not include the alternative $a_{\khalf + 1}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
 \end{proof}
 \commentRS{It will be much easier to follow the proof if we present it for m being even and odd separately. What do you think?}
-\commentOC{Each proof would be easier to read, but readers would have two proofs to check, which perhaps compensates for the additional simplicity. Also, the current presentation explains the (a priori strange) behavior around $m = 8$, as $m$ has to satisfy $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ (failing for $m ≤ 6$, satisfied for $m = 7$, failing for $m = 8$ and satisfied again for $m ≥ 9$). (BTW perhaps this deserves an explicit comment.) And this general presentation may permit further general (I mean, not case-separated according to parity) results, whereas if we split the proof, a reader will have to come up herself with a general one if she wants to go back to a non-case-separated approach, which is (much) more difficult to do than the reverse process. However I agree that it would be nice to ease reading; perhaps we could somehow specify (in a footnote?) what the profile $P$ looks like in each case (odd and even)?}
+\commentOC{Each proof would be easier to read, but readers would have two proofs to check, which perhaps compensates for the additional simplicity. Also, the current presentation explains the (a priori strange) behavior around $m = 8$, as $m$ has to satisfy $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ (failing for $m ≤ 6$, satisfied for $m = 7$, failing for $m = 8$ and satisfied again for $m ≥ 9$). (BTW perhaps this deserves an explicit comment.) And this general presentation may permit further general (I mean, not case-separated according to parity) results, whereas if we split the proof, a reader will have to come up herself with a general one if she wants to go back to a non-case-separated approach, which is (much) more difficult to do than the reverse process. However I agree that it would be nice to ease reading. I attempted to define the profiles using sequences only as I think displaying it might be more confusing than helpful (perhaps numbering from $0$ instead of $1$ would help). I can restore the previous version if this is not a good idea. Alternatively, perhaps we could somehow specify (in a footnote?) what the profile $P$ looks like in each case (odd and even)?}
 
 The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proposition}
