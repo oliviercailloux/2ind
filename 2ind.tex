@@ -34,6 +34,7 @@
 \section{Introduction}
 \label{sec:intro}
 
+\commentOC{I will take care about using individuals, not voters or players.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
 \cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -43,13 +44,10 @@ An ordinal framework of two-person finite bargaining problems is presented by \c
 As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by \cite{HurwiczSertel1997}  and the \textit{majoritarian compromise} by \cite{sertel1999majoritarian}. It also paved the way to new axioms for social choice, such as \textit{majoritarian approval} and \textit{majoritarian optimality} as well as \textit{efficiency in the degree of compromise} by \cite{ozkal2004efficiency}.
 \cite{merlin2019compromise} present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
 
-\commentRS{I mentioned "majoritarian approval" and "majoritarian optimality" in the above paragraph but didn't apologize for not using these terms instead of "minimal rawlsianism" as the two concepts are related but different.}
- 
 A closer look at fallback bargaining reveals a principle for two-person social choice.
 
 \cite{Sprumont1993} qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. \cite{congar2012characterization} characterize the Rawlsian principle within the framework of social welfare functions. For social choice rules, \cite{BramsKilgour2001} establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference ranking. We qualify a social choice rule that complies with this possibility as \textit{minimally Rawlsian}.
-
-\commentRS{In a footnote at the end of the paragraph above, we can say the following: In a two-person collective choice framework with an interpretation that is more specified than ours, \cite{Clippel} call this condition the \textit{minimal satisfaction test}.}
+\footnote{In a two-person collective choice framework with an interpretation that is more specific than ours, \cite{Clippel} call this condition the \textit{minimal satisfaction test}.}
 
 Another principle for two-person social choice is proposed by \cite{cailloux2022compromising} who propose a different conception of compromising based on the \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. Several two-person social choice rules that are minimally Rawlsian fail to comply with the equal loss principle, suggesting an incompatibility between these two principles.
  
@@ -91,7 +89,7 @@ Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than 
 and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
-Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$.
+Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
 In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
@@ -120,25 +118,19 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 
 \section{The minimal Rawlsian principle}
 
-\commentRS{For proposition 1, we must cite the related result in Brams and Kilgour.}
-
 \begin{definition}[$k$-Rawlsianism] Given $k \in \intvl{0, m - 1}$, an SCR is $k$-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both voters. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
-As noted in the introduction, $k$-Rawlsianism can be satisfied only when $k$ is at least “half”.
+It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
 \begin{proposition}
-	Given $k  < \khalf$, no SCR is $k$-Rawlsian.
+    There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
 \end{proposition}
-It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that renders $k$-Rawlsianism satisfiable at every preference profile while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows:
-\commentOC{Can somebody try to phrase this better?}
-\commentRS{I made an attempt.}
+It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that renders $k$-Rawlsianism satisfiable at every preference profile while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (MR)] An SCR $f$ satisfies MR if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-\commentOC{I took care of consistency for typography of classes of rules, properties, rules (I may have missed some). Not sure how to deal with the property VS class typography, for example we often write “fail SPEL”. Also, we use $\PE$ for the rule and it also suggests the property, is this all right?}
 Let $\MRcl$ denote the class of minimally Rawlsian (MR) SCRs.
-Similarily, we systematically use caligraphic letters to denote the class of rules satisfying a given property.
 
 \begin{theorem}
 	\label{th:inFH}
@@ -311,48 +303,42 @@ Define the minimal dispersion ($MD$) condition as follows.
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 $MD$ requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
-\commentOC{Below is an attempt of phrasing a general proposition from which \cref{th:noMRMD} and \cref{th:MRMD} follow. But I can’t come up with a united proof. As a possible consolation, I added a sentence in the proof of \cref{th:noMRMD} (as first sentence) which helps seeing how \cref{th:noMRMD} and \cref{th:MRMD} relate.}
-\begin{proposition}
-	The property $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ is satisfied exactly when $m = 8$ or $m ≤ 6$.
-\end{proposition}
-
 \begin{theorem}
 	\label{th:noMRMD}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{theorem}
 \begin{proof}
-	We will define a profile $P$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	We prove the claim by constructing a profile $\prof$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 	
-	Let $m = \set{a_0, …, a_{m - 1}}$.
+	Let $\allalts = \set{a_0, …, a_{m - 1}}$.
 	Define the sequences $S_1 = (a_0, …, a_{\khalf})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$; define $k = \khalf + 1$.
 	Observe that $S_1$ has length $\khalf + 1$ and $S_2$ has length $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 1 = \floor{\frac{m - 1}{2}} - 1$.
 
 %	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
 %	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
-	Define the profile $P$ as containing for the first voter the preference ordering $(a_0, …, a_{m - 1})$ and for the second voter the ordering defined as $S_2$ followed by $a_k$ followed by $S_1$.
+	Define the profile $P$ as containing for voter 1 the preference ordering $(a_0, …, a_{m - 1})$ and for voter 2 the ordering $(S_2,a_k,S_1)$.
 	
-	Note that any alternative $a_j$ is preceded, in the preference of $v_1$, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
+	Note that any alternative $a_j$ is preceded, in the preference of voter 1, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
 	In particular, $\lprof(a_k)_1 = \khalf + 1$.
-	The alternative $a_k$ is preceded, in the preference of $v_2$, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_k)_2 = \floor{\frac{m - 1}{2}} - 1$.
+	The alternative $a_k$ is preceded, in the preference of voter 2, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_k)_2 = \floor{\frac{m - 1}{2}} - 1$.
 
-	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
+	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, each of the alternatives $a_j \in S_1$ has losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the choice of $m$); and each of the alternatives $a_{\khalf + 2 + j} \in S_2$ has losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
 	
-	But any rule that satisfies $MR$ may not include the alternative $a_{\khalf + 1}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
+	But any rule that satisfies $MR$ may not include the alternative $a_{k}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
 \end{proof}
-\commentRS{It will be much easier to follow the proof if we present it for m being even and odd separately. What do you think?}
-\commentOC{Each proof would be easier to read, but readers would have two proofs to check, which perhaps compensates for the additional simplicity. Also, the current presentation explains the (a priori strange) behavior around $m = 8$, as $m$ has to satisfy $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ (failing for $m ≤ 6$, satisfied for $m = 7$, failing for $m = 8$ and satisfied again for $m ≥ 9$). (BTW perhaps this deserves an explicit comment.) And this general presentation may permit further general (I mean, not case-separated according to parity) results, whereas if we split the proof, a reader will have to come up herself with a general one if she wants to go back to a non-case-separated approach, which is (much) more difficult to do than the reverse process. However I agree that it would be nice to ease reading. I attempted to define the profiles using sequences only as I think displaying it might be more confusing than helpful (perhaps numbering from $0$ instead of $1$ would help). I can restore the previous version if this is not a good idea. Alternatively, perhaps we could somehow specify (in a footnote?) what the profile $P$ looks like in each case (odd and even)?}
-
+ \commentOC{Number alternatives from 1.}
+ 
 The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proposition}
 	\label{th:maxDisp}
 	Given any profile $\prof$, $\exists x \in H(\prof) \suchthat d(\lprof(x)) ≤ \khalf$.
-	That bound is strict, in other words, $\forall m, \exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
+	That bound is tight, in other words, $\exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-	About the first claim, consider the $\khalf + 1$ alternatives having losses for the first voter $\lprof(x)_1 ≤ \khalf$.
-	At least one of those alternatives will have a loss for the second voter within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives have dispersion $d(\lprof(x)) ≤ \khalf$.
+	About the first claim, consider the $\khalf + 1$ alternatives having losses for the voter 1 $\lprof(x)_1 ≤ \khalf$.
+	At least one of those alternatives will have a loss for the voter 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives have dispersion $d(\lprof(x)) ≤ \khalf$.
 
-	About the second claim, define $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and define $\prof$ as containing the preference ordering $a_1, …, a_m$ for voter $1$ and $S_2$ followed by $S_1$ for voter $2$. Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
+	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(a_1, …, a_m)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
 \end{proof}
 
 \begin{proposition}
@@ -372,7 +358,6 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 \commentOC{Not sure how to determine conclusively and clearly that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ in that case.}
 \end{proof}
 	
-\commentRS{We agreed to start with a result on the emptiness (or not) of $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ depending on the value of $m$; \cref{th:noMRMD} and \cref{th:MRMD} will follow as corollaries. Olivier will take care of this.}
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 \begin{proposition}
