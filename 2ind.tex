@@ -312,10 +312,18 @@ Define the minimal dispersion ($MD$) condition as follows.
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 $MD$ requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
+\commentOC{Below is an attempt of phrasing a general proposition from which \cref{th:noMRMD} and \cref{th:MRMD} follow. But I can’t come up with a united proof. As a possible consolation, I added a sentence in the proof of \cref{th:noMRMD} (as first sentence) which helps seeing how \cref{th:noMRMD} and \cref{th:MRMD} relate.}
+\begin{proposition}
+	The property $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ is satisfied exactly when $m = 8$ or $m ≤ 6$.
+\end{proposition}
+
 \begin{theorem}
+	\label{th:noMRMD}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \mathcal{MR}$ that satisfies MD.
 \end{theorem}
 \begin{proof}
+	We will define a profile $P$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	
 	Let $m = \set{a_0, …, a_{m - 1}}$.
 	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
 	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
@@ -329,23 +337,44 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 	Note that any alternative $a_j$ is preceded, in the preference of $v_1$, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
 	The alternative $a_{\khalf + 1}$ is preceded, in the preference of $v_2$, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_{\khalf + 1})_2 = \floor{\frac{m - 1}{2}} - 1$.
 
-	It follows that the alternative $a_{\khalf + 1}$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{k + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
+	It follows that the alternative $a_{\khalf + 1}$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, the alternatives $a_j \in S_1$ have losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the bounds in our hypothesis); and the alternatives $a_{\khalf + 2 + j} \in S_2$ have losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
 	
 	But any rule that satisfies $MR$ may not include the alternative $a_{\khalf + 1}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
 \end{proof}
 \commentRS{It will be much easier to follow the proof if we present it for m being even and odd separately. What do you think?}
+\commentOC{Each proof would be easier to read, but readers would have two proofs to check, which perhaps compensates for the additional simplicity. Also, the current presentation explains the (a priori strange) behavior around $m = 8$, as $m$ has to satisfy $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ (failing for $m ≤ 6$, satisfied for $m = 7$, failing for $m = 8$ and satisfied again for $m ≥ 9$). (BTW perhaps this deserves an explicit comment.) And this general presentation may permit further general (I mean, not case-separated according to parity) results, whereas if we split the proof, a reader will have to come up herself with a general one if she wants to go back to a non-case-separated approach, which is (much) more difficult to do than the reverse process. However I agree that it would be nice to ease reading; perhaps we could somehow specify (in a footnote?) what the profile $P$ looks like in each case (odd and even)?}
+
+The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proposition}
+	\label{th:maxDisp}
+	Given any profile $\prof$, $\exists x \in H(\prof) \suchthat d(\lprof(x)) ≤ \khalf$.
+	That bound is strict, in other words, $\forall m, \exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
+\end{proposition}
+\begin{proof}
+	About the first claim, consider the $\khalf + 1$ alternatives having losses for the first voter $\lprof(x)_1 ≤ \khalf$.
+	At least one of those alternatives will have a loss for the second voter within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives have dispersion $d(\lprof(x)) ≤ \khalf$.
+
+	About the second claim, define $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and define $\prof$ as containing the preference ordering $a_1, …, a_m$ for voter $1$ and $S_2$ followed by $S_1$ for voter $2$. Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
+\end{proof}
+
+\begin{proposition}
+	\label{th:MRMD}
 	When $m = 8$ or $m ≤ 6$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD.
 \end{proposition}
 \begin{proof}
 	If the rule is well-defined, it satisfies MR and MD by construction. We only need to show that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote the worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$.
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote the worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
+	It follows that the dispersion of $x$ is at least $2k - m + 1$.
 
-	If $k > \khalf = \frac{m}{2}$, equivalently, $k ≥ \frac{m}{2} + 1$ or $m ≤ 2k - 2$, then $\lprof(x)_{\ibar} ≤ k - 3$. Thus the dispersion of $x$ is at least $3$. This implies that another alternative in first half has a dispersion of at most 3, as it is impossible to place the $\frac{m}{2}$ first alternatives for voter $i$ beyond $x$ for $\ibar$ without any of those having a dispersion of 3 or less. \commentOC{End of the argument to be corrected.}
+	If $k ≤ \khalf$, the proof is done, so assume that $k > \khalf$. 
+	Then, if $m$ is odd, $k ≥ \frac{m - 1}{2} + 1$ or equivalently $2k ≥ m + 1$ thus $d(\lprof(x)) ≥ 2$; and if $m$ is even, $k ≥ \frac{m}{2} + 1$ or equivalently $2k ≥ m$ thus $d(\lprof(x)) ≥ 3$. 
+	
+\Cref{th:maxDisp} shows that for $m ≤ 6$, at least one alternative in the first half has a dispersion that is not greater than the one of $x$. Such alternative thus belongs to $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$. This argument also applies to $m = 8$ if $d(\lprof(x)) = 4$. Remains to check the case $m = 8$ and $d(\lprof(x)) = 3$.
+\commentOC{Not sure how to determine conclusively and clearly that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ in that case.}
 \end{proof}
 	
-\commentRS{We agreed to start with a result on the emptiness (or not) of $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ depending on the value of $m$; Theorem 3 and proposition 9 will follow as corollaries. Olivier will take care of this.}
+\commentRS{We agreed to start with a result on the emptiness (or not) of $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ depending on the value of $m$; \cref{th:noMRMD} and \cref{th:MRMD} will follow as corollaries. Olivier will take care of this.}
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 \begin{proposition}
