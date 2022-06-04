@@ -248,7 +248,7 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 
 Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 \begin{proposition}
-	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
+\label{propo:pel}	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
 \end{proposition}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, because all alternatives before $x$ for the first voter must be placed after $x$ for the second voter.
@@ -361,13 +361,13 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 
-In Proposition 11 \commentRS{Insert an auto citation.}below, we write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$ and let $\langle \frac{m}{3} \rangle=k$ for $r\in\{0,1\}$ while $\langle \frac{m}{3} \rangle=k+1$ for $r=2$.
+In Proposition \ref{propo:pv} below, we write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$ and let $\langle \frac{m}{3} \rangle=k$ for $r\in\{0,1\}$ while $\langle \frac{m}{3} \rangle=k+1$ for $r=2$.
 
 
-\begin{proposition}
+\begin{proposition}\label{propo:pv}
 	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_1)]$ satisfies MD iff its veto levels are both at most $\langle \frac{m}{3} \rangle$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \langle \frac{m}{3} \rangle$.
 \end{proposition}
-\commentRS{I tried to make the necessity part more compact, I hope it is not too compact. We'll discuss the sufficiency part face to face.}
+\commentRS{We'll discuss the sufficiency part face to face.}
 
 
 \begin{proof}
@@ -419,12 +419,12 @@ Finally, if $r=2$, then $v_{1}>$ $k+1$. Consider the profile $\prof"$
 	\end{equation}
 
 where $PE(\prof")=\{a_{1}, a_{2k+1}, x\}$ while
-$d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d(\lambda_{\prof"}(x)) = k$. Thus, any SCR that satisfies MD must pick $x$, which is, however, vetoed by individual.
+$d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d(\lambda_{\prof"}(x)) = k$. Thus, any SCR that satisfies MD must pick $x$, which is, however, vetoed by individual 1.
 
 \end{proof}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions 6 and 11. \commentRS{Insert an auto citation for both propositions.} 
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions \ref{propo:pel} and \ref{propo:pv}. 
 \end{remark}
 
 \section{Reconciling the two principles}
