@@ -360,22 +360,23 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 	
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
+
+In Proposition 11 \commentRS{Insert an auto citation.}below, we write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$ and let $\langle \frac{m}{3} \rangle=k$ for $r\in\{0,1\}$ while $\langle \frac{m}{3} \rangle=k+1$ for $r=2$.
+
+
 \begin{proposition}
-	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff its veto levels are both at most $\floor{\frac{m}{3}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{3}}$.
+	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_1)]$ satisfies MD iff its veto levels are both at most $\langle \frac{m}{3} \rangle$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \langle \frac{m}{3} \rangle$.
 \end{proposition}
-\commentRS{The necessity part of the proof is below. Matias, thanks for typing it but what you wrote is different than what I sent. Can you check? Also, can you give a hand to improve the style and make certain expressions more formal. I'll send a sketch of the sufficiency part.}
+\commentRS{I tried to make the necessity part more compact, I hope it is not too compact. We'll discuss the sufficiency part face to face.}
 
 
 \begin{proof}
-Write $m=3k+r$ for some $k\in 
-\mathbb{N}$.
-To show the necessity, suppose $v_{i}>$ $\floor{ \frac{m}{3}}$
-for some $i$. Let $i=1$, without loss of generality.
+To show the necessity, suppose that $v_{i}>$ $\langle \frac{m}{3} \rangle$
+for some $i$. Let $i=1$, without loss of generality. The proof is divided in three cases, one for each possible value of $r$.
 
-Case 1: $r=0$
+\medskip
 
-Thus, $v_{i}>$ $k$. Consider the following profile (where the first and
-second lines give the preferences of individuals 1 and 2, respectively):
+If $r=0$, then $v_{1}>$ $k$. Consider the profile $\prof$
 
 
 	\begin{equation}
@@ -389,12 +390,12 @@ second lines give the preferences of individuals 1 and 2, respectively):
 
 $\bigskip $
 
-There profile admits three Pareto efficient alternatives, namely $a_{1}$, $a_{2k+1},a_{2k}$, whose
-respective dispersions are $k+1$, $2k$, $k-1$. Thus, an SCR that satisfies MD must pick $a_{2k}$, which is vetoed by individual 1 \commentMN{since $a_{2k}$ is exactly the $k^{th}+1$ worst alternative of individual 1 while $v_i>k$.}.
+where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
+ $d(\lprof(a_{1})) = 2k$, $d(\lprof(a_{2k+1})) = k+1$ and $d(\lprof(a_{2k})) = k-1$. Thus, any SCR that satisfies MD must pick $a_{2k}$, which is, however, vetoed by individual 1.
 
-\bigskip Case 2: $r=1$
+\medskip
 
-Thus, $v_{i}>$ $k$. Consider the following profile:
+If $r=1$, then $v_{1}>$ $k$. Consider the profile $\prof'$
 
 	\begin{equation}
 		\begin{array}{lllllll}
@@ -403,13 +404,12 @@ Thus, $v_{i}>$ $k$. Consider the following profile:
 	\end{equation}
 
 
-The profile admits three Pareto efficient alternatives, namely $a_{1}$, $a_{2k+1},$ $x$, whose
-respective dispersions are $k+1$, $2k+1$, $k$. Thus, an SCR that satisfies
-MD must pick $x$, which is vetoed by individual 1, \commentMN{since $x$ is exactly the $k^{th}+1$ worst alternative of individual 1 while $v_i>k$.}.
+where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
+ $d(\lambda_{\prof'}(a_{1})) =2k+1$, $d(\lambda_{\prof'}(a_{2k+1})) = k+1$ and $d(\lambda_{\prof'}(x)) = k$. Thus, any SCR that satisfies
+MD must pick $x$, which is, however, vetoed by individual 1. 
+\bigskip 
 
-\bigskip Case 3: $r=2$
-
-Thus, $v_{i}>$ $k+1$. Consider the following profile:
+Finally, if $r=2$, then $v_{1}>$ $k+1$. Consider the profile $\prof"$
 
 
 	\begin{equation}
@@ -418,16 +418,13 @@ Thus, $v_{i}>$ $k+1$. Consider the following profile:
 		\end{array}.
 	\end{equation}
 
-
-
-The profile admits three Pareto efficient alternatives, namely $a_{1}$, $a_{2k+1},$ $x$, whose
-respective dispersions are $k+2$, $2k+2$, $k$. Thus, an SCR that satisfies
-MD must pick $x$, which is vetoed by individual 1. \commentMN{since $x$ is exactly the $k^{th}+2$ worst alternative of individual 1 while $v_i>k+1$.}.
+where $PE(\prof")=\{a_{1}, a_{2k+1}, x\}$ while
+$d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d(\lambda_{\prof"}(x)) = k$. Thus, any SCR that satisfies MD must pick $x$, which is, however, vetoed by individual.
 
 \end{proof}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions 5 and 8. 
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions 6 and 11. \commentRS{Insert an auto citation for both propositions.} 
 \end{remark}
 
 \section{Reconciling the two principles}
