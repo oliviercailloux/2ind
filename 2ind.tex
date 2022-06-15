@@ -330,14 +330,17 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proposition}
 	\label{th:maxDisp}
-	Given any profile $\prof$, $\exists x \in H(\prof) \suchthat d(\lprof(x)) ≤ \khalf$.
+	Given any profile $\prof$, $\exists x \in H(\prof) \cap \PE \suchthat d(\lprof(x)) ≤ \khalf$.
 	That bound is tight, in other words, $\exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
 \end{proposition}
 \begin{proof}
 	About the first claim, consider the $\khalf + 1$ alternatives having losses for the voter 1 $\lprof(x)_1 ≤ \khalf$.
-	At least one of those alternatives will have a loss for the voter 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives have dispersion $d(\lprof(x)) ≤ \khalf$.
-
-	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(a_1, …, a_m)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
+	At least one of those alternatives will have a loss for the voter 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives $\set{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf}$ have dispersion $d(\lprof(x)) ≤ \khalf$.
+	The best of those for voter $2$, that is, $\argmin_{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf} \lprof(x)_2$, is Pareto-efficient.
+	
+	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(S_1, S_2)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. 
+	Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and 
+	alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
 \end{proof}
 
 \begin{proposition}
@@ -353,8 +356,9 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 	If $k ≤ \khalf$, the proof is done, so assume that $k > \khalf$. 
 	Then, if $m$ is odd, $k ≥ \frac{m - 1}{2} + 1$ or equivalently $2k ≥ m + 1$ thus $d(\lprof(x)) ≥ 2$; and if $m$ is even, $k ≥ \frac{m}{2} + 1$ or equivalently $2k ≥ m$ thus $d(\lprof(x)) ≥ 3$. 
 	
-\Cref{th:maxDisp} shows that for $m ≤ 6$, at least one alternative in the first half has a dispersion that is not greater than the one of $x$. Such alternative thus belongs to $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$. This argument also applies to $m = 8$ if $d(\lprof(x)) = 4$. Remains to check the case $m = 8$ and $d(\lprof(x)) = 3$.
-\commentOC{Not sure how to determine conclusively and clearly that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ in that case.}
+	\Cref{th:maxDisp} shows that for $m ≤ 6$, at least one alternative in the first half has a dispersion that is not greater than the one of $x$. Such alternative thus belongs to $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$. This argument also applies to $m = 8$ if $d(\lprof(x)) = 4$. Remains to check the case $m = 8$ and $d(\lprof(x)) = 3$.
+	By the reasoning so far, losses $3$ to $7$ ($k = 5$ slots) contain the $k$ alternatives better than $x$ for voter $i$. Consider $y \suchthat \lprof(y)_2 = 3$. It is one of those $k$ alternatives. It thus has $\lprof(y)_1 \in \intvl{0, 4}$. Thus its dispersion is at most $3$. It is also PE, being the best among those $k$ ones.
+\commentOC{Final part argument wording should be improved.}
 \end{proof}
 	
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
