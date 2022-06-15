@@ -310,23 +310,22 @@ $MD$ requires the outcome to contain some Paretian alternatives whose loss vecto
 \begin{proof}
 	We prove the claim by constructing a profile $\prof$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 	
-	Let $\allalts = \set{a_0, …, a_{m - 1}}$.
-	Define the sequences $S_1 = (a_0, …, a_{\khalf})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$; define $k = \khalf + 1$.
-	Observe that $S_1$ has length $\khalf + 1$ and $S_2$ has length $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 1 = \floor{\frac{m - 1}{2}} - 1$.
+	Let $\allalts = \set{a_1, …, a_m}$.
+	Define the sequences $S_1 = (a_1, …, a_{\khalf + 1})$ and $S_2 = (a_{\khalf + 3}, …, a_m)$; define $k = \khalf + 2$.
+	Observe that $S_1$ has length $\khalf + 1$ and $S_2$ has length $m - (\khalf + 3) + 1 = (m - 1 - \khalf) - 1 = \floor{\frac{m - 1}{2}} - 1$.
 
-%	Observe that the sequences $(a_0, …, a_{\floor{\frac{m - 1}{2}} - 2})$ and $S_2 = (a_{\khalf + 2}, …, a_{m - 1})$ have length $\floor{\frac{m - 1}{2}} - 1$ (as $(m - 1) - (\khalf + 2) + 1 = (m - 1 - \khalf) - 2 + 1$); 
-%	and the sequences $S_1 = (a_0, …, a_{\khalf})$ and $(a_{\floor{\frac{m - 1}{2}}}, …, a_{m - 1})$ have length $\khalf + 1$.
-	Define the profile $P$ as containing for voter 1 the preference ordering $(a_0, …, a_{m - 1})$ and for voter 2 the ordering $(S_2,a_k,S_1)$.
+	Define the profile $P$ as containing for voter 1 the preference ordering $(a_1, …, a_m)$ and for voter 2 the ordering $(S_2,a_k, S_1)$.
 	
-	Note that any alternative $a_j$ is preceded, in the preference of voter 1, by $j$ alternatives, thus, $\lprof(a_j)_1 = j$.
+	Note that any alternative $a_j$ is preceded, in the preference of voter 1, by $j - 1$ alternatives, thus, $\lprof(a_j)_1 = j - 1$.
 	In particular, $\lprof(a_k)_1 = \khalf + 1$.
 	The alternative $a_k$ is preceded, in the preference of voter 2, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_k)_2 = \floor{\frac{m - 1}{2}} - 1$.
 
-	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. Indeed, each of the alternatives $a_j \in S_1$ has losses $(j, j + \floor{\frac{m - 1}{2}})$, thus with a strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the choice of $m$); and each of the alternatives $a_{\khalf + 2 + j} \in S_2$ has losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
+	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. 
+	Indeed, each of the alternatives $a_j \in S_1$ has losses $(j - 1, \floor{\frac{m - 1}{2}} - 1 + j)$, thus with strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the choice of $m$); and each of the alternatives $a_{\khalf + 3 + j} \in S_2$ has losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
 	
-	But any rule that satisfies $MR$ may not include the alternative $a_{k}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
+%	But any rule that satisfies $MR$ may not include the alternative $a_{k}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
+	As $\argmin_{\PE} (d \circ \lprof) = a_k$ and $a_k \notin H(\prof)$, $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
- \commentOC{Number alternatives from 1.}
  
 The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proposition}
