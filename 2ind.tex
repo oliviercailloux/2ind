@@ -350,7 +350,7 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 \begin{proof}
 	If the rule is well-defined, it satisfies MR and MD by construction. We only need to show that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote the worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
 	It follows that the dispersion of $x$ is at least $2k - m + 1$.
 
 	If $k ≤ \khalf$, the proof is done, so assume that $k > \khalf$. 
@@ -360,7 +360,26 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 	By the reasoning so far, losses $3$ to $7$ ($k = 5$ slots) contain the $k$ alternatives better than $x$ for voter $i$. Consider $y \suchthat \lprof(y)_2 = 3$. It is one of those $k$ alternatives. It thus has $\lprof(y)_1 \in \intvl{0, 4}$. Thus its dispersion is at most $3$. It is also PE, being the best among those $k$ ones.
 \commentOC{Final part argument wording should be improved.}
 \end{proof}
+
+In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
+\begin{theorem}
+	Given $t \in \intvl{0, m - 1}$, $m$ is “small enough” implies $[\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$.
+\end{theorem}
+\begin{proof}
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives), say, $k + r$. Thus $\lprof(x)_{\ibar} = m - 1 - k - r$. In other words, $\lprof(x)(1, 2) = \set{k, m - 1 - k - r}$, with $k ≥ m - 1 - k - r$. 
+	It follows that $d(\lprof(x)) = 2k + 1 + r - m$.
 	
+	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate those first ones for $i$. 
+	If $k ≤ t$, the proof is done. Otherwise, if $m$ is small enough, some alternative $y \in A$ has a not greater dispersion than $x$ (hence non empty set, containing $y$).
+	Write $\epsilon = k - t$ the surplus alternatives. Write $y = \argmin_A \lprof(.)_{\ibar}$ the best alternative for voter $\ibar$ among $A$. The worst case in terms of dispersion (biggest dispersion of the alternatives within $A$) is when $\lprof(y)_1 = 0$, in which case $d(y) = \lprof(y)_2$, which is biggest at $1 + (m - 1 - k) = m - k$, as it may be preceded by $x$ and the alternatives not being $x$ nor $k$ (and not $\epsilon$ if $t < m - k$, because any of these there would have dispersion strictly lower than $x$, having interval of losses within the interval of losses of $x$, $\lprof(x)_{\ibar} < \lprof(e)_{\ibar} ≤ \lprof(e)_i < \lprof(x)_i$, whereas if $t ≥ m - k$ then $\lprof(e)_{ibar} ≥ \lprof(e_i$ and this reasoning does not hold, to be checked). 
+	In other words, $y$ is only followed by $k - 1$ alternatives thus its loss is $(m - 1) - (k - 1)$. Note that the other alternatives in $A$ have non lower dispersion than $y$. When is $d(y) > d(x)$ (equiv, when is the set empty)? When $m - k > 2k + 1 + r - m$. Choosing $r = 0$ and $k = t + 1$, this is possible iff $2m > 3t + 4$, equivalently, $m ≥ \frac{3t + 5}{2}$. For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{4}$ thus $m ≥ 7$. 
+	And for $m$ even, $m ≥ \frac{3m + 10}{4}$ thus $m ≥ 10$.
+	Conversely, we obtain a guaranteed non empty set when $m < \frac{3t + 5}{2}$, equivalently, $t > \frac{2m - 5}{3}$, thus, when we consider up to ranks at least $\ceil{\frac{2}{3}m}$.
+%	In other words, $y$ is only followed by $t - 1$ alternatives thus its loss is $(m - 1) - (t - 1)$. Note that the other alternatives in $A$ have non lower dispersion than $y$. When is $d(y) > d(x)$ (equiv, when is the set empty)? When $m - t > 2k + 1 + r - m$. Choosing $r = 0$ and $k = t + 1$, this is possible iff $2m > 3t + 3$, equivalently, $m ≥ \frac{3}{2}t + 2$.
+ 
+	TODO
+\end{proof}
+
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 
