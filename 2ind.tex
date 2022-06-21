@@ -341,6 +341,11 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(a_1, …, a_m)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
 \end{proof}
 
+\noindent \textbf{Remark 1:} For any $\prof$, if $x\in PE(\prof)$ then
+$\lprof(x)_1+\lprof(x)_2\leq m-1$. 
+To see this, suppose, for a contradiction, that $x\in PE(\prof)$ while
+$\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.
+
 \begin{proposition}
 	\label{th:MRMD}
 	When $m = 8$ or $m ≤ 6$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD.
