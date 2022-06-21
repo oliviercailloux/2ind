@@ -139,9 +139,6 @@ Let $\MRcl$ denote the class of minimally Rawlsian (MR) SCRs.
  \begin{proof}
 	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \cite{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \ceil{\frac{m - 1}{2}}$.\end{proof} 
    
-
-
-
 We now discuss the relationship of the class $\PVcl$ to the $\MRcl$ property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{(m-1)}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
@@ -371,7 +368,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	
 	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate those first ones for $i$. 
 	If $k ≤ t$, the proof is done. Otherwise, if $m$ is small enough, some alternative $y \in A$ has a not greater dispersion than $x$ (hence non empty set, containing $y$).
-	Write $\epsilon = k - t$ the surplus alternatives. Write $y = \argmin_A \lprof(.)_{\ibar}$ the best alternative for voter $\ibar$ among $A$. The worst case in terms of dispersion (biggest dispersion of the alternatives within $A$) is when $\lprof(y)_1 = 0$, in which case $d(y) = \lprof(y)_2$, which is biggest at $1 + (m - 1 - k) = m - k$, as it may be preceded by $x$ and the alternatives not being $x$ nor $k$ (and not $\epsilon$ if $t < m - k$, because any of these there would have dispersion strictly lower than $x$, having interval of losses within the interval of losses of $x$, $\lprof(x)_{\ibar} < \lprof(e)_{\ibar} ≤ \lprof(e)_i < \lprof(x)_i$, whereas if $t ≥ m - k$ then $\lprof(e)_{ibar} ≥ \lprof(e_i$ and this reasoning does not hold, to be checked). 
+	Write $\epsilon = k - t$ the surplus alternatives. Write $y = \argmin_A \lprof(.)_{\ibar}$ the best alternative for voter $\ibar$ among $A$. The worst case in terms of dispersion (biggest dispersion of the alternatives within $A$) is when $\lprof(y)_1 = 0$, in which case $d(y) = \lprof(y)_2$, which is biggest at $1 + (m - 1 - k) = m - k$, as it may be preceded by $x$ and the alternatives not being $x$ nor $k$ (and not $\epsilon$ if $t < m - k$, because any of these there would have dispersion strictly lower than $x$, having interval of losses within the interval of losses of $x$, $\lprof(x)_{\ibar} < \lprof(e)_{\ibar} ≤ \lprof(e)_i < \lprof(x)_i$, whereas if $t ≥ m - k$ then $\lprof(e)_{ibar} ≥ \lprof(e_i)$ and this reasoning does not hold, to be checked). 
 	In other words, $y$ is only followed by $k - 1$ alternatives thus its loss is $(m - 1) - (k - 1)$. Note that the other alternatives in $A$ have non lower dispersion than $y$. When is $d(y) > d(x)$ (equiv, when is the set empty)? When $m - k > 2k + 1 + r - m$. Choosing $r = 0$ and $k = t + 1$, this is possible iff $2m > 3t + 4$, equivalently, $m ≥ \frac{3t + 5}{2}$. For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{4}$ thus $m ≥ 7$. 
 	And for $m$ even, $m ≥ \frac{3m + 10}{4}$ thus $m ≥ 10$.
 	Conversely, we obtain a guaranteed non empty set when $m < \frac{3t + 5}{2}$, equivalently, $t > \frac{2m - 5}{3}$, thus, when we consider up to ranks at least $\ceil{\frac{2}{3}m}$.
