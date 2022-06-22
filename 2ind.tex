@@ -384,14 +384,14 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
-
-In Proposition \ref{propo:pv} below, we write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$ and let $\langle \frac{m}{3} \rangle=k$ for $r\in\{0,1\}$ while $\langle \frac{m}{3} \rangle=k+1$ for $r=2$.
-
+\commentRS{The proof we suggested yesterday for Propostion 11 is almost true. More precisely, it holds when m is a multiple of 3 or a multiple of 3 modulo 1. However, it fails for modulo 2. I had to change the statement of the proposition as below.}
 
 \begin{proposition}\label{propo:pv}
-	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_1)]$ satisfies MD iff its veto levels are both at most $\langle \frac{m}{3} \rangle$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \langle \frac{m}{3} \rangle$.
+	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$.
+	(i) For $r\in\{0,1\}$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff \max_{i \in \set{1, 2}} v_i ≤ $k$.
+	(ii) For $r=2$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD only if \max_{i \in \set{1, 2}} v_i ≤ $k+1$.
+		(iii) For $r=2$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD if \max_{i \in \set{1, 2}} v_i ≤ $k$.
 \end{proposition}
-\commentRS{We'll discuss the sufficiency part face to face.}
 
 
 \begin{proof}
