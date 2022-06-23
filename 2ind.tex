@@ -384,23 +384,19 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
-\commentRS{The proof we suggested yesterday for Propostion 11 is almost true. More precisely, it holds when m is a multiple of 3 or a multiple of 3 modulo 1. However, it fails for modulo 2. I had to change the statement of the proposition as below.}
+\commentRS{I restated Proposition 11 according to the stronger definition of MD. I wrote the proof of the necessity. Can you please check and also correct latex errors. Once you agree, I'll send the proof of the sufficiency.}
 
 \begin{proposition}\label{propo:pv}
-	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$.
-	(i) For $r\in\{0,1\}$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD iff \max_{i \in \set{1, 2}} v_i ≤ $k$.
-	(ii) For $r=2$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD only if \max_{i \in \set{1, 2}} v_i ≤ $k+1$.
-		(iii) For $r=2$, a PV rule $\PVv[(v_1, v_2)]$ satisfies MD if \max_{i \in \set{1, 2}} v_i ≤ $k$.
+	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$.$\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
 
 
 \begin{proof}
-To show the necessity, suppose that $v_{i}>$ $\langle \frac{m}{3} \rangle$
-for some $i$. Let $i=1$, without loss of generality. The proof is divided in three cases, one for each possible value of $r$.
+To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
 
 \medskip
 
-If $r=0$, then $v_{1}>$ $k$. Consider the profile $\prof$
+For $r=0$, consider the profile $\prof$
 
 
 	\begin{equation}
@@ -419,7 +415,7 @@ where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
 
 \medskip
 
-If $r=1$, then $v_{1}>$ $k$. Consider the profile $\prof'$
+For $r=1$, consider the profile $\prof'$
 
 	\begin{equation}
 		\begin{array}{lllllll}
@@ -433,17 +429,18 @@ where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
 MD must pick $x$, which is, however, vetoed by individual 1. 
 \bigskip 
 
-Finally, if $r=2$, then $v_{1}>$ $k+1$. Consider the profile $\prof"$
-
+For $r=2$, consider the profile $\prof''$
 
 	\begin{equation}
-		\begin{array}{llllllll}
-			a_1&\ldots&a_{2k}&x&y&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&y&a_1 &\ldots&a_{2k}\\
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&y&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}&y\\
 		\end{array}.
 	\end{equation}
 
-where $PE(\prof")=\{a_{1}, a_{2k+1}, x\}$ while
-$d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d(\lambda_{\prof"}(x)) = k$. Thus, any SCR that satisfies MD must pick $x$, which is, however, vetoed by individual 1.
+
+where $PE(\prof'' )=\{a_{1}, a_{2k+1}, x\}$ while
+ $d(\lambda_{\prof''}(a_{1})) =k+1$, $d(\lambda_{\prof''}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof''}(x)) = k+1$. Thus, any SCR that satisfies
+MD must pick $x$, which is, however, vetoed by individual 1. 
 
 \end{proof}
 
