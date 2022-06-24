@@ -1,4 +1,4 @@
-\RequirePackage[l2tabu, orthodox]{nag}
+@\RequirePackage[l2tabu, orthodox]{nag}
 \documentclass[version=3.21, pagesize, twoside=off, bibliography=totoc, DIV=calc, fontsize=12pt, a4paper]{scrartcl}
 \input{preamble/packages}
 \input{preamble/redac}
@@ -35,6 +35,7 @@
 \label{sec:intro}
 
 \commentOC{I will take care about using individuals, not voters or players.}
+\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
 \cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -453,6 +454,10 @@ MD must pick $x$, which is, however, vetoed by individual 1.
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. 
 
 The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
+
+
+\commentRS{The definition and the proposition below must be adapted to the new definition of MD.}
+
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -496,11 +501,11 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\mathbf{P})=\{a\}$ while $RMD$ requi
 Thus, by Theorem 2, among the $PV$ rules, $\PVe$ is the only candidate to satisfy $RMD$. As $\PVe$ chooses all Pareto efficient alternatives in $H(\mathbf{P})$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 
+\section{Concluding remarks}
 
-\commentRS{I think the proposition above is fine. We must decide what to do with the paragraph below.}
 An SCR that satisfies this principle is the SCR that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The SCR $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
-\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem.}
+
 
 \appendix
 \section{Spread measures}
