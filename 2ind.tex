@@ -1,4 +1,4 @@
-\RequirePackage[l2tabu, orthodox]{nag}
+@\RequirePackage[l2tabu, orthodox]{nag}
 \documentclass[version=3.21, pagesize, twoside=off, bibliography=totoc, DIV=calc, fontsize=12pt, a4paper]{scrartcl}
 \input{preamble/packages}
 \input{preamble/redac}
@@ -35,6 +35,7 @@
 \label{sec:intro}
 
 \commentOC{I will take care about using individuals, not voters or players.}
+\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
 \cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -63,14 +64,14 @@ The \textit{shortlisting procedure} where one individual selects $(m+1) / 2$ alt
 
 The class of \textit{Pareto-and-veto rules} where each individual i vetoes a fixed number $v_i$ of alternatives with $v_1$ + $v_2$ being lower than the total number of alternatives m. The outcome is the set of Pareto optimal alternatives that are not vetoed. This class generalizes the Pareto-and-veto rules analyzed by \cite{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$.
   
-This list of rules we consider covers most of the two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \cite{anbarci1993noncooperative, anbarci2006finite} and \cite{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. 
+We consider most of the two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \cite{anbarci1993noncooperative, anbarci2006finite} and \cite{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. 
 
 We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank mechanism and the shortlisting procedure are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that gives the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank mechanism and the shortlisting procedure are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that doesn't exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
-Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. This principle turns out to be logically incompatible with the minimal Rawlsian principle, thus being failed by fallback bargaining.\footnote{
-In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} (see \cite{thomson1994cooperative}) minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.}
+Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. \footnote{
+In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} (see \cite{thomson1994cooperative}) minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.} Not only fallback bargaining fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that doesn't exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle. Recall that this upper bound is a half for the satisfaction of the weaker Paretian equal loss principle.
 
 
 \section{Basic notions and notation}
@@ -407,23 +408,19 @@ For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
-
-In Proposition \ref{propo:pv} below, we write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$ and let $\langle \frac{m}{3} \rangle=k$ for $r\in\{0,1\}$ while $\langle \frac{m}{3} \rangle=k+1$ for $r=2$.
-
+\commentRS{I restated Proposition 11 according to the stronger definition of MD. I wrote the proof of the necessity. Can you please check and also correct latex errors. Once you agree, I'll send the proof of the sufficiency.}
 
 \begin{proposition}\label{propo:pv}
-	For any $m ≥ 3$, a PV rule $\PVv[(v_1, v_1)]$ satisfies MD iff its veto levels are both at most $\langle \frac{m}{3} \rangle$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \langle \frac{m}{3} \rangle$.
+	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$.$\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
-\commentRS{We'll discuss the sufficiency part face to face.}
 
 
 \begin{proof}
-To show the necessity, suppose that $v_{i}>$ $\langle \frac{m}{3} \rangle$
-for some $i$. Let $i=1$, without loss of generality. The proof is divided in three cases, one for each possible value of $r$.
+To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
 
 \medskip
 
-If $r=0$, then $v_{1}>$ $k$. Consider the profile $\prof$
+For $r=0$, consider the profile $\prof$
 
 
 	\begin{equation}
@@ -442,7 +439,7 @@ where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
 
 \medskip
 
-If $r=1$, then $v_{1}>$ $k$. Consider the profile $\prof'$
+For $r=1$, consider the profile $\prof'$
 
 	\begin{equation}
 		\begin{array}{lllllll}
@@ -456,17 +453,18 @@ where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
 MD must pick $x$, which is, however, vetoed by individual 1. 
 \bigskip 
 
-Finally, if $r=2$, then $v_{1}>$ $k+1$. Consider the profile $\prof"$
-
+For $r=2$, consider the profile $\prof''$
 
 	\begin{equation}
-		\begin{array}{llllllll}
-			a_1&\ldots&a_{2k}&x&y&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&y&a_1 &\ldots&a_{2k}\\
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&y&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}&y\\
 		\end{array}.
 	\end{equation}
 
-where $PE(\prof")=\{a_{1}, a_{2k+1}, x\}$ while
-$d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d(\lambda_{\prof"}(x)) = k$. Thus, any SCR that satisfies MD must pick $x$, which is, however, vetoed by individual 1.
+
+where $PE(\prof'' )=\{a_{1}, a_{2k+1}, x\}$ while
+ $d(\lambda_{\prof''}(a_{1})) =k+1$, $d(\lambda_{\prof''}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof''}(x)) = k+1$. Thus, any SCR that satisfies
+MD must pick $x$, which is, however, vetoed by individual 1. 
 
 \end{proof}
 
@@ -479,6 +477,10 @@ $d(\lambda_{\prof"}(a_{1})) =2k+2$, $d(\lambda_{\prof"}(a_{2k+1})) = k+2$ and $d
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. 
 
 The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
+
+
+\commentRS{The definition and the proposition below must be adapted to the new definition of MD.}
+
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -522,11 +524,11 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\mathbf{P})=\{a\}$ while $RMD$ requi
 Thus, by Theorem 2, among the $PV$ rules, $\PVe$ is the only candidate to satisfy $RMD$. As $\PVe$ chooses all Pareto efficient alternatives in $H(\mathbf{P})$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 
+\section{Concluding remarks}
 
-\commentRS{I think the proposition above is fine. We must decide what to do with the paragraph below.}
 An SCR that satisfies this principle is the SCR that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The SCR $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
-\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem.}
+
 
 \appendix
 \section{Spread measures}
