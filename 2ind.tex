@@ -365,22 +365,45 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \begin{theorem}
-	Given $t \in \intvl{0, m - 1}$, $m$ is “small enough” implies $[\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$.
+	$\forall t \in \intvl{\khalf, m - 1}: m < \frac{3t + 5}{2} ⇒ [\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$.
 \end{theorem}
 \begin{proof}
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives), say, $k + r$. Thus $\lprof(x)_{\ibar} = m - 1 - k - r$. In other words, $\lprof(x)(1, 2) = \set{k, m - 1 - k - r}$, with $k ≥ m - 1 - k - r$. 
-	It follows that $d(\lprof(x)) = 2k + 1 + r - m$.
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. 
+	%In other words, $\lprof(x)(1, 2) = \set{k, m - 1 - k - r}$, with $k ≥ m - 1 - k - r$. 
+	It follows that $d(\lprof(x)) ≥ 2k + 1 - m$.
 	
-	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate those first ones for $i$. 
-	If $k ≤ t$, the proof is done. Otherwise, if $m$ is small enough, some alternative $y \in A$ has a not greater dispersion than $x$ (hence non empty set, containing $y$).
-	Write $\epsilon = k - t$ the surplus alternatives. Write $y = \argmin_A \lprof(.)_{\ibar}$ the best alternative for voter $\ibar$ among $A$. The worst case in terms of dispersion (biggest dispersion of the alternatives within $A$) is when $\lprof(y)_1 = 0$, in which case $d(y) = \lprof(y)_2$, which is biggest at $1 + (m - 1 - k) = m - k$, as it may be preceded by $x$ and the alternatives not being $x$ nor $k$ (and not $\epsilon$ if $t < m - k$, because any of these there would have dispersion strictly lower than $x$, having interval of losses within the interval of losses of $x$, $\lprof(x)_{\ibar} < \lprof(e)_{\ibar} ≤ \lprof(e)_i < \lprof(x)_i$, whereas if $t ≥ m - k$ then $\lprof(e)_{ibar} ≥ \lprof(e_i)$ and this reasoning does not hold, to be checked). 
-	In other words, $y$ is only followed by $k - 1$ alternatives thus its loss is $(m - 1) - (k - 1)$. Note that the other alternatives in $A$ have non lower dispersion than $y$. When is $d(y) > d(x)$ (equiv, when is the set empty)? When $m - k > 2k + 1 + r - m$. Choosing $r = 0$ and $k = t + 1$, this is possible iff $2m > 3t + 4$, equivalently, $m ≥ \frac{3t + 5}{2}$. For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{4}$ thus $m ≥ 7$. 
+	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate the $t + 1$ top alternatives for $i$. 
+	Because $t ≥ \khalf$, $A ≠ \emptyset$.
+	
+	If $k ≤ t$, the proof is done, so assume that $k > t$. 
+	
+	Let $B = \set{b \suchthat t < \lprof(b)_i < k}$ designate the $k$ top alternatives for $i$ except for those in $A$.
+ 
+	Observe that $\forall b \in B: \lprof(b)_{\ibar} > \lprof(x)_{\ibar}$ as otherwise $b$ Pareto dominates $x$. 
+	
+	Observe that $\forall b \in B: \lprof(b)_{\ibar} > \lprof(b)_i$, for the following reason.
+	We know that $\lprof(b)_i < \lprof(x)_i = k$ by definition of $B$.
+	Now note that $\lprof(x)_{\ibar} < \lprof(b)_{\ibar} ≤ \lprof(b)_i < \lprof(x)_i$ is impossible as then $d(b) < d(x)$. So, it must be that $\lprof(b)_{\ibar} > \lprof(b)_i$.
+	
+	Pick $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for voter $\ibar$ among $A$. By construction thus, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
+	
+	We have $t ≥ \khalf$ thus $m - t ≤ m - \khalf = (m - 1) - \khalf + 1 = \floor{\frac{m - 1}{2}} + 1$.
+	
+	Consider any $b \in B$. We established already that $\lprof(b)_{\ibar} > \lprof(b)_i$, and by definition of $B$, $\lprof(b)_i ≥ t + 1$. It follows that $\lprof(b)_{\ibar} > t + 1 ≥ \floor{\frac{m - 1}{2}} + 1 ≥ m - t ≥ \lprof(y)_{\ibar}$. We conclude that $\lprof(b)_{\ibar} > \lprof(y)_{\ibar}$.
+	Therefore, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} - \card{B} = m - 1 - \card{(A \cup B \setminus \set{y})} = m - 1 - (k - 1) = m - k$.
+	
+	It follows that $d(y) ≤ m - k$.
+
+	%Note that the other alternatives in $A$ have non lower dispersion than $y$. 
+	
+	When $m - k ≤ 2k + 1 - m$ for all $k > t$, we have that $\forall P: d(\lprof(y)) ≤ d(\lprof(x))$ (equiv, $y$ is in the set). Equivalently, iff $2m ≤ 3k + 1$ for $k = t + 1$, equivalently, $2m ≤ 3t + 4$, equivalently, $m < \frac{3t + 5}{2}$. 
+\end{proof}
+
+\begin{remark}
+For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{4}$ thus $m ≥ 7$. 
 	And for $m$ even, $m ≥ \frac{3m + 10}{4}$ thus $m ≥ 10$.
 	Conversely, we obtain a guaranteed non empty set when $m < \frac{3t + 5}{2}$, equivalently, $t > \frac{2m - 5}{3}$, thus, when we consider up to ranks at least $\ceil{\frac{2}{3}m}$.
-%	In other words, $y$ is only followed by $t - 1$ alternatives thus its loss is $(m - 1) - (t - 1)$. Note that the other alternatives in $A$ have non lower dispersion than $y$. When is $d(y) > d(x)$ (equiv, when is the set empty)? When $m - t > 2k + 1 + r - m$. Choosing $r = 0$ and $k = t + 1$, this is possible iff $2m > 3t + 3$, equivalently, $m ≥ \frac{3}{2}t + 2$.
- 
-	TODO
-\end{proof}
+\end{remark}
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
