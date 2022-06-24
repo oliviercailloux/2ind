@@ -297,10 +297,11 @@ Note that $d \in \Sigma$ coincides with multiple commonly used spread measures, 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
 Define the minimal dispersion ($MD$) condition as follows.
+\commentRS{Make MD stronger and see its impacts on Theorem 3, Proposition 9 and Proposition 10.}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-$MD$ requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
+$MD$ requires the outcome to contain the Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
 \begin{theorem}
 	\label{th:noMRMD}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
@@ -341,10 +342,10 @@ The following proposition will be useful to prove \cref{th:MRMD}.
 	alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
 \end{proof}
 
-\noindent \textbf{Remark 1:} For any $\prof$, if $x\in PE(\prof)$ then
+\noindent \begin{remark}\label{remark1} For any $\prof$, if $x\in PE(\prof)$ then
 $\lprof(x)_1+\lprof(x)_2\leq m-1$. 
 To see this, suppose, for a contradiction, that $x\in PE(\prof)$ while
-$\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.
+$\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.\end{remark}
 
 \begin{proposition}
 	\label{th:MRMD}
@@ -363,7 +364,7 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 	By the reasoning so far, losses $3$ to $7$ ($k = 5$ slots) contain the $k$ alternatives better than $x$ for voter $i$. Consider $y \suchthat \lprof(y)_2 = 3$. It is one of those $k$ alternatives. It thus has $\lprof(y)_1 \in \intvl{0, 4}$. Thus its dispersion is at most $3$. It is also PE, being the best among those $k$ ones.
 \commentOC{Final part argument wording should be improved.}
 \end{proof}
-
+\commentRS{I think we don't need Theorem 4 below and the related material}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \begin{theorem}
 	$\forall t \in \intvl{\khalf, m - 1}: m < \frac{3t + 5}{2} ⇒ [\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$.
@@ -408,10 +409,10 @@ For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
-\commentRS{I restated Proposition 11 according to the stronger definition of MD. I wrote the proof of the necessity. Can you please check and also correct latex errors. Once you agree, I'll send the proof of the sufficiency.}
+\commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
 
 \begin{proposition}\label{propo:pv}
-	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$.$\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
+	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
 
 
@@ -466,10 +467,72 @@ where $PE(\prof^{\prime\prime} )=\{a_{1}, a_{2k+1}, x\}$ while
  $d(\lambda_{\prof^{\prime\prime}}(a_{1})) =k+1$, $d(\lambda_{\prof^{\prime\prime}}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof^{\prime\prime}}(x)) = k+1$. Thus, any SCR that satisfies
 MD must pick $x$, which is, however, vetoed by individual 1. 
 
+
+To see the "if" part, let max$_{i\in \{1,2\}}$ $v_{i}\leq $ $k.$ Take any $%
+\prof$ and any $x\in \boldsymbol{argmin}_{\mathcal{PE}(\prof)}(d\cdot
+\lambda _{P})$. Suppose, towards contradiction, $x\notin PV^{(v_{1},\text{ }%
+v_{2})}(P)$, hence $\lambda _{P}(x)_{i}\geq $ $m-v_{i}$ for some $i\in
+\left\{ 1,\text{ }2\right\} $. Let, without loss of generality, $i=1.$ So, $%
+\lambda _{P}(x)_{1}\geq $ $m-v_{1}$. By Remark \ref{remark1}, $\lambda _{P}(x)_{2}\leq
+m-1-\lambda _{P}(x)_{1}.$ Thus, $\lambda _{P}(x)_{2}\leq v_{1}-1$. As $%
+v_{1}\leq $ $k$, we have $v_{1}-1<$ $m-v_{1}$, hence $\lambda _{P}(x)_{2}<$ $%
+\lambda _{P}(x)_{1}.$ Thus, $d\cdot \lambda _{P}(x)=\lambda
+_{P}(x)_{1}-\lambda _{P}(x)_{2}\geq m-2v_{1}+1.$
+
+Now take $y\in PE(\prof)$ with $y\succ _{1}x$ such that
+there is no $z\in PE(\prof)$ with $y\succ _{1}z$ $\succ
+_{1}x$. Write $I(y,$ $x;$ $\succ _{1})=\left\{ z\in A:y\succ _{1}z\succ
+_{1}x\right\} $ for the set of alternatives between $y$ and $x$ at $%
+\succ _{1}.$ By construction, $I(y,$ $x;$ $\succ _{1})$ $\subseteq
+A\backslash PE(\prof).$
+
+Consider first the case $I(y,$ $x;$ $\succ _{1})$ $=\varnothing $. Thus, $%
+\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-1$. As $x\in PE(\profc)$, we have $x\succ
+_{2}y$, thus $\lambda _{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot
+\lambda _{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq
+\lambda _{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{%
+PE}(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$%
+, in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
+_{P}(x)_{1}$, which is attained when $\lambda _{P}(y)_{2}=m-1$. As $x\in 
+\boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda _{P}),$ we have $d\cdot
+\lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $m-\lambda _{P}(x)_{1}\geq
+m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq 2v_{1}-1$. However, $m-v_{1}>2v_{1}-1$ when $%
+v_{1}\leq $ $k$, leading to a contradiction since $%
+\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
+
+Now consider the case $I(y,$ $x;$ $\succ _{1})$ $\neq \varnothing $. For any 
+$a \in I(y,$ $x;$ $\succ _{1}),$ write $\Delta (a )\in A$ for some
+alternative that Pareto dominates $a $, i.e., $\Delta (a )\succ
+_{i}a $ $\forall i\in \{1,$ $2\}$. In general, $\Delta (a )$ may
+or may not be in $I(y,$ $x;$ $\succ _{1})$. However, w.l.o.g. we can pick $\Delta (a )$ so that $\Delta (a )$ $\notin $
+$I(y,$ $x;$ $\succ _{1}),$\footnote{Observe that $I(y,$ $x;$ $\succ _{1})$ does not contain Pareto efficient alternatives. Hence, for any alternative in this set, there is some other alternative that Pareto dominates it. Since $I(y, x; \succ _{1})$ is finite and the Pareto dominance
+relation is transitive, the claim holds.}, which implies either $\Delta (a )=y$ or $%
+\Delta (a )\succ _{1}y$. If $\Delta (a )=y$ then $y\succ
+_{2}a $ by Pareto dominance. If $\Delta (a
+)\succ _{1}y$ then $y\succ _{2}\Delta (a )$ as $y\in PE(\prof)$. Thus for
+any $a \in I(y,$ $x;$ $\succ _{1}),$ we have either  $y\succ _{2}a 
+$ or $y\succ _{2}\Delta (a ).$ In case $\Delta (a)=$ $\Delta (a^{\prime
+})$ for some distinct $a ,$ $a ^{\prime }\in I(y,$ $x;$ $\succ
+_{1})$, we have $\Delta (a)\succ _{2}a^{\prime }$, implying $y\succ
+_{2}a^{\prime }$. As a result, $\lambda _{P}(y)_{2}\leq $ $m-\#I(y,x;\succ
+_{1})-1$. Note also $\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-\#I(y,x;\succ
+_{1})-1$. As $x\in PE(\prof)$, we have $x\succ _{2}y$, thus $\lambda
+_{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot \lambda
+_{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq \lambda
+_{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{PE}%
+(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$,
+in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
+_{P}(x)_{1}$, which is attained at $\lambda _{P}(y)_{2}=m-\#I(y,x;\succ
+_{1})-1$. As $x\in \boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda
+_{P}),$ we have $d\cdot \lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $%
+m-\lambda _{P}(x)_{1}\geq m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq
+2v_{1}-1$. However, $%
+m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
 \end{proof}
 
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions \ref{propo:pel} and \ref{propo:pv}. 
+   
 \end{remark}
 
 \section{Reconciling the two principles}
