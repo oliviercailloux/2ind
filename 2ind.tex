@@ -56,10 +56,7 @@ Although the minimal Rawlsian and equal loss principles cover many of the two-pe
 
 Fallback bargaining, as defined by \cite{BramsKilgour2001};
 
-The \textit{veto-rank mechanism} where, given an odd number m of alternatives, each individual vetoes $(m−1) / 2$ alternatives and ranks the remaining $(m+1) / 2$. The outcome is the alternative with the minimal sum of ranks among those that have not been vetoed. This mechanism, used for the selection of arbitrators, is comprehensively analyzed by \cite{Clippel}.
-
-
-The \textit{shortlisting procedure} where one individual selects $(m+1) / 2$ alternatives and the other individual decides on the outcome out of that shortlist. This is also a mechanism that is used for the selection of arbitrators and comprehensively analyzed by \cite{Clippel}.
+The \textit{veto-rank mechanism} where, given an odd number m of alternatives, each individual vetoes $(m−1) / 2$ alternatives and ranks the remaining $(m+1) / 2$. The outcome is the alternative with the minimal sum of ranks among those that have not been vetoed. The \textit{shortlisting procedure} where one individual selects $(m+1) / 2$ alternatives and the other individual decides on the outcome out of that shortlist. Both mechanisms are used for the selection of arbitrators and their strategic aspects are comprehensively analyzed by \cite{Clippel}.
 
 
 The class of \textit{Pareto-and-veto rules} where each individual i vetoes a fixed number $v_i$ of alternatives with $v_1$ + $v_2$ being lower than the total number of alternatives m. The outcome is the set of Pareto optimal alternatives that are not vetoed. This class generalizes the Pareto-and-veto rules analyzed by \cite{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$.
@@ -591,6 +588,23 @@ Thus, by Theorem 2, among the $PV$ rules, $\PVe$ is the only candidate to satisf
 \end{proof}
 
 \section{Concluding remarks}
+
+Axiomatic analysis of social choice rules with or without strategic concerns present two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept. \footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
+
+The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from rather different perspectives.
+
+We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify, namely the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can minimize the dispersion of the loss vector.
+
+In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as fallback bargaining, the shortlisting procedure and the veto-rank mechanism are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they don’t even minimize loss dispersion among the Paretian alternatives that are ranked within the first half of both voters.
+
+Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that doesn't exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Aiming at more refined outcomes that minimize loss dispersion, one can directly pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion or the Pareto efficient alternatives within the first half of both voters that minimize loss dispersion. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggest that there is room to conceive and analyze new social choice rules.
+
+\commentRS{Write about experiments.}
+
+
+
+
+
 
 An SCR that satisfies this principle is the SCR that selects among the MR alternatives exclusively the ones with the minimal dispersion so that, formally, $ \arg min_{H(P)} (d \circ \lprof)= f^{*}(\mathbf{P})$, $\forall \prof \in \allprofs$. The SCR $f^*$ satisfies $MR$ and is hence logically incompatible with MD. 
 
