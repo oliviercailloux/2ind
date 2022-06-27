@@ -35,7 +35,7 @@
 \label{sec:intro}
 
 \commentOC{I will take care about using individuals, not voters or players.}
-\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem. I prefer calling all propositions (except 9) as "theorem" and Proposition 9 is a lemma. By the way, the actual Proposition 4 is missing a proof (that is rather obvious). }
+\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem. I prefer calling all propositions (except 9) as "theorem" and Proposition 9 is a lemma.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
 \cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -219,7 +219,7 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 \begin{proposition}
     $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
 \end{proposition}
-
+\commentRS{Proposition 4 is missing a proof (that is rather straightforward).}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
@@ -257,7 +257,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\ceil{\frac{m - 1}{2}} = \floor{\frac{m}{2}}$ positions behind $x$).
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
-
+\commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
@@ -299,7 +299,7 @@ Note that $d \in \Sigma$ coincides with multiple commonly used spread measures, 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
 Define the minimal dispersion ($MD$) condition as follows.
-\commentRS{Make MD stronger and see its impacts on Theorem 3, Proposition 9 and Proposition 10.}
+\commentRS{To prove Proposition 11, we need to make MD stronger so that it requires f(P) to contain all Pareto alternatives with a minimal dispersion. When MD gets stronger, the impossibility expressed by Theorem 3 prevails. Proposition 9 is independent of the definition of MD. Proposition 10 exploits that fact that the intersection is non-empty, which is independent of the definition of MD and once the non-emptiness is ensured, that well-defined rule also satisfies the stronger version of MD. Thus, making MD stronger has no impact on Theorem 3, Proposition 9 and Proposition 10. Am I right?}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
