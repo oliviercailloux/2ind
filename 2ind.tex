@@ -300,6 +300,14 @@ Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as t
 
 Define the minimal dispersion ($MD$) condition as follows.
 \commentRS{To prove Proposition 11, we need to make MD stronger so that it requires f(P) to contain all Pareto alternatives with a minimal dispersion. When MD gets stronger, the impossibility expressed by Theorem 3 prevails. Proposition 9 is independent of the definition of MD. Proposition 10 exploits that fact that the intersection is non-empty, which is independent of the definition of MD and once the non-emptiness is ensured, that well-defined rule also satisfies the stronger version of MD. Thus, making MD stronger has no impact on Theorem 3, Proposition 9 and Proposition 10. Am I right?}
+
+\commentMN{MD will then read $f(\prof)\supseteq \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$, right?} 
+
+\commentRS{Yes, it is this set inclusion relation. However, I wouldn't put "not being equal to the empty-set" to the definition of the condition because this would appear as if this is a part of the condition. However, this is a fact independent of the condition. Perhaps we can remark this before stating the condition.}
+
+\commentMN{Now, regarding its implications. I think that it's ok to do this replacement in Theorem 3 and Proposition 10 and 11 (no role at all in Proposition 9, right?).}
+
+\commentRS{Yes, this is what I meant. Perhaps, some revision in certain expressions in the proofs of Theroem 3 and Proposition 10 may be needed. Proposition 11 is already proven according to the stronger version.}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -366,7 +374,7 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 	By the reasoning so far, losses $3$ to $7$ ($k = 5$ slots) contain the $k$ alternatives better than $x$ for voter $i$. Consider $y \suchthat \lprof(y)_2 = 3$. It is one of those $k$ alternatives. It thus has $\lprof(y)_1 \in \intvl{0, 4}$. Thus its dispersion is at most $3$. It is also PE, being the best among those $k$ ones.
 \commentOC{Final part argument wording should be improved.}
 \end{proof}
-\commentRS{I think we don't need Theorem 4 below and the related material}
+\commentRS{I think we don't need Theorem 4 below and the related material} \commentMN{I agree to discard this material}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \begin{theorem}
 	$\forall t \in \intvl{\khalf, m - 1}: m < \frac{3t + 5}{2} ⇒ [\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$.
@@ -544,6 +552,10 @@ Given the incompatibility between MR and MD, one can attempt to reconcile the tw
 
 \commentRS{The definition and the proposition below must be adapted to the new definition of MD. Moreover, we should add Pareto efficiency.}
 
+
+\commentMN{RMD will then read $f(\prof)\supseteq \arg min_{\PE\cap H(P)} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$, right?} 
+\commentMN{The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain the alternatives whose loss vectors have minimal dispersion among the Pareto efficient ones in the first-half, right?.}
+\commentRS{Yes, except I wouldn't put "not being equal to the empty-set" to the definition of the condition because this would appear as if this is a part of the condition. However, this is a fact independent of the condition.}
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -599,7 +611,6 @@ In front of this incompatibility, the literature seems to favor the minimally Ra
 
 Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that doesn't exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Aiming at more refined outcomes that minimize loss dispersion, one can directly pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion or the Pareto efficient alternatives within the first half of both voters that minimize loss dispersion. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggest that there is room to conceive and analyze new social choice rules.
 
-\commentRS{Write about experiments.}
 
 \commentMN{I like it}
 
