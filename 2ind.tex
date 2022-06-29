@@ -312,6 +312,60 @@ Define the minimal dispersion ($MD$) condition as follows.
 	$f(\prof) \cap \arg min_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 $MD$ requires the outcome to contain the Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
+
+The following result will be useful to explore the precise relationship between $MD$ and $MR$.
+\begin{theorem}
+	$\forall t \in \intvl{\khalf, m - 1}$: 
+	\begin{equation}
+		t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	For the forward direction, let us consider any $t ≥ \khalf$ and $t ≥ \frac{2m - 4}{3}$, and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
+	
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any voter such that $\max \lprof(x) = \lprof(x)_i$. 
+	Observe that if $\lprof(x)_i ≤ t$, then also $\lprof(x)_{\ibar} ≤ t$ and thus $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, and the proof is done. Thus, assume that $\lprof(x)_i > t$.
+%	The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
+	
+%	If [equivalently, ], then 
+	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate the $t + 1$ top alternatives for $i$. 
+	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for voter $\ibar$ among $A$. 
+%	By construction thus, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
+	
+	Towards showing that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, observe that $y \in \PE$: for $i$, only the alternatives in $A$ may be better than $y$, and those are worst than $y$ for $\ibar$ by definition of $y$.
+	
+	Because $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
+	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
+	
+	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
+	Also, $t ≥ \khalf$ thus $m - 1 - t ≤ m - 1 - \khalf = \floor{\frac{m - 1}{2}} ≤ t$.
+	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - 1 - t ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $d(\lprof(y)) ≤ m - 1 - t$. 
+	
+	Observe now that $\min \lprof(x) ≤ m - 1 - \max \lprof(x)$: the alternative $x$ has $\max \lprof(x) = \lprof(x)_i$ alternatives better than it for the voter $i$, and therefore must have at least those $\max \lprof(x)$ alternatives worst than it for the voter $\ibar$, otherwise it is Pareto-dominated by at least one of those $\max \lprof(x)$ alternatives. This yields $d(\lprof(x)) = \max \lprof(x) - \min\lprof(x) ≥ \max \lprof(x) - (m - 1 - \max \lprof(x)) = 2 \lprof(x)_i - m + 1 ≥ 2 (t + 1) - m + 1$.
+	
+	To conclude, note that the condition $t ≥ \frac{2m - 4}{3}$ is equivalent to $t + 1 ≥ \frac{2m - 1}{3}$, itself equivalent to $2 (t + 1) - m + 1 ≥ m - t - 1$, hence $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
+	
+	\commentOC{It would be more elegant to show that any other alternative than $y$ has either $\max\lprof(x) ≤ t$ or $d(x) ≥ d(y)$.}
+	
+	Turning now to the reverse direction, assume that $\khalf ≤ t < \frac{2m - 4}{3}$ and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is empty.
+	
+	Observing that $m = t + 1 + (m - t - 2) + 1$, let us name the alternatives $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$.
+	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
+	Define the preference of voter $1$ as $(A, x, C)$ and the preference of voter $2$ as $(C, x, A)$.
+
+	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, t})$, and $x \in \PE$, so the claim will be proven by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
+	
+	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
+	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
+	
+	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
+	It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t - 1 > 2t + 3 - m$, as $3t < 2m - 4$ by hypothesis.
+	
+	And considering $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
+	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
+\end{proof}
+	\commentOC{For $m ≤ 7$, $\khalf ≤ t ≤ \frac{2m - 5}{3}$ only holds for $m = 7, t = 3$.}
+
 \begin{theorem}
 	\label{th:noMRMD}
 	When $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
@@ -411,43 +465,6 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	%Note that the other alternatives in $A$ have non lower dispersion than $y$. 
 	
 	When $m - k ≤ 2k + 1 - m$ for all $k > t$, we have that $\forall P: d(\lprof(y)) ≤ d(\lprof(x))$ (equiv, $y$ is in the set). Equivalently, iff $2m ≤ 3k + 1$ for $k = t + 1$, equivalently, $2m ≤ 3t + 4$. 
-\end{proof}
-
-\begin{proof}[Simplification attempt]
-	If $t + 1 ≥ \frac{2m - 1}{3}$ [equivalently, $2 (t + 1) - m + 1 ≥ m - t - 1$], then pick any $i \suchthat \exists x \in MD \suchthat \lprof(x)_i ≥ \lprof(x)_{\ibar}$; define $A = \set{a \suchthat \lprof(a)_i ≤ t}$; define $y = \argmin_A \lprof(.)_{\ibar}$; we claim that $\lprof(x)_i > t ⇒ y \in MD$.
-	
-	Observe that $y \in \PE$: for $i$, only the alternatives in $A$ may be better than $y$, and those are worst than $y$ for $\ibar$ by definition of $y$.
-	
-	Pick any $x \in MD \suchthat \lprof(x)_i ≥ \lprof(x)_{\ibar}$. Assume that $\lprof(x)_i > t$. 
-	Therefore, $\lprof(y)_i < \lprof(x)_i$ (as $y \in A$).
-	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in MD$.
-	
-	Note that $d(\lprof(y)) ≤ m - 1 - t$:  by construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$; and, using $\lprof(y)_i < \lprof(y)_{\ibar}$, $d(\lprof(y)) ≤ m - 1 - t$. 
-	
-	And $m - 1 - t ≤ t$.
-	\commentOC{Why?}
-	
-	To conclude, observe that $\min \lprof(x) ≤ m - 1 - \max \lprof(x)$: the alternative $x$ has $\max \lprof(x) = \lprof(x)_i$ alternatives better than it for the voter $i$, and therefore must have at least those $\max \lprof(x)$ alternatives worst than it for the other voter, otherwise it is Pareto-dominated by at least one of those $\max \lprof(x)$ alternatives. This yields $d(\lprof(x)) = \max \lprof(x) - \min\lprof(x) ≥ \max \lprof(x) - (m - 1 - \max \lprof(x)) = 2 \lprof(x)_i - m + 1 ≥ 2 (t + 1) - m + 1$, hence by our hypothesis, $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in MD$.
-	
-	\commentOC{It would be more elegant to show that any other alternative than $y$ has either $\max\lprof(x) ≤ t$ or $d(x) ≥ d(y)$.}
-\end{proof}
-
-\begin{proof}[other direction!]
-	Assume that $\khalf ≤ t ≤ \frac{2m - 5}{3}$ and let’s define $\prof$ such that the set is empty.
-	\commentOC{For $m ≤ 7$, this only holds for $m = 7, t = 3$.}
-	
-	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
-	We have $m = t + 1 + (m - t - 2) + 1$. 
-	Define the preference of voter $1$ as $(A, x, C)$ and the preference of voter $2$ as $(C, x, A)$.
-
-	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
-	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
-	
-	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
-	It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t - 1 > 2t + 3 - m$, as $3t < 2m - 4$ by hypothesis.
-	
-	And considering $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
-	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
 \begin{remark}
