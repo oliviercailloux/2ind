@@ -323,6 +323,7 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
+\commentOC{Consider rather the following statement. $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: $t ≥ \frac{2m - 4}{3}$ and $t ≥ \khalf$; and the rest unmodified. Perhaps add the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
 \begin{theorem}
 	\label{th:caractEmpty}
 	$\forall t \in \intvl{\khalf, m - 1}$, the following statements are logically equivalent: 
@@ -397,8 +398,6 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
-\commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
-
 \begin{corollary}
 	For $m ≥ 3$, $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$.
 \end{corollary}
@@ -407,23 +406,137 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 	Observe that $m - 1 - v ≥ \frac{2m - 4}{3} ⇔ v ≤ \frac{m + 1}{3}$.
 	
 	If $\forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3}$, then $m - 1 - v_i ≥ \frac{2m - 4}{3}$.
-	As $m - 1 - v_i \in \N$, $m - 1 - v_i ≥ \frac{2m - 4}{3} ⇒ m - 1 - v_i ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$ \commentOC{The gory details: when $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}.
+	As $m - 1 - v_i \in \N$, $m - 1 - v_i ≥ \frac{2m - 4}{3} ⇒ m - 1 - v_i ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$ \commentOC{I ignore how to prove that shortly, here are the gory details. When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}.
 	Thus, $\forall \prof$: $\lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \PE \subseteq f(\prof)$. 
 	By \cref{th:caractEmpty}, $\forall \prof$, $\lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, thus $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
-	If $v_i > \frac{m + 1}{3}$ for some $i \in \set{1, 2}$, then $m - 1 - v_i < \frac{2m - 4}{3}$. Say $i = 1$ (the rest of the argument applies symmetrically to the case $i = 2$).
-	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, m - 1 - v_1} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. \commentOC{Except for $t$ too small where it holds but does not follow from \cref{th:caractEmpty}.}
-	It follows from $f(\prof) \subseteq \lprofinv(\intvl{0, m - 1 - v_1} × \intvl{0, m - 1})$ that $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	If $v_i > \frac{m + 1}{3}$ for some $i \in \set{1, 2}$, then $m - 1 - v_i < \frac{2m - 4}{3}$. 
+	Assume first that $\khalf < \frac{2m - 4}{3}$. Define $t = \max\set{\khalf, m - 1 - v_i}$.
+	Say $i = 1$ (the rest of the argument applies symmetrically to the case $i = 2$).
+	By \cref{th:caractEmpty} (applicable because $\khalf ≤ t$), $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	It follows from $f(\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	BUT what if $\khalf ≥ \frac{2m - 4}{3}$?
+	For example, $m = 6$, $v_1 = 3 > \frac{7}{3}$, $m - 1 - v_1 = 2 < \frac{2m - 4}{3} = \frac{8}{3} < \khalf = 3$.
 \end{proof}
-\commentOC{The previous version says that for $m = 5$, max is $1$, the new version says that for $m = 5$, max is $2$.}
-\begin{corollary}\label{propo:pv}
+
+\commentOC{I suppose that we have to choose whether we keep the above approach or the one below.}
+\commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
+\commentOC{\Cref{propo:pv} says that for $k = 1$, $r = 2$ (hence $m = 5$) and $v = (2, 2)$, the rule fails MD, which is, I suppose, true for the strong definition of MD but false for the weak one. Indeed, the proof of \cref{propo:pv} does not apply to the weak one for $r = 2$ as $d(a_1) = k + 1 = d(x)$ so picking either $a_1$ or $x$ is fine. (I suppose that this is clear for everybody but I keep this remark here just in case it reveals useful in the discussion.)}
+\begin{proposition}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
-\end{corollary}
+\end{proposition}
 \begin{proof}
-	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
+To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
+
+\medskip
+
+For $r=0$, consider the profile $\prof$
+
+
 	\begin{equation}
-		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&a_{2k+1}&\ldots&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&a_{2k}&a_1 &\ldots&a_{2k-1}\\
+		\end{array}.
 	\end{equation}
+	
+	
+
+
+$\bigskip $
+
+where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
+ $d(\lprof(a_{1})) = 2k$, $d(\lprof(a_{2k+1})) = k+1$ and $d(\lprof(a_{2k})) = k-1$. Thus, any SCR that satisfies MD must pick $a_{2k}$, which is, however, vetoed by individual 1.
+
+\medskip
+
+For $r=1$, consider the profile $\prof'$
+
+	\begin{equation}
+		\begin{array}{lllllll}
+			a_1&\ldots&a_{2k}&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}\\
+		\end{array}.
+	\end{equation}
+
+
+where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
+ $d(\lambda_{\prof'}(a_{1})) =2k+1$, $d(\lambda_{\prof'}(a_{2k+1})) = k+1$ and $d(\lambda_{\prof'}(x)) = k$. Thus, any SCR that satisfies
+MD must pick $x$, which is, however, vetoed by individual 1. 
+\bigskip 
+
+For $r=2$, consider the profile $\prof^{\prime\prime}$
+
+	\begin{equation}
+		\begin{array}{llllllll}
+			a_1&\ldots&a_{2k}&y&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}&y\\
+		\end{array}.
+	\end{equation}
+
+
+where $PE(\prof^{\prime\prime} )=\{a_{1}, a_{2k+1}, x\}$ while
+ $d(\lambda_{\prof^{\prime\prime}}(a_{1})) =k+1$, $d(\lambda_{\prof^{\prime\prime}}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof^{\prime\prime}}(x)) = k+1$. Thus, any SCR that satisfies
+MD must pick $x$, which is, however, vetoed by individual 1. 
+
+
+To see the "if" part, let max$_{i\in \{1,2\}}$ $v_{i}\leq $ $k.$ Take any $%
+\prof$ and any $x\in \boldsymbol{argmin}_{\mathcal{PE}(\prof)}(d\cdot
+\lambda _{P})$. Suppose, towards contradiction, $x\notin PV^{(v_{1},\text{ }%
+v_{2})}(P)$, hence $\lambda _{P}(x)_{i}\geq $ $m-v_{i}$ for some $i\in
+\left\{ 1,\text{ }2\right\} $. Let, without loss of generality, $i=1.$ So, $%
+\lambda _{P}(x)_{1}\geq $ $m-v_{1}$. By Remark \ref{remark1}, $\lambda _{P}(x)_{2}\leq
+m-1-\lambda _{P}(x)_{1}.$ Thus, $\lambda _{P}(x)_{2}\leq v_{1}-1$. As $%
+v_{1}\leq $ $k$, we have $v_{1}-1<$ $m-v_{1}$, hence $\lambda _{P}(x)_{2}<$ $%
+\lambda _{P}(x)_{1}.$ Thus, $d\cdot \lambda _{P}(x)=\lambda
+_{P}(x)_{1}-\lambda _{P}(x)_{2}\geq m-2v_{1}+1.$
+
+Now take $y\in PE(\prof)$ with $y\succ _{1}x$ such that
+there is no $z\in PE(\prof)$ with $y\succ _{1}z$ $\succ
+_{1}x$. Write $I(y,$ $x;$ $\succ _{1})=\left\{ z\in A:y\succ _{1}z\succ
+_{1}x\right\} $ for the set of alternatives between $y$ and $x$ at $%
+\succ _{1}.$ By construction, $I(y,$ $x;$ $\succ _{1})$ $\subseteq
+A\backslash PE(\prof).$
+
+Consider first the case $I(y,$ $x;$ $\succ _{1})$ $=\varnothing $. Thus, $%
+\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-1$. As $x\in PE(\prof)$, we have $x\succ
+_{2}y$, thus $\lambda _{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot
+\lambda _{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq
+\lambda _{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{%
+PE}(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$%
+, in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
+_{P}(x)_{1}$, which is attained when $\lambda _{P}(y)_{2}=m-1$. As $x\in 
+\boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda _{P}),$ we have $d\cdot
+\lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $m-\lambda _{P}(x)_{1}\geq
+m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq 2v_{1}-1$. However, $m-v_{1}>2v_{1}-1$ when $%
+v_{1}\leq $ $k$, leading to a contradiction since $%
+\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
+
+Now consider the case $I(y,$ $x;$ $\succ _{1})$ $\neq \varnothing $. For any 
+$a \in I(y,$ $x;$ $\succ _{1}),$ write $\Delta (a )\in A$ for some
+alternative that Pareto dominates $a $, i.e., $\Delta (a )\succ
+_{i}a $ $\forall i\in \{1,$ $2\}$. In general, $\Delta (a )$ may
+or may not be in $I(y,$ $x;$ $\succ _{1})$. However, w.l.o.g. we can pick $\Delta (a )$ so that $\Delta (a )$ $\notin $
+$I(y,$ $x;$ $\succ _{1}),$\footnote{Observe that $I(y,$ $x;$ $\succ _{1})$ does not contain Pareto efficient alternatives. Hence, for any alternative in this set, there is some other alternative that Pareto dominates it. Since $I(y, x; \succ _{1})$ is finite and the Pareto dominance
+relation is transitive, the claim holds.}, which implies either $\Delta (a )=y$ or $%
+\Delta (a )\succ _{1}y$. If $\Delta (a )=y$ then $y\succ
+_{2}a $ by Pareto dominance. If $\Delta (a
+)\succ _{1}y$ then $y\succ _{2}\Delta (a )$ as $y\in PE(\prof)$. Thus for
+any $a \in I(y,$ $x;$ $\succ _{1}),$ we have either  $y\succ _{2}a 
+$ or $y\succ _{2}\Delta (a ).$ In case $\Delta (a)=$ $\Delta (a^{\prime
+})$ for some distinct $a ,$ $a ^{\prime }\in I(y,$ $x;$ $\succ
+_{1})$, we have $\Delta (a)\succ _{2}a^{\prime }$, implying $y\succ
+_{2}a^{\prime }$. As a result, $\lambda _{P}(y)_{2}\leq $ $m-\#I(y,x;\succ
+_{1})-1$. Note also $\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-\#I(y,x;\succ
+_{1})-1$. As $x\in PE(\prof)$, we have $x\succ _{2}y$, thus $\lambda
+_{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot \lambda
+_{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq \lambda
+_{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{PE}%
+(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$,
+in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
+_{P}(x)_{1}$, which is attained at $\lambda _{P}(y)_{2}=m-\#I(y,x;\succ
+_{1})-1$. As $x\in \boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda
+_{P}),$ we have $d\cdot \lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $%
+m-\lambda _{P}(x)_{1}\geq m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq
+2v_{1}-1$. However, $%
+m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
 \end{proof}
 
 \begin{remark}
