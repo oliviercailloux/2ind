@@ -314,7 +314,17 @@ Define the minimal dispersion ($MD$) condition as follows.
 $MD$ requires the outcome to contain the Paretian alternatives whose loss vectors have minimal dispersion. As such, $MD$ is another strengthening of $PEL$ while it is logically independent of $SPEL$. Nevertheless, although there exists rules that satisfy both $SPEL$ and $MR$, $MD$ turns out to be logically incompatible with $MR$.
 
 The following result will be useful to explore the precise relationship between $MD$ and $MR$.
+\begin{remark}
+	\label{remark1} 
+	For any $\prof$, if $x\in PE(\prof)$ then
+$\lprof(x)_1+\lprof(x)_2\leq m-1$. 
+To see this, suppose, for a contradiction, that $x\in PE(\prof)$ while
+$\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.
+	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
+\end{remark}
+In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \begin{theorem}
+	\label{th:caractEmpty}
 	$\forall t \in \intvl{\khalf, m - 1}$: 
 	\begin{equation}
 		t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
@@ -347,7 +357,7 @@ The following result will be useful to explore the precise relationship between 
 	
 	\commentOC{It would be more elegant to show that any other alternative than $y$ has either $\max\lprof(x) ≤ t$ or $d(x) ≥ d(y)$.}
 	
-	Turning now to the reverse direction, assume that $\khalf ≤ t < \frac{2m - 4}{3}$ and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is empty.
+	Turning now to the reverse direction, assume that $\khalf ≤ t < \frac{2m - 4}{3}$ and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 	
 	Observing that $m = t + 1 + (m - t - 2) + 1$, let us name the alternatives $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$.
 	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
@@ -366,234 +376,44 @@ The following result will be useful to explore the precise relationship between 
 \end{proof}
 	\commentOC{For $m ≤ 7$, $\khalf ≤ t ≤ \frac{2m - 5}{3}$ only holds for $m = 7, t = 3$.}
 
-\begin{theorem}
+\begin{corollary}
 	\label{th:noMRMD}
-	When $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
-\end{theorem}
+	Some $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
+\end{corollary}
 \begin{proof}
-	We prove the claim by constructing a profile $\prof$ such that $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
+	\begin{equation}
+		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+	\end{equation}
+	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$.
 	
-	Let $\allalts = \set{a_1, …, a_m}$.
-	Define the sequences $S_1 = (a_1, …, a_{\khalf + 1})$ and $S_2 = (a_{\khalf + 3}, …, a_m)$; define $k = \khalf + 2$.
-	Observe that $S_1$ has length $\khalf + 1$ and $S_2$ has length $m - (\khalf + 3) + 1 = (m - 1 - \khalf) - 1 = \floor{\frac{m - 1}{2}} - 1$.
-
-	Define the profile $P$ as containing for voter 1 the preference ordering $(a_1, …, a_m)$ and for voter 2 the ordering $(S_2,a_k, S_1)$.
-	
-	Note that any alternative $a_j$ is preceded, in the preference of voter 1, by $j - 1$ alternatives, thus, $\lprof(a_j)_1 = j - 1$.
-	In particular, $\lprof(a_k)_1 = \khalf + 1$.
-	The alternative $a_k$ is preceded, in the preference of voter 2, by the alternatives in the sequence $S_2$ of length $\floor{\frac{m - 1}{2}} - 1$, thus, $\lprof(a_k)_2 = \floor{\frac{m - 1}{2}} - 1$.
-
-	It follows that the alternative $a_k$, with losses $(\khalf + 1, \floor{\frac{m - 1}{2}} - 1)$ and $d(\lprof(a_{\khalf + 1})) = 2 + \khalf - \floor{\frac{m - 1}{2}}$ is the sole minimizer of dispersion. 
-	Indeed, each of the alternatives $a_j \in S_1$ has losses $(j - 1, \floor{\frac{m - 1}{2}} - 1 + j)$, thus with strictly greater dispersion $\floor{\frac{m - 1}{2}}$ (as $\floor{\frac{m - 1}{2}} ≥ 3 + \khalf - \floor{\frac{m - 1}{2}}$ thanks to the choice of $m$); and each of the alternatives $a_{\khalf + 3 + j} \in S_2$ has losses $(\khalf + 2 + j, j)$, thus with a strictly greater dispersion $\khalf + 2$.
-	
-%	But any rule that satisfies $MR$ may not include the alternative $a_{k}$ as a winner, as it is not in the first half, hence those rules fail $MD$.
-	As $\argmin_{\PE} (d \circ \lprof) = a_k$ and $a_k \notin H(\prof)$, $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
-The following proposition will be useful to prove \cref{th:MRMD}.
-\begin{proposition}
-	\label{th:maxDisp}
-	Given any profile $\prof$, $\exists x \in H(\prof) \cap \PE \suchthat d(\lprof(x)) ≤ \khalf$.
-	That bound is tight, in other words, $\exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
-\end{proposition}
-\begin{proof}
-	About the first claim, consider the $\khalf + 1$ alternatives having losses for the voter 1 $\lprof(x)_1 ≤ \khalf$.
-	At least one of those alternatives will have a loss for the voter 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives $\set{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf}$ have dispersion $d(\lprof(x)) ≤ \khalf$.
-	The best of those for voter $2$, that is, $\argmin_{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf} \lprof(x)_2$, is Pareto-efficient.
-	
-	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(S_1, S_2)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. 
-	Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and 
-	alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
-\end{proof}
-
-\noindent \begin{remark}\label{remark1} For any $\prof$, if $x\in PE(\prof)$ then
-$\lprof(x)_1+\lprof(x)_2\leq m-1$. 
-To see this, suppose, for a contradiction, that $x\in PE(\prof)$ while
-$\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.\end{remark}
-
-\begin{proposition}
-	\label{th:MRMD}
-	When $m = 8$ or $m ≤ 6$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD.
-\end{proposition}
-\begin{proof}
-	If the rule is well-defined, it satisfies MR and MD by construction. We only need to show that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
-	
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
-	It follows that the dispersion of $x$ is at least $2k - m + 1$.
-
-	If $k ≤ \khalf$, the proof is done, so assume that $k > \khalf$. 
-	Then, if $m$ is odd, $k ≥ \frac{m - 1}{2} + 1$ or equivalently $2k ≥ m + 1$ thus $d(\lprof(x)) ≥ 2$; and if $m$ is even, $k ≥ \frac{m}{2} + 1$ or equivalently $2k ≥ m$ thus $d(\lprof(x)) ≥ 3$. 
-	
-	\Cref{th:maxDisp} shows that for $m ≤ 6$, at least one alternative in the first half has a dispersion that is not greater than the one of $x$. Such alternative thus belongs to $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$. This argument also applies to $m = 8$ if $d(\lprof(x)) = 4$. Remains to check the case $m = 8$ and $d(\lprof(x)) = 3$.
-	By the reasoning so far, losses $3$ to $7$ ($k = 5$ slots) contain the $k$ alternatives better than $x$ for voter $i$. Consider $y \suchthat \lprof(y)_2 = 3$. It is one of those $k$ alternatives. It thus has $\lprof(y)_1 \in \intvl{0, 4}$. Thus its dispersion is at most $3$. It is also PE, being the best among those $k$ ones.
-\commentOC{Final part argument wording should be improved.}
-\end{proof}
-\commentRS{I think we don't need Theorem 4 below and the related material} \commentMN{I agree to discard this material}
-In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
-\begin{theorem}
-	$\forall t \in \intvl{\khalf, m - 1}: m < \frac{3t + 5}{2} ⇒ [\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset]$. (Equivalently: $t > \frac{2m - 5}{3}$ or $t ≥ \frac{2m - 4}{3}$.)
-	\commentOC{Check: with $t = 1$, $m = 3$ we have indeed $t > \frac{2m - 5}{3} = \frac{1}{3}$ or equivalently $t ≥ \frac{2m - 4}{3} = \frac{2}{3}$, and the conclusion holds.}
-	%Problem Houston. The conclusion also holds with $t = 1$, $m = 3$ but where $t < \frac{2m - 4}{3} = \frac{2}{3}$ is false.}
-\end{theorem}
-\begin{proof}
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $k = \max \lprof(x)$ denote its worst loss and $i$ any voter such that $k = \lprof(x)_i$. The alternative $x$ thus has $k$ alternatives better than it for the voter $i$, and therefore must have at least those $k$ alternatives worst than it for the other voter (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. 
-	%In other words, $\lprof(x)(1, 2) = \set{k, m - 1 - k - r}$, with $k ≥ m - 1 - k - r$. 
-	It follows that $d(\lprof(x)) ≥ 2k + 1 - m$.
-	
-	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate the $t + 1$ top alternatives for $i$. 
-	
-	If $k ≤ t$, the proof is done, so assume that $k > t$. 
-	
-	Let $B = \set{b \suchthat t < \lprof(b)_i < k}$ designate the $k$ top alternatives for $i$ except for those in $A$.
- 
-	Observe that $\forall b \in B: \lprof(b)_{\ibar} > \lprof(x)_{\ibar}$ as otherwise $b$ Pareto dominates $x$. 
-	
-	Observe that $\forall b \in B: \lprof(b)_{\ibar} > \lprof(b)_i$, for the following reason.
-	We know that $\lprof(b)_i < \lprof(x)_i = k$ by definition of $B$.
-	Now note that $\lprof(x)_{\ibar} < \lprof(b)_{\ibar} ≤ \lprof(b)_i < \lprof(x)_i$ is impossible as then $d(b) < d(x)$. \commentOC{Unless $b$ is PD.} So, it must be that $\lprof(b)_{\ibar} > \lprof(b)_i$.
-	
-	Pick $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for voter $\ibar$ among $A$. By construction thus, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
-	
-	We have $t ≥ \khalf$ thus $m - t ≤ m - \khalf = (m - 1) - \khalf + 1 = \floor{\frac{m - 1}{2}} + 1$.
-	
-	Consider any $b \in B$. We established already that $\lprof(b)_{\ibar} > \lprof(b)_i$, and by definition of $B$, $\lprof(b)_i ≥ t + 1$. It follows that $\lprof(b)_{\ibar} > t + 1 ≥ \floor{\frac{m - 1}{2}} + 1 ≥ m - t ≥ \lprof(y)_{\ibar}$. We conclude that $\lprof(b)_{\ibar} > \lprof(y)_{\ibar}$.
-	Therefore, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} - \card{B} = m - 1 - \card{(A \cup B \setminus \set{y})} = m - 1 - (k - 1) = m - k$.
-	
-	Note also that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(y) < d(x)$ \commentOC{Unless $y$ is PD.}
-	It follows that $d(y) ≤ m - k$.
-%	\commentOC{Problem here, could have $\lprof(y)_i = t$ and $\lprof(y)_{\ibar} = 0$, hence $d(y) = t$, and when $k ≥ t + 1$, thus $- k ≤ - t - 1$, we have $m - k ≤ m - t - 1 ≤ t$, hence $d(y) ≥ m - k$. And $t > m - k$ for example with $m = 9, t = 6, k = 7$.}
-	%Note that the other alternatives in $A$ have non lower dispersion than $y$. 
-	
-	When $m - k ≤ 2k + 1 - m$ for all $k > t$, we have that $\forall P: d(\lprof(y)) ≤ d(\lprof(x))$ (equiv, $y$ is in the set). Equivalently, iff $2m ≤ 3k + 1$ for $k = t + 1$, equivalently, $2m ≤ 3t + 4$. 
-\end{proof}
-
-\begin{remark}
-For example, when $t = \khalf$, $m$ odd, we obtain $m ≥ \frac{3 (m - 1) + 10}{4}$ thus $m ≥ 7$. 
-	And for $m$ even, $m ≥ \frac{3m + 10}{4}$ thus $m ≥ 10$.
-	Conversely, we obtain a guaranteed non empty set when $m < \frac{3t + 5}{2}$, equivalently, $t > \frac{2m - 5}{3}$, thus, when we consider up to ranks at least $\ceil{\frac{2}{3}m}$.
-\end{remark}
-
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
 
 \commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
 
-\begin{proposition}\label{propo:pv}
-	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
-\end{proposition}
-
-
+\begin{corollary}
+When $m = 9$, the veto rules sat MD iff they look at least to the first 6 ranks.
+\end{corollary}
 \begin{proof}
-To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
-
-\medskip
-
-For $r=0$, consider the profile $\prof$
-
-
+	$\forall t \in \intvl{4, 8}$: 
 	\begin{equation}
-		\begin{array}{lllllll}
-			a_1&\ldots&a_{2k}&a_{2k+1}&\ldots&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&a_{2k}&a_1 &\ldots&a_{2k-1}\\
-		\end{array}.
+		t ≥ \frac{14}{3} ⇔ t ≥ 5 ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
 	\end{equation}
+	If the PV rule has vetoes max 3, they elect every pareto within $\lprofinv(\intvl{0, t} × \intvl{0, t})$, with $t = 5$, or a larger set. Thus $\lprofinv(\intvl{0, 5} × \intvl{0, 5}) \cap \PE \subseteq f(\prof)$. One of these alternatives is in $\argmin_{\PE} (d \circ \lprof)$.
 	
-	
-
-
-$\bigskip $
-
-where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
- $d(\lprof(a_{1})) = 2k$, $d(\lprof(a_{2k+1})) = k+1$ and $d(\lprof(a_{2k})) = k-1$. Thus, any SCR that satisfies MD must pick $a_{2k}$, which is, however, vetoed by individual 1.
-
-\medskip
-
-For $r=1$, consider the profile $\prof'$
-
+	If the PV rule has a veto higher than 3, say, $(0, 4)$, consider some profile st $\lprofinv(\intvl{0, 5} × \intvl{0, 5}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. The rule is $f(\prof) = \lprofinv(\intvl{0, 8} × \intvl{0, 4}) \cap \PE$. We claim that the profile $P$ also has no alts that min disp in $f(\prof)$. Assume it has, so it has losses, say, $(6, 4)$. But an alt that minimizes dispersion not in $\lprofinv(\intvl{0, 5} × \intvl{0, 5})$ must have disp lower than this?
+\end{proof}
+\begin{corollary}\label{propo:pv}
+	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
+\end{corollary}
+\begin{proof}
+	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
 	\begin{equation}
-		\begin{array}{lllllll}
-			a_1&\ldots&a_{2k}&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}\\
-		\end{array}.
+		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
 	\end{equation}
-
-
-where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
- $d(\lambda_{\prof'}(a_{1})) =2k+1$, $d(\lambda_{\prof'}(a_{2k+1})) = k+1$ and $d(\lambda_{\prof'}(x)) = k$. Thus, any SCR that satisfies
-MD must pick $x$, which is, however, vetoed by individual 1. 
-\bigskip 
-
-For $r=2$, consider the profile $\prof^{\prime\prime}$
-
-	\begin{equation}
-		\begin{array}{llllllll}
-			a_1&\ldots&a_{2k}&y&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}&y\\
-		\end{array}.
-	\end{equation}
-
-
-where $PE(\prof^{\prime\prime} )=\{a_{1}, a_{2k+1}, x\}$ while
- $d(\lambda_{\prof^{\prime\prime}}(a_{1})) =k+1$, $d(\lambda_{\prof^{\prime\prime}}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof^{\prime\prime}}(x)) = k+1$. Thus, any SCR that satisfies
-MD must pick $x$, which is, however, vetoed by individual 1. 
-
-
-To see the "if" part, let max$_{i\in \{1,2\}}$ $v_{i}\leq $ $k.$ Take any $%
-\prof$ and any $x\in \boldsymbol{argmin}_{\mathcal{PE}(\prof)}(d\cdot
-\lambda _{P})$. Suppose, towards contradiction, $x\notin PV^{(v_{1},\text{ }%
-v_{2})}(P)$, hence $\lambda _{P}(x)_{i}\geq $ $m-v_{i}$ for some $i\in
-\left\{ 1,\text{ }2\right\} $. Let, without loss of generality, $i=1.$ So, $%
-\lambda _{P}(x)_{1}\geq $ $m-v_{1}$. By Remark \ref{remark1}, $\lambda _{P}(x)_{2}\leq
-m-1-\lambda _{P}(x)_{1}.$ Thus, $\lambda _{P}(x)_{2}\leq v_{1}-1$. As $%
-v_{1}\leq $ $k$, we have $v_{1}-1<$ $m-v_{1}$, hence $\lambda _{P}(x)_{2}<$ $%
-\lambda _{P}(x)_{1}.$ Thus, $d\cdot \lambda _{P}(x)=\lambda
-_{P}(x)_{1}-\lambda _{P}(x)_{2}\geq m-2v_{1}+1.$
-
-Now take $y\in PE(\prof)$ with $y\succ _{1}x$ such that
-there is no $z\in PE(\prof)$ with $y\succ _{1}z$ $\succ
-_{1}x$. Write $I(y,$ $x;$ $\succ _{1})=\left\{ z\in A:y\succ _{1}z\succ
-_{1}x\right\} $ for the set of alternatives between $y$ and $x$ at $%
-\succ _{1}.$ By construction, $I(y,$ $x;$ $\succ _{1})$ $\subseteq
-A\backslash PE(\prof).$
-
-Consider first the case $I(y,$ $x;$ $\succ _{1})$ $=\varnothing $. Thus, $%
-\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-1$. As $x\in PE(\prof)$, we have $x\succ
-_{2}y$, thus $\lambda _{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot
-\lambda _{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq
-\lambda _{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{%
-PE}(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$%
-, in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
-_{P}(x)_{1}$, which is attained when $\lambda _{P}(y)_{2}=m-1$. As $x\in 
-\boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda _{P}),$ we have $d\cdot
-\lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $m-\lambda _{P}(x)_{1}\geq
-m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq 2v_{1}-1$. However, $m-v_{1}>2v_{1}-1$ when $%
-v_{1}\leq $ $k$, leading to a contradiction since $%
-\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
-
-Now consider the case $I(y,$ $x;$ $\succ _{1})$ $\neq \varnothing $. For any 
-$a \in I(y,$ $x;$ $\succ _{1}),$ write $\Delta (a )\in A$ for some
-alternative that Pareto dominates $a $, i.e., $\Delta (a )\succ
-_{i}a $ $\forall i\in \{1,$ $2\}$. In general, $\Delta (a )$ may
-or may not be in $I(y,$ $x;$ $\succ _{1})$. However, w.l.o.g. we can pick $\Delta (a )$ so that $\Delta (a )$ $\notin $
-$I(y,$ $x;$ $\succ _{1}),$\footnote{Observe that $I(y,$ $x;$ $\succ _{1})$ does not contain Pareto efficient alternatives. Hence, for any alternative in this set, there is some other alternative that Pareto dominates it. Since $I(y, x; \succ _{1})$ is finite and the Pareto dominance
-relation is transitive, the claim holds.}, which implies either $\Delta (a )=y$ or $%
-\Delta (a )\succ _{1}y$. If $\Delta (a )=y$ then $y\succ
-_{2}a $ by Pareto dominance. If $\Delta (a
-)\succ _{1}y$ then $y\succ _{2}\Delta (a )$ as $y\in PE(\prof)$. Thus for
-any $a \in I(y,$ $x;$ $\succ _{1}),$ we have either  $y\succ _{2}a 
-$ or $y\succ _{2}\Delta (a ).$ In case $\Delta (a)=$ $\Delta (a^{\prime
-})$ for some distinct $a ,$ $a ^{\prime }\in I(y,$ $x;$ $\succ
-_{1})$, we have $\Delta (a)\succ _{2}a^{\prime }$, implying $y\succ
-_{2}a^{\prime }$. As a result, $\lambda _{P}(y)_{2}\leq $ $m-\#I(y,x;\succ
-_{1})-1$. Note also $\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-\#I(y,x;\succ
-_{1})-1$. As $x\in PE(\prof)$, we have $x\succ _{2}y$, thus $\lambda
-_{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot \lambda
-_{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq \lambda
-_{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{PE}%
-(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$,
-in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
-_{P}(x)_{1}$, which is attained at $\lambda _{P}(y)_{2}=m-\#I(y,x;\succ
-_{1})-1$. As $x\in \boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda
-_{P}),$ we have $d\cdot \lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $%
-m-\lambda _{P}(x)_{1}\geq m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq
-2v_{1}-1$. However, $%
-m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
 \end{proof}
 
 \begin{remark}
@@ -670,10 +490,23 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 
 \commentMN{I like it}
 
-
-
-
 \appendix
+\section{More results}
+\begin{proposition}
+	\label{th:maxDisp}
+	Given any profile $\prof$, $\exists x \in H(\prof) \cap \PE \suchthat d(\lprof(x)) ≤ \khalf$.
+	That bound is tight, in other words, $\exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
+\end{proposition}
+\begin{proof}
+	About the first claim, consider the $\khalf + 1$ alternatives having losses for the voter 1 $\lprof(x)_1 ≤ \khalf$.
+	At least one of those alternatives will have a loss for the voter 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives $\set{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf}$ have dispersion $d(\lprof(x)) ≤ \khalf$.
+	The best of those for voter $2$, that is, $\argmin_{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf} \lprof(x)_2$, is Pareto-efficient.
+	
+	About the second claim, write $\allalts = \set{a_1, …, a_m}$, define $S_1$ as the sequence $(a_1, …, a_{\floor{\frac{m + 1}{2}}})$ and $S_2$ as the sequence $(a_{\floor{\frac{m + 1}{2}} + 1}, …, a_m)$, and let $\prof$ contain the preference ordering $(S_1, S_2)$ for voter $1$ and $(S_2, S_1)$ for voter $2$. 
+	Alternatives in $S_2$ have dispersion $\floor{\frac{m + 1}{2}}$ (the length of $S_1$) and 
+	alternatives in $S_1$ have dispersion $m - (\floor{\frac{m + 1}{2}} + 1) + 1 = (m + 1) - \floor{\frac{m + 1}{2}} - 1 = \ceil{\frac{m + 1}{2}} - 1 = \ceil{\frac{m - 1}{2}}$ (the length of $S_2$).
+\end{proof}
+
 \section{Spread measures}
 \label{sec:spreads}
 We reuse the following definitions from \cite{cailloux2022compromising}, letting $n$ denote the number of individuals, $l \in \R^n$ denote a generalized loss tuple and $\bar{l} = \sum_{i = 1}^n l_i / n$ denote the arithmetic mean of the losses:
