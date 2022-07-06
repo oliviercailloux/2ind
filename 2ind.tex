@@ -85,7 +85,7 @@ Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a prop
 An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
 An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \N$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
+Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, associates to each individual her loss associated to $x$.
 
 Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $\forall i: l_i ≤ l'_i$. We also write $l < l'$ to denote that $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. Let $\min_N \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
@@ -326,7 +326,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 \commentOC{Consider rather the following statement. $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: $t ≥ \frac{2m - 4}{3}$ and $t ≥ \khalf$; and the rest unmodified. Perhaps add the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
 \begin{theorem}
 	\label{th:caractEmpty}
-	$\forall t \in \intvl{\khalf, m - 1}$, the following statements are logically equivalent: 
+	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
 	\begin{enumerate}
 		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$
 		\item \label{it:Pt} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
@@ -335,7 +335,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	For the claim $\ref{it:tbound} ⇒ 2$, let us consider any $t ≥ \khalf$ and $t ≥ \frac{2m - 4}{3}$, and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
+	For the claim $\ref{it:tbound} ⇒ 2$, let us consider any $t ≥ \frac{2m - 4}{3}$ and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
 	
 	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any voter such that $\max \lprof(x) = \lprof(x)_i$. 
 	Observe that if $\lprof(x)_i ≤ t$, then also $\lprof(x)_{\ibar} ≤ t$ and thus $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, and the proof is done. Thus, assume that $\lprof(x)_i > t$.
@@ -351,6 +351,8 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	Because $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
 	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
 	
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$ \commentOC{I ignore how to prove that shortly, here are the gory details. When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}; whence $t ≥ \khalf$.
+	
 	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
 	Also, $t ≥ \khalf$ thus $m - 1 - t ≤ m - 1 - \khalf = \floor{\frac{m - 1}{2}} ≤ t$.
 	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - 1 - t ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $d(\lprof(y)) ≤ m - 1 - t$. 
@@ -363,7 +365,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	
 	The claims $\ref{it:Pt} ⇒ \ref{it:Ptbig2}$ and $\ref{it:Pt} ⇒ \ref{it:Ptbig1}$ and are seen to hold simply thanks to set inclusion.
 	
-	Turning now to the claim $\ref{it:Ptbig2} ⇒ \ref{it:tbound}$, assume that $\khalf ≤ t < \frac{2m - 4}{3}$ and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. (That proof applies equally to the claim $\ref{it:Ptbig1} ⇒ \ref{it:tbound}$ by inverting the role of voters 1 and 2.)
+	Turning now to the claim $\ref{it:Ptbig2} ⇒ \ref{it:tbound}$, assume, considering the contrapositive, that $t < \frac{2m - 4}{3}$, and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. (That proof applies equally to the claim $\ref{it:Ptbig1} ⇒ \ref{it:tbound}$ by inverting the role of voters 1 and 2.)
 	
 	Observing that $m = t + 1 + (m - t - 2) + 1$, let us name the alternatives $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$.
 	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
@@ -393,7 +395,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	\end{equation}
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$.
 	
-	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
+	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1} = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely FB, VR, SL and the PV rules identified by Theorem 2) all fail MD. As Theorem 2 shows that most PV rules fail MR, the following result which determines the class of PV rules satisfying MD is of interest. 
@@ -403,20 +405,18 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 \end{corollary}
 \begin{proof}
 	By definition, $\forall \prof: \PVv[(v_1, v_2)](\prof) = \lprofinv(\intvl{0, m - 1 - v_1} × \intvl{0, m - 1 - v_2}) \cap \PE$.
-	Observe that $m - 1 - v ≥ \frac{2m - 4}{3} ⇔ v ≤ \frac{m + 1}{3}$.
 	
-	If $\forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3}$, then $m - 1 - v_i ≥ \frac{2m - 4}{3}$.
-	As $m - 1 - v_i \in \N$, $m - 1 - v_i ≥ \frac{2m - 4}{3} ⇒ m - 1 - v_i ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$ \commentOC{I ignore how to prove that shortly, here are the gory details. When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}.
-	Thus, $\forall \prof$: $\lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \PE \subseteq f(\prof)$. 
-	By \cref{th:caractEmpty}, $\forall \prof$, $\lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, thus $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+	Define $t = \min_{i \in \set{1, 2}} (m - 1 - v_i) \in \N$.
+	Observe that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: m - 1 - v_i ≥ \frac{2m - 4}{3} ⇔ t ≥ \frac{2m - 4}{3}$.
 	
-	If $v_i > \frac{m + 1}{3}$ for some $i \in \set{1, 2}$, then $m - 1 - v_i < \frac{2m - 4}{3}$. 
-	Assume first that $\khalf < \frac{2m - 4}{3}$. Define $t = \max\set{\khalf, m - 1 - v_i}$.
-	Say $i = 1$ (the rest of the argument applies symmetrically to the case $i = 2$).
-	By \cref{th:caractEmpty} (applicable because $\khalf ≤ t$), $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-	It follows from $f(\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-	BUT what if $\khalf ≥ \frac{2m - 4}{3}$?
-	For example, $m = 6$, $v_1 = 3 > \frac{7}{3}$, $m - 1 - v_1 = 2 < \frac{2m - 4}{3} = \frac{8}{3} < \khalf = 3$.
+	Assume that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ (thus $t ≥ \frac{2m - 4}{3}$).
+	Note that $\forall \prof$: $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \subseteq \PVv[(v_1, v_2)](\prof)$. 
+	We can apply \cref{th:caractEmpty} to obtain $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, whence $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ and thus $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+
+	Assume that $\max_{i \in \set{1, 2}} v_i > \frac{m + 1}{3}$ (thus $t < \frac{2m - 4}{3}$).
+	Say $t = m - 1 - v_1$ (the rest of the argument applies symmetrically to the case $t = m - 1 - v_2$).
+	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
 \commentOC{I suppose that we have to choose whether we keep the above approach or the one below.}
