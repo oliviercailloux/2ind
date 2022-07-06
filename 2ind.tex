@@ -78,7 +78,8 @@ Section 2 introduces the basic notions and notation. Sections 3 and 4 are devote
 \section{Basic notions and notation}
 
 Let $N$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
+A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
 An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
@@ -91,7 +92,7 @@ Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than 
 and $\sum_N \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
-Let $\PEcl$ denote the class of SCRs picking only Pareto efficient alternatives: $\forall \prof: f(\prof) \subseteq \PE$. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
+Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs picking only Pareto efficient alternatives. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
 In concordance with the ceiling established by Theorem 1 of \cite{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
@@ -115,7 +116,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
     $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
 \begin{remark}
-    $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR in $\PVcl$ is anonymous iff $v_1 = v_2$.
+    $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 
 \section{The minimal Rawlsian principle}
