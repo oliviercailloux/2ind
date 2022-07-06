@@ -321,6 +321,7 @@ $\lprof(x)_1+\lprof(x)_2\leq m-1$.
 To see this, suppose, for a contradiction, that $x\in PE(\prof)$ while
 $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x\in PE(\prof)$.
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
+	\commentRS{We use and explicitly refer to it in the proof of Proposition 9.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \commentOC{Consider rather the following statement. $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: $t ≥ \frac{2m - 4}{3}$ and $t ≥ \khalf$; and the rest unmodified. Perhaps add the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
@@ -334,6 +335,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
 \end{theorem}
+	\commentRS{In the statement of Theorem 3, condition 2 implies 3 and 4 just by set inclusion, as we note in the proof. On the other hand, I think either of 3 and 4 implies 2 because of the anonymity of minimizing dispersion among Paretian alternatives. If so, then 2, 3, and 4 are equivalent independent of the choice of t,}
 \begin{proof}
 	For the claim $\ref{it:tbound} ⇒ 2$, let us consider any $t ≥ \khalf$ and $t ≥ \frac{2m - 4}{3}$, and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
 	
@@ -420,7 +422,7 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 \end{proof}
 
 \commentOC{I suppose that we have to choose whether we keep the above approach or the one below.}
-\commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
+\commentRS{Proposition 9 seems to be complete and Matias checked it but another reading will be useful.}
 \commentOC{\Cref{propo:pv} says that for $k = 1$, $r = 2$ (hence $m = 5$) and $v = (2, 2)$, the rule fails MD, which is, I suppose, true for the strong definition of MD but false for the weak one. Indeed, the proof of \cref{propo:pv} does not apply to the weak one for $r = 2$ as $d(a_1) = k + 1 = d(x)$ so picking either $a_1$ or $x$ is fine. (I suppose that this is clear for everybody but I keep this remark here just in case it reveals useful in the discussion.)}
 \begin{proposition}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
