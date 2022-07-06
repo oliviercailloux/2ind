@@ -323,7 +323,7 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
-\commentOC{Consider rather the following statement. $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: $t ≥ \frac{2m - 4}{3}$ and $t ≥ \khalf$; and the rest unmodified. Perhaps add the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
+\commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
 \begin{theorem}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
@@ -382,7 +382,6 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	And considering $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
-	\commentOC{For $m ≤ 7$, $\khalf ≤ t ≤ \frac{2m - 5}{3}$ only holds for $m = 7, t = 3$.}
 
 \begin{corollary}
 	\label{th:noMRMD}
@@ -404,24 +403,41 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 	For $m ≥ 3$, $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$.
 \end{corollary}
 \begin{proof}
-	By definition, $\forall \prof: \PVv[(v_1, v_2)](\prof) = \lprofinv(\intvl{0, m - 1 - v_1} × \intvl{0, m - 1 - v_2}) \cap \PE$.
-	
 	Define $t = \min_{i \in \set{1, 2}} (m - 1 - v_i) \in \N$.
 	Observe that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: m - 1 - v_i ≥ \frac{2m - 4}{3} ⇔ t ≥ \frac{2m - 4}{3}$.
 	
-	Assume that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ (thus $t ≥ \frac{2m - 4}{3}$).
-	Note that $\forall \prof$: $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \subseteq \PVv[(v_1, v_2)](\prof)$. 
-	We can apply \cref{th:caractEmpty} to obtain $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, whence $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ and thus $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
-
-	Assume that $\max_{i \in \set{1, 2}} v_i > \frac{m + 1}{3}$ (thus $t < \frac{2m - 4}{3}$).
-	Say $t = m - 1 - v_1$ (the rest of the argument applies symmetrically to the case $t = m - 1 - v_2$).
-	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	If $t = m - 1 - v_1$, define $S = \intvl{0, t} × \intvl{0, m - 1}$, otherwise (implying that $t = m - 1 - v_2$), define $S = \intvl{0, m - 1} × \intvl{0, t}$.
+	By definition, $\forall \prof: \PVv[(v_1, v_2)](\prof) = \lprofinv(\intvl{0, m - 1 - v_1} × \intvl{0, m - 1 - v_2}) \cap \PE$.
+	It follows that $\forall \prof$:
+	\begin{equation}
+		\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \subseteq \PVv[(v_1, v_2)](\prof)
+	\end{equation} 
+	and
+	\begin{equation}
+		\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(S) \cap \PE,
+	\end{equation}
+	therefore (intersecting all sets with $\argmin_{\PE} (d \circ \lprof)$ and using $\PE \cap \argmin_{\PE} (d \circ \lprof) = \argmin_{\PE} (d \circ \lprof)$):
+	\begin{equation}
+		\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) \subseteq \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof)
+	\end{equation} 
+	and
+	\begin{equation}
+		\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) \subseteq \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof).
+	\end{equation}
+	
+	It follows from \cref{th:caractEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+%	Assume that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ (thus $t ≥ \frac{2m - 4}{3}$).
+%	Note that 
+%	We can apply \cref{th:caractEmpty} to obtain $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, whence $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ and thus $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+%
+%	Assume that $\max_{i \in \set{1, 2}} v_i > \frac{m + 1}{3}$ (thus $t < \frac{2m - 4}{3}$).
+%	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+%	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
 \commentOC{I suppose that we have to choose whether we keep the above approach or the one below.}
 \commentRS{Proposition 11 seems to be complete and Matias checked it but another reading will be useful.}
-\commentOC{\Cref{propo:pv} says that for $k = 1$, $r = 2$ (hence $m = 5$) and $v = (2, 2)$, the rule fails MD, which is, I suppose, true for the strong definition of MD but false for the weak one. Indeed, the proof of \cref{propo:pv} does not apply to the weak one for $r = 2$ as $d(a_1) = k + 1 = d(x)$ so picking either $a_1$ or $x$ is fine. (I suppose that this is clear for everybody but I keep this remark here just in case it reveals useful in the discussion.)}
+\commentOC{(I suppose that this is clear for everybody but just to be sure.) \Cref{propo:pv} says that for $k = 1$, $r = 2$ (hence $m = 5$) and $v = (2, 2)$, the rule fails MD, which is, I suppose, true for the strong definition of MD but false for the weak one. Indeed, the proof of \cref{propo:pv} does not apply to the weak one for $r = 2$ as $d(a_1) = k + 1 = d(x)$ so picking either $a_1$ or $x$ is fine.}
 \begin{proposition}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
