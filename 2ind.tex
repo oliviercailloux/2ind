@@ -300,19 +300,11 @@ Note that $d \in \Sigma$ coincides with multiple commonly used spread measures, 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
 Define the minimal dispersion ($MD$) condition as follows.
-\commentRS{To prove Proposition 11, we need to make MD stronger so that it requires f(P) to contain all Pareto alternatives with a minimal dispersion. When MD gets stronger, the impossibility expressed by Theorem 3 prevails. Proposition 9 is independent of the definition of MD. Proposition 10 exploits that fact that the intersection is non-empty, which is independent of the definition of MD and once the non-emptiness is ensured, that well-defined rule also satisfies the stronger version of MD. Thus, making MD stronger has no impact on Theorem 3, Proposition 9 and Proposition 10. Am I right?}
 
-\commentMN{MD will then read $f(\prof)\supseteq \arg min_{\PE} (d \circ \lprof)$, $\forall \prof \in \allprofs$, right?} 
-
-\commentRS{Yes, it is this set inclusion relation. However, I wouldn't put "not being equal to the empty-set" to the definition of the condition because this would appear as if this is a part of the condition. However, this is a fact independent of the condition. Perhaps we can remark this before stating the condition.}
-
-\commentMN{Now, regarding its implications. I think that it's ok to do this replacement in Theorem 3 and Proposition 10 and 11 (no role at all in Proposition 9, right?).}
-
-\commentRS{Yes, this is what I meant. Perhaps, some revision in certain expressions in the proofs of Theroem 3 and Proposition 10 may be needed. Proposition 11 is already proven according to the stronger version.}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain the Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there exists rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
+MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there exists rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
 
 The following result will be useful to explore the precise relationship between MD and MR.
 \begin{remark}
@@ -322,10 +314,11 @@ $\lprof(x)_1+\lprof(x)_2\leq m-1$.
 To see this, suppose, for a contradiction, that $x \in \PE$ while
 $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x \in \PE$.
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
-	\commentRS{We use and explicitly refer to it in the proof of Proposition 9.}
+	\commentRS{You are right, if we discard the result with stronger MD.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
+\commentRS{Here, elaborate on condition 2 of the theorem and state a lemma or remark which says that 2, 3 and 4 are pairwise equivalent. State the theorem as the equivalence between 1 and 2.}
 \begin{theorem}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
@@ -336,7 +329,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
 \end{theorem}
-\commentRS{Regarding Theorem 3, statement 2 implies 3 and 4 just by set inclusion, as we state in the proof. On the other hand, I think either of 3 or 4 implies 2 by the anonymity of minimal dispersion. If so, then 2, 3 and 4 are equivalent independent of the value of t, in which case we should state the theorem as the equivalence of 1 and 2.}
+
 \begin{proof}
 	For the claim $\ref{it:tbound} ⇒ 2$, let us consider any $t ≥ \frac{2m - 4}{3}$ and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
 	
@@ -438,8 +431,7 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
-\commentOC{I suppose that we have to choose whether we keep the above approach or the one below.}
-\commentOC{(I suppose that this is clear for everybody but just to be sure.) \Cref{propo:pv} says that for $k = 1$, $r = 2$ (hence $m = 5$) and $v = (2, 2)$, the rule fails MD, which is, I suppose, true for the strong definition of MD but false for the weak one. Indeed, the proof of \cref{propo:pv} does not apply to the weak one for $r = 2$ as $d(a_1) = k + 1 = d(x)$ so picking either $a_1$ or $x$ is fine.}
+\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. I prefer to go for the one above and discard the one below, which is for a stronger definition of MD, hence leading to a weaker impossibility.}
 \begin{proposition}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
@@ -564,15 +556,9 @@ m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lam
 
 \section{Reconciling the two principles}
 
-Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion.
+Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
 
 
-\commentRS{The definition and the proposition below must be adapted to the new definition of MD. Moreover, we should add Pareto efficiency.}
-
-
-\commentMN{RMD will then read $f(\prof)\supseteq \arg min_{\PE\cap H(P)} (d \circ \lprof)$, $\forall \prof \in \allprofs$, right?} 
-\commentMN{The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain the alternatives whose loss vectors have minimal dispersion among the Pareto efficient ones in the first-half, right?.}
-\commentRS{Yes}
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \arg min_{H(\mathbf{P})} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
