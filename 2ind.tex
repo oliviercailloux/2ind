@@ -217,18 +217,22 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
-The equal loss principle is incompatible with the one of Pareto efficiency. Indeed, consider the  profile
-\begin{equation*}
-        \begin{array}{ccc}
-                a&b&c\\
-                b&a&c\\
-        \end{array}.
-    \end{equation*}
-    Whereas $c$ is the only alternative satisfying the equal loss principle, only $a$ and $b$ are Pareto efficient. This incompatibility is formally stated by the next proposition. 
+The equal loss principle is incompatible with the one of Pareto efficiency as formally stated by the next proposition. 
 \begin{proposition}
     $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
 \end{proposition}
-\commentRS{Proposition 4 is missing a proof (that is rather straightforward).}\commentMN{Just added it, please check that you agree}
+
+\begin{proof}
+To see why the claim holds, consider the next profile:
+	\begin{equation}
+		\begin{array}{lll ll}
+			a_1&a_2 &a_3 &a_4 &\ldots \\
+		a_2& a_1 &a_3&a_4 &\ldots \\
+		\end{array}.
+	\end{equation}
+  Observe that alternatives $a_1$ and $a_2$ Pareto dominate any other alternative in the profile so that $a_1,a_2$ are the only Pareto efficient alternatives. 
+Each one of the rest of alternatives, starting by $a_3$, satisfies equal loss since they are ranked at the same level by both individuals, showing the incompatibility. 
+    \end{proof}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
