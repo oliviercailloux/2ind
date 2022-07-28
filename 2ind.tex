@@ -131,9 +131,6 @@ It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-\commentOC{Drop this?} \commentRS{Why?}
-Let $\MRcl$ denote the class of minimally Rawlsian (\MRprop) SCRs.
-
 \begin{theorem}
 	\label{th:inFH}
 	$\FB, \VR, \SL \in \PEcl \cap \MRcl$. 
@@ -255,7 +252,8 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 
 Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 \begin{theorem}
-\label{propo:pel}	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
+	\label{propo:pel}	
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
 \end{theorem}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, because all alternatives before $x$ for the first individual must be placed after $x$ for the second individual.
@@ -265,7 +263,12 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
 \commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}\commentMN{Not so sure}
-\commentOC{I will add a corollary just to have an idea.}
+\commentOC{I add the corollary here below just to have an idea of what it looks like, then we can decide.}
+
+\begin{corollary}
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ satisfies PEL iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \ceil{\frac{m - 1}{2}}$ for $\set{i, \ibar} = \set{1, 2}$.
+\end{corollary}
+
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
@@ -322,10 +325,10 @@ To see this, suppose, for a contradiction, that $x \in \PE$ while
 $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x \in \PE$.
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
 	\commentRS{You are right, if we discard the result with stronger MD.}
+	\commentOC{Thinking again, maybe this result deserves its own headline. It is simple but quite useful for the reader to observe, even though we happen to use it only once. But I have no strong opinion about it.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
-\commentRS{Here, elaborate on condition 2 of the theorem and state a lemma or remark which says that 2, 3 and 4 are pairwise equivalent. State the theorem as the equivalence between 1 and 2.}
 \begin{theorem}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
@@ -386,7 +389,14 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
-\commentOC{Add a remark to discuss this theorem verbally, and point out that 2 equiv 3 can also be seen more directly, just by anonymity.}
+\commentOC{We decided to leave the theorem above as-is and discuss this theorem verbally, and point out that 2 equiv 3 can also be seen more directly, just by anonymity. I tried a first draft in the following remark, which has to be better phrased.}
+\begin{remark}
+	This theorem states reveral results that will reveal useful below and that may help understand the behavior of the rules we consider. First, it states (considering $1 ⇔ 2$) that if one wants to place a limit to the level at which we may look “down the profile”, for both players, then it is necessary and sufficient to place this limit at $t$ being at least $\frac{2m - 4}{3}$ to obtain that one of the alternatives in that “upper part” of the profile will always (for all profiles) be among the minimizers of dispersion.
+	
+	Second, it states, similarly (considering $1 ⇔ 3$ or $1 ⇔ 4$), that if one wants to place a limit for only one of the players, setting that limit at $t$ being at least $\frac{2m - 4}{3}$ is also necessary and sufficient to obtain the same guarantee.
+	
+	Third, it states (considering $2 ⇔ 3$ and $2 ⇔ 4$) that considering the limit for both players or for one does not change anything for what concerns the requirement on $t$ to guarantee the existence of a minimizer of dispersion in the upper part of the profile. This last point can also be seen more directly, as following from anonymity \commentOC{I suppose that we have to decide the level of details we want for this last point}.
+\end{remark}
 
 \begin{corollary}
 	\label{th:noMRMD}
@@ -405,6 +415,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by Theorem 2) all fail MD. As Theorem 2 shows that most rules in $\PVcl$ fail MR, the following result which determines the subclass of $\PVcl$ satisfying MD is of interest. 
 
 \begin{corollary}
+	\label{th:pvMD}
 	For $m ≥ 3$, $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$.
 \end{corollary}
 \begin{proof}
@@ -440,127 +451,8 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
-\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. As the impossibility is stronger with the weaker definition of MD, I am inclined to keep the weak one. To be sure, the theorem below adds something to corollary 4 (that we discussed by mail) but the this additional contribution is rather marginal and I don't think it is worth to define strong MD just for this. Thus, I suggest discarding theorem 9.}\commentMN{Let's discard Prop 9 then}
-\begin{theorem}\label{propo:pv}
-	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
-\end{theorem}
-\begin{proof}
-To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
-
-\medskip
-
-For $r=0$, consider the profile $\prof$
-
-
-	\begin{equation}
-		\begin{array}{lllllll}
-			a_1&\ldots&a_{2k}&a_{2k+1}&\ldots&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&a_{2k}&a_1 &\ldots&a_{2k-1}\\
-		\end{array}.
-	\end{equation}
-	
-	
-
-
-$\bigskip $
-
-where $PE(\prof )=\{a_{1}, a_{2k+1},a_{2k}\}$ while
- $d(\lprof(a_{1})) = 2k$, $d(\lprof(a_{2k+1})) = k+1$ and $d(\lprof(a_{2k})) = k-1$. Thus, any SCR that satisfies MD must pick $a_{2k}$, which is, however, vetoed by individual 1.
-
-\medskip
-
-For $r=1$, consider the profile $\prof'$
-
-	\begin{equation}
-		\begin{array}{lllllll}
-			a_1&\ldots&a_{2k}&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}\\
-		\end{array}.
-	\end{equation}
-
-
-where $PE(\prof' )=\{a_{1}, a_{2k+1}, x\}$ while
- $d(\lambda_{\prof'}(a_{1})) =2k+1$, $d(\lambda_{\prof'}(a_{2k+1})) = k+1$ and $d(\lambda_{\prof'}(x)) = k$. Thus, any SCR that satisfies
-MD must pick $x$, which is, however, vetoed by individual 1. 
-\bigskip 
-
-For $r=2$, consider the profile $\prof^{\prime\prime}$
-
-	\begin{equation}
-		\begin{array}{llllllll}
-			a_1&\ldots&a_{2k}&y&x&a_{2k+1}&\ldots&a_{3k}\\	a_{2k+1}&\ldots&a_{3k}&x&a_1 &\ldots&a_{2k}&y\\
-		\end{array}.
-	\end{equation}
-
-
-where $PE(\prof^{\prime\prime} )=\{a_{1}, a_{2k+1}, x\}$ while
- $d(\lambda_{\prof^{\prime\prime}}(a_{1})) =k+1$, $d(\lambda_{\prof^{\prime\prime}}(a_{2k+1})) = 2k+2$ and $d(\lambda_{\prof^{\prime\prime}}(x)) = k+1$. Thus, any SCR that satisfies
-MD must pick $x$, which is, however, vetoed by individual 1. 
-
-
-To see the "if" part, let max$_{i\in \{1,2\}}$ $v_{i}\leq $ $k.$ Take any $%
-\prof$ and any $x\in \boldsymbol{argmin}_{\mathcal{PE}(\prof)}(d\cdot
-\lambda _{P})$. Suppose, towards contradiction, $x\notin PV^{(v_{1},\text{ }%
-v_{2})}(P)$, hence $\lambda _{P}(x)_{i}\geq $ $m-v_{i}$ for some $i\in
-\left\{ 1,\text{ }2\right\} $. Let, without loss of generality, $i=1.$ So, $%
-\lambda _{P}(x)_{1}\geq $ $m-v_{1}$. By Remark \ref{remark1}, $\lambda _{P}(x)_{2}\leq
-m-1-\lambda _{P}(x)_{1}.$ Thus, $\lambda _{P}(x)_{2}\leq v_{1}-1$. As $%
-v_{1}\leq $ $k$, we have $v_{1}-1<$ $m-v_{1}$, hence $\lambda _{P}(x)_{2}<$ $%
-\lambda _{P}(x)_{1}.$ Thus, $d\cdot \lambda _{P}(x)=\lambda
-_{P}(x)_{1}-\lambda _{P}(x)_{2}\geq m-2v_{1}+1.$
-
-Now take $y\in PE(\prof)$ with $y\succ _{1}x$ such that
-there is no $z\in PE(\prof)$ with $y\succ _{1}z$ $\succ
-_{1}x$. Write $I(y,$ $x;$ $\succ _{1})=\left\{ z\in A:y\succ _{1}z\succ
-_{1}x\right\} $ for the set of alternatives between $y$ and $x$ at $%
-\succ _{1}.$ By construction, $I(y,$ $x;$ $\succ _{1})$ $\subseteq
-A\backslash PE(\prof).$
-
-Consider first the case $I(y,$ $x;$ $\succ _{1})$ $=\varnothing $. Thus, $%
-\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-1$. As $x\in PE(\prof)$, we have $x\succ
-_{2}y$, thus $\lambda _{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot
-\lambda _{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq
-\lambda _{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{%
-PE}(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$%
-, in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
-_{P}(x)_{1}$, which is attained when $\lambda _{P}(y)_{2}=m-1$. As $x\in 
-\boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda _{P}),$ we have $d\cdot
-\lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $m-\lambda _{P}(x)_{1}\geq
-m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq 2v_{1}-1$. However, $m-v_{1}>2v_{1}-1$ when $%
-v_{1}\leq $ $k$, leading to a contradiction since $%
-\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
-
-Now consider the case $I(y,$ $x;$ $\succ _{1})$ $\neq \varnothing $. For any 
-$a \in I(y,$ $x;$ $\succ _{1}),$ write $\Delta (a )\in A$ for some
-alternative that Pareto dominates $a $, i.e., $\Delta (a )\succ
-_{i}a $ $\forall i\in \{1,$ $2\}$. In general, $\Delta (a )$ may
-or may not be in $I(y,$ $x;$ $\succ _{1})$. However, w.l.o.g. we can pick $\Delta (a )$ so that $\Delta (a )$ $\notin $
-$I(y,$ $x;$ $\succ _{1}),$\footnote{Observe that $I(y,$ $x;$ $\succ _{1})$ does not contain Pareto efficient alternatives. Hence, for any alternative in this set, there is some other alternative that Pareto dominates it. Since $I(y, x; \succ _{1})$ is finite and the Pareto dominance
-relation is transitive, the claim holds.}, which implies either $\Delta (a )=y$ or $%
-\Delta (a )\succ _{1}y$. If $\Delta (a )=y$ then $y\succ
-_{2}a $ by Pareto dominance. If $\Delta (a
-)\succ _{1}y$ then $y\succ _{2}\Delta (a )$ as $y\in PE(\prof)$. Thus for
-any $a \in I(y,$ $x;$ $\succ _{1}),$ we have either  $y\succ _{2}a 
-$ or $y\succ _{2}\Delta (a ).$ In case $\Delta (a)=$ $\Delta (a^{\prime
-})$ for some distinct $a ,$ $a ^{\prime }\in I(y,$ $x;$ $\succ
-_{1})$, we have $\Delta (a)\succ _{2}a^{\prime }$, implying $y\succ
-_{2}a^{\prime }$. As a result, $\lambda _{P}(y)_{2}\leq $ $m-\#I(y,x;\succ
-_{1})-1$. Note also $\lambda _{P}(y)_{1}=\lambda _{P}(x)_{1}-\#I(y,x;\succ
-_{1})-1$. As $x\in PE(\prof)$, we have $x\succ _{2}y$, thus $\lambda
-_{P}(y)_{2}>\lambda _{P}(x)_{2}$. Observe that $d\cdot \lambda
-_{P}(y)<d\cdot \lambda _{P}(x)$ when $\lambda _{P}(y)_{2}\leq \lambda
-_{P}(y)_{1}$, which contradicts $x\in \boldsymbol{argmin}_{\mathcal{PE}%
-(P)}(d\cdot \lambda _{P})$. Thus $\lambda _{P}(y)_{2}>\lambda _{P}(y)_{1}$,
-in which case the highest value of $d\cdot \lambda _{P}(y)$ is $m-\lambda
-_{P}(x)_{1}$, which is attained at $\lambda _{P}(y)_{2}=m-\#I(y,x;\succ
-_{1})-1$. As $x\in \boldsymbol{argmin}_{\mathcal{PE}(P)}(d\cdot \lambda
-_{P}),$ we have $d\cdot \lambda _{P}(y)\geq d\cdot \lambda _{P}(x)$, thus $%
-m-\lambda _{P}(x)_{1}\geq m-2v_{1}+1$, equivalently $\lambda _{P}(x)_{1}\leq
-2v_{1}-1$. However, $%
-m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lambda _{P}(x)_{1}\geq $ $m-v_{1}$ by assumption.
-\end{proof}
-
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing theorems \ref{propo:pel} and \ref{propo:pv}. 
-   
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{propo:pel} and \cref{th:pvMD}. 
 \end{remark}
 
 \section{Reconciling the two principles}
