@@ -267,6 +267,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
 \commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}\commentMN{Not so sure}
+\commentOC{I will add a corollary just to have an idea.}
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
@@ -386,6 +387,8 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	And considering $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
+
+\commentOC{Add a remark to discuss this theorem verally, and point out that 2 eq 3 can also be seen more directly, just by anonymity.}
 
 \begin{corollary}
 	\label{th:noMRMD}
