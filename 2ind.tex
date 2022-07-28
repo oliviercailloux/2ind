@@ -33,8 +33,6 @@
 
 \section{Introduction}
 \label{sec:intro}
-
-\commentRS{As a general concern about the presentation of our results, we must decide what is a proposition what is a theorem. I prefer calling all propositions (except 9) as "theorem" and Proposition 9 is a lemma.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: Bargaining over a finite set of alternatives. Since the seminal model of \cite{Nash1950}, for a long time, bargaining problems were formulated over a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \cite{Nash1950} excludes several real-life situations. 
 
 \cite{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \cite{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \cite{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -125,9 +123,9 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
-\begin{proposition}
+\begin{theorem}
     There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
-\end{proposition}
+\end{theorem}
 It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that renders $k$-Rawlsianism satisfiable at every preference profile while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] An SCR $f$ satisfies \MRprop{} if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
@@ -163,9 +161,9 @@ Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
 
-\begin{proposition}\label{propo:equal}
+\begin{theorem}\label{propo:equal}
 	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
     Note that $\bigcup(\PEcl \cap \MRcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
     We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
@@ -177,9 +175,9 @@ The observation below follows from \cref{propo:equal}.
 \end{corollary}
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
-\begin{proposition}\label{th:different}
+\begin{theorem}\label{th:different}
 	$\exists \prof \suchthat \FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$, $\PVe(\prof) ≠ \SL(\prof)$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$:
 	\begin{equation}
@@ -191,7 +189,7 @@ We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that t
 	\end{equation}
 	where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
 	The bar shows the “half” position.
-	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$, $\SL(\prof) = \set{a, g}$ and $\PVe(\prof) = \set{a, b, d, g}$.
+	The theorem is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$, $\SL(\prof) = \set{a, g}$ and $\PVe(\prof) = \set{a, b, d, g}$.
 \end{proof}
 
 \Cref{th:inFH}, \cref{th:subPVe} and \cref{th:different} lead to the corollary below.
@@ -224,11 +222,11 @@ The equal loss principle is incompatible with the one of Pareto efficiency. Inde
                 b&a&c\\
         \end{array}.
     \end{equation*}
-    Whereas $c$ is the only alternative satisfying the equal loss principle, only $a$ and $b$ are Pareto efficient. This incompatibility is formally stated by the next proposition. 
-\begin{proposition}
+    Whereas $c$ is the only alternative satisfying the equal loss principle, only $a$ and $b$ are Pareto efficient. This incompatibility is formally stated by the next theorem. 
+\begin{theorem}
     $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
-\end{proposition}
-\commentRS{Proposition 4 is missing a proof (that is rather straightforward).}\commentMN{Just added it, please check that you agree}
+\end{theorem}
+\commentRS{theorem 4 is missing a proof (that is rather straightforward).}\commentMN{Just added it, please check that you agree}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
@@ -241,9 +239,9 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
     $\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
-\begin{proposition}
+\begin{theorem}
 	$\VR$ and $\SL$ fail PEL.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$, reused from \cref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
 	\begin{equation}
@@ -256,9 +254,9 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 \end{proof}
 
 Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
-\begin{proposition}
+\begin{theorem}
 \label{propo:pel}	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \floor{\frac{m}{2}}$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, because all alternatives before $x$ for the first individual must be placed after $x$ for the second individual.
 	A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL.
@@ -274,9 +272,9 @@ The rules that fail PEL will a fortiori fail the following stronger version of t
     $\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap \PE$.
 \end{definition}
 Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in $\PVcl$ that satisfy PEL fail SPEL.
-\begin{proposition}
+\begin{theorem}
 	When $m ≥ 4$, all rules in $\PVcl$ fail SPEL.
-\end{proposition}
+\end{theorem}
 \begin{proof}
     Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
     Consider the following profile $P$: 
@@ -293,9 +291,9 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 When $m = 3$, $\PVv[(1, 1)]$ satisfies SPEL.
 \end{remark}
 
-\begin{proposition}
+\begin{theorem}
 	$\FB$ satisfies SPEL.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	Pick any profile $\prof$ and any $x \in PE(\prof)$ with $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. As $\FB$ minimizes the maximal loss, we have $\max \lprof(y) ≥ \max \lprof(x) = \min \lprof(x) = k$ for all $y \in \FB(\prof)$. Since $x \in PE(\prof)$, we have $x = y$, hence $\FB(\prof) = \set{x}$, showing that $\FB$ satisfies SPEL.
 \end{proof}
@@ -388,7 +386,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
-\commentOC{Add a remark to discuss this theorem verally, and point out that 2 eq 3 can also be seen more directly, just by anonymity.}
+\commentOC{Add a remark to discuss this theorem verbally, and point out that 2 equiv 3 can also be seen more directly, just by anonymity.}
 
 \begin{corollary}
 	\label{th:noMRMD}
@@ -442,10 +440,10 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
-\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. As the impossibility is stronger with the weaker definition of MD, I am inclined to keep the weak one. To be sure, the proposition below adds something to corollary 4 (that we discussed by mail) but the this additional contribution is rather marginal and I don't think it is worth to define strong MD just for this. Thus, I suggest discarding Proposition 9.}\commentMN{Let's discard Prop 9 then}
-\begin{proposition}\label{propo:pv}
+\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. As the impossibility is stronger with the weaker definition of MD, I am inclined to keep the weak one. To be sure, the theorem below adds something to corollary 4 (that we discussed by mail) but the this additional contribution is rather marginal and I don't think it is worth to define strong MD just for this. Thus, I suggest discarding theorem 9.}\commentMN{Let's discard Prop 9 then}
+\begin{theorem}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 To see the "only if" part, suppose that $v_{i}>k$ for some $i$. Let $i=1$, without loss of generality. We consider three cases, one for each possible value of $r$.
 
@@ -561,7 +559,7 @@ m-v_{1}>2v_{1}-1$ when $v_{1}\leq $ $k$, leading to a contradiction, since $\lam
 \end{proof}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing Propositions \ref{propo:pel} and \ref{propo:pv}. 
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing theorems \ref{propo:pel} and \ref{propo:pv}. 
    
 \end{remark}
 
@@ -575,9 +573,9 @@ Given the incompatibility between MR and MD, one can attempt to reconcile the tw
 \end{definition}
 
 
-\begin{proposition}
+\begin{theorem}
      $\FB$, $\VR$, $\SL$ and all rules in $\PVcl$ except $\PVe$ fail RMD.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
 Consider the following profile $\mathbf{P}$ with 11 alternatives.
@@ -630,11 +628,11 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 
 \appendix
 \section{More results}
-\begin{proposition}
+\begin{theorem}
 	\label{th:maxDisp}
 	Given any profile $\prof$, $\exists x \in H(\prof) \cap \PE \suchthat d(\lprof(x)) ≤ \khalf$.
 	That bound is tight, in other words, $\exists \prof \suchthat \forall x \in H(\prof): d(\lprof(x)) ≥ \khalf$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	About the first claim, consider the $\khalf + 1$ alternatives having losses for the individual 1 $\lprof(x)_1 ≤ \khalf$.
 	At least one of those alternatives will have a loss for the individual 2 within $\intvl{0, \khalf}$ (as the complementary interval of possible losses is $\intvl{\khalf + 1, m - 1}$ which has cardinality $\floor{\frac{m - 1}{2}} < \khalf + 1$). Such alternatives $\set{x \in \allalts \suchthat \lprof(x)_1 ≤ \khalf \land \lprof(x)_2 ≤ \khalf}$ have dispersion $d(\lprof(x)) ≤ \khalf$.
@@ -682,11 +680,11 @@ Let $\Delta^{x, y}_\mathit{min} = \min\lprof(x) - \min\lprof(y)$ represent the d
 That number is (strictly) positive iff $f^{w_m, w_i}$ considers $x$ (strictly) worst than $y$ from the point of view of smallest losses.
 Note that $\Delta^{x, y}_\mathit{min} = - \Delta^{y, x}_\mathit{min}$.
 
-\begin{proposition}
+\begin{theorem}
 	\label{th:wcDelta}
 	The rule $f^{w_m, w_i}$ selects the maximal elements of $\succeq$ defined as 
 	$x \succeq y ⇔ \frac{w_i}{w_m} \Delta^{y, x}_\mathit{ineq} ≥ \Delta^{x, y}_\mathit{min}$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 	Define $M_x = \max \lprof(x)$, $m_x = \min \lprof(x)$, and similarly $M_y$ and $m_y$.
 	
@@ -726,7 +724,7 @@ Note that $\Delta^{x, y}_\mathit{min} = - \Delta^{y, x}_\mathit{min}$.
 	
 	This makes sense since the loss of an alternative for a individual is equal to $m-$(ranking of the alternative in the preference profile), wheres the usual definition of the Borda score assigned by a individual is that this score equals the ranking of the alternative in the individual's profile. Hence, they are equivalent.
 	
-	It is Paretian by definition since an alternative $x$ ranked higher by both individuals than an alternative $y$ obtains a higher Borda score. It fails SPEL due to the same example as the one in Proposition 4. To see why Borda rule is a weight-comparing rule, take some $f$ with weights $w_i = 1/3$ and $w_m = 2/3$ so that:
+	It is Paretian by definition since an alternative $x$ ranked higher by both individuals than an alternative $y$ obtains a higher Borda score. It fails SPEL due to the same example as the one in theorem 4. To see why Borda rule is a weight-comparing rule, take some $f$ with weights $w_i = 1/3$ and $w_m = 2/3$ so that:
 \begin{align}f(\prof) &= \argmax_{x \in \allalts} -(2/3)(\min\lprof(x)) - (1/3)(\max \lprof(x) - \min \lprof(x))\\
 &\equiv \argmax_{x \in \allalts} -(1/3)(\min\lprof(x)+\max \lprof(x))\\
 &\equiv \argmax_{x \in \allalts} -(\sum\lprof(x))\\
