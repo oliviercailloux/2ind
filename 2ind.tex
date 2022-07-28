@@ -217,10 +217,18 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
     $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
+The equal loss principle is incompatible with the one of Pareto efficiency. Indeed, consider the  profile
+\begin{equation*}
+        \begin{array}{ccc}
+                a&b&c\\
+                b&a&c\\
+        \end{array}.
+    \end{equation*}
+    Whereas $c$ is the only alternative satisfying the equal loss principle, only $a$ and $b$ are Pareto efficient. This incompatibility is formally stated by the next proposition. 
 \begin{proposition}
     $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
 \end{proposition}
-\commentRS{Proposition 4 is missing a proof (that is rather straightforward).}
+\commentRS{Proposition 4 is missing a proof (that is rather straightforward).}\commentMN{Just added it, please check that you agree}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
@@ -258,7 +266,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\ceil{\frac{m - 1}{2}} = \floor{\frac{m}{2}}$ positions behind $x$).
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
-\commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}
+\commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}\commentMN{Not so sure}
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
@@ -431,7 +439,7 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
-\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. As the impossibility is stronger with the weaker definition of MD, I am inclined to keep the weak one. To be sure, the proposition below adds something to corollary 4 (that we discussed by mail) but the this additional contribution is rather marginal and I don't think it is worth to define strong MD just for this. Thus, I suggest discarding Proposition 9.}
+\commentRS{As Olivier noted, we have to choose whether we keep the above approach or the one below. As the impossibility is stronger with the weaker definition of MD, I am inclined to keep the weak one. To be sure, the proposition below adds something to corollary 4 (that we discussed by mail) but the this additional contribution is rather marginal and I don't think it is worth to define strong MD just for this. Thus, I suggest discarding Proposition 9.}\commentMN{Let's discard Prop 9 then}
 \begin{proposition}\label{propo:pv}
 	Take any $m ≥ 3$ and write $m=3k+r$ for $k\in \mathbb{N}$, $r\in\{0,1,2\}$. $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ k$.
 \end{proposition}
