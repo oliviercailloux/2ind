@@ -228,6 +228,7 @@ To see why the claim holds, consider the next profile:
   Observe that alternatives $a_1$ and $a_2$ Pareto dominate any other alternative in the profile so that $a_1,a_2$ are the only Pareto efficient alternatives. 
 Each one of the rest of alternatives, starting by $a_3$, satisfies equal loss since they are ranked at the same level by both individuals, showing the incompatibility. 
 \end{proof}
+\commentRS{Thanks for the proof Matias. The way it is presented requires at least four alternatives while the theorem also covers the case of three alternatives. The profile should be changes so as to cover this as well.}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
@@ -320,7 +321,7 @@ Define the minimal dispersion ($MD$) condition as follows.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there exists rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
 
-The following result will be useful to explore the precise relationship between MD and MR.
+The following remark will be useful to explore the precise relationship between MD and MR.
 \begin{remark}
 	\label{remark1} 
 	For any $\prof$, if $x \in \PE$ then
@@ -329,7 +330,8 @@ To see this, suppose, for a contradiction, that $x \in \PE$ while
 $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\}\geq m$, which implies $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\}\neq \emptyset$, contradicting $x \in \PE$.
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
 	\commentRS{You are right, if we discard the result with stronger MD.}
-	\commentOC{Thinking again, maybe this result deserves its own headline. It is simple but quite useful for the reader to observe, even though we happen to use it only once. But I have no strong opinion about it.}
+	\commentOC{Thinking again, maybe this result deserves its own headline. It is simple but quite useful for the reader to observe, even though we happen to use it only once. But I have no strong opinion about it.},
+	\commentRS{I am happy to keep it.}
 \end{remark}
 In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
 \commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
