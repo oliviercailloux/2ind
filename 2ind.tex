@@ -64,8 +64,8 @@ We now summarize our findings. All rules we consider are Paretian. Fallback barg
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that doesn't exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
-Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes. \footnote{
-In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} (see \cite{thomson1994cooperative}) minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.} Not only fallback bargaining fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that doesn't exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle. Recall that this upper bound is a half for the satisfaction of the weaker Paretian equal loss principle.
+Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes.\footnote{
+In a framework with a disagreement outcome, \cite{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} (see \cite{thomson1994cooperative}) minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.}Not only fallback bargaining fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that doesn't exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle. Recall that this upper bound is a half for the satisfaction of the weaker Paretian equal loss principle.
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals, it is failed by all social choice rules we consider,
 
@@ -220,15 +220,14 @@ The equal loss principle is incompatible with the one of Pareto efficiency as fo
 \begin{proof}
 To see why the claim holds, consider the next profile:
 	\begin{equation}
-		\begin{array}{lll ll}
-			a_1&a_2 &a_3 &a_4 &\ldots \\
-		a_2& a_1 &a_3&a_4 &\ldots \\
+		\begin{array}{lll lll}
+			a_1&a_2 &a_3 & a_4 &\ldots &a_m \\
+		a_2& a_1 &a_3&a_4 &\ldots&a_m \\
 		\end{array}.
 	\end{equation}
-  Observe that alternatives $a_1$ and $a_2$ Pareto dominate any other alternative in the profile so that $a_1,a_2$ are the only Pareto efficient alternatives. 
-Each one of the rest of alternatives, starting by $a_3$, satisfies equal loss since they are ranked at the same level by both individuals, showing the incompatibility. 
+  Observe that alternatives $a_1$ and $a_2$ Pareto dominate any other alternative in the profile so that $a_1,a_2$ are the only Pareto efficient alternatives. If $m=3$, $a_3$ is the only alternative that satisfies equal loss; it is also the only Pareto dominated alternative. When $m>3$, a similar idea applies: each alternative in  $\{a_3,\ldots,a_m\}$ satisfies equal loss and is Pareto dominated while both $a_1,a_2$ are Pareto efficient while failing equal loss since they are ranked at the same level by both individuals. Both observations, when $m=3$ and $m>3$, imply the incompatibility of both principles.
 \end{proof}
-\commentRS{Thanks for the proof Matias. The way it is presented requires at least four alternatives while the theorem also covers the case of three alternatives. The profile should be changes so as to cover this as well.}
+\commentRS{Thanks for the proof Matias. The way it is presented requires at least four alternatives while the theorem also covers the case of three alternatives. The profile should be changes so as to cover this as well.}\commentMN{Thanks Remzi, I added a modification of the proof to take into account your comment, it should be ok now.}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
@@ -268,7 +267,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
 \end{proof}
 \commentRS{Should we add a corollary about binding PV rules that satisfy PEL?}\commentMN{Not so sure}
-\commentOC{I add the corollary here below just to have an idea of what it looks like, then we can decide.}
+\commentOC{I add the corollary here below just to have an idea of what it looks like, then we can decide.}\commentMN{Thanks Olivier, we can add the corollary, I let both of you decide.}
 
 \begin{corollary}
 	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ satisfies PEL iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \ceil{\frac{m - 1}{2}}$ for any $\set{i, \ibar} = \set{1, 2}$.
@@ -331,11 +330,11 @@ $\lprof(x)_1+\lprof(x)_2\geq m$. Thus, $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\
 	\commentOC{I leave the remark here as this fact is used in the proof below, but as we use it only once now (I think), we might want to drop the remark. I chose to not refer to this remark for now in the proof below and inlined its reasoning.}
 	\commentRS{You are right, if we discard the result with stronger MD.}
 	\commentOC{Thinking again, maybe this result deserves its own headline. It is simple but quite useful for the reader to observe, even though we happen to use it only once. But I have no strong opinion about it.},
-	\commentRS{I am happy to keep it.}
+	\commentRS{I am happy to keep it.}\commentMN{Me too}
 	\commentOC{I suggest to make it a theorem. If you agree, I’ll change it accordingly.}
 \end{remark}
-In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whoses losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
-\commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}
+In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we write $\lprofinv(S) = \set{x \in \allalts \suchthat \lprof(x) \in S}$ to denote the set of alternatives whose losses are within $S$. So, for example, $H(\prof) = \lprofinv(\intvl{0, \khalf} × \intvl{0, \khalf})$.
+\commentOC{Consider externalizing the implication: $m ≥ 3$ and $t ≥ \frac{2m - 4}{3}$ ⇒ $t ≥ \khalf$.}\commentMN{See my next comment}
 \begin{theorem}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
@@ -364,7 +363,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	Because $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
 	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
 	
-	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$ \commentOC{I ignore how to prove that shortly, here are the gory details. When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}; whence $t ≥ \khalf$.
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$; whence $t ≥ \khalf$\footnote{\commentMN{I suggest simply putting it as a footnote:}When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$.} \commentOC{I ignore how to prove that shortly, here are the gory details. When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$}
 	
 	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
 	Also, $t ≥ \khalf$ thus $m - 1 - t ≤ m - 1 - \khalf = \floor{\frac{m - 1}{2}} ≤ t$.
@@ -397,8 +396,9 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 \end{proof}
 
 \commentOC{We decided to leave the theorem above as-is and discuss this theorem verbally, and point out that 2 equiv 3 can also be seen more directly, just by anonymity. I tried a first draft in the following remark, which has to be better phrased.}
+\commentMN{I tried for the 1st two paragraphs. I think that the third one is really hard, we can either simply drop it or simplify it.}
 \begin{remark}
-	This theorem states reveral results that will reveal useful below and that may help understand the behavior of the rules we consider. First, it states (considering $1 ⇔ 2$) that if one wants to place a limit to the level at which we may look “down the profile”, for both players, then it is necessary and sufficient to place this limit at $t$ being at least $\frac{2m - 4}{3}$ to obtain that one of the alternatives in that “upper part” of the profile will always (for all profiles) be among the minimizers of dispersion.
+	This theorem states several results that will be useful throughout and that may help illustrating the behavior of the rules we consider. First, it states (considering $1 ⇔ 2$) that if one wants to place a limit to the level at which we may look “down the profile”, for both players, then it is necessary and sufficient to place this limit at $t$ being at least $\frac{2m - 4}{3}$ to obtain that one of the alternatives in the “upper part” of the profile is among the minimizers of dispersion (for any profile).
 	
 	Second, it states, similarly (considering $1 ⇔ 3$ or $1 ⇔ 4$), that if one wants to place a limit for only one of the players, setting that limit at $t$ being at least $\frac{2m - 4}{3}$ is also necessary and sufficient to obtain the same guarantee.
 	
@@ -407,7 +407,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 
 \begin{corollary}
 	\label{th:noMRMD}
-	Some $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
+A SCR $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
 \end{corollary}
 \begin{proof}
 	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
@@ -419,7 +419,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1} = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
-The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by Theorem 2) all fail MD. As Theorem 2 shows that most rules in $\PVcl$ fail MR, the following result which determines the subclass of $\PVcl$ satisfying MD is of interest. 
+The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by Theorem 2) all fail MD. As Theorem 2 shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
 
 \begin{corollary}
 	\label{th:pvMD}
@@ -477,7 +477,7 @@ Given the incompatibility between MR and MD, one can attempt to reconcile the tw
 \end{theorem}
 
 \begin{proof}
-Consider the following profile $\mathbf{P}$ with 11 alternatives.
+Consider the following profile $\prof$ with 11 alternatives.
 
 	\begin{equation}
 		\begin{array}{llllllll}
@@ -512,7 +512,7 @@ Thus, by Theorem 2, among the rules in $\PVcl$, $\PVe$ is the only candidate to 
 
 \section{Concluding remarks}
 
-Axiomatic analysis of social choice rules with or without strategic concerns present two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept. \footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
+Axiomatic analysis of social choice rules with or without strategic concerns present two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.\footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
 
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from rather different perspectives.
 
