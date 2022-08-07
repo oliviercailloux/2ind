@@ -314,7 +314,7 @@ SPEL, failed by all rules we consider but one, allows to distinguish $\FB$ from 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
-Note that $d \in \Sigma$ coincides with multiple commonly used spread measures, as shown in \cref{sec:spreads}.
+We show in \cref{sec:spreads} that $d \in \Sigma$ coincides with several commonly used spread measures, 
 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
@@ -519,7 +519,7 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 \appendix
 
 
-\section{Spread measures}
+\section{Spread measures and minimal dispersion}
 \label{sec:spreads}
 We reuse the following definitions from \cite{cailloux2022compromising}, letting $n$ denote the number of individuals, $l \in \R^n$ denote a generalized loss tuple and $\bar{l} = \sum_{i = 1}^n l_i / n$ denote the arithmetic mean of the losses:
 \begin{itemize}
@@ -533,7 +533,7 @@ We reuse the following definitions from \cite{cailloux2022compromising}, letting
 \commentMN{TO BE CHECKED: 
 When $n = 2$ as in our case, it is plain that $\forall i \in \set{1, 2}: \abs{l_i - \bar{l}} = \frac{\abs{l_1 - l_2}}{2}$;  $\sum_{i = 1}^n\sum_{j = 1}^n \abs{l_i - l_j} = 2 \abs{l_1 - l_2}$; $\sigma_{mad} = \sigma_{ad} = \sigma_{sd} = \frac{d}{2}$ and $\sigma_G = \frac{\abs{l_1 - l_2}}{2 (l_1 + l_2)}$. 
 Thus, $\sigma_{mad}$, $\sigma_{ad}$ and $\sigma_{sd}$ coincide with $d$, but $\sigma_G$ does not. 
-For example, the Gini coefficient considers $(49, 51)$ as less unequal than $(0, 1)$ whereas $d$ orders these tuples reversely.}\commentMN{I agree}
+For example, the Gini coefficient considers $(49, 51)$ as less unequal than $(0, 1)$ whereas $d$ orders these tuples reversely.}\commentRS{This part should be slightly elaborated.}
 
 
 \bibliography{bibliototal}
