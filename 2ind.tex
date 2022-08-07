@@ -160,6 +160,7 @@ Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
 \begin{theorem}
+	\label{th:pvmr}
  	When $m$ is odd, $\PVcl ∩ \MRcl = \{PV^=\}$, and
 	when $m$ is even, $\PVcl ∩ \MRcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$.
 \end{theorem}
@@ -416,7 +417,7 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 \end{proof}
 
 \begin{remark}
-	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
+	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players \commentOC{Should we include Remzi’s proof of this fact here as a footnote? The proof did not seem obvious to me.}, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
 \end{remark}
 
 \begin{corollary}
@@ -433,7 +434,7 @@ A SCR $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
 	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1} = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
-The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by Theorem 2) all fail MD. As Theorem 2 shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
+The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. As \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
 
 \begin{corollary}
 	\label{th:pvMD}
@@ -521,7 +522,7 @@ Regarding rules in $\PVcl$, we first show that for $m$ even, $\PVv[(\frac{m}{2},
 	\end{equation}
 where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c \in \PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)$.  selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar argument shows that $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fails RMD.
 
-Thus, by Theorem 2, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
+Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 
 \section{Concluding remarks}
