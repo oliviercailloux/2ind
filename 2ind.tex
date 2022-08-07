@@ -382,12 +382,8 @@ In the following, given $S \subseteq \intvl{0, m - 1} × \intvl{0, m - 1}$, we w
 	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
 	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
 	
-%	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$; whence $t ≥ \khalf$.
-%	  \footnote{When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$.} 
-	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$.
-	 Furthermore,
-	$\ceil{\frac{2m - 4}{3}} = \frac{2m - 4 + \epsilon}{3}$ with $\epsilon = 0$ iff $\frac{2m - 4}{3} = 0$ iff $\frac{2m - 1}{3} = 0$; $\epsilon = 1$ iff $\frac{2m - 6}{3} = 0$ iff $\frac{m}{3} = 0$; and $\epsilon = 2$ iff $\frac{2m - 5}{3} = 0$ iff $\frac{m - 1}{3} = 0$.
-	This permits to see that $\ceil{\frac{2m - 4}{3}} ≥ \frac{m - 1}{2}$.
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$; whence $t ≥ \khalf$.
+	 \footnote{When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$.} 
 	
 	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
 	Also, $t ≥ \khalf$ thus $m - 1 - t ≤ m - 1 - \khalf = \floor{\frac{m - 1}{2}} ≤ t$.
