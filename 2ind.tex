@@ -20,7 +20,7 @@
 \author[**]{Matías Núñez}
 \author[*]{Remzi M. Sanver}
 \affil[*]{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE}
-\affil[**]{École Polytechnique …}
+\affil[**]{CREST, CNRS, \'Ecole Polytechnique, GENES, ENSAE Paris, Institut Polytechnique de Paris, 91120 Palaiseau, France.}
 \hypersetup{
 	pdfsubject={},
 	pdfkeywords={},
@@ -64,7 +64,7 @@ We now summarize our findings (see also \cref{fig:props}). All rules we consider
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version it suffices that this alternative be among the outcomes. The veto-rank mechanism and the shortlisting procedure both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, fallback bargaining satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
 Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed at the preferences of the two individuals. The minimal dispersion principle requires that an alternative whose dispersion is minimal must be among the outcomes.\footnote{
-In a framework with a disagreement outcome, \citet{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} \citep{thomson1994cooperative} minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.}Not only fallback bargaining fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle. Recall that this upper bound is a half for the satisfaction of the weaker Paretian equal loss principle.
+In a framework with a disagreement outcome, \citet{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} \citep{thomson1994cooperative} minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from unanimity compromise which is fallback bargaining defined in their more general framework.} Not only fallback bargaining fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle. Recall that this upper bound is a half for the satisfaction of the weaker Paretian equal loss principle.
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals, it is failed by all social choice rules we consider.
 
@@ -98,14 +98,14 @@ An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and prof
 Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, associates to each individual her loss associated to $x$.
 
-Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $\forall i: l_i ≤ l'_i$. We also write $l < l'$ to denote that $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
+Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
 \commentOC{Perhaps it’s overly prudent, but because, sorry, since the notion of the class of rules is crucial in this article, I suggest to add a sentence to make the property stand out and specify better what we mean with class of rules satisfying a property. We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.}
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs picking only Pareto efficient alternatives. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{Isn’t it more correct to write something like: to designate a portion of the profile such that…? I am not sure.} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the set of alternatives imposing losses not higher than $k$ for all individuals. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{Isn’t it more correct to write something like: to designate a portion of the profile such that…? I am not sure.} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
 We now define the SCRs that we analyze in the paper. 
@@ -129,7 +129,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
     $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
 \begin{remark}
-    $\FB$, $\VR$ and $\SL$ are anonymous, while a SCR $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
+    $\FB$, $\VR$ and $\SL$ are anonymous, while a $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 
 \section{The minimal Rawlsian principle}
@@ -143,7 +143,7 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be 
 \begin{theorem}
     There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
 \end{theorem}
-It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that renders $k$-Rawlsianism satisfiable at every preference profile while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
+It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism feasible while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] An SCR $f$ satisfies \MRprop{} if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
@@ -195,7 +195,7 @@ The observation below follows from \cref{propo:equal}.
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
 \begin{theorem}\label{th:different}
-	$\exists \prof \suchthat \FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset, \VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$, $\PVe(\prof) ≠ \SL(\prof)$.
+There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$ while $\PVe(\prof) ≠ \SL(\prof)$.
 \end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$:
@@ -247,7 +247,7 @@ Consider the following profile:
 		a_2& a_1 &a_3&\ldots&a_m \\
 		\end{array}.
 	\end{equation}
-  Observe that alternatives $a_1$ and $a_2$ are the only Pareto efficient alternatives.
+  Observe that $a_1$ and $a_2$ are the only Pareto efficient alternatives.
   Thus, all the alternatives that are ranked at the same position by both individuals, namely $\allalts \setminus \set{a_1, a_2}$, are Pareto dominated.
 \end{proof}
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
@@ -266,14 +266,14 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 	$\VR$ and $\SL$ fail PEL.
 \end{theorem}
 \begin{proof}
-	Consider the following profile $\prof$, reused from \eqref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
+	Consider the profile $\prof$ stated in \eqref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
 	\begin{equation}
 		\begin{array}{llll lll | llll ll}
 			a&b&c&d&e&f&g&h&i&j&k&l&m\\
 			g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array}.
 	\end{equation}
-	PEL requires to choose at least $d$.
+	PEL requires to choose $d$.
 \end{proof}
 
 Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
@@ -314,8 +314,8 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 			a&b&c&a_4&a_5&…\\	c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
-    SPEL requires to pick solely $b$. Any rule $f \in \PVcl$ will pick at least either $a$ or $c$ in supplement to $b$. 
-    Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$ and $m ≥ 4$, we know that $v_1 + v_2 ≤ m - 1 + (m - 4) = m - 2 + m - 3$. Now if $c \notin f(\prof)$ (equivalently, $m - 2 ≤ v_1$), then $v_1 + v_2≤ v_1 + m - 3$, then $a \in f(\prof)$.
+    SPEL requires to pick solely $b$. Any rule $f \in \PVcl$ will pick either $a$ or $c$ in addition to $b$. 
+    Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$ and $m ≥ 4$, we know that $v_1 + v_2 ≤ m - 1 + (m - 4) = m - 2 + m - 3$. Now if $c \notin f(\prof)$ $\Longleftrightarrow$ $m - 2 ≤ v_1$, then $v_1 + v_2≤ v_1 + m - 3$, then $a \in f(\prof)$.
 \end{proof}
 
 \begin{remark}
@@ -342,7 +342,7 @@ Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there exists rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
+MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
 
 The following result will be useful to explore the precise relationship between MD and MR.
 \begin{theorem}
@@ -529,7 +529,7 @@ Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidat
 
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.\footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
 
-The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism , and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
+The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can minimize the dispersion of the loss vector.
 
