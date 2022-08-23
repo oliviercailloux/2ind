@@ -68,17 +68,17 @@ In a framework with a disagreement outcome, \citet{KibrisSertel2007} argue that 
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals, it is failed by all social choice rules we consider.
 
-Section 2 introduces the basic notions and notation. Sections 3 and 4 are devoted to the minimal Rawlsian and equal loss principles, respectively. Section 5 introduces the Rawlsian minimal dispersion principle. Section 6 makes some concluding remarks.
+\Cref{sec:basic} introduces the basic notions and notation. \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
 
 \section{Basic notions and notation}
-
+\label{sec:basic}
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
-An SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
-An SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
+A SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
+A SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
 Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, assigns to each individual her loss associated to $x$.
@@ -115,10 +115,10 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{remark}
 
 \section{The minimal Rawlsian principle}
-
+\label{sec:minprinc}
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
-	Given $k \in \intvl{0, m - 1}$, an SCR is $k$-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
+	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
@@ -126,7 +126,7 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be 
     There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
 \end{theorem}
 It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism feasible while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
-\begin{definition}[Minimal Rawlsianism (\MRprop)] An SCR $f$ satisfies \MRprop{} if 
+\begin{definition}[Minimal Rawlsianism (\MRprop)] A SCR $f$ satisfies \MRprop{} if 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
@@ -203,6 +203,7 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{remark}
 
 \section{The equal loss principle}
+\label{sec:eqprinc}
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
 
 \begin{definition}[Equal loss (EL)]
@@ -451,7 +452,7 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 \end{remark}
 
 \section{Reconciling the two principles}
-
+\label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
 
 
@@ -474,7 +475,7 @@ Consider the following profile $\prof$ with 11 alternatives.
 	\end{equation}
 
 
-$H(\prof)=\{x, y\}$ and for an SCR $f$ to satisfy RMD, we must have $y\in   f(\prof)$. As $\FB(\prof)$ = $\VR(\prof)=\{x\}$, both rules fail RMD. 
+$H(\prof)=\{x, y\}$ and for a SCR $f$ to satisfy RMD, we must have $y\in   f(\prof)$. As $\FB(\prof)$ = $\VR(\prof)=\{x\}$, both rules fail RMD. 
 
 To see that $\SL$ fails RMD, consider the following profile $\prof$ with $\SL(\prof)=\set{a, c}$ while RMD requires $b \in \SL(\prof)$. 
 
@@ -499,6 +500,7 @@ Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidat
 \end{proof}
 
 \section{Concluding remarks}
+\label{sec:concl}
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.\footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
 
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
