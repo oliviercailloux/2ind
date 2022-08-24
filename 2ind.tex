@@ -20,7 +20,7 @@
 \author[**]{Matías Núñez}
 \author[*]{M. Remzi  Sanver}
 \affil[*]{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE}
-\affil[**]{CREST, CNRS, \'Ecole Polytechnique, GENES, ENSAE Paris, Institut Polytechnique de Paris, 91120 Palaiseau, France.}
+\affil[**]{CREST, CNRS, École Polytechnique, GENES, ENSAE Paris, Institut Polytechnique de Paris, 91120 Palaiseau, France.}
 \hypersetup{
 	pdfsubject={},
 	pdfkeywords={},
@@ -501,26 +501,28 @@ Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidat
 
 \section{Concluding remarks}
 \label{sec:concl}
-Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.\footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules.} 
+Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.\footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of Hurwicz and Schmeidler (1978) and Maskin (1999) on the impossibility Nash implementing Pareto efficient two-person social choice rules. \commentOC{Grammatical problem in “on the impossibility Nash implementing”.}} 
 
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond fallback bargaining, the shortlisting procedure, the veto-rank mechanism, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can minimize the dispersion of the loss vector.
-\Cref{fig:props} summarizes our findings. It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are "punctual" in the sense of \cite{thomson2012axiomatics}. \footnote{We thank Sylvain Béal for this comment.}
+\Cref{fig:props} summarizes our findings. It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. \footnote{We thank Sylvain Béal for this comment.}
 
 \begin{table}
-	\begin{tabular}{c|l*{5}{c}}
+	\begin{tabular}{cl*{5}{c}}
+		\toprule
 		& MR & PEL & SPEL & MD & RMD\\
-\hline		$FB$ & ✓ & ✓ & ✓\\
+		\midrule
+		$FB$ & ✓ & ✓ & ✓\\
 		$VR$ & ✓ & \\
 		$SL$ & ✓ & \\
 		$\PVcl^=$ & ✓ & \\
 		$\PVcl \suchthat \max v_i ≤ \frac{m}{2}$ & & ✓\\
 		$\PVcl \suchthat \max v_i ≤ \frac{m + 1}{3}$ & & ✓ & & ✓\\
 		$\PVe$ & ✓ & & & & ✓ \\
-		\hline
+		\bottomrule
 	\end{tabular}
-	\caption{Summary of the results. A tick means that all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). The notation $\PVcl^=$ refers to the class referred to by \cref{th:pvmr}.}
+	\caption{Summary of the results. A tick means that all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.}
 	\label{fig:props}
 \end{table}
 
