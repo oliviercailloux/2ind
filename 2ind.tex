@@ -294,7 +294,7 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 \end{theorem}
 \begin{proof}
     Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
-    Consider the following profile $P$: 
+    Consider the following profile $\prof$: 
 	\begin{equation}
 		\begin{array}{*6{l}}
 			a&b&c&a_4&a_5&…\\
@@ -465,17 +465,17 @@ The following theorem shows that satisfying MD does not imply being a Pareto-and
 	Consider the rule $f(\prof) = \argmin_{\PE}(d \circ \lprof)$. It satisfies MD by definition. Let us show that it is not in $\PVcl$.
 
 	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
-	Consider the following profile $P$, also used in the proof of \cref{th:PVnotSPEL}:
+	Consider the following profile $\prof$, also used in the proof of \cref{th:PVnotSPEL}:
 	\begin{equation}
 		\begin{array}{*6{l}}
 			a&b&c&a_4&a_5&…\\
 			c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
-	Observe that $f(\prof) = \set{b}$. To have $f \in \PVcl$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum_v$. Also, the definition of $\PVcl$ requires that $\sum_v ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only if $m ≤ 3$.
+	Observe that $f(\prof) = \set{b}$. To have $f \in \PVcl$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum v_i$. Also, the definition of $\PVcl$ requires that $\sum v_i ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only when $m ≤ 3$.
 \end{proof}
-This result highlights the impossibility of caracterising MD in terms of PV complemented with other properties.
-\commentOC{This observation might help replying to Jean-François’s suggestion (or not), but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About his suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
+This result highlights the impossibility of characterizing MD in terms of PV complemented with other properties.
+\commentOC{This observation might help replying to Jean-François’s suggestion (or not), but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About Jean-François’s suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
 
 \section{Reconciling the two principles}
 \label{sec:reconc}
