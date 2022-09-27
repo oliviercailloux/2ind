@@ -395,10 +395,12 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
 \end{remark}
 
-\begin{corollary}
+The next two results follow from \cref{th:caractEmpty}.
+
+\begin{theorem}
 	\label{th:noMRMD}
 A SCR $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
-\end{corollary}
+\end{theorem}
 \begin{proof}
 	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
 	\begin{equation}
@@ -411,10 +413,10 @@ A SCR $f \in \MRcl$ satisfies MD iff $m ≤ 6 \lor m = 8$.
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. As \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
 
-\begin{corollary}
+\begin{theorem}
 	\label{th:pvMD}
 	For $m ≥ 3$, $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$.
-\end{corollary}
+\end{theorem}
 \begin{proof}
 	Define $t = \min_{i \in \set{1, 2}} (m - 1 - v_i) \in \N$.
 	Observe that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: m - 1 - v_i ≥ \frac{2m - 4}{3} ⇔ t ≥ \frac{2m - 4}{3}$.
