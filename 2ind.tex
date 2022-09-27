@@ -289,14 +289,16 @@ The rules that fail PEL will a fortiori fail the following stronger version of t
 \end{definition}
 Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in $\PVcl$ that satisfy PEL fail SPEL.
 \begin{theorem}
+	\label{th:PVnotSPEL}
 	When $m ≥ 4$, all rules in $\PVcl$ fail SPEL.
 \end{theorem}
 \begin{proof}
     Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
     Consider the following profile $P$: 
 	\begin{equation}
-		\begin{array}{llllll}
-			a&b&c&a_4&a_5&…\\	c&b&a&a_4&a_5&…\\
+		\begin{array}{*6{l}}
+			a&b&c&a_4&a_5&…\\
+			c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
     SPEL requires to pick solely $b$. Any rule $f \in \PVcl$ will pick either $a$ or $c$ in addition to $b$. 
@@ -457,29 +459,23 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 The following theorem shows that satisfying MD does not imply being a Pareto-and-veto rule.
 
 \begin{theorem}
-	$\MDcl \nsubseteq \PVcl$.
+	When $m ≥ 4$, $\MDcl \nsubseteq \PVcl$.
 \end{theorem}
 \begin{proof}
 	Consider the rule $f(\prof) = \argmin_{\PE}(d \circ \lprof)$. It satisfies MD by definition. Let us show that it is not in $\PVcl$.
-	At the following profile $\prof$, we have $f(\prof) = \set{a_3}$. 
+
+	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
+	Consider the following profile $P$, also used in the proof of \cref{th:PVnotSPEL}:
 	\begin{equation}
-		\begin{array}{*5{l}}
-			a_1&a_2 &a_3 & a_4 &a_5 \\
-			a_4& a_5 &a_3&a_2 &a_1 \\
+		\begin{array}{*6{l}}
+			a&b&c&a_4&a_5&…\\
+			c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
-	To have $f \in \PVcl$ requires that $v_1 = v_2 = 2$. 
-	Now consider the following profile $\prof'$.
-	\begin{equation}
-		\begin{array}{*5{l}}
-			a_1&a_2 &a_3 & a_4 &a_5 \\
-			a_3& a_2 &a_1&a_4 &a_5 \\
-		\end{array}.
-	\end{equation}
-	As $f(\prof') = \set{a_2}$, $f$ cannot be the Pareto-and-veto rule with $v_1 = v_2 = 2$ (which would elect $\set{a_1, a_2, a_3}$). Thus, $f \notin \PVcl$.
+	Observe that $f(\prof) = \set{b}$. To have $f \in \PVcl$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum_v$. Also, the definition of $\PVcl$ requires that $\sum_v ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only if $m ≤ 3$.
 \end{proof}
 This result highlights the impossibility of caracterising MD in terms of PV complemented with other properties.
-\commentOC{This observation might help replying to Jean-François’s suggestion, but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About his suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
+\commentOC{This observation might help replying to Jean-François’s suggestion (or not), but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About his suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
 
 \section{Reconciling the two principles}
 \label{sec:reconc}
