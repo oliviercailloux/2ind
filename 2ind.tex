@@ -452,8 +452,13 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 
+
 \begin{remark}
-	\Cref{th:pvMD} shows that PV rules such that $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. One may wonder whether such rules necessarily satisfy a stronger version of MD that mandates picking \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$). This is false. To illustrate, pick $m = 5$ and consider the rule $PV^{(2, 2)}$ and the following profile $\prof$.
+   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
+\end{remark}
+The relationship between the minimal dispersion principle and Pareto-and-veto rules is not closer than the proximity suggested by \cref{th:pvMD}, which can be observed by the two remarks below:  
+\begin{remark}
+	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. One may wonder whether these rules also satisfy a stronger version of MD that mandates picking \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$). This is false. To illustrate this, for $m = 5$ consider the rule $PV^{(2, 2)}$ and the profile $\prof$.
 	\begin{equation}
 		\begin{array}{*5{l}}
 			a& b & c & d & e \\
@@ -462,19 +467,9 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 	\end{equation}
 	Here, $\argmin_{\PE} (d \circ \lprof) = \set{b, c}$ while $PV^{(2, 2)}(\prof) = \set{c}$.
 \end{remark}
-\commentOC{I find it not nice that this remark takes more than 1 § (hence the reader doesn’t know where it ends by simple scanning of white space). Do we mind?}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
-\end{remark}
-
-The following theorem shows that satisfying MD does not imply being a Pareto-and-veto rule.
-
-\begin{theorem}
-	When $m ≥ 4$, $\MDcl \nsubseteq \PVcl$.
-\end{theorem}
-\begin{proof}
-	Consider the rule $f(\prof) = \argmin_{\PE}(d \circ \lprof)$. It satisfies MD by definition. Let us show that it is not in $\PVcl$.
+Satisfying MD does not imply being a Pareto-and-veto rule. To see this, consider the rule $f(\prof) = \argmin_{\PE}(d \circ \lprof)$ which satisfies MD by definition but is not in $\PVcl$ as the following example shows:
 
 	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
 	Consider the following profile $\prof$, also used in the proof of \cref{th:PVnotSPEL}:
@@ -485,7 +480,12 @@ The following theorem shows that satisfying MD does not imply being a Pareto-and
 		\end{array}.
 	\end{equation}
 	Observe that $f(\prof) = \set{b}$. To have $f \in \PVcl$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum v_i$. Also, the definition of $\PVcl$ requires that $\sum v_i ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only when $m ≤ 3$.
-\end{proof}
+\end{remark}
+
+
+
+
+
 This result highlights the impossibility of characterizing MD in terms of PV complemented with other properties.
 \commentOC{This observation might help replying to Jean-François’s suggestion (or not), but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About Jean-François’s suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
 
