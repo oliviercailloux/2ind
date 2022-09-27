@@ -454,6 +454,33 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
 
+The following theorem shows that satisfying MD does not imply being a Pareto-and-veto rule.
+
+\begin{theorem}
+	$\MDcl \nsubseteq \PVcl$.
+\end{theorem}
+\begin{proof}
+	Consider the rule $f(\prof) = \argmin_{\PE}(d \circ \lprof)$. It satisfies MD by definition. Let us show that it is not in $\PVcl$.
+	At the following profile $\prof$, we have $f(\prof) = \set{a_3}$. 
+	\begin{equation}
+		\begin{array}{*5{l}}
+			a_1&a_2 &a_3 & a_4 &a_5 \\
+			a_4& a_5 &a_3&a_2 &a_1 \\
+		\end{array}.
+	\end{equation}
+	To have $f \in \PVcl$ requires that $v_1 = v_2 = 2$. 
+	Now consider the following profile $\prof'$.
+	\begin{equation}
+		\begin{array}{*5{l}}
+			a_1&a_2 &a_3 & a_4 &a_5 \\
+			a_3& a_2 &a_1&a_4 &a_5 \\
+		\end{array}.
+	\end{equation}
+	As $f(\prof') = \set{a_2}$, $f$ cannot be the Pareto-and-veto rule with $v_1 = v_2 = 2$ (which would elect $\set{a_1, a_2, a_3}$). Thus, $f \notin \PVcl$.
+\end{proof}
+This result highlights the impossibility of caracterising MD in terms of PV complemented with other properties.
+\commentOC{This observation might help replying to Jean-François’s suggestion, but I am not sure that it is useful to the reader who maybe didn’t wonder about this possibility (though I don’t mind writing it anyway). About his suggestion, I think it was rather about finding X such that [MD + X] iff [$\PVcl \land v_i ≤ \frac{m + 1}{3}$].}
+
 \section{Reconciling the two principles}
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion ($RMD$) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
