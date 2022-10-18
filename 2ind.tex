@@ -419,7 +419,20 @@ A SCR $f \in \MRcl$ satisfies MD if and only if $m ≤ 6$ or $m = 8$.
 	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
-The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
+The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
+
+\begin{remark}
+	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails the $\MD$ principle. The following example profile $\prof$ (built using the proof of Theorem 5.1 in \citet{cailloux2022compromising}) illustrates this failure for $m = 7$.
+	\begin{equation}
+		\begin{array}{*7{l}}
+			x& a_1 & a_2 & a_3 & y & b_1 & b_2\\
+			b_1& b_2 & y & x & a_1 & a_2 & a_3\\
+		\end{array}.
+	\end{equation}
+	Observe that $\FB(\prof) = \set{x}$ while the $\MD$ principle mandates picking at least $y$.
+\end{remark}
+
+Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
 
 \begin{theorem}
 	\label{th:pvMD}
@@ -476,7 +489,7 @@ The final part of this section further analyzes the relationship between the min
 	Here, $\argmin_{\PE} (d \circ \lprof) = \set{b, c}$ while $PV^{(2, 2)}(\prof) = \set{c}$.
 \end{remark}
 
-Define the rule $MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each Pareto efficient alternative that minimizes the dispersion. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome. 
+Define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each Pareto efficient alternative that minimizes the dispersion. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome. 
 
 
 \commentMN{Je trouve que la regle $MD$ est vraiment bien. Elle me semble vraiment une règle intéressante. Elle est bien définie, Pareto efficace. Est elle anonyme et neutre? Peux t'on dire d'autres choses? FB ne coïncide pas avec $MD $ car aucune règle qui satisfait $MR$ le fait. Olivier avait trouvé un exemple astucieux avec 7 alternatives ou plus où l'on voyait pourquoi. Peut-on le rajouter? Je trouve que c'est surement la sous-correspondence plus intéressante de $PV^=$ avec FB. Doit on parler de $MD$ dans l'intro? }
@@ -485,18 +498,8 @@ Define the rule $MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each P
 1988; Chun and Peters 1991) and bankruptcy problems (Herrero and Villar 2001). If we wish to further analyze the rule MD we may need to look at these papers as well. I think we have to decide how comprehensive we wish to talk about the rule MD}
 
 \begin{remark}
-The rule $MD(\prof)$ is not in $\PVcl$, as the following example shows.
-
-	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
-	Consider the following profile $\prof$, also used in the proof of \cref{th:PVnotSPEL}:
-	\begin{equation}
-		\begin{array}{*6{l}}
-			a&b&c&a_4&a_5&…\\
-			c&b&a&a_4&a_5&…\\
-		\end{array}.
-	\end{equation}
-	Observe that $f(\prof) = \set{b}$. To have $f \in \PVcl$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum v_i$. Also, the definition of $\PVcl$ requires that $\sum v_i ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only when $m ≤ 3$.
-
+	As already mentioned, the rules $\FB$, $\VR$ and $\SL$ fail the $\MD$ principle, therefore, are distinct from the rule $\MD$. Also,
+the rule $\MD(\prof)$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}.
     It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 
