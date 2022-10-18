@@ -506,17 +506,15 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \section{Reconciling the two principles}
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
-
+\commentOC{I fear that this section looks a bit “quick and dirty”. I suggest to at least make the theorem more precise by specifying values of $m$ for which it holds (and thus generalize the proofs).}
 
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \argmin_{H(\prof)} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 
-
 \begin{theorem}
      $\FB$, $\VR$, $\SL$ and all rules in $\PVcl$ except $\PVe$ fail RMD.
 \end{theorem}
-
 \begin{proof}
 Consider the following profile $\prof$ with 11 alternatives.
 
@@ -526,18 +524,15 @@ Consider the following profile $\prof$ with 11 alternatives.
 		\end{array}.
 	\end{equation}
 
-
 $H(\prof)=\{x, y\}$ and for a SCR $f$ to satisfy RMD, we must have $y\in   f(\prof)$. As $\FB(\prof)$ = $\VR(\prof)=\{x\}$, both rules fail RMD. 
 
 To see that $\SL$ fails RMD, consider the following profile $\prof$ with $\SL(\prof)=\set{a, c}$ while RMD requires $b \in \SL(\prof)$. 
-
 
 	\begin{equation}
 		\begin{array}{lllll}
 			a&b&c&d&e \\		c&b&a&d&e
 		\end{array}.
 	\end{equation}
-
 
 Regarding rules in $\PVcl$, we first show that for $m$ even, $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ both fail RMD. To see this, consider the profile $\prof$
 
