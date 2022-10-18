@@ -288,7 +288,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ satisfies PEL iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \ceil{\frac{m - 1}{2}}$ for any $\set{i, \ibar} = \set{1, 2}$.
 \end{corollary}
 
-The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, is the unique outcome.
+The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, be the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
     $\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap \PE$.
@@ -307,8 +307,8 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 			c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
-    SPEL requires to pick solely $b$. Any rule $f \in \PVcl$ will pick either $a$ or $c$ in addition to $b$. 
-    Indeed, we have $a \notin f(\prof)$ iff $v_2 ≥ m - 2$, and $c \notin f(\prof)$ iff $v_1 ≥ m - 2$. Because $v_1 + v_2 ≤ m - 1$ and $m ≥ 4$, we know that $v_1 + v_2 ≤ m - 1 + (m - 4) = m - 2 + m - 3$. Now if $c \notin f(\prof)$ $\Longleftrightarrow$ $m - 2 ≤ v_1$, then $v_1 + v_2≤ v_1 + m - 3$, then $a \in f(\prof)$.
+	SPEL requires to pick solely $b$.
+	To have $f \in \PVcl$ and $f(\prof) = \set{b}$ requires that $v_1 ≥ m - 2$ (for $c \notin f(\prof)$) and $v_2 ≥ m - 2$ (for $a \notin f(\prof)$), which implies $2m - 4 ≤ \sum v_i$. Also, the definition of $\PVcl$ requires that $\sum v_i ≤ m - 1$. And $2m - 4 ≤ m - 1$ is satisfied only when $m ≤ 3$.
 \end{proof}
 
 \begin{remark}
@@ -319,7 +319,7 @@ When $m = 3$, $\PVv[(1, 1)]$ satisfies SPEL.
 	$\FB$ satisfies SPEL.
 \end{theorem}
 \begin{proof}
-	Pick any profile $\prof$ and any $x \in PE(\prof)$ with $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. As $\FB$ minimizes the maximal loss, we have $\max \lprof(y) ≥ \max \lprof(x) = \min \lprof(x) = k$ for all $y \in \FB(\prof)$. Since $x \in PE(\prof)$, we have $x = y$, hence $\FB(\prof) = \set{x}$, showing that $\FB$ satisfies SPEL.
+	Pick any profile $\prof$ and any $x \in PE(\prof)$ with $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $\FB(\prof) = \set{x}$. Consider any $y \in \FB(\prof)$. As $\FB$ minimizes the maximal loss, $\max \lprof(y) ≤ \max \lprof(x) = k$. Since $x \in PE(\prof)$, we have $\max \lprof(y) ≥ k$ (otherwise $\min \lprof(y) ≤ \max \lprof(y) < k$ and $y$ Pareto-dominates $x$). Hence, $\max \lprof(y) = k$, thus $x = y$.
 \end{proof}
 
 SPEL, failed by all rules we consider but one, allows to distinguish $\FB$ from the rest. Moreover, by satisfying both conditions, $\FB$ establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
@@ -335,8 +335,8 @@ Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR.
-
+MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
+\commentOC{Seems to me that we’re missing a sentence here that helps the reader understand the role of the following theorem. Something like: The next theorem will permit to establish the relationship of MD wrt the other classes of rules considered in this article.}
 
 \begin{theorem}
 	\label{th:caractEmpty}
@@ -416,7 +416,7 @@ A SCR $f \in \MRcl$ satisfies MD if and only if $m ≤ 6$ or $m = 8$.
 	\end{equation}
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$.
 	
-	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1} = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
+	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
