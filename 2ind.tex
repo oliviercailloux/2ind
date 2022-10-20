@@ -89,7 +89,8 @@ A SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profi
 Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, assigns to each individual her loss associated to $x$.
 
-Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
+Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. 
+Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
@@ -113,7 +114,10 @@ The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrize
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
 
-\commentOC{I believe that we should start by proving that all $\PVv$ rules are different.} \commentRS{I didn't get this} \commentMN{What do you mean exactly? }.\commentRS{Olivier clarified his point. We will put a remark showing this through an opposed preference profile.} 
+\begin{remark}
+	All $\PVv$ rules differ. Formally: $\forall v ≠ v', \PVv ≠ \PVv[v']$. This is readily visible by considering a profile $\prof$ composed of a preference ordering $(a_1, …, a_m)$ and the inverse preference ordering $(a_m, …, a_1)$: $\set{a_{v_2 + 1}, …, a_{m - v_1}} = \PVv(\prof) ≠ \PVv[v'](\prof) = \set{a_{v'_2 + 1}, …, a_{m - v'_1}}$.
+\end{remark}
+
 \begin{remark}
     $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
@@ -148,8 +152,7 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
-The following result implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it. To see the equivalence with the statement of \cref{th:pvmr} \commentOC{for $m$ even}, note that $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$ is equivalent to $\abs{v_1 - v_2} ≤ 1$.
-\commentOC{I find this quite difficult to understand. Could we move the interpretation after the theorem and proof?} \commentRS{As you wish}\commentMN{I abstain too.}.
+The following result determine which rules in $\PVcl$ satisfy MR.
 
 \begin{theorem}
 	\label{th:pvmr}
@@ -159,6 +162,8 @@ The following result implies that among the class $\PVcl$, when $m$ is odd, only
 	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
+
+Note that $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ is equivalent to $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
@@ -178,7 +183,7 @@ The observation below follows from \cref{propo:equal}.
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
 \begin{theorem}\label{th:different}
-There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$ while $\PVe(\prof) ≠ \SL(\prof)$.
+There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$ and $\PVe(\prof) ≠ \SL(\prof)$.
 \end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$:
@@ -337,7 +342,7 @@ Define the minimal dispersion (MD) condition as follows.
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
-\commentOC{Seems to me that we’re missing a sentence here that helps the reader understand the role of the following theorem. Something like: The next theorem will permit to establish the relationship of MD wrt the other classes of rules considered in this article.} \commentRS{I agree}\commentMN{So do I.}.
+The next theorem will permit to establish the relationship of MD with respect to the other classes of rules considered in this article.
 
 \begin{theorem}
 	\label{th:caractEmpty}
@@ -409,7 +414,7 @@ The next two results follow from \cref{th:caractEmpty}.
 \begin{theorem}
 	\label{th:noMRMD}
 	A SCR $f \in \MRcl$ satisfies MD if and only if $m ≤ 6$ or $m = 8$.
-	\commentOC{That’s incorrect, isn’t it? We mean: $\exists f \in \MRcl$ that satisfies MD if and only if $m ≤ 6$ or $m = 8$.}
+	\commentOC{That’s incorrect, isn’t it? We mean: $[\MRcl \cap \MDcl ≠ \emptyset]$ if and only if $m ≤ 6$ or $m = 8$.}
 \end{theorem}
 \begin{proof}
 	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
@@ -424,14 +429,14 @@ The next two results follow from \cref{th:caractEmpty}.
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
 \begin{remark}
-	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails $\MD$. The following profile $\prof$ (built using the proof of Theorem 5.1 in \citet{cailloux2022compromising}) illustrates this failure for $m = 7$.
+	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails $\MD$. The following profile $\prof$ (built using the proof of \cref{th:caractEmpty}) illustrates this failure for $m = 7$.
 	\begin{equation}
 		\begin{array}{*7{l}}
-			x& a_1 & a_2 & a_3 & y & b_1 & b_2\\
-			b_1& b_2 & y & x & a_1 & a_2 & a_3\\
+			y& a_1 & a_2 & a_3 & x & c_1 & c_2\\
+			c_1& c_2 & x & y & a_1 & a_2 & a_3\\
 		\end{array}.
 	\end{equation}
-	Observe that $\FB(\prof) = \set{x}$ while the $\MD$ principle mandates picking at least $y$.
+	Observe that $\FB(\prof) = \set{y}$ while the $\MD$ principle mandates picking at least $x$.
 \end{remark}
 
 Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
@@ -540,7 +545,9 @@ Regarding rules in $\PVcl$, we first show that for $m$ even, $\PVv[(\frac{m}{2},
 	\end{equation}
 where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c \in \PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)$.  selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar argument shows that $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fails RMD.
 
-Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
+Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. 
+\commentOC{I don’t see how this claim follows from that theorem. Do we suggest that RMD is stronger than MR? That doesn’t seem correct to me.}
+As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 \begin{proof}[Another attempt]
 	The proof of \cref{th:noMRMD} indicates that:
