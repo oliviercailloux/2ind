@@ -49,7 +49,7 @@ As a matter of fact, the compromising approach that underlies fallback bargainin
 A closer look at this compromising idea and in particular at fallback bargaining reveals a principle for two-person social choice. \Citet{Sprumont1993} qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. \citet{congar2012characterization} characterize the Rawlsian principle within the framework of social welfare functions. For social choice rules, \citet{BramsKilgour2001} establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper-half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper-half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference. We qualify a two-person social choice rule that complies with this possibility as \textit{minimally Rawlsian}.%
 \footnote{In a two-person collective choice framework with an interpretation that is more specific than ours, \citet{Clippel} call this condition the \textit{minimal satisfaction test}.}
 
-\Citet{cailloux2022compromising} propose a different conception of compromising based on an \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. They show that several two-person social choice rules fail one variant of it \commentOC{This sentence feels odd. Can we write “… fail this principle”? Or “… fail this principle or some variant of it”? Or “… fail it”?}.
+\Citet{cailloux2022compromising} propose a different conception of compromising based on an \textit{equal loss principle} that favors outcomes where every individual concedes as equally as possible from his highest ranked alternative. They show that several two-person social choice rules fail this principle.
 
 Although the minimal Rawlsian and equal loss principles cover many of the two-person social choice rules, the literature is missing an axiomatic analysis of these rules from this perspective, an observation which forms the subject matter of our paper. We consider the following rules, where $m$ is the number of alternatives.
 \begin{itemize}
@@ -60,7 +60,7 @@ Although the minimal Rawlsian and equal loss principles cover many of the two-pe
 \end{itemize}
 
 The veto-rank rule and the shortlisting rule are used for the selection of arbitrators and their strategic aspects are comprehensively analyzed by \citet{Clippel}% 
-\footnote{\Citet{Clippel} present the shortlisting mechanism, whose equilibrium outcome corresponds to what we call the shortlisting rule.}. Our class of Pareto-and-veto rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$. These rules we consider cover most of the ordinal two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \citet{anbarci1993noncooperative, anbarci2006finite} and \citet{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. \commentOC{Question for later: does this suggest some more rules that refine FB and that could be analyzed as well?}
+\footnote{\Citet{Clippel} present the shortlisting mechanism, whose equilibrium outcome corresponds to what we call the shortlisting rule.}. Our class of Pareto-and-veto rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$. These rules we consider cover most of the ordinal two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \citet{anbarci1993noncooperative, anbarci2006finite} and \citet{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the alternatives that fallback bargaining would choose. 
 
 We now summarize our findings. All rules we consider are Paretian. Fallback bargaining, the veto-rank rule and the shortlisting rule are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that gives the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, fallback bargaining, the veto-rank rule and the shortlisting rule are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
 
@@ -113,7 +113,7 @@ The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrize
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
 
-\commentOC{I believe that we should start by proving that all $\PVv$ rules are different.}
+\commentOC{I believe that we should start by proving that all $\PVv$ rules are different.} \commentRS{I didn't get this} \commentMN{What do you mean exactly? }.\commentRS{Olivier clarified his point. We will put a remark showing this through an opposed preference profile.} 
 \begin{remark}
     $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
@@ -148,9 +148,9 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
 Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
 Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
-The following result shows that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
-To see the equivalence with the statement of \cref{th:pvmr} \commentOC{for $m$ even}, note that $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$ is equivalent to $\abs{v_1 - v_2} ≤ 1$.
-\commentOC{I find this quite difficult to understand. Could we move the interpretation after the theorem and proof?}
+The following result implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it. To see the equivalence with the statement of \cref{th:pvmr} \commentOC{for $m$ even}, note that $\forall i \in \set{1, 2}, v_i ≥ \floor{\frac{m - 1}{2}}$ is equivalent to $\abs{v_1 - v_2} ≤ 1$.
+\commentOC{I find this quite difficult to understand. Could we move the interpretation after the theorem and proof?} \commentRS{As you wish}\commentMN{I abstain too.}.
+
 \begin{theorem}
 	\label{th:pvmr}
 	$\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
@@ -337,7 +337,7 @@ Define the minimal dispersion (MD) condition as follows.
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
-\commentOC{Seems to me that we’re missing a sentence here that helps the reader understand the role of the following theorem. Something like: The next theorem will permit to establish the relationship of MD wrt the other classes of rules considered in this article.}
+\commentOC{Seems to me that we’re missing a sentence here that helps the reader understand the role of the following theorem. Something like: The next theorem will permit to establish the relationship of MD wrt the other classes of rules considered in this article.} \commentRS{I agree}\commentMN{So do I.}.
 
 \begin{theorem}
 	\label{th:caractEmpty}
@@ -424,7 +424,7 @@ The next two results follow from \cref{th:caractEmpty}.
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
 \begin{remark}
-	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails the $\MD$ principle. The following example profile $\prof$ (built using the proof of Theorem 5.1 in \citet{cailloux2022compromising}) illustrates this failure for $m = 7$.
+	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails $\MD$. The following profile $\prof$ (built using the proof of Theorem 5.1 in \citet{cailloux2022compromising}) illustrates this failure for $m = 7$.
 	\begin{equation}
 		\begin{array}{*7{l}}
 			x& a_1 & a_2 & a_3 & y & b_1 & b_2\\
@@ -493,12 +493,6 @@ The final part of this section further analyzes the relationship between the min
 
 Define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each Pareto efficient alternative that minimizes the dispersion. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome. 
 
-
-\commentMN{Je trouve que la regle $MD$ est vraiment bien. Elle me semble vraiment une règle intéressante. Elle est bien définie, Pareto efficace. Est elle anonyme et neutre? Peux t'on dire d'autres choses? FB ne coïncide pas avec $MD $ car aucune règle qui satisfait $MR$ le fait. Olivier avait trouvé un exemple astucieux avec 7 alternatives ou plus où l'on voyait pourquoi. Peut-on le rajouter? Je trouve que c'est surement la sous-correspondence plus intéressante de $PV^=$ avec FB. Doit on parler de $MD$ dans l'intro? }
-
-\commentRS{MD is anonymous and neutral. It is not Maskin monotonic. What other properties it satisfies? Looking at the properties of the equal are rule of Thomson may inspire. By the way, in our paper with Beatrice, the minmal dispersion idea was inspired by the concept of equal losses (for continuous utilities) used for bargaining (Chun
-1988; Chun and Peters 1991) and bankruptcy problems (Herrero and Villar 2001). If we wish to further analyze the rule MD we may need to look at these papers as well. I think we have to decide how comprehensive we wish to talk about the rule MD}
-
 \begin{remark}
 	As already mentioned, the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, therefore, are distinct from the rule $\MD$. Also,
 the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}.
@@ -508,7 +502,7 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \section{Reconciling the two principles}
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
-\commentOC{I fear that this section looks a bit “quick and dirty”. I suggest to at least make the theorem more precise by specifying values of $m$ for which it holds (and thus generalize the proofs).}
+\commentOC{I fear that this section looks a bit “quick and dirty”. I suggest to at least make the theorem more precise by specifying values of $m$ for which it holds (and thus generalize the proofs).} \commentRS{I agree}\commentMN{As you wish.}.
 
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \argmin_{H(\prof)} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
