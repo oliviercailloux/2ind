@@ -506,14 +506,13 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 
 \section{Reconciling the two principles}
 \label{sec:reconc}
-Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion among the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcome to contain some Rawlsian alternatives whose loss vectors have minimal dispersion.
-\commentOC{I fear that this section looks a bit “quick and dirty”. I suggest to at least make the theorem more precise by specifying values of $m$ for which it holds (and thus generalize the proofs).} \commentRS{I agree}\commentMN{As you wish.}.
+Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcomes to be among the Rawlsian alternatives whose loss vectors have minimal dispersion.
+
 
 \begin{definition}[Rawlsian minimal dispersion]
-	$f(\prof) \cap \argmin_{H(\prof)} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
+	$f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-\commentOC{Do we mean $f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$? Otherwise this seems incompatible with PE.} \commentRS{Yes, we mean that. I don't understand your two comments that follow.} \commentOC{Why incompatible with PE? }
-\commentOC{I didn’t write the question in the previous comment.}
+
 
 \begin{theorem}
      $\FB$, $\VR$, $\SL$ and all rules in $\PVcl$ except $\PVe$ fail RMD.
@@ -547,8 +546,9 @@ Regarding rules in $\PVcl$, we first show that for $m$ even, $\PVv[(\frac{m}{2},
 where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c \in \PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)$.  selects $a$ whereas $c$ should be included in the selection if the rule satisfied $RMD$. A similar argument shows that $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fails RMD.
 
 Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. 
-\commentOC{I don’t see how \cref{th:pvmr} applies here. Do we suggest that RMD is stronger than MR? That doesn’t seem correct to me.}\commentRS{By that theorem, there are only three PV rules that are MR. Our examples in the proof eliminate two of them and the equal veto remains as the only candidate.}
-\commentOC{What’s the link with RMD?}\commentRS{It may be good to clarify the relation of RMD to MR and MD. MD and RMD are logically independent. However, RMD implies MR. AM I wrong?}\commentMN{I think the section is good enough. It only suggests that out of the rules we considered only $PV^=$$ passes the RMD test. I would leave it like this.}
+
+\commentMN{I think the section is good enough. It only suggests that out of the rules we considered only $PV^=$ passes the RMD test. I would leave it like this.}
+\commentOC{I think that the result about PV= is nice, if correct, but I still have some doubts.}
 As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
 %\begin{proof}[Another attempt]
