@@ -508,7 +508,7 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcomes to be among the Rawlsian alternatives whose loss vectors have minimal dispersion.
 
-
+\commentRS{The definition below must be strengthened so as the ensure that the rule always chooses an alternative in the first half. Theorem 15 will be true under this stronger definition, no?}
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -548,10 +548,11 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c 
 
 Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. 
 
-\commentMN{I think the section is good enough. It only suggests that out of the rules we considered only $PV^=$ passes the RMD test. I would leave it like this.}
-\commentOC{I think that the result about PV= is nice, if correct, but I still have some doubts.}
+
 As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
 \end{proof}
+
+\commentRS{Here, we define the RMD rule that only pick first half alternatives that minimize dispersion and compare it to FB.}
 %\begin{proof}[Another attempt]
 %	The proof of \cref{th:noMRMD} indicates that:
 %	\begin{equation}
