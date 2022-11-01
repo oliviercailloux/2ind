@@ -93,7 +93,7 @@ Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than 
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
 
-Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto-efficient alternatives at $\prof$.
+Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
 We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
@@ -436,7 +436,7 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 			c_1& c_2 & x & y & a_1 & a_2 & a_3\\
 		\end{array}.
 	\end{equation}
-	Observe that $\FB(\prof) = \set{y}$ while the $\MD$ principle mandates picking at least $x$.
+	Observe that $\FB(\prof) = \set{y}$ while the $\MD$ principle mandates $x$ to be picked.
 \end{remark}
 
 Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
@@ -508,7 +508,7 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. The Rawlsian minimal dispersion (RMD) principle requires the outcomes to be among the Rawlsian alternatives whose loss vectors have minimal dispersion.
 
-
+\commentRS{The definition below must be strengthened so as the ensure that the rule always chooses an alternative in the first half. Theorem 15 will be true under this stronger definition, no?}
 \begin{definition}[Rawlsian minimal dispersion]
 	$f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -527,7 +527,7 @@ Consider the following profile $\prof$ with 11 alternatives.
 		\end{array}.
 	\end{equation}
 
-$H(\prof)=\{x, y\}$ and for a SCR $f$ to satisfy RMD, we must have $y\in   f(\prof)$. As $\FB(\prof)$ = $\VR(\prof)=\{x\}$, both rules fail RMD. 
+$H(\prof)=\{x, y\}$ which are both Pareto efficient. For a SCR $f$ to satisfy RMD, we must have $y\in   f(\prof)$. As $\FB(\prof)$ = $\VR(\prof)=\{x\}$, both rules fail RMD. 
 
 To see that $\SL$ fails RMD, consider the following profile $\prof$ with $\SL(\prof)=\set{a, c}$ while RMD requires $b \in \SL(\prof)$. 
 
@@ -550,10 +550,16 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c 
 
 Thus, by \cref{th:pvmr}, among the rules in $\PVcl$, $\PVe$ is the only candidate to satisfy RMD. 
 
-\commentMN{I think the section is good enough. It only suggests that out of the rules we considered only $PV^=$ passes the RMD test. I would leave it like this.}
-\commentOC{I think that the result about PV= is nice, if correct, but I still have some doubts.}
-As $\PVe$ chooses all Pareto efficient alternatives in $H(\prof)$, it always picks the alternative that minimizes the loss dispersion.
+
+By Theorem 4, the choice of $\PVe$ consists of all Pareto efficient alternatives in $H(\prof)$, thus including the alternative that minimizes the loss dispersion.
 \end{proof}
+
+COMMENTS FROM RS: The reference above to Theorem 4 should be made automatic.
+Here, we define the RMD rule that only pick first half alternatives that minimize dispersion and compare it to FB.
+
+
+
+
 %\begin{proof}[Another attempt]
 %	The proof of \cref{th:noMRMD} indicates that:
 %	\begin{equation}
