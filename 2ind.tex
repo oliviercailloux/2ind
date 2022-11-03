@@ -163,7 +163,8 @@ The following result determines which rules in $\PVcl$ satisfy MR.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
 
-Note that $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ is equivalent to $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
+Note that $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ and $\sum_i v_i ≤ m - 1]$ is equivalent to $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}}$ and 
+$\floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
@@ -507,18 +508,13 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
-Given a profile, let us call “RMD alternatives” the alternatives that minimize dispersion among the paretian alternatives within the first half.
-\commentOC{I include here a remark of Remzi just to check that I interpreted it correctly. It can be deleted afterwards.}
-\commentRS{we can define a stronger version of it (this is not the alternative condition in the paper we already discussed) that requires the social choice to always contain an RMD alternative and to remain in the first half. Of course, this stronger version of the RMD condition satisfies MR by direct definition (while it fails MD). Moreover,  our Theorem 15 seems to hold under this version.
-I will be happy to keep this new version of the RMD condition because it has the same format as the other equal loss conditions we considered, namely PEL, SPEL, MD. All these conditions require a particular “equal loss alternative” to be within the social choice set without asking this choice set to consist only of equal loss alternatives. Thus, I propose to replace the old version of the RMD condition with this new one and keep Theorem 15 as it is (hoping that I am not wring in saying that Theorem 15 holds under the new version).
- However let’s not stop here. The strongest version of the RMD condition that requires the social choice set to be a subset of RMD alternatives is promising. (This is the one we already discussed.) In fact, this looks more like a social choice rule than a condition and it may worth exploring its properties.}
-The Rawlsian minimal dispersion (RMD) principle requires the social choice to always contain an RMD alternative and to remain in the first half.
+Given a profile, let us call “RMD alternatives” the alternatives that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the Rawlsian minimal dispersion (RMD) principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
 The Strong RMD principle requires to pick only RMD alternatives.
 
 \begin{definition}[Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
-	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset
-	\land f(\prof) \subseteq H(\prof)$.
+	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
+	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
 \begin{definition}[Strong Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
@@ -526,13 +522,22 @@ The Strong RMD principle requires to pick only RMD alternatives.
 \end{definition}
 
 \begin{remark}
-	RMD strengthens MR (thus, Strong RMD as well). Also, Strong RMD (thus, RMD) is not stronger than MD as a paretian strict minimizer of dispersion might be out of the first half. Consider for example $\prof = \set{(1, (a, b, c, d, e, f)), (2, (d, f, e, a, b, c))}$ (where the “first half” alternatives are those with both losses not worst than 3, thus $\set{a, d}$): satisfying MD requires to pick $e$ which strictly minimizes dispersion and is Paretian, while a Strong RMD rule must pick within $\set{a, d}$.
-	\commentOC{I might be interesting to prove that $\forall m$, Strong MD is not stronger than MD}.
+\commentMN{	RMD strengthens MR (thus, Strong RMD as well). Also, Strong RMD (thus, RMD) is not stronger than MD as a Paretian minimizer of dispersion might be out of the first half. Consider for example the profile such that}
+	
+		\begin{equation}
+		\begin{array}{llllll}
+			a&b&c&d&e&f \\
+			d&f&e&a&b&c
+		\end{array}.
+	\end{equation}
+	The alternative $e$ satisfies MD since it minimizes dispersion and is Paretian.
+  Yet, a strong RMD rule must pick within the  “first half” alternatives $\set{a, d}$.
+	\commentOC{I might be interesting to prove that $\forall m$, Strong MD is not stronger than MD}.\commentMN{We might want to discuss about the definition of Strong MD (or maybe its name), then. It seems weird to have a stronger notion which turns out not not be stronger..} \commentRS{But I think, strong MR is stronger than MT at every m (except perhaps for small m), no? When m is odd, starting with m at least 7, we can always construct a profile where the MD alternative is not in the first half. A similar statement is valid for m even.}
 \end{remark}
 
 \begin{theorem}
      $\FB$, $\VR$, $\SL$ and all rules in $\PVcl$ except $\PVe$ fail RMD.
-     \commentOC{I find it slightly ambiguous whether the theorem also claims that $\PVe$ satisfies RMD, or only that the rules in PV that are not $\PVe$ do fail it (we want the first interpretation). I suggest the phrasing “$(\set{\FB, \VR, \SL} \cup \PVcl) \cap \RMDcl = \set{\PVe}$”, but I will not complain if you find this not very readable. A perhaps less unreasonably pedantic option is “$\FB$, $\VR$, $\SL$ all fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.”}
+     \commentOC{I find it slightly ambiguous whether the theorem also claims that $\PVe$ satisfies RMD, or only that the rules in PV that are not $\PVe$ do fail it (we want the first interpretation). I suggest the phrasing “$(\set{\FB, \VR, \SL} \cup \PVcl) \cap \RMDcl = \set{\PVe}$”, but I will not complain if you find this not very readable. A perhaps less unreasonably pedantic option is “$\FB$, $\VR$, $\SL$ all fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.”}\commentMN{I agree with the second proposal, maybe removing the word all} \commentRS{I agree with Matias}
 \end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$ with 11 alternatives, $\set{a, b, c, d, e, f, g, h,\allowbreak x, y, z}$ (the bar indicates the “half” position).
@@ -568,13 +573,16 @@ By \cref{th:equal}, $\PVe(\prof) = H(\prof) \cap \PE$, thus, it satisfies RMD.
 \end{proof}
 
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfy Strong RMD.
-
+\commentRS{The direction below is very promising.}\commentMN{I agree. Maybe we need a better name than Strong RMD. What about the REF function? REF as Rawlsian (MR), Efficient (Pareto efficient) and Fair ( minimal dispersion)}
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 
 \begin{conjecture}
-	The Strong RMD rule selects at most two alternatives.
+	The Strong RMD rule is not empty selects at most two alternatives.
 \end{conjecture}
+\commentMN{This conjecture seems correct}
+
+
 More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$.
 \begin{conjecture}
 	That refined Strong RMD rule is a most resolute rule that is symmetric (anonymous and neutral) and Strong RMD.
