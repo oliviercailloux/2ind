@@ -512,15 +512,17 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
-Given a profile, let us call “RMD alternatives” the alternatives that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the Rawlsian minimal dispersion (RMD) principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
+Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
+\commentRS{I made style changes in the paragraph above.}
 \begin{definition}[Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
 	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
 	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-RMD strengthens MR. Also, RMD is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between RMD and MD more precisely.
+RMD strengthens MR. On the other hand, RMD is not stronger than MD because, unless $m$ is small, a Paretian dispersion minimizer can be out of the first half. The following theorem states the relationship between RMD and MD more precisely.
 \commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
+\commentRS{I agree.}
 \begin{theorem}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
@@ -579,6 +581,7 @@ The Strong RMD principle requires to pick only RMD alternatives.
 
 \commentRS{I think it may be better presentation of the results if we postpone defining strong RMD until the end of the proof of Theorem 16. This will require to state Theorem 15 for RMD and not SRMD but I have the feeling that this is worth doing. }
 \commentOC{I have now implemented this suggestion, but then perhaps we need to slightly repeat ourselves, as follows.}
+\commentRS{I yhink we can discard the paragraph below, as well as Theorem 17.}
 Strong RMD strengthens MR, as RMD does. Also, Strong RMD is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between SRMD and MD more precisely.
 \begin{theorem}
 	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
@@ -596,7 +599,7 @@ It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule
 \commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.}
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
-
+\commentRS{I find the approach below promising.}
 \begin{conjecture}
 The Strong RMD rule contains at most two alternatives.
 \end{conjecture}
