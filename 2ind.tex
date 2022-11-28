@@ -513,31 +513,26 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
 Given a profile, let us call “RMD alternatives” the alternatives that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the Rawlsian minimal dispersion (RMD) principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
-The Strong RMD principle requires to pick only RMD alternatives.
-\commentRS{I think it may be better presentation of the results if we postpone defining strong RMD until the end of the proof of Theorem 16. This will require to state Theorem 15 for RMD and not SRMD but I have the feeling that this is worth doing. }
 \begin{definition}[Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
 	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
 	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
-\begin{definition}[Strong Rawlsian minimal dispersion]
-	$\forall \prof \in \allprofs:
-	f(\prof) \subseteq \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
-\end{definition}
 
-RMD strengthens MR (thus, Strong RMD as well). Also, Strong RMD (thus, RMD) is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between SRMD and MD more precisely.
+RMD strengthens MR. Also, RMD is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between RMD and MD more precisely.
 \commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
-\commentOC{We might think about writing something about $\RMDcl$ wrt $\MDcl$ as well, in the same spirit.}
 \begin{theorem}
-	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
+	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
 \begin{proof}
-	First consider $[m ≤ 6 \lor m = 8] ⇒ \SRMDcl \subseteq \MDcl$. The proof of \cref{th:noMRMD} indicates that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. Thus, when $m ≤ 6 \lor m = 8$, the alternatives that are paretian minimizers of dispersion in the first half (within which Strong RMD requires to pick) are also global paretian minimizers of dispersion. 
+	First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. The proof of \cref{th:noMRMD} indicates that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. 
+	And $[H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset] ⇒ [\argmin_{H(\prof) \cap \PE} (d \circ \lprof) \subseteq \argmin_{\PE} (d \circ \lprof)]$.
+	Given $f \in \RMDcl$, $f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, thus, when $m ≤ 6 \lor m = 8$, $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
-	Second, observe that $\SRMDcl \subseteq \MDcl ⇒ \SRMDcl \cap \MDcl ≠ \emptyset$.
+	Second, observe that $\RMDcl \subseteq \MDcl ⇒ \RMDcl \cap \MDcl ≠ \emptyset$.
 	
-	To conclude, we prove that $\SRMDcl \cap \MDcl ≠ \emptyset ⇒ [m ≤ 6 \lor m = 8]$.
-	As $\SRMDcl \subseteq \MRcl$, we have $[\SRMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
+	To conclude, we prove that $\RMDcl \cap \MDcl ≠ \emptyset ⇒ [m ≤ 6 \lor m = 8]$.
+	As $\RMDcl \subseteq \MRcl$, we have $[\RMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
 \end{proof}
 	
 \begin{theorem}
@@ -576,6 +571,27 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c 
 By \cref{th:equal}, $\PVe(\prof) = H(\prof) \cap \PE$, thus, it satisfies RMD.
 \end{proof}
 
+The Strong RMD principle requires to pick only RMD alternatives.
+\begin{definition}[Strong Rawlsian minimal dispersion]
+	$\forall \prof \in \allprofs:
+	f(\prof) \subseteq \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
+\end{definition}
+
+\commentRS{I think it may be better presentation of the results if we postpone defining strong RMD until the end of the proof of Theorem 16. This will require to state Theorem 15 for RMD and not SRMD but I have the feeling that this is worth doing. }
+\commentOC{I have now implemented this suggestion, but then perhaps we need to slightly repeat ourselves, as follows.}
+Strong RMD strengthens MR, as RMD does. Also, Strong RMD is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between SRMD and MD more precisely.
+\begin{theorem}
+	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
+\end{theorem}
+\begin{proof}
+	First, it follows from $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$ and $\SRMDcl \subseteq \RMDcl$ that $[m ≤ 6 \lor m = 8] ⇒ \SRMDcl \subseteq \MDcl$. 
+	
+	Second, observe that $\SRMDcl \subseteq \MDcl ⇒ \SRMDcl \cap \MDcl ≠ \emptyset$.
+	
+	To conclude, we prove that $\SRMDcl \cap \MDcl ≠ \emptyset ⇒ [m ≤ 6 \lor m = 8]$.
+	As $\SRMDcl \subseteq \MRcl$, we have $[\SRMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
+\end{proof}
+	
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfy Strong RMD.
 \commentMN{Maybe we need a better name than Strong RMD. What about the REF function? REF as Rawlsian (MR), Efficient (Pareto efficient) and Fair ( minimal dispersion)}
 \commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.}
