@@ -4,6 +4,7 @@
 \input{preamble/redac}
 \input{preamble/math_basics}
 \input{preamble/math_mine}
+\usepackage{bbm}
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
@@ -600,9 +601,9 @@ It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \commentRS{I find the approach below promising.}
-\begin{conjecture}
-The Strong RMD rule contains at most two alternatives.
-\end{conjecture}
+\begin{theorem}
+The Strong RMD rule selects at most two alternatives (formally, $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$).
+\end{theorem}
 \begin{proof}
 	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
 	
@@ -610,14 +611,103 @@ The Strong RMD rule contains at most two alternatives.
 \end{proof}
 \commentOC{This proof seems perhaps too complex compared to the relative intuitiveness of this result but I can’t see a simpler one for now. Any idea?}
 
-More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$.
-\begin{conjecture}
-	That refined Strong RMD rule is a most resolute rule that is symmetric (anonymous and neutral) and Strong RMD.
-\end{conjecture}
-\begin{conjecture}
-	That refined Strong RMD rule is the sole rule that is anonymous and Strong RMD and responsive to losses domination.
-\end{conjecture}
+%More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$.
 
+Define the \emph{resolute RMD} rule as follows. It assigns to each Paretian alternative $a \in \PD$ in a profile $\prof$ having losses $\lprof(a)$ the score (or “badness”) $s(a) = md(\lprof(a)) + \min\lprof(a) + m^2 \ind_{a \notin H(\prof)}$, where $m = \card{\allalts}$ and $d(l) = \max l - \min l$ as previously. The rule picks as winners the Paretian alternatives with minimal score, thus $f(\prof) = \argmin_{a \in \PD} s(a)$.
+
+As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
+
+%\begin{definition}[Loss vector domination (LVd)]
+%        \label{def:lvd}
+%        A rule satisfies loss vector domination iff 
+%\end{definition}
+
+\begin{definition}[Loss vector comparing (LVC)]
+        \label{def:lvc}
+        Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+\end{definition}
+
+\begin{theorem}
+	A rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
+\end{theorem}
+\begin{proof}
+	First note that $\forall \prof$, $a \in H(\prof) ⇔ s(a) < m^2$.
+	
+	Consider $f$ being the resolute RMD rule and let’s check that it is Strong RMD.
+	Within the first half, $s(a) = m (\max \lprof(a) - \min \lprof(a)) + \min \lprof(a) = m \max \lprof(a) - (m - 1) \min \lprof(a)$. Thus if $a$ PD $b$ within the first half, then $b$ does not win. Also, if $a \notin H(\prof)$, then $a$ does not win, as $\exists b \in H(\prof) \suchthat s(b) < m^2$.
+	
+	Now consider an LVC rule $f^\succeq$ that is anonymous and Strong RMD.
+	We have to show that $f^\succeq$ is the RMD rule, thus, that $f(\prof) = \argmin_{\PD} s$. 
+
+	Consider first any $a \in f^\succeq(\prof)$ and let’s show that $a \in \argmin s$. Consider any $a' \in \PD$ and let’s show that $s(a) ≤ s(a')$. 
+	As $a \in f^\succeq(\prof)$ which is Strong RMD, we know that $a \in H(\prof)$, thus if $a' \notin H(\prof)$ we have $s(a) < m^2 ≤ s(a')$. Remains to consider $a, a' \in H(\prof)$.
+	
+	In other words, letting $l = \lprof(a)$ and $l' = \lprof(a')$ denote the respective loss vectors, remains to show that $md(l) + \min l ≤ md(l') + \min l'$.
+	As $a' \in H(\prof) \cap \PE$, we know that $d(l) ≤ d(l')$ due to Strong RMD. 
+	If $d(l) < d(l')$ then the conclusion we seek is obtained; thus, assume that $d(l) = d(l')$.
+	Pick any $i \in \argmax \lprof(a)$ (thus $\lprof(a)_{\ibar} ≤ \lprof(a)_i$).
+	Note that $\lprof(a')_i ≤ \lprof(a)_i$: as $a' \in \PD$, the converse, $\lprof(a)_i < \lprof(a')_i$, implies $\lprof(a')_{\ibar} < \lprof(a)_{\ibar}$ and thus leads to $\lprof(a')_{\ibar} < \lprof(a)_{\ibar}≤ \lprof(a)_i < \lprof(a')_i$ whence $d(l) < d(l')$.
+	As $a \in \PD$, $\lprof(a)_{\ibar} ≤ \lprof(a')_{\ibar}$.
+
+	Name the alternatives $a_1, …, a_{\lprof(a)_i}, b_1, …, b_{\lprof(a)_i}, x, y, c_1, …, c_{m - 2 \lprof(a)_i - 2}$. 
+	Define the sequences $A_1 = (a_1, …, a_{\lprof(a)_{\ibar}})$, $A_2 = (a_{\lprof(a)_{\ibar} + 1}, …, a_{\lprof(a)_i})$, $B_1 = (b_1, …, b_{\lprof(a)_{\ibar}})$, $B_2 = (b_{\lprof(a)_{\ibar} + 1}, …, b_{\lprof(a)_i})$, $C = (c_1, …, c_{m - 2 \lprof(a)_i - 2})$ and the following profile $Q$:
+	\begin{equation}
+		\begin{array}{*{25}{l}}
+			i &\mapsto & A_1 & y & A_2 & x & C & B_1 & B_2 \\
+			\ibar &\mapsto & B_1 & x &B_2 & y & C & A_1 & A_2
+		\end{array}.
+	\end{equation}
+	We see that $f^\succeq(Q) \subseteq \set{x, y}$, by Strong RMD: $\forall c \in C, c \notin \PD$ and $\forall z \in A_1 \cup A_2 \cup B_1 \cup B_2, \max \lprof(z) ≥ \lprof(a)_i + 2 + m - 2 \lprof(a)_i - 2 = m - \lprof(a)_i = \khalf + \floor{\frac{m - 1}{2}} + 1 - \lprof(a)_i$ and with $\lprof(a)_i ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 1$, thus $z \notin H(Q)$.
+	Observe also that $\lprof(x)_{\ibar} = \lprof(a)_{\ibar}$, $\lprof(x)_i = \lprof(a)_i$. 
+	Define $\pi = \set{(i, \lprof(a)_{\ibar}), (\ibar, \lprof(a)_i)}$ as the loss vector of $a$ with the voters inverted.
+	We see that $f^\succeq(Q) = x ⇔ \lprof(a) \prec \pi$.
+	
+	Considering now $Q'$ that assigns to $i$ the preference of $\ibar$ in $Q$ and to $\ibar$ the preference of $i$ in $Q$, by anonymity, we must have $f^\succeq(Q) = f^\succeq(Q')$.
+	But $f^\succeq(Q') = x ⇔ \pi \prec \lprof(a)$.
+	It follows that $\lprof(a) \sim \pi$ (meaning $\lprof(a) \preceq \pi \land \pi \preceq \lprof(a)$).
+	
+	Also, $a \in f^\succeq(\prof)$, thus $\lprof(a) \preceq \lprof(a')$. Thus, $\pi \preceq \lprof(a')$.
+	
+	Assume that ${<} \subseteq {\prec}$. (This should be established.)
+
+	Now assume that $[\min l' < \min l \land d(l) = d(l')]$. It implies $\max l' < \max l$.
+
+	Assume $\min l' = \lprof(a')_{\ibar}$.
+	Then $\min l' = \lprof(a')_{\ibar} < \min l = \lprof(a)_{\ibar}$ and $\lprof(a')_i = \max l' < \lprof(a)_i = \max l$, which violates $a \in \PD$. Thus, assume $\min l' = \lprof(a')_i < \max l'$.
+	
+	Now note that $l' < \pi$ thus $l' \prec \pi$. Hence, $l' \prec l$.
+	But this contradicts $a \in f^\succeq(\prof)$, thereby falsifying $[\min l' < \min l \land d(l) = d(l')]$.
+	It follows that $s(a) ≤ s(a')$.
+
+	For the other direction, assume that $a' \notin f^\succeq(\prof)$, consider any $a \in f^\succeq(\prof)$, let’s show that $s(a) < s(a')$.
+	To be done…
+%$a \in \argmin s$ and let’s show that $a \in f^\succeq(\prof)$.
+	
+%A LVC rule $f^\succeq$ that is Pareto must have $\forall \prof, a: \lprof(a) < \lprof(a') => \lprof(a) \prec \lprof(a')$.
+%
+%Consider any $\prof, a$ such that $\lprof(a) < \lprof(a')$. 
+%	Indeed, $f^\succeq$ is Pareto $⇔ \forall \prof: f(\prof) \subseteq \PE$. $a in fp <=> forall a': l(a) <= l(a')$. $fp = argmin ≤ o lp$
+%Thus $argmin ≤ o lp \subseteq \PE$.
+%Now $lp(argmin ≤ o lp) = min ≤ o lp$.
+%As lp is a bijection, equiv, $lp(argmin ≤ o lp) \subseteq lp\PE$.
+%Thus $min ≤ o lp \subseteq lp \PE$.
+%We obtained $f^\succeq$ is Pareto $⇔ \forall \prof: min ≤ o lp \subseteq lp \PE$.
+
+%min_R (<) = 0 = {r st <(r) = R \ r} = min <|R.
+%min_X f = 0
+%min_X < o f = 0 = min <|f(X)
+%min_R ≤ = ≤-1(R) = min ≤|R
+%argmin_X f = x1 st f(x1) = 0 thus f-1(0) if its in X, otherwise f-1(…)
+%argmin_X < o f = x1
+%NB: f(argmin_X < o f) = min_X < o f.
+%
+%f-1(x1) = 0
+%f-1(argmin_X < o f) = min_X < o f = min < | f(X).
+%indeed, r in f-1(A) => 
+
+%$\forall \succeq$, [$f^\succeq$ satisfies Pareto] iff [$\forall l: l ≤ l' ⇒ l \preceq l'$].
+\end{proof}
+	
 \section{Concluding remarks}
 \label{sec:concl}
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.%
