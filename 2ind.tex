@@ -671,13 +671,16 @@ Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $
 	Noting that $m - 2 (\max l' - 1) - 2 = m - 2 \max l'$, name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.  Note that this is feasible as $0 ≤ \min l < \max l' ≤ \khalf = \floor{\frac{m}{2}}$, whence $1 ≤ \max l'$ and $2 \max l' ≤ 2 \floor{\frac{m}{2}} ≤ m$ which leads to $2 (\max l' - 1) ≤ m - 2$.
 	
 	Pick $i \in \argmin l'$, equivalently, $i \in \argmax l$. Recall that $l(i) < l'(i)$; also, $\min l = l(\ibar) < \max l' = \max l$.
-	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{l(i)})$, $A_2 = (a_{l(i) + 1}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{l(i)})$, $B_2 = (b_{l(i) + 1}, …, b_{\max l' - 1})$, $C = (c_1, …, c_{m - 2 \max l'})$, and the profile $\prof$ defined as:
+	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{l(i)})$, $A_2 = (a_{l(i) + 1}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{\min l})$, $B_2 = (b_{\min l + 1}, …, b_{\max l' - 1})$, $C = (c_1, …, c_{m - 2 \max l'})$, and the profile $\prof$ defined as:
 	\begin{equation}
 		\begin{array}{*{25}{l}}
 			i &\mapsto & A_1 & x & A_2 & y & C & B_1 & B_2 \\
 			\ibar &\mapsto & B_1 & y &B_2 & x & C & A_1 & A_2
 		\end{array}.
 	\end{equation}
+	At $\ibar$ we put $y$ before $x$ iff $\min l = \min l'$.
+	Choose $\ibar$ so that $B_1$ ends at $\min l$ iff $\min l = \min l'$, at $\min l'$ otherwise.
+	Thus $B_1$ ends at $\max {\min l, \min l'}$.
 	
 	We see that $f(\prof) \subseteq \set{x, y}$: $\forall c \in C, c \notin \PE$ (which, as $f$ is Paretian, excludes $c \in f(\prof)$) and $\forall z \in A_1 \cup A_2 \cup B_1 \cup B_2, \max \lprof(z) ≥ (\max l' + 1) + (m - 2 \max l') = m + 1 - \max l' = \khalf + \floor{\frac{m - 1}{2}} + 2 - \max l'$ and with $\max l' ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(\prof)$ (which, as $f$ is MR, excludes $z \in f(\prof)$).
 	
