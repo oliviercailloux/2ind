@@ -101,6 +101,9 @@ Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof:
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\ceil{\frac{m - 1}{2}}, \ceil{\frac{m - 1}{2}})}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
+\commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
+If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}
+
 \commentMN{
 We now define the SCRs that we analyze in the paper. The strong RMD rule is only defined in the final section. Maybe we can write "the main SCRs that we analyze in the paper"}
 
@@ -169,7 +172,7 @@ Note that
 $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ and $\sum_i v_i ≤ m - 1]$ 
 is equivalent to 
 $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}}$ and $\floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. 
-\commentOC{It currently looks to me like the quantifier does not apply to the part after the textual “and” as it interrupts the mathematical statement, and I find it easier to parse with the logical and (so that the mathematical flow in the brackets is not interrupted), but I won’t insist if you don’t like it.}
+\commentOC{It currently looks to me like the quantifier does not apply to the part after the textual “and” as it interrupts the mathematical statement, and I find it easier to parse with $\land$, the logical and, so that the mathematical flow in the brackets is not interrupted. Also, it seems to me that the intent here is really to state something about two mathematical phrases that form each a unit. Considering them separately does not permit to obtain the conclusion. But I won’t insist if you don’t like it.}
 Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
@@ -624,8 +627,52 @@ As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
 
 \begin{definition}[Loss vector comparing (LVC)]
         \label{def:lvc}
-        Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
+        Let $\preceq$ be a weak order on $\lvs$. The rule $f^\preceq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\preceq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\preceq} \suchthat f = f^\preceq$. (This property is called preorder based in Cailloux and Endriss 2014.)
 \end{definition}
+
+\begin{lemma}
+	Consider any Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\forall i \in N: l(i) < l'(i)]: l \prec l'$.
+\end{lemma}
+\begin{proof}
+	Noting that $m - 2 (\max l' - 1) - 2 = m - 2 \max l'$, name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.  Note that this is feasible as $0 ≤ \min l < \max l' ≤ \khalf = \floor{\frac{m}{2}}$, whence $1 ≤ \max l'$ and $2 \max l' ≤ 2 \floor{\frac{m}{2}} ≤ m$ which leads to $2 (\max l' - 1) ≤ m - 2$.
+	
+%	Note that $\min l ≤ \max l < \max l'$ (the latter because by hypothesis, with $i \in \argmax l$, $\max l = l(i) < l'(i) ≤ \max l'$) and that $\min l < \min l' < \max l'$ (the former because by hypothesis, with $i \in \argmin l$, both $\min l = l(i) ≤ \max l = l(\ibar) < l'(\ibar)$ and $\min l = l(i) < l'(i)$ hold thus $\min l < \set{l'(i), l'(\ibar)} \ni \min l'$).
+
+	Pick any $i \in \argmin l'$, and recall that by hypothesis, $l(i) < l'(i)$; also, $l(\ibar) < \max l'$ as $l(\ibar) < l'(\ibar) ≤ \max l'$.
+	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{l(i)})$, $A_2 = (a_{l(i) + 1}, …, a_{l'(i) - 1})$, $A_3 = (a_{l'(i)}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{l(\ibar)})$, $B_2 = (b_{l(\ibar) + 1}, …, b_{\max l' - 1})$, $C = (c_1, …, c_{m - 2 \max l'})$, and consider the profile $\prof$ defined as:
+	\begin{equation}
+		\begin{array}{*{5}c}
+			i &\mapsto & (A_1, x, A_2, y, A_3) & C & (B_1, B_2) \\
+			\ibar &\mapsto & (B_1, x, B_2, y) & C & (A_1, A_2, A_3)
+		\end{array}.
+	\end{equation}
+	The layout of $\prof$ reflects the fact that the sequences $(A_1, A_2, A_3)$ and $(B_1, B_2)$ (hence, $(A_1, x, A_2, y, A_3)$ and $(B_1, x, B_2, y)$) have equal lengths (the latter having length $\max l' + 1$).
+	
+	We see that $f(\prof) \subseteq \set{x, y}$: $\forall c \in C, c \notin \PD$ (which, as $f$ is Paretian, excludes $c \in f(\prof)$) and $\forall z \in A_1 \cup A_2 \cup A_3 \cup B_1 \cup B_2, \max \lprof(z) ≥ (\max l' + 1) + (m - 2 \max l') = m + 1 - \max l' = \khalf + \floor{\frac{m - 1}{2}} + 2 - \max l'$ and with $\max l' ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(\prof)$ (which, as $f$ is MR, excludes $z \in f(\prof)$).
+	
+	As $y \notin \PD$, we obtain $f(\prof) = \set{x}$ and therefore $f^\preceq(\prof) = \set{x}$, thus $\lprof(x) \prec \lprof(y)$.
+	
+	Observe, to conclude, that $\lprof(x)_i = l(i)$, $\lprof(x)_{\ibar} = l(\ibar)$, $\lprof(y)_i = l'(i)$ and $\lprof(y)_{\ibar} = \max l' = l'(\ibar)$, thus, $\lprof(x) = l$ and $\lprof(y) = l'$.
+\end{proof}
+
+\begin{remark}
+	A superficial look at the LVC property may produce the impression that Paretianism of an LVC rule $f^\preceq$ necessarily lead to $\preceq$ respecting dominance of the losses. This is false. For example, with $m = 3$, define the equivalence classes of losses $C_1 = \set{(0, 0), (0, 1), (1, 0)}$, $C_2 = \set{(1, 2), (2, 1), (2, 2)}$, $C_3 = \set{(1, 1)}$ and define $\preceq$ as considering $C_1$ smaller than $C_2$ smaller than $C_3$ (thus $((0, 0) \sim (0, 1) \sim (1, 0)) \prec ((1, 2) \sim (2, 1) \sim (2, 2)) \prec (1, 1)$). The corresponding rule $f^\preceq$ is Paretian: if some alternatives have losses $(0, 0)$, $(0, 1)$ or $(1, 0)$ in $\prof$, they will be elected, satisfying Paretianism; otherwise (thus if $\prof$ contains no alternatives with losses among $C_1$) then it contains the losses $\set{(0, 2), (2, 0), (1, 1)}$ where no Pareto dominance occurs.
+\end{remark}
+
+\begin{lemma}
+	Consider any anonymous, Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [l(1) = l'(2) \land l(2) = l'(1)]: l \sim l'$.
+\end{lemma}
+\begin{proof}
+	Given a loss $l$ and a profile $\prof$ where some alternative has loss $l$, let $\lprof^{-1}(l)$ designate the alternative whose loss is $l$.
+	
+	Define $\prof_1$ such that $f(\prof_1) \subseteq \set{\lprof[\prof_1]^{-1}(l), \lprof[\prof_1]^{-1}(l')}$. We have $\lprof[\prof_1]^{-1}(l) \in f(\prof_1) ⇔ l \preceq l'$ and $\lprof[\prof_1]^{-1}(l') \in f(\prof_1) ⇔ l' \preceq l$.
+	
+	Define $\prof_2 = \set{(1, \prof_1(2)), (2, \prof_1(1))}$ that assigns to each individual the preference of the other individual in $\prof_1$. It satisfies $f(\prof_2) \subseteq \set{\lprof[\prof_2]^{-1}(l), \lprof[\prof_2]^{-1}(l')}$, thus, $\lprof[\prof_2]^{-1}(l) \in f(\prof_2) ⇔ l \preceq l'$ and $\lprof[\prof_2]^{-1}(l') \in f(\prof_2) ⇔ l' \preceq l$.
+	As $\lprof[\prof_2]^{-1}(l) = \lprof[\prof_1]^{-1}(l')$ and similarly $\lprof[\prof_2]^{-1}(l') = \lprof[\prof_1]^{-1}(l)$, we see that $\lprof[\prof_1]^{-1}(l') \in f(\prof_2) ⇔ l \preceq l'$ and $\lprof[\prof_1]^{-1}(l) \in f(\prof_2) ⇔ l' \preceq l$. 
+	Also, by anonymity, $f(\prof_1) = f(\prof_2)$. 
+	
+	It follows that $l \sim l'$.
+\end{proof}
 
 \begin{theorem}
 	A rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
@@ -649,15 +696,16 @@ As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
 	Note that $\lprof(a')_i ≤ \lprof(a)_i$: as $a' \in \PD$, the converse, $\lprof(a)_i < \lprof(a')_i$, implies $\lprof(a')_{\ibar} < \lprof(a)_{\ibar}$ and thus leads to $\lprof(a')_{\ibar} < \lprof(a)_{\ibar}≤ \lprof(a)_i < \lprof(a')_i$ whence $d(l) < d(l')$.
 	As $a \in \PD$, $\lprof(a)_{\ibar} ≤ \lprof(a')_{\ibar}$.
 
-	Name the alternatives $a_1, …, a_{\lprof(a)_i}, b_1, …, b_{\lprof(a)_i}, x, y, c_1, …, c_{m - 2 \lprof(a)_i - 2}$. 
-	Define the sequences $A_1 = (a_1, …, a_{\lprof(a)_{\ibar}})$, $A_2 = (a_{\lprof(a)_{\ibar} + 1}, …, a_{\lprof(a)_i})$, $B_1 = (b_1, …, b_{\lprof(a)_{\ibar}})$, $B_2 = (b_{\lprof(a)_{\ibar} + 1}, …, b_{\lprof(a)_i})$, $C = (c_1, …, c_{m - 2 \lprof(a)_i - 2})$ and the following profile $Q$:
+	Assume that $\min l < \max l$ (thus $1 ≤ \max l$). 
+	Name the alternatives $a_1, …, a_{\lprof(a)_i - 1}, b_1, …, b_{\lprof(a)_i - 1}, x, y, c_1, …, c_{m - 2 (\lprof(a)_i - 1) - 2} = c_{m - 2 \lprof(a)_i}$.  Note that this is feasible as $a \in H(\prof)$, whence $\lprof(a)_i ≤ \khalf$, thus $2 \lprof(a)_i ≤ 2 \khalf = 2 \floor{\frac{m}{2}} ≤ m$ which leads to $m - 2 \lprof(a)_i ≥ 0$.
+	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{\lprof(a)_{\ibar}})$, $A_2 = (a_{\lprof(a)_{\ibar} + 1}, …, a_{\lprof(a)_i - 1})$, $B_1 = (b_1, …, b_{\lprof(a)_{\ibar}})$, $B_2 = (b_{\lprof(a)_{\ibar} + 1}, …, b_{\lprof(a)_i - 1})$, $C = (c_1, …, c_{m - 2 \lprof(a)_i})$, and the following profile $Q$:
 	\begin{equation}
 		\begin{array}{*{25}{l}}
 			i &\mapsto & A_1 & y & A_2 & x & C & B_1 & B_2 \\
 			\ibar &\mapsto & B_1 & x &B_2 & y & C & A_1 & A_2
 		\end{array}.
 	\end{equation}
-	We see that $f^\succeq(Q) \subseteq \set{x, y}$, by Strong RMD: $\forall c \in C, c \notin \PD$ and $\forall z \in A_1 \cup A_2 \cup B_1 \cup B_2, \max \lprof(z) ≥ \lprof(a)_i + 2 + m - 2 \lprof(a)_i - 2 = m - \lprof(a)_i = \khalf + \floor{\frac{m - 1}{2}} + 1 - \lprof(a)_i$ and with $\lprof(a)_i ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 1$, thus $z \notin H(Q)$.
+	We see that $f^\succeq(Q) \subseteq \set{x, y}$, by Strong RMD: $\forall c \in C, c \notin \PD$ and $\forall z \in A_1 \cup A_2 \cup B_1 \cup B_2, \max \lprof(z) ≥ \lprof(a)_i - 1 + 2 + m - 2 \lprof(a)_i = m + 1 - \lprof(a)_i = \khalf + \floor{\frac{m - 1}{2}} + 2 - \lprof(a)_i$ and with $\lprof(a)_i ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(Q)$.
 	Observe also that $\lprof(x)_{\ibar} = \lprof(a)_{\ibar}$, $\lprof(x)_i = \lprof(a)_i$. 
 	Define $\pi = \set{(i, \lprof(a)_{\ibar}), (\ibar, \lprof(a)_i)}$ as the loss vector of $a$ with the voters inverted.
 	We see that $f^\succeq(Q) = x ⇔ \lprof(a) \prec \pi$.
