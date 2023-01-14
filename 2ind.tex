@@ -632,6 +632,24 @@ As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
 Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $l \preceq l' \land l' \preceq l$.
 
 \begin{lemma}
+	Given a subset of alternatives $X \subseteq \allalts$, let $S_X$ denote an ordering of all the alternatives in $X$.
+	Given any profile $\prof$ and $k ≤ \khalf$ and a Paretian and MR rule $f$. 
+	If there exists a partition of the alternatives into sets $A, B, C$ and $Z$ of respective sizes $k - 1$, $k - 1$, $m - 2 k$ and $2$ and orderings $S_{A \cup Z}$, $S_{B \cup Z}$, $S_A$, $S_B$ and $S_C$ such that $\prof$ contains the two following preferences (associated to individuals $(1, 2)$ or $(2, 1)$):
+	\begin{equation}
+		\begin{array}{*{3}c}
+			S_{A \cup Z} & S_C & S_B \\
+			S_{B \cup Z} & S_C & S_A
+		\end{array},
+	\end{equation}
+	then $f(\prof) \subseteq Z$.
+\end{lemma}
+\begin{proof}
+	We see first that $C \cap f(\prof) = \emptyset$ because $\forall c \in C, c \notin \PE$, which, as $f$ is Paretian, excludes $c \in f(\prof)$.
+	
+	We see then that $(A \cup B) \cap f(\prof) = \emptyset$ because  and $\forall z \in A \cup B, \max \lprof(z) ≥ (k - 1 + 2) + (m - 2 k) = m + 1 - k = \khalf + \floor{\frac{m - 1}{2}} + 2 - k$ and with $k ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(\prof)$, which, as $f$ is MR, excludes $z \in f(\prof)$.
+\end{proof}
+	
+\begin{lemma}
 	Consider any Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\forall i \in N: l(i) < l'(i)]: l \prec l'$.
 \end{lemma}
 \begin{proof}
