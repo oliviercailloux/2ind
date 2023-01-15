@@ -742,9 +742,6 @@ Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $
 
 	Let us write, given $a \in \allalts$, $l_a$ instead of $\lprof(a)$.
 	
-%	Suffices to show that $\forall a, a' \in \allalts: [a \in f(\prof) \land a' \notin f(\prof)] ⇔ [a \in \PE \land (a' \notin \PE \lor s(a) < s(a'))]$ (as it follows from this equivalence that $\forall a, a': a' \in \PE \land s(a') < s(a) ⇒ a \notin f(\prof)$ thus by contrapositive $a \in f(\prof) ⇒ a' \notin \PE \lor s(a) ≤ s(a')$).
-%	Thus, consider $a, a' \in \allalts$.
-	
 	For the forward direction, considering any $a \in f(\prof)$, let us show that $a \in \argmin_{\PE \cap H(\prof)} s_{\prof}$.
 	
 	Strong RMD implies Paretianism and MR, thus, $a \in \PE \cap H(\prof)$.
@@ -761,59 +758,6 @@ Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $
 	Given $a, a' \in \PE \cap H(\prof)$, $s_{\prof}(a) = s_{\prof}(a')$ is equivalent to $d(l_a) = d(l_{a'}) \land \min l_a = \min l_{a'}$, itself, using \cref{th:indiffLVC}, implying $a_l \sim a_{l'}$, or equivalently, by LVC, $[a \in f(\prof) ⇔ a' \in f(\prof)]$.
 	
 	To conclude, pick any $a' \in \min_{\PE \cap H(\prof)} s_{\prof}$ and let us show that $a' \in f(\prof)$. Pick any $a \in f(\prof)$ (which exists as $f(\prof) ≠ \emptyset$). From above, we see that $s_{\prof}(a') = s_{\prof}(a)$, and from above again, we see that $[a \in f(\prof) ⇔ a' \in f(\prof)]$, whence $a' \in f(\prof)$.
-	
-%	Alternative proof using relation on l.
-%	Thesis: $f(\prof) = \argmin_{\PE \cap H(\prof)} s_{\prof}$.
-%	Equivalently, $\lprof(f(\prof)) = \lprof(\argmin_{\PE \cap H(\prof)} s_{\prof})$.
-%	Define $s: \lvs → \R$ as $s(l) = md(l) + \min l$ (reusing the letter $s$ by abuse of notation).
-%	Thus, $\lprof(\argmin_{\PE \cap H(\prof)} s_{\prof})$ equals $\min_{\lprof(\PE \cap H(\prof))} s$.
-%	Define a weak order $⊲$ on $\lvs$ as $l ⊲ l' ⇔ d(l) < d(l') \lor d(l) = d(l') \land \min l ≤ \min l'$ (that this relation is a weak order follows from it being a lexicographic aggregation of two weak orders).
-%	Given any $l, l' \in \lvs$, $s(l) ≤ s(l') ⇔ l ⊲ l'$, thus, $\min_{\lprof(\PE \cap H(\prof))} s = \min_{\lprof(\PE \cap H(\prof))} {⊲}$.
-%	The thesis is now $\lprof(f(\prof)) = \min_{\lprof(\PE \cap H(\prof))} {⊲}$.
-%	
-%	By definition of LVC, $\lprof(f^\preceq(\prof)) = \min_{\lprof(\allalts)} {\preceq}$, from which follows that $\lprof(f^\preceq(\prof)) \subseteq \min_{\lprof(\PE \cap H(\prof))} {\preceq}$.
-%	But $[\min l_{a'} < \min l_a \land d(l_a) = d(l_{a'})] ⇒ [\max l_{a'} < \max l_a]$, together implying with $a' \in H(\prof)$, from \cref{th:precLVCstr}, $l_{a'} \prec l_a$. We thus obtain, using the contrapositive, $\forall a' \in \PE \cap H(\prof): [\min l_a ≤ \min l_{a'} \lor d(l_a) ≠ d(l_{a'})]$.
-
-%	Newer attempt.
-%	
-%	Consider any $a \in \PE$. To prove: $a \in f^\preceq(\prof) ⇔ a \in \min_\PE s$.
-%	The latter is equivalent to $a \in \min_{\PE \cap H(\prof)} s$, as $a \in H(\prof) \land a' \notin H(\prof) ⇒ s_{\prof}(a) < s_{\prof}(a')$.
-%	
-%	Using the argument below, we get $a \in f^\preceq(\prof) ⇒ l \in \min_{\PE \cap H(\prof)} ⊲ \circ \lprof$.
-%
-%	New attempt.
-%	
-%	Consider any $a \in \PE$. To prove: $a \in f^\preceq(\prof) ⇔ [a \in \PE \land \forall a' \in \PE: s_{\prof}(a) ≤ s_{\prof}(a')]$.
-%	The latter is equivalent to $a \in \PE \cap H(\prof) \land [\forall a' \in \PE \cap H(\prof): s_{\prof}(a) ≤ s_{\prof}(a')]$, as $a \in H(\prof) \land a' \notin H(\prof) ⇒ s_{\prof}(a) < s_{\prof}(a')$.
-%	
-%	By definition of LVC, $a \in f^\preceq(\prof) ⇔ \forall a' \in \allalts: l' \nprec l$.
-%	But $[\min l' < \min l \land d(l) = d(l')] ⇒ [\max l' < \max l]$, together implying with $a' \in H(\prof)$, from \cref{th:precLVCstr}, $l' \prec l$. We thus obtain, using the contrapositive: $a \in f^\preceq(\prof) ⇒ \forall a' \in H(\prof): [\min l ≤ \min l' \lor d(l) ≠ d(l')]$.
-%	
-%	By definition of Strong RMD, $a \in f^\preceq(\prof) ⇒ \forall a' \in \PE \cap H(\prof): d(l) ≤ d(l')$.
-%	
-%	Together: $a \in f^\preceq(\prof) ⇒ \forall a' \in \PE \cap H(\prof): [(d(l) ≤ d(l') \land \min l ≤ \min l') \lor d(l) < d(l')]$, which implies $s_{\prof}(a) ≤ s_{\prof}(a')$.
-	
-%	In other words, defining the binary relation $⊲$ as $l ⊲ l' ⇔ [(d(l) ≤ d(l') \land \min l ≤ \min l') \lor d(l) < d(l')]$, $a \in f^\preceq(\prof) ⇒ l \in \argmin_⊲ \lprof(\PE \cap H(\prof))$.
-%	
-%	In other words, defining the binary relation $⊲$ as $l ⊲ l' ⇔ [(d(l) ≤ d(l') \land \min l ≤ \min l') \lor d(l) < d(l')]$, $a \in f^\preceq(\prof) ⇒ l \in \min_{l \in (\min_{\lprof(\PE \cap H(\prof))} d)} \min l$.
-	
-	%For the other direction: if both $a$ and $a'$ minimize the score, they are both in $f(\prof)$ or none of them is, as $\min l = \min l' \land \max l = \max l'$ which implies $l \sim l'$.
-	ˇ
-%	Old attempt.
-%	
-%	Consider first any $a \in f^\preceq(\prof)$ and let’s show that $a \in \argmin s$. Consider any $a' \in \PE$ and let’s show that $s_{\prof}(a) ≤ s_{\prof}(a')$. 
-%	As $a \in f^\preceq(\prof)$ which is Strong RMD, we know that $a \in H(\prof)$, thus if $a' \notin H(\prof)$ we have $s_{\prof}(a) < m^2 ≤ s_{\prof}(a')$. Remains to consider $a, a' \in H(\prof)$.
-%	
-%	In other words, letting $l = \lprof(a)$ and $l' = \lprof(a')$ denote the respective losses, remains to show that $md(l) + \min l ≤ md(l') + \min l'$.
-%	
-%	From $a \in f(\prof)$ and $f = f^\preceq$, $l' \nprec l$. But $[\min l' < \min l \land d(l) = d(l')] ⇒ [\max l' < \max l]$, together implying, from \cref{th:precLVCstr}, $l' \prec l$. We thus obtain, by contrapositive, $\min l ≤ \min l' \lor d(l) ≠ d(l')$.
-%	
-%	As $a' \in H(\prof) \cap \PE$, we know that $d(l) ≤ d(l')$ due to Strong RMD (otherwise $a \notin f(\prof)$). 
-%	
-%	It follows from $\min l ≤ \min l' \lor d(l) < d(l')$ that $s_{\prof}(a) ≤ s_{\prof}(a')$.
-%
-%	For the other direction, assume that $a' \notin f^\preceq(\prof)$, consider any $a \in f^\preceq(\prof)$, let’s show that $s_{\prof}(a) < s_{\prof}(a')$.
-%	To be done…
 \end{proof}
 	
 \section{Concluding remarks}
