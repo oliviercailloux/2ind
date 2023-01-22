@@ -613,7 +613,7 @@ The Strong RMD rule selects at most two alternatives (formally, $\forall \prof \
 
 %More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$.
 
-Define the \emph{resolute RMD} rule as follows. It assigns to each Paretian alternative $a \in \PD$ in a profile $\prof$ having losses $\lprof(a)$ the score (or “badness”) $s(a) = md(\lprof(a)) + \min\lprof(a) + m^2 \ind_{a \notin H(\prof)}$, where $m = \card{\allalts}$ and $d(l) = \max l - \min l$ as previously. The rule picks as winners the Paretian alternatives with minimal score, thus $f(\prof) = \argmin_{a \in \PD} s(a)$.
+Define the \emph{resolute RMD} rule as follows. It assigns to each Paretian alternative $a \in \PD$ \color{red} What is PD? Is it PE? \color{black}in a profile $\prof$ having losses $\lprof(a)$ the score (or “badness”) $s(a) = md(\lprof(a)) + \min\lprof(a) + m^2 \ind_{a \notin H(\prof)}$, where $m = \card{\allalts}$ and $d(l) = \max l - \min l$ as previously. The rule picks as winners the Paretian alternatives with minimal score, thus $f(\prof) = \argmin_{a \in \PD} s(a)$.
 
 As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
 
@@ -626,6 +626,9 @@ As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
         \label{def:lvc}
         Let $\succeq$ be a weak order on $\lvs$. The rule $f^\succeq$ selects all alternatives whose loss vectors are minimal elements of $\restr{{\succeq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\succeq} \suchthat f = f^\succeq$. (This property is called preorder based in Cailloux and Endriss 2014.)
 \end{definition}
+
+\color{red} I do not understand why you only require that
+there is some preference profile where the equality holds. Can you give more details in words?\color{black}
 
 \begin{theorem}
 	A rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
