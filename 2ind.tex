@@ -167,10 +167,9 @@ The following result determines which rules in $\PVcl$ satisfy MR.
 \end{proof} 
 
 Note that 
-$[\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ and $\sum_i v_i ≤ m - 1]$ 
+$[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ 
 is equivalent to 
-$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}}$ and $\floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. 
-\commentOC{It currently looks to me like the quantifier does not apply to the part after the textual “and” as it interrupts the mathematical statement, and I find it easier to parse with $\land$, the logical and, so that the mathematical flow in the brackets is not interrupted. Also, it seems to me that the intent here is really to state something about two mathematical phrases that form each a unit. Considering them separately does not permit to obtain the conclusion. But I won’t insist if you don’t like it.}
+$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. 
 Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
