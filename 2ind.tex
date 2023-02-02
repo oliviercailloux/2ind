@@ -8,18 +8,18 @@
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
-		\tolerance=2000
+	\tolerance=2000
 	%Accept overfull hbox up to...
-		\hfuzz=2cm
+	\hfuzz=2cm
 	%Reduces verbosity about the bad line breaks.
-		\hbadness 5000
+	\hbadness 5000
 	%Reduces verbosity about the underful vboxes.
-		\vbadness=1300
+	\vbadness=1300
 
 \title{Two principles for two-person social choice \thanks{We would like to thank Sylvain Béal, Danilo Santa Cruz Coelho and Jean-François Laslier for their comments on an earlier draft of this paper as well as the seminar audience at CRESE for useful remarks.}}
 \author[*]{Olivier Cailloux}
 \author[**]{Matías Núñez}
-\author[*]{M. Remzi  Sanver}
+\author[*]{M. Remzi Sanver}
 \affil[*]{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE}
 \affil[**]{CREST, CNRS, École Polytechnique, GENES, ENSAE Paris, Institut Polytechnique de Paris, 91120 Palaiseau, France.}
 \hypersetup{
@@ -44,7 +44,7 @@ An ordinal framework of two-person finite bargaining problems is presented by \c
 \footnote{In a recent paper, \citet{barbera2022compromising} use the term unanimity compromise in a framework with no disagreement point to refer to fallback bargaining in the sense of \citet{BramsKilgour2001}.}
 They also observe that one of these variants, namely the imputational compromise, is the finite version of the equal length rule by \citet{thomson2019equal}. The imputational compromise is further studied by \citet{ConleyWilkie2012}.
  
-As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by \citet{HurwiczSertel1997}  and the \textit{majoritarian compromise} by \citet{sertel1999majoritarian}. It also paved the way to new axioms for social choice, such as \textit{majoritarian approval} and \textit{majoritarian optimality} as well as \textit{efficiency in the degree of compromise} by \citet{ozkal2004efficiency}.
+As a matter of fact, the compromising approach that underlies fallback bargaining was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by \citet{HurwiczSertel1997} and the \textit{majoritarian compromise} by \citet{sertel1999majoritarian}. It also paved the way to new axioms for social choice, such as \textit{majoritarian approval} and \textit{majoritarian optimality} as well as \textit{efficiency in the degree of compromise} by \citet{ozkal2004efficiency}.
 \citet{merlin2019compromise} present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
 
 A closer look at this compromising idea and in particular at fallback bargaining reveals a principle for two-person social choice. \Citet{Sprumont1993} qualifies arbitration rules that maximize the welfare of the least happy individual as being \textit{Rawlsian}. \citet{congar2012characterization} characterize the Rawlsian principle within the framework of social welfare functions. For social choice rules, \citet{BramsKilgour2001} establish the equivalence between the Rawlsian principle and fallback bargaining. Moreover, they show that every individual ranks a fallback bargaining outcome in the upper-half of his ranking. Thus, at every preference profile, there is an alternative that both individuals rank in the upper-half of their preference. In other words, the least happy individual of the society can always be granted a welfare within the first half of his preference. We qualify a two-person social choice rule that complies with this possibility as \textit{minimally Rawlsian}.%
@@ -80,14 +80,14 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 \section{Basic notions and notation}
 \label{sec:basic}
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual  $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
 A SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
 A SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is  defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
+Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, assigns to each individual her loss associated to $x$.
 
 Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. 
@@ -113,7 +113,7 @@ The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(
 
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
-The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2  ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
+The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
 
@@ -122,10 +122,10 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{remark}
 
 \begin{remark}
-    $\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
+	$\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
 \end{remark}
 \begin{remark}
-    $\FB$, $\VR$ and $\SL$ are anonymous, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
+	$\FB$, $\VR$ and $\SL$ are anonymous, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
 
 \section{The minimal Rawlsian principle}
@@ -137,10 +137,11 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \end{definition}
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
 \begin{theorem}
-    There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
+	There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
 \end{theorem}
 It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism feasible while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
-\begin{definition}[Minimal Rawlsianism (\MRprop)] A SCR $f$ satisfies \MRprop{} if 
+\begin{definition}[Minimal Rawlsianism (\MRprop)] 
+	A SCR $f$ satisfies \MRprop{} iff 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
@@ -180,8 +181,8 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
 \end{theorem}
 \begin{proof}
-    Note that $\bigcup(\PEcl \cap \MRcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
-    We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
+	Note that $\bigcup(\PEcl \cap \MRcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
+	We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
 \end{proof}
 
 The observation below follows from \cref{th:equal}.
@@ -213,14 +214,14 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{corollary}
 
 \begin{remark}
-    The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
-    \begin{equation}
-        \begin{array}{lllll|llll}
-                a&b&c&d&e&f&g&h&i\\
-                e&c&d&b&a&f&g&h&i\\
-        \end{array}.
-    \end{equation}
-    Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
+	The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
+	\begin{equation}
+		\begin{array}{lllll|llll}
+			a&b&c&d&e&f&g&h&i\\
+			e&c&d&b&a&f&g&h&i\\
+		\end{array}.
+	\end{equation}
+	Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
 \end{remark}
 
 \section{The equal loss principle}
@@ -228,12 +229,12 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
 
 \begin{definition}[Equal loss (EL)]
-    $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
+	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 
 The equal loss principle is incompatible with the one of Pareto efficiency as formally stated by the next proposition. 
 \begin{theorem}
-    $\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
+	$\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
 \end{theorem}
 
 \begin{proof}
@@ -241,7 +242,7 @@ Consider the following profile:
 	\begin{equation}
 		\begin{array}{lll ll}
 			a_1&a_2 &a_3 & \ldots &a_m \\
-		a_2& a_1 &a_3&\ldots&a_m \\
+			a_2& a_1 &a_3&\ldots&a_m \\
 		\end{array}.
 	\end{equation}
   Observe that $a_1$ and $a_2$ are the only Pareto efficient alternatives.
@@ -250,13 +251,13 @@ Consider the following profile:
 Thus, Pareto efficiency is a fortiori incompatible with the following stronger version of the equal loss principle.
 
 \begin{definition}[Strong equal loss]
-    $\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
+	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
 \end{definition}
 
 We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
 
 \begin{definition}[Paretian equal loss (PEL)]
-    $\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) \cap \PE ≠ \emptyset$.
+	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) \cap \PE ≠ \emptyset$.
 \end{definition}
 
 \begin{theorem}
@@ -305,7 +306,7 @@ Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
 The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, be the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
-    $\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap \PE$.
+	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap \PE$.
 \end{definition}
 Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in $\PVcl$ that satisfy PEL fail SPEL.
 \begin{theorem}
@@ -313,8 +314,8 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 	When $m ≥ 4$, all rules in $\PVcl$ fail SPEL.
 \end{theorem}
 \begin{proof}
-    Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
-    Consider the following profile $\prof$: 
+	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
+	Consider the following profile $\prof$: 
 	\begin{equation}
 		\begin{array}{*6{l}}
 			a&b&c&a_4&a_5&…\\
@@ -507,7 +508,7 @@ Define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each 
 \begin{remark}
 	As already mentioned, the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, therefore, are distinct from the rule $\MD$. Also,
 the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}.
-    It follows that satisfying MD does not imply being a Pareto-and-veto rule.
+	It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 
 \section{Reconciling the two principles}
@@ -525,7 +526,7 @@ RMD strengthens MR. On the other hand, the relationship between RMD and MD depen
 \commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
 \commentRS{I agree.}
 \begin{theorem}
-    \label{th:RMDMD}
+	\label{th:RMDMD}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
 \begin{proof}
@@ -540,8 +541,8 @@ RMD strengthens MR. On the other hand, the relationship between RMD and MD depen
 \end{proof}
 	
 \begin{theorem}
-    \label{th:compatRMD}
-     $\FB$, $\VR$, $\SL$ fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.
+	\label{th:compatRMD}
+	 $\FB$, $\VR$, $\SL$ fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.
 \end{theorem}
 \begin{proof}
 	Consider the following profile $\prof$ with 11 alternatives, $\set{a, b, c, d, e, f, g, h,\allowbreak x, y, z}$ (the bar indicates the “half” position).
@@ -615,13 +616,13 @@ Define to that effect the \emph{resolute RMD} rule as follows. It associates to 
 As it satisfies Strong RMD, resolute RMD picks at most two alternatives.
 To conclude this section, we present a caracterisation of this rule. The first property, called preorder based in Cailloux and Endriss 2014, mandates that the rule decides who wins according to the losses only, and following a fixed weak order over losses.
 \begin{definition}[Loss vector comparing (LVC)]
-        \label{def:lvc}
-        Let $\preceq$ be a weak order (a reflexive, transitive and complete binary relation) on $\lvs$. The rule $f^\preceq$ selects all alternatives whose losses are minimal elements of $\restr{{\preceq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\preceq} \suchthat f = f^\preceq$.
+	\label{def:lvc}
+	Let $\preceq$ be a weak order (a reflexive, transitive and complete binary relation) on $\lvs$. The rule $f^\preceq$ selects all alternatives whose losses are minimal elements of $\restr{{\preceq}}{\lprof(\alts)}$. A rule satisfies LVC iff $\exists {\preceq} \suchthat f = f^\preceq$.
 \end{definition}
 Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $l \preceq l' \land l' \preceq l$.
 
 \begin{theorem}
-    \label{th:caractRMD}
+	\label{th:caractRMD}
 	A rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
 \end{theorem}
 
@@ -812,7 +813,7 @@ Recall that \cref{th:caractRMD} states that a rule $f$ is the resolute RMD rule 
 \end{proof}
 
 \begin{remark}
-    LVC is required because Anonymity and Strong RMD (even with neutrality) does not suffice to obtain the resolute RMD rule: the Strong RMD rule also satisfies those properties.
+	LVC is required because Anonymity and Strong RMD (even with neutrality) does not suffice to obtain the resolute RMD rule: the Strong RMD rule also satisfies those properties.
 \end{remark}
 
 \bibliography{bibliototal}
