@@ -515,17 +515,17 @@ the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ 
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
 Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
-\commentRS{I made style changes in the paragraph above.}
 \begin{definition}[Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
 	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
 	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-RMD strengthens MR. On the other hand, RMD is not stronger than MD because, unless $m$ is small, a Paretian dispersion minimizer can be out of the first half. The following theorem states the relationship between RMD and MD more precisely.
+RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, TODO cite relevant result).
 \commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
 \commentRS{I agree.}
 \begin{theorem}
+    \label{th:RMDMD}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
 \begin{proof}
@@ -540,6 +540,7 @@ RMD strengthens MR. On the other hand, RMD is not stronger than MD because, unle
 \end{proof}
 	
 \begin{theorem}
+    \label{th:compatRMD}
      $\FB$, $\VR$, $\SL$ fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.
 \end{theorem}
 \begin{proof}
@@ -575,21 +576,18 @@ where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c 
 By \cref{th:equal}, $\PVe(\prof) = H(\prof) \cap \PE$, thus, it satisfies RMD.
 \end{proof}
 
-The Strong RMD principle requires to pick only RMD alternatives.
+$\PVe$ satisfies the RMD principle at the expense of resoluteness, since it picks every Pareto efficient alternative within the first half. It is thus natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the Strong RMD principle, which requires to pick only RMD alternatives.
 \begin{definition}[Strong Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
 	f(\prof) \subseteq \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
 \end{definition}
 
-\commentRS{I think it may be better presentation of the results if we postpone defining strong RMD until the end of the proof of Theorem 16. This will require to state Theorem 15 for RMD and not SRMD but I have the feeling that this is worth doing. }
-\commentOC{I have now implemented this suggestion, but then perhaps we need to slightly repeat ourselves, as follows.}
-\commentRS{I yhink we can discard the paragraph below, as well as Theorem 17.}
-Strong RMD strengthens MR, as RMD does. Also, Strong RMD is not stronger than MD, for large enough values of $m$, as a Paretian strict minimizer of dispersion might be out of the first half. The following theorem states the relationship between SRMD and MD more precisely.
+The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 \begin{theorem}
 	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
 \begin{proof}
-	First, it follows from $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$ and $\SRMDcl \subseteq \RMDcl$ that $[m ≤ 6 \lor m = 8] ⇒ \SRMDcl \subseteq \MDcl$. 
+	First, it follows from $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$ (by \cref{th:RMDMD}) and $\SRMDcl \subseteq \RMDcl$ that $[m ≤ 6 \lor m = 8] ⇒ \SRMDcl \subseteq \MDcl$. 
 	
 	Second, observe that $\SRMDcl \subseteq \MDcl ⇒ \SRMDcl \cap \MDcl ≠ \emptyset$.
 	
@@ -601,9 +599,8 @@ It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule
 \commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.}
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
-\commentRS{I find the approach below promising.}
 \begin{theorem}
-The Strong RMD rule selects at most two alternatives (formally, $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$).
+The Strong RMD rule selects $f$ at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
 \end{theorem}
 \begin{proof}
 	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
@@ -623,142 +620,11 @@ To conclude this section, we present a caracterisation of this rule. The first p
 \end{definition}
 Given a weak order $\preceq$ and two losses $l, l'$, let $l \sim l'$ stand for $l \preceq l' \land l' \preceq l$.
 
-\begin{lemma}
-	\label{th:inZ}
-	Given a subset of alternatives $X \subseteq \allalts$, let $S_X$ denote an linear ordering of all the alternatives in $X$.
-	Given a Paretian and MR rule $f$ and any profile $\prof$ and $1 ≤ k ≤ \khalf$,
-	if there exists a partition (a disjoint complete cover) of the alternatives into sets $A, B, C$ and $Z$ of respective sizes $k - 1$, $k - 1$, $m - 2 k$ and $2$ and orderings $S_{A \cup Z}$, $S_{B \cup Z}$, $S_A$, $S_B$ and $S_C$ such that $\prof$ contains the two following preferences (associated to individuals $(1, 2)$ or $(2, 1)$):
-	\begin{equation}
-		\begin{array}{*{3}c}
-			S_{A \cup Z} & S_C & S_B \\
-			S_{B \cup Z} & S_C & S_A
-		\end{array},
-	\end{equation}
-	then $f(\prof) \subseteq Z$.
-\end{lemma}
-\color{red} I do not understand why you only require that
-there is some preference profile where the equality holds. Can you give more details in words?\color{black}
-\begin{proof}
-	We see first that $C \cap f(\prof) = \emptyset$ because $\forall c \in C, c \notin \PE$, which, as $f$ is Paretian, excludes $c \in f(\prof)$.
-	
-	We see then that $(A \cup B) \cap f(\prof) = \emptyset$ because  and $\forall z \in A \cup B, \max \lprof(z) ≥ (k - 1 + 2) + (m - 2 k) = m + 1 - k = \khalf + \floor{\frac{m - 1}{2}} + 2 - k$ and with $k ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(\prof)$, which, as $f$ is MR, excludes $z \in f(\prof)$.
-\end{proof}
-	
-\begin{lemma}
-	\label{th:precLVC}
-	Consider any Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\forall i \in N: l(i) < l'(i)]: l \prec l'$.
-\end{lemma}
-\begin{proof}
-	Name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.
-
-	Pick any $i \in \argmin l'$, and recall that by hypothesis, $l(i) < l'(i)$; also, $l(\ibar) < \max l'$ as $l(\ibar) < l'(\ibar) ≤ \max l'$.
-	Define the sequences $A_1 = (a_1, …, a_{l(i)})$, $A_2 = (a_{l(i) + 1}, …, a_{l'(i) - 1})$, $A_3 = (a_{l'(i)}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{l(\ibar)})$, $B_2 = (b_{l(\ibar) + 1}, …, b_{\max l' - 1})$, $C = (c_1, …, c_{m - 2 \max l'})$, and consider the profile $\prof$ defined as:
-	\begin{equation}
-		\begin{array}{*{5}c}
-			i &\mapsto & (A_1, x, A_2, y, A_3) & C & (B_1, B_2) \\
-			\ibar &\mapsto & (B_1, x, B_2, y) & C & (A_1, A_2, A_3)
-		\end{array}.
-	\end{equation}
-%	The layout of $\prof$ reflects the fact that the sequences $(A_1, A_2, A_3)$ and $(B_1, B_2)$ (hence, $(A_1, x, A_2, y, A_3)$ and $(B_1, x, B_2, y)$) have equal lengths (the latter having length $\max l' + 1$).
-	
-	We see from \cref{th:inZ} that $f(\prof) \subseteq \set{x, y}$.
-	
-	As $y \notin \PE$, we obtain $f(\prof) = \set{x}$ and therefore $f^\preceq(\prof) = \set{x}$, thus $\lprof(x) \prec \lprof(y)$.
-	
-	Observe, to conclude, that $\lprof(x)_i = l(i)$, $\lprof(x)_{\ibar} = l(\ibar)$, $\lprof(y)_i = l'(i)$ and $\lprof(y)_{\ibar} = \max l' = l'(\ibar)$, thus, $\lprof(x) = l$ and $\lprof(y) = l'$.
-\end{proof}
-
-\begin{remark}
-	A superficial look at the LVC property may produce the impression that Paretianism of an LVC rule $f^\preceq$ unconditionally lead to $\preceq$ respecting dominance of the losses (that is, $l ≤ l' ⇒ l \preceq l'$). This is false. For example, with $m = 3$, define the equivalence classes of losses $C_1 = \set{(0, 0), (0, 1), (1, 0)}$, $C_2 = \set{(1, 2), (2, 1), (2, 2)}$, $C_3 = \set{(1, 1)}$ and define $\preceq$ as considering $C_1$ smaller than $C_2$ smaller than $C_3$ (thus $((0, 0) \sim (0, 1) \sim (1, 0)) \prec ((1, 2) \sim (2, 1) \sim (2, 2)) \prec (1, 1)$). The relation $\preceq$ does not respect dominance of the losses ($(1, 1) < (2, 2)$ though $(1, 1) \npreceq (2, 2)$), but the corresponding rule $f^\preceq$ is Paretian: if some alternatives have losses $(0, 0)$, $(0, 1)$ or $(1, 0)$ in $\prof$, they will be elected, satisfying Paretianism; otherwise (thus if $\prof$ contains no alternatives with losses among $C_1$) then it contains the losses $\set{(0, 2), (2, 0), (1, 1)}$ where no Pareto dominance occurs.
-\end{remark}
-
-\begin{lemma}
-	\label{th:indiffLVC}
-	Consider any anonymous, Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [l(1) = l'(2) \land l(2) = l'(1)]: l \sim l'$.
-\end{lemma}
-\begin{proof}
-	If $l(1) = l(2)$ then $l = l'$ and the conclusion follows from $\preceq$ being reflexive.
-	Thus, assume that $l(1) ≠ l(2)$, equivalently, that $\min l < \max l$.
-	Also note that $\max l = \max l'$, whence $1 ≤ \max l' ≤ \khalf$.
-	
-	Name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.  %Note that this is feasible as $0 ≤ \min l < \max l' ≤ \khalf = \floor{\frac{m}{2}}$, whence $1 ≤ \max l'$ and $2 \max l' ≤ 2 \floor{\frac{m}{2}} ≤ m$ which leads to $2 (\max l' - 1) ≤ m - 2$.
-	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{\min l})$, $A_2 = (a_{\min l + 1}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{\min l})$, $B_2 = (b_{\min l + 1}, …, b_{\max l' - 1})$ and $C = (c_1, …, c_{m - 2 \max l'})$.
- 	Pick $i \in \argmin l$, equivalently, $\ibar \in \argmax l$,
-	and define the profile $\prof$ as:
-	\begin{equation}
-		\begin{array}{*{25}{l}}
-			i &\mapsto & A_1 & x & A_2 & y & C & B_1 & B_2 \\
-			\ibar &\mapsto & B_1 & y &B_2 & x & C & A_1 & A_2
-		\end{array}.
-	\end{equation}
-	
-	We see from \cref{th:inZ} that $f(\prof) \subseteq \set{x, y}$, and $f = f^\preceq$, thus, $x \in f(\prof) ⇔ \lprof(x) \preceq \lprof(y)$ and $y \in f(\prof) ⇔ \lprof(y) \preceq \lprof(x)$.
-	
-	Observe also that $\lprof(x)_i = \min l = \min l' = l(i)$, $\lprof(x)_{\ibar} = \max l = \max l' = l(\ibar)$, $\lprof(y)_i = l'(i)$ and $\lprof(y)_{\ibar} = \max l' = l'(\ibar)$, thus, $\lprof(x) = l$ and $\lprof(y) = l'$, which yields $x \in f(\prof) ⇔ l \preceq l'$ and $y \in f(\prof) ⇔ l' \preceq l$.
-%	Observe also that $\lprof(x)(N) = \lprof(y)(N) = \set{\min l, \max l}$, thus, $\lprof(\set{x, y}) = \set{l, l'}$.
-	
-	Consider now the profile $\prof'$ associating to each individual the preference of the other individual in $\prof$, as follows:
-	\begin{equation}
-		\begin{array}{*{25}{l}}
-			i &\mapsto & B_1 & y &B_2 & x & C & A_1 & A_2 \\
-			\ibar &\mapsto & A_1 & x & A_2 & y & C & B_1 & B_2
-		\end{array}.
-	\end{equation}
-	The argument above applies, mutatis mutandis, and yields that $x \in f(\prof') ⇔ \lprof[\prof'](x) \preceq \lprof[\prof'](y)$ and $y \in f(\prof') ⇔ \lprof[\prof'](y) \preceq \lprof[\prof'](x)$.
-	Also, $\lprof[\prof'](x) = l'$ and $\lprof[\prof'](y) = l$, which yields $x \in f(\prof') ⇔ l' \preceq l$ and $y \in f(\prof') ⇔ l \preceq l'$.
-	
-	Finally, by anonymity, $f(\prof) = f(\prof')$, thus, joining our conclusions so far, $x \in f(\prof) ⇔ l \preceq l' ⇔ x \in f(\prof') ⇔ l' \preceq l ⇔ y \in f(\prof)$. At least one of these propositions is true (as $x \in f(\prof) \lor y \in f(\prof)$), thus all are.
-\end{proof}
-
-\begin{lemma}
-	\label{th:precLVCstr}
-	Consider any anonymous, Paretian and MR rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\min l < \min l' \land \max l < \max l']: l \prec l'$.
-\end{lemma}
-\begin{proof}
-	Observe that $(l'(2), l'(1))$ denotes the losses of $l'$ where both individuals are inverted.
-	From \cref{th:indiffLVC}, $l' \sim (l'(2), l'(1))$.
-	
-	Pick any $i \in \argmin l$.
-	Define $l'' = \set{(i, \min l'), (\ibar, \max l')}$; observe that $l'' = l' \lor l'' = (l'(2), l'(1))$.
-	It follows that $l' \sim l''$.
-	
-	By hypothesis, $\min l = l(i) < l''(i) = \min l' \land \max l = l(\ibar) < l''(\ibar) = \max l'$. Thus, by \cref{th:precLVC}, $l \prec l''$.
-	Together with $l' \sim l''$, this yields $l \prec l'$.
-\end{proof}
-
 \begin{theorem}
+    \label{th:caractRMD}
 	A rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
 \end{theorem}
-\begin{proof}
-	First note that $\forall \prof$, $a \in H(\prof) ⇔ s_{\prof}(a) < m^2$.
-	
-	Consider $f$ being the resolute RMD rule and let’s check that it is Strong RMD.
-	Within the first half, $s_{\prof}(a) = m (\max \lprof(a) - \min \lprof(a)) + \min \lprof(a) = m \max \lprof(a) - (m - 1) \min \lprof(a)$. Thus if $a$ PD $b$ within the first half, then $b$ does not win. Also, if $a \notin H(\prof)$, then $a$ does not win, as $\exists b \in H(\prof) \suchthat s_{\prof}(b) < m^2$.
-	
-	Now consider an LVC rule $f^\preceq = f$ that is anonymous and Strong RMD.
-	We have to show that $f$ is the RMD rule, thus, that $f(\prof) = \argmin_{\PE} s_{\prof}$. 
-	Observing that $a \in \min_{\PE} s$ is equivalent to $a \in \argmin_{\PE \cap H(\prof)} s$, as $a \in H(\prof) \land a' \notin H(\prof) ⇒ s_{\prof}(a) < s_{\prof}(a')$, an equivalent thesis is that $f(\prof) = \argmin_{\PE \cap H(\prof)} s_{\prof}$.
 
-	Let us write, given $a \in \allalts$, $l_a$ instead of $\lprof(a)$.
-	
-	For the forward direction, considering any $a \in f(\prof)$, let us show that $a \in \argmin_{\PE \cap H(\prof)} s_{\prof}$.
-	
-	Strong RMD implies Paretianism and MR, thus, $a \in \PE \cap H(\prof)$.
-	
-	By definition of LVC, $a \in f^\preceq(\prof)$ is equivalent to $\forall a' \in \allalts: l_{a'} \nprec l_a$, from which follows that $\forall a' \in \PE \cap H(\prof): l_{a'} \nprec l_a$.
-	But $[\min l_{a'} < \min l_a \land d(l_a) = d(l_{a'})] ⇒ [\max l_{a'} < \max l_a]$, together implying with $a' \in H(\prof)$, from \cref{th:precLVCstr}, $l_{a'} \prec l_a$. We thus obtain, using the contrapositive, $\forall a' \in \PE \cap H(\prof): [\min l_a ≤ \min l_{a'} \lor d(l_a) ≠ d(l_{a'})]$.
-	
-	By definition of Strong RMD, $a \in f^\preceq(\prof)$ yields that $\forall a' \in \PE \cap H(\prof): d(l_a) ≤ d(l_{a'})$.
-	
-	We obtain that $\forall a' \in \PE \cap H(\prof): [d(l_a) ≤ d(l_{a'}) \land \min l_a ≤ \min l_{a'}] \lor d(l_a) < d(l_{a'})$, which is equivalent to $\forall a' \in \PE \cap H(\prof): s_{\prof}(a) ≤ s_{\prof}(a')$ and thus shows that $a \in \argmin_{\PE \cap H(\prof)} s_{\prof}$.
-	
-	Turning to the backwards direction, we know that $a \in f(\prof) ⇒ \forall a' \in \PE \cap H(\prof): s_{\prof}(a') ≥ s_{\prof}(a) ⇒ \forall a' \in \min_{\PE \cap H(\prof)} s_{\prof}: s_{\prof}(a') = s_{\prof}(a)$.
-	
-	Given $a, a' \in \PE \cap H(\prof)$, $s_{\prof}(a) = s_{\prof}(a')$ is equivalent to $d(l_a) = d(l_{a'}) \land \min l_a = \min l_{a'}$, itself, using \cref{th:indiffLVC}, implying $a_l \sim a_{l'}$, or equivalently, by LVC, $[a \in f(\prof) ⇔ a' \in f(\prof)]$.
-	
-	To conclude, pick any $a' \in \min_{\PE \cap H(\prof)} s_{\prof}$ and let us show that $a' \in f(\prof)$. Pick any $a \in f(\prof)$ (which exists as $f(\prof) ≠ \emptyset$). From above, we see that $s_{\prof}(a') = s_{\prof}(a)$, and from above again, we see that $[a \in f(\prof) ⇔ a' \in f(\prof)]$, whence $a' \in f(\prof)$.
-\end{proof}
-	
 \section{Concluding remarks}
 \label{sec:concl}
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.%
@@ -809,6 +675,146 @@ We reuse the following definitions from \citet{cailloux2022compromising}, lettin
 When $n = 2$ as in our case, it is plain that $\forall i \in \set{1, 2}: \abs{l_i - \bar{l}} = \frac{\abs{l_1 - l_2}}{2}$; $\sum_{i = 1}^n\sum_{j = 1}^n \abs{l_i - l_j} = 2 \abs{l_1 - l_2}$; $\forall l \in \R^n: \sigma_{mad}(l) = \sigma_{ad}(l) = \sigma_{sd}(l) = \frac{d(l)}{2}$ and $\sigma_G(l) = \frac{\abs{l_1 - l_2}}{2 (l_1 + l_2)}$. 
 Thus, $\sigma_{mad}$, $\sigma_{ad}$ and $\sigma_{sd}$ coincide with $d$, but $\sigma_G$ does not. 
 For example, the Gini coefficient considers $(49, 51)$ as less unequal than $(0, 1)$ whereas $d$ orders these tuples reversely.
+
+\section{Characterization of resolute RMD}
+\begin{lemma}
+	\label{th:inZ}
+	Given a subset of alternatives $X \subseteq \allalts$, let $S_X$ denote an linear ordering of all the alternatives in $X$.
+	Given a Paretian and MR rule $f$ and any profile $\prof$ and $1 ≤ k ≤ \khalf$,
+	if there exists a partition (a disjoint complete cover) of the alternatives into sets $A, B, C$ and $Z$ of respective sizes $k - 1$, $k - 1$, $m - 2 k$ and $2$ and orderings $S_{A \cup Z}$, $S_{B \cup Z}$, $S_A$, $S_B$ and $S_C$ such that $\prof$ contains the two following preferences (associated to individuals $(1, 2)$ or $(2, 1)$):
+	\begin{equation}
+		\begin{array}{*{3}c}
+			S_{A \cup Z} & S_C & S_B \\
+			S_{B \cup Z} & S_C & S_A
+		\end{array},
+	\end{equation}
+	then $f(\prof) \subseteq Z$.
+\end{lemma}
+
+\begin{proof}
+	We see first that $C \cap f(\prof) = \emptyset$ because $\forall c \in C, c \notin \PE$, which, as $f$ is Paretian, excludes $c \in f(\prof)$.
+	
+	We see then that $(A \cup B) \cap f(\prof) = \emptyset$ because  and $\forall z \in A \cup B, \max \lprof(z) ≥ (k - 1 + 2) + (m - 2 k) = m + 1 - k = \khalf + \floor{\frac{m - 1}{2}} + 2 - k$ and with $k ≤ \khalf$, $\max \lprof(z) ≥ \floor{\frac{m - 1}{2}} + 2 = \ceil{\frac{m - 2}{2}} + 2 = \ceil{\frac{m}{2}} + 1 ≥ \khalf + 1 > \khalf$, thus $z \notin H(\prof)$, which, as $f$ is MR, excludes $z \in f(\prof)$.
+\end{proof}
+	
+\begin{lemma}
+	\label{th:precLVC}
+	Consider any Paretian, MR and LVC rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\forall i \in N: l(i) < l'(i)]: l \prec l'$.
+\end{lemma}
+\begin{proof}
+	Name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.
+
+	Pick any $i \in \argmin l'$, and recall that by hypothesis, $l(i) < l'(i)$; also, $l(\ibar) < \max l'$ as $l(\ibar) < l'(\ibar) ≤ \max l'$.
+	Define the sequences $A_1 = (a_1, …, a_{l(i)})$, $A_2 = (a_{l(i) + 1}, …, a_{l'(i) - 1})$, $A_3 = (a_{l'(i)}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{l(\ibar)})$, $B_2 = (b_{l(\ibar) + 1}, …, b_{\max l' - 1})$, $C = (c_1, …, c_{m - 2 \max l'})$, and consider the profile $\prof$ defined as:
+	\begin{equation}
+		\begin{array}{*{5}c}
+			i &\mapsto & (A_1, x, A_2, y, A_3) & C & (B_1, B_2) \\
+			\ibar &\mapsto & (B_1, x, B_2, y) & C & (A_1, A_2, A_3)
+		\end{array}.
+	\end{equation}
+%	The layout of $\prof$ reflects the fact that the sequences $(A_1, A_2, A_3)$ and $(B_1, B_2)$ (hence, $(A_1, x, A_2, y, A_3)$ and $(B_1, x, B_2, y)$) have equal lengths (the latter having length $\max l' + 1$).
+	
+	We see from \cref{th:inZ} that $f(\prof) \subseteq \set{x, y}$.
+	
+	As $y \notin \PE$, we obtain $f(\prof) = \set{x}$ and therefore $f^\preceq(\prof) = \set{x}$, thus $\lprof(x) \prec \lprof(y)$.
+	
+	Observe, to conclude, that $\lprof(x)_i = l(i)$, $\lprof(x)_{\ibar} = l(\ibar)$, $\lprof(y)_i = l'(i)$ and $\lprof(y)_{\ibar} = \max l' = l'(\ibar)$, thus, $\lprof(x) = l$ and $\lprof(y) = l'$.
+\end{proof}
+
+\begin{remark}
+	A superficial look at the LVC property may produce the impression that Paretianism of an LVC rule $f^\preceq$ unconditionally lead to $\preceq$ respecting dominance of the losses (that is, $l ≤ l' ⇒ l \preceq l'$). This is false. For example, with $m = 3$, define the equivalence classes of losses $C_1 = \set{(0, 0), (0, 1), (1, 0)}$, $C_2 = \set{(1, 2), (2, 1), (2, 2)}$, $C_3 = \set{(1, 1)}$ and define $\preceq$ as considering $C_1$ smaller than $C_2$ smaller than $C_3$ (thus $((0, 0) \sim (0, 1) \sim (1, 0)) \prec ((1, 2) \sim (2, 1) \sim (2, 2)) \prec (1, 1)$). The relation $\preceq$ does not respect dominance of the losses ($(1, 1) < (2, 2)$ though $(1, 1) \npreceq (2, 2)$), but the corresponding rule $f^\preceq$ is Paretian: if some alternatives have losses $(0, 0)$, $(0, 1)$ or $(1, 0)$ in $\prof$, they will be elected, satisfying Paretianism; otherwise (thus if $\prof$ contains no alternatives with losses among $C_1$) then it contains the losses $\set{(0, 2), (2, 0), (1, 1)}$ where no Pareto dominance occurs.
+\end{remark}
+
+\begin{lemma}
+	\label{th:indiffLVC}
+	Consider any anonymous, Paretian, MR and LVC rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [l(1) = l'(2) \land l(2) = l'(1)]: l \sim l'$.
+\end{lemma}
+\begin{proof}
+	If $l(1) = l(2)$ then $l = l'$ and the conclusion follows from $\preceq$ being reflexive.
+	Thus, assume that $l(1) ≠ l(2)$, equivalently, that $\min l < \max l$.
+	Also note that $\max l = \max l'$, whence $1 ≤ \max l' ≤ \khalf$.
+	
+	Name the alternatives $a_1, …, a_{\max l' - 1}, b_1, …, b_{\max l' - 1}, x, y, c_1, …, \allowbreak{} c_{m - 2 \max l'}$.  %Note that this is feasible as $0 ≤ \min l < \max l' ≤ \khalf = \floor{\frac{m}{2}}$, whence $1 ≤ \max l'$ and $2 \max l' ≤ 2 \floor{\frac{m}{2}} ≤ m$ which leads to $2 (\max l' - 1) ≤ m - 2$.
+	Define the (possibly empty) sequences $A_1 = (a_1, …, a_{\min l})$, $A_2 = (a_{\min l + 1}, …, a_{\max l' - 1})$, $B_1 = (b_1, …, b_{\min l})$, $B_2 = (b_{\min l + 1}, …, b_{\max l' - 1})$ and $C = (c_1, …, c_{m - 2 \max l'})$.
+ 	Pick $i \in \argmin l$, equivalently, $\ibar \in \argmax l$,
+	and define the profile $\prof$ as:
+	\begin{equation}
+		\begin{array}{*{25}{l}}
+			i &\mapsto & A_1 & x & A_2 & y & C & B_1 & B_2 \\
+			\ibar &\mapsto & B_1 & y &B_2 & x & C & A_1 & A_2
+		\end{array}.
+	\end{equation}
+	
+	We see from \cref{th:inZ} that $f(\prof) \subseteq \set{x, y}$, and $f = f^\preceq$, thus, $x \in f(\prof) ⇔ \lprof(x) \preceq \lprof(y)$ and $y \in f(\prof) ⇔ \lprof(y) \preceq \lprof(x)$.
+	
+	Observe also that $\lprof(x)_i = \min l = \min l' = l(i)$, $\lprof(x)_{\ibar} = \max l = \max l' = l(\ibar)$, $\lprof(y)_i = l'(i)$ and $\lprof(y)_{\ibar} = \max l' = l'(\ibar)$, thus, $\lprof(x) = l$ and $\lprof(y) = l'$, which yields $x \in f(\prof) ⇔ l \preceq l'$ and $y \in f(\prof) ⇔ l' \preceq l$.
+%	Observe also that $\lprof(x)(N) = \lprof(y)(N) = \set{\min l, \max l}$, thus, $\lprof(\set{x, y}) = \set{l, l'}$.
+	
+	Consider now the profile $\prof'$ associating to each individual the preference of the other individual in $\prof$, as follows:
+	\begin{equation}
+		\begin{array}{*{25}{l}}
+			i &\mapsto & B_1 & y &B_2 & x & C & A_1 & A_2 \\
+			\ibar &\mapsto & A_1 & x & A_2 & y & C & B_1 & B_2
+		\end{array}.
+	\end{equation}
+	The argument above applies, mutatis mutandis, and yields that $x \in f(\prof') ⇔ \lprof[\prof'](x) \preceq \lprof[\prof'](y)$ and $y \in f(\prof') ⇔ \lprof[\prof'](y) \preceq \lprof[\prof'](x)$.
+	Also, $\lprof[\prof'](x) = l'$ and $\lprof[\prof'](y) = l$, which yields $x \in f(\prof') ⇔ l' \preceq l$ and $y \in f(\prof') ⇔ l \preceq l'$.
+	
+	Finally, by anonymity, $f(\prof) = f(\prof')$, thus, joining our conclusions so far, $x \in f(\prof) ⇔ l \preceq l' ⇔ x \in f(\prof') ⇔ l' \preceq l ⇔ y \in f(\prof)$. At least one of these propositions is true (as $x \in f(\prof) \lor y \in f(\prof)$), thus all are.
+\end{proof}
+
+\begin{lemma}
+	\label{th:precLVCstr}
+	Consider any anonymous, Paretian, MR and LVC rule $f$ and any $\preceq$ such that $f^\preceq = f$. Then, $\forall l, l' \in \intvl{0, \khalf}^N \suchthat [\min l < \min l' \land \max l < \max l']: l \prec l'$.
+\end{lemma}
+\begin{proof}
+	Observe that $(l'(2), l'(1))$ denotes the losses of $l'$ where both individuals are inverted.
+	From \cref{th:indiffLVC}, $l' \sim (l'(2), l'(1))$.
+	
+	Pick any $i \in \argmin l$.
+	Define $l'' = \set{(i, \min l'), (\ibar, \max l')}$; observe that $l'' = l' \lor l'' = (l'(2), l'(1))$.
+	It follows that $l' \sim l''$.
+	
+	By hypothesis, $\min l = l(i) < l''(i) = \min l' \land \max l = l(\ibar) < l''(\ibar) = \max l'$. Thus, by \cref{th:precLVC}, $l \prec l''$.
+	Together with $l' \sim l''$, this yields $l \prec l'$.
+\end{proof}
+
+Recall that \cref{th:caractRMD} states that a rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
+\commentOC{Check if the proof is clearer without the scoring function.}
+\begin{proof}[Proof of \cref{th:caractRMD}]
+	First note that $\forall \prof$, $a \in H(\prof) ⇔ s_{\prof}(a) < m^2$.
+	
+	Consider $f$ being the resolute RMD rule and let’s check that it is Strong RMD.
+	Within the first half, $s_{\prof}(a) = m (\max \lprof(a) - \min \lprof(a)) + \min \lprof(a) = m \max \lprof(a) - (m - 1) \min \lprof(a)$. Thus if $a$ PD $b$ within the first half, then $b$ does not win. Also, if $a \notin H(\prof)$, then $a$ does not win, as $\exists b \in H(\prof) \suchthat s_{\prof}(b) < m^2$.
+	
+	Now consider an LVC rule $f^\preceq = f$ that is anonymous and Strong RMD.
+	We have to show that $f$ is the RMD rule, thus, that $f(\prof) = \argmin_{\PE} s_{\prof}$. 
+	Observing that $a \in \min_{\PE} s$ is equivalent to $a \in \argmin_{\PE \cap H(\prof)} s$, as $a \in H(\prof) \land a' \notin H(\prof) ⇒ s_{\prof}(a) < s_{\prof}(a')$, an equivalent thesis is that $f(\prof) = \argmin_{\PE \cap H(\prof)} s_{\prof}$.
+
+	Let us write, given $a \in \allalts$, $l_a$ instead of $\lprof(a)$.
+	
+	For the forward direction, considering any $a \in f(\prof)$, let us show that $a \in \argmin_{\PE \cap H(\prof)} s_{\prof}$.
+	
+	Strong RMD implies Paretianism and MR, thus, $a \in \PE \cap H(\prof)$.
+	
+	By definition of LVC, $a \in f^\preceq(\prof)$ is equivalent to $\forall a' \in \allalts: l_{a'} \nprec l_a$, from which follows that $\forall a' \in \PE \cap H(\prof): l_{a'} \nprec l_a$.
+	But $[\min l_{a'} < \min l_a \land d(l_a) = d(l_{a'})] ⇒ [\max l_{a'} < \max l_a]$, together implying with $a' \in H(\prof)$, from \cref{th:precLVCstr}, $l_{a'} \prec l_a$. We thus obtain, using the contrapositive, $\forall a' \in \PE \cap H(\prof): [\min l_a ≤ \min l_{a'} \lor d(l_a) ≠ d(l_{a'})]$.
+	
+	By definition of Strong RMD, $a \in f^\preceq(\prof)$ yields that $\forall a' \in \PE \cap H(\prof): d(l_a) ≤ d(l_{a'})$.
+	
+	We obtain that $\forall a' \in \PE \cap H(\prof): [d(l_a) ≤ d(l_{a'}) \land \min l_a ≤ \min l_{a'}] \lor d(l_a) < d(l_{a'})$, which is equivalent to $\forall a' \in \PE \cap H(\prof): s_{\prof}(a) ≤ s_{\prof}(a')$ and thus shows that $a \in \argmin_{\PE \cap H(\prof)} s_{\prof}$.
+	
+	Turning to the backwards direction, we know that $a \in f(\prof) ⇒ \forall a' \in \PE \cap H(\prof): s_{\prof}(a') ≥ s_{\prof}(a) ⇒ \forall a' \in \min_{\PE \cap H(\prof)} s_{\prof}: s_{\prof}(a') = s_{\prof}(a)$.
+	
+	Given $a, a' \in \PE \cap H(\prof)$, $s_{\prof}(a) = s_{\prof}(a')$ is equivalent to $d(l_a) = d(l_{a'}) \land \min l_a = \min l_{a'}$, itself, using \cref{th:indiffLVC}, implying $a_l \sim a_{l'}$, or equivalently, by LVC, $[a \in f(\prof) ⇔ a' \in f(\prof)]$.
+	
+	To conclude, pick any $a' \in \min_{\PE \cap H(\prof)} s_{\prof}$ and let us show that $a' \in f(\prof)$. Pick any $a \in f(\prof)$ (which exists as $f(\prof) ≠ \emptyset$). From above, we see that $s_{\prof}(a') = s_{\prof}(a)$, and from above again, we see that $[a \in f(\prof) ⇔ a' \in f(\prof)]$, whence $a' \in f(\prof)$.
+\end{proof}
+
+\begin{remark}
+    LVC is required because Anonymity and Strong RMD (even with neutrality) does not suffice to obtain the resolute RMD rule: the Strong RMD rule also satisfies those properties.
+\end{remark}
+
 \bibliography{bibliototal}
 \end{document}
 
