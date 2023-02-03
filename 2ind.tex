@@ -16,7 +16,7 @@
 	%Reduces verbosity about the underful vboxes.
 	\vbadness=1300
 
-\title{Two principles for two-person social choice \thanks{We would like to thank Sylvain Béal, Danilo Santa Cruz Coelho and Jean-François Laslier for their comments on an earlier draft of this paper as well as the seminar audience at CRESE for useful remarks.}}
+\title{Two principles for two-person social choice \thanks{Earlier versions of this paper have been presented at CRESE, Université de Franche-Comté and CMSS, the University of Auckland. We thank both institutions. We also thank Miguel Ballester, Sylvain Béal, Danilo Santa Cruz Coelho, John Hillas, Jean-François Laslier, Clemens Puppe, Arkadii Slinko and Yves Sprumont for useful exchanges we had.}}
 \author[*]{Olivier Cailloux}
 \author[**]{Matías Núñez}
 \author[*]{M. Remzi Sanver}
@@ -55,7 +55,7 @@ A closer look at this compromising idea and in particular at unanimity compromis
 
 Although the minimal Rawlsian and equal loss principles cover many of the two-person social choice rules, the literature is missing an axiomatic analysis of these rules from this perspective, an observation which forms the subject matter of our paper. We consider the following rules, where $m$ is the number of alternatives.
 \begin{itemize}
-	\item Unanimity compromise, as defined by \citet{BramsKilgour2001} (under the name of Fallback bargaining).
+	\item Unanimity compromise, as defined by \citet{BramsKilgour2001} (under the name of fallback bargaining).
 	\item The \textit{veto-rank rule} where, for $m$ odd, each individual vetoes $(m - 1) / 2$ alternatives and ranks the remaining $(m+1) / 2$. The outcome is the alternatives with the minimal sum of ranks among those that have not been vetoed.
 	\item The \textit{shortlisting rule} where, for $m$ odd, one individual selects her best $(m+1) / 2$ alternatives and the rule picks the best alternative of the other individual out of that shortlist.
 	\item The class of \textit{Pareto-and-veto rules} where each individual $i$ vetoes a fixed number $v_i$ of alternatives with $v_1 + v_2$ being lower than $m$. The outcome is the set of Pareto optimal alternatives that are not vetoed. 
@@ -357,7 +357,7 @@ Define the minimal dispersion (MD) condition as follows.
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
-The next theorem will permit to establish the relationship of MD with respect to the other classes of rules considered in this article.
+The next theorem will permit to establish the relationship of MD to the rules we consider.
 
 \begin{theorem}
 	\label{th:caractEmpty}
@@ -491,7 +491,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
-
+\commentRS{A point that Miguel suggested: Does Theorem 14 pave the wat to show that one can always ensure a dispersion that is no more than a third of m?}
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
@@ -530,7 +530,7 @@ Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives�
 
 RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, TODO cite relevant result).
 \commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
-\commentRS{I agree.}
+\commentRS{I agree.} \commentRS{A verbal explanation of the theorem below may be useful.}
 \begin{theorem}
 	\label{th:RMDMD}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
@@ -664,6 +664,7 @@ We bring a consideration based on a common interpretation and perspective. The a
 In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Paretian alternatives that are ranked within the first half of both individuals.
 
 Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that does not exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Aiming at more refined outcomes that minimize loss dispersion, one can directly pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion or the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggest that there is room to conceive and analyze new social choice rules.
+\commentRS{We should add to the conclusion our findings about the strong RMD rule. We should compare it to the VR rule. Should we mention the rule proposed by Hillas?}
 
 \appendix
 
