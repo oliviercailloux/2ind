@@ -548,7 +548,7 @@ RMD strengthens MR. On the other hand, the relationship between RMD and MD depen
 \begin{proof}
 	Consider the following profile $\prof$ with 11 alternatives, $\set{a, b, c, d, e, f, g, h,\allowbreak x, y, z}$ (the bar indicates the “half” position).
 	\begin{equation}
-		\begin{array}{llllll|ll}
+		\begin{array}{*6{l}|ll}
 			x&a&b&c&d&y&w&\ldots \\
 			e&f&g&y&x&h&w&\ldots
 		\end{array}.
@@ -781,9 +781,27 @@ For example, the Gini coefficient considers $(49, 51)$ as less unequal than $(0,
 	Together with $l' \sim l''$, this yields $l \prec l'$.
 \end{proof}
 
+\begin{theorem}
+	With $m ≥ 8$, consider any rule $f$ satisfying RMD and anonymity. The rule is not LVC.
+\end{theorem}
+\begin{proof}
+	Note that $\khalf ≥ 4$. 
+	Consider the profile $\prof$:
+	\begin{equation}
+		\begin{array}{*8{l}}
+			x&a_1&a_2&a_3&y&a_4&\ldots&a_{m - 2} \\
+			a_{m - 2}&a_{m - 1}&y&x&a_1&a_2&\ldots&a_{m - 3}
+		\end{array}.
+	\end{equation}
+	Note that $\forall 3 ≤ i ≤ m - 3$, $a_2$ Pareto-dominates $a_i$. Thus, $\argmin_{H(\prof) \cap \PE} (d \circ \lprof) = \set{y}$, thus $y \in f(\prof)$.
+
+	It follows that there is no $\preceq$ such that $f^\preceq = f$: if there was such a $\preceq$,
+	by \cref{th:precLVCstr} (applicable because RMD implies Pareto and MR), we would have $(0, 3) \prec (4, 2)$, whence $y \notin f^\preceq$.
+\end{proof}
+
 Recall that \cref{th:caractRMD} states that a rule $f$ is the resolute RMD rule iff it satisfies anonymity, Strong RMD and LVC.
 \commentOC{Check if the proof is clearer without the scoring function.}
-\begin{proof}[Proof of \cref{th:caractRMD}]
+\begin{proof}[Proof of \cref{th:caractRMD} - Wrong!]
 	First note that $\forall \prof$, $a \in H(\prof) ⇔ s_{\prof}(a) < m^2$.
 	
 	Consider $f$ being the resolute RMD rule and let’s check that it is Strong RMD.
