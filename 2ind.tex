@@ -136,6 +136,10 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
 \end{definition}
+\commentOC{Miguel Ballester observed that we’d better define the following property (name to be found). Given $k \in \intvl{0, m - 1}$, a SCR is Miguel-$k$-Rawlsian iff it prefers alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
+	$\forall \prof \in \allprofs,  x, y \in \allalts, \lprof(x) \in \intvl{0, k}^2 \land \lprof(y) \notin \intvl{0, k}^2 ⇒ y \notin f(\prof)$.
+	I believe that Miguel-$\khalf$-Rawlsianism is equivalent to $\khalf$-Ralwsianism, and Miguel-$\khalf - 1$-Rawlsianism is possibly an interesting property (that perhaps the Strong RMD rules satisfy) whereas for $k < \khalf$, $k$-Rawlsianism are uninteresting properties.
+	I am in favor of making that point formally, if we can do so in a reasonably compact way.}
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
 \begin{theorem}
 	There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
@@ -603,7 +607,7 @@ It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{theorem}
-The Strong RMD rule selects $f$ at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
+	The Strong RMD rule $f$ selects at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
 \end{theorem}
 \begin{proof}
 	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
