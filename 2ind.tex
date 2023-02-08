@@ -104,7 +104,7 @@ We say that such alternatives receive unanimous support at level $k$. Let $\rhoP
 
 We now define the SCRs of the literature that we analyze in the paper.
 \commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
-If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}
+If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -424,7 +424,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
 \end{remark}
 
-The next two results follow from \cref{th:caractEmpty}.
+The next two theorems follow from \cref{th:caractEmpty}.
 
 \begin{theorem}
 	\label{th:noMRMD}
@@ -491,7 +491,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
-\commentRS{A point that Miguel suggested: Does Theorem 14 pave the wat to show that one can always ensure a dispersion that is no more than a third of m?}
+\commentRS{A point that Miguel suggested: Does Theorem 14 pave the wat to show that one can always ensure a dispersion that is no more than a third of m?} \commentMN{Good point indeed. To be more precise, you mean that : for any profile, one can always find some alternative with a dispersion of at most $m/3$. Is that it?  Olivier, do you some counterexample to that? } \commentRS{Yes, this is what I mean.} \commentMN{This is probably true. Since $FH$ is never empty, the dispersion is at most $m/2$. Now, how to reduce the upper-bound? Should we try a contradiction? I think that this is very interesting. }
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
@@ -664,7 +664,7 @@ We bring a consideration based on a common interpretation and perspective. The a
 In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Paretian alternatives that are ranked within the first half of both individuals.
 
 Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that does not exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Aiming at more refined outcomes that minimize loss dispersion, one can directly pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion or the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggest that there is room to conceive and analyze new social choice rules.
-\commentRS{We should add to the conclusion our findings about the strong RMD rule. We should compare it to the VR rule. Should we mention the rule proposed by Hillas?}
+\commentRS{We should add to the conclusion our findings about the strong RMD rule. We should compare it to the VR rule. Should we mention the rule proposed by Hillas?}\commentMN{Yes, The Hillas rule is a good idea.}
 
 \appendix
 
