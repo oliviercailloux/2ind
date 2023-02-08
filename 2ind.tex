@@ -133,22 +133,29 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \label{sec:minprinc}
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
-	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
-	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
-\end{definition}
-\commentOC{Miguel Ballester observed that we’d better define the following property (name to be found). Given $k \in \intvl{0, m - 1}$, a SCR is Miguel-$k$-Rawlsian iff it prefers alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
+	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it it prefers alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
 	$\forall \prof \in \allprofs,  x, y \in \allalts, \lprof(x) \in \intvl{0, k}^2 \land \lprof(y) \notin \intvl{0, k}^2 ⇒ y \notin f(\prof)$.
-	I believe that Miguel-$\khalf$-Rawlsianism is equivalent to $\khalf$-Ralwsianism, and Miguel-$\khalf - 1$-Rawlsianism is possibly an interesting property (that perhaps the Strong RMD rules satisfy) whereas for $k < \khalf$, $k$-Rawlsianism are uninteresting properties.
-	I am in favor of making that point formally, if we can do so in a reasonably compact way.}
-It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism can be satisfied if, and only if, $k$ is at least “half”.
+\end{definition}
+The property $k$-Rawlsianism, for which we thank Miguel Ballester, is binding at exactly those profiles where some alternative has its losses in $\intvl{0, k}^2$, and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a maximal possible loss to every individual \emph{a priori} (meaning, whatever the profile).
+It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding if, and only if, $k$ is at least “half”.
 \begin{theorem}
-	There exist $k$-Rawlsian SCRs iff $k  ≥ \khalf$.
+	$\forall \prof: \exists a \in \allalts \suchthat \lprof(a) \in \intvl{0, k}^2 ⇔ k ≥ \khalf$.
 \end{theorem}
-It follows that the strongest satisfiable version of $k$-Rawlsianism is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism feasible while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
+
+It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
 	A SCR $f$ satisfies \MRprop{} iff 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
+
+\begin{remark}
+	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.%
+	\footnote{We actually thought about that version first. We thank Miguel Ballester for the improved version.}
+	\commentOC{We can choose whether we thank him in the text (as above) or in a footnote (as here), with or without further details.} 
+	Formally:
+	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
+	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
+\end{remark}
 
 \begin{theorem}
 	\label{th:inFH}
@@ -424,20 +431,28 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
 \end{remark}
 
-The next two results follow from \cref{th:caractEmpty}.
+The next results follow from \cref{th:caractEmpty}.
+
+\begin{theorem}
+	\label{th:profsIncompat}
+	$\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
+\end{theorem}
+\begin{proof}
+	When $m = 2$, $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+	
+	When $m ≥ 3$, fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
+	\begin{equation}
+		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+	\end{equation}
+	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
+\end{proof}
 
 \begin{theorem}
 	\label{th:noMRMD}
 	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
 \end{theorem}
 \begin{proof}
-	Fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
-	\begin{equation}
-		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
-	\end{equation}
-	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$.
-	
-	It follows that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,  $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
+	It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction (\cref{th:caractEmpty} does not apply for $m = 2$; in that case,   also holds); and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
@@ -528,15 +543,14 @@ Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives�
 	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, TODO cite relevant result).
-\commentOC{If we want to keep the following result, we might want to add a new result before \cref{th:noMRMD} which states that $\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. We could then use that new result both to deduce what is currently \cref{th:noMRMD} as a corollary, and in the proof below.}
-\commentRS{I agree.} \commentRS{A verbal explanation of the theorem below may be useful.}
+RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, by \cref{th:profsIncompat}).
+Summarizing, when $m$ is small enough ($m ≤ 6$ or $m = 8$), and only then, first, RMD implies MD, and second, some rules are both RMD and MD.
 \begin{theorem}
 	\label{th:RMDMD}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{theorem}
 \begin{proof}
-	First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. The proof of \cref{th:noMRMD} indicates that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. 
+	First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. \Cref{th:profsIncompat} indicates that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. 
 	And $[H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset] ⇒ [\argmin_{H(\prof) \cap \PE} (d \circ \lprof) \subseteq \argmin_{\PE} (d \circ \lprof)]$.
 	Given $f \in \RMDcl$, $f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, thus, when $m ≤ 6 \lor m = 8$, $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
