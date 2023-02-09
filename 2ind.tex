@@ -136,12 +136,26 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
 	$\forall \prof \in \allprofs,  x, y \in \allalts, \lprof(x) \in \intvl{0, k}^2 \land \lprof(y) \notin \intvl{0, k}^2 ⇒ y \notin f(\prof)$.
 \end{definition}
-\commentRS{I revised the wording of the definition above.} 
-$k$-Rawlsianisn is binding at exactly those profiles where some alternative has its losses in $\intvl{0, k}^2$, and is void at the other profiles. \commentRS{I deleted the thanks to Ballester, I think we should do this somewhere else.} It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a maximal possible loss to every individual \emph{a priori} (meaning, whatever the profile). \commentRS{minimal possible loss, no? Let's not use a priori.} 
+
+$k$-Rawlsianisn is binding at exactly those profiles where some alternative has its losses in $\intvl{0, k}^2$, and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
 \begin{theorem}
 	$\forall \prof: \exists a \in \allalts \suchthat \lprof(a) \in \intvl{0, k}^2 ⇔ k ≥ \khalf$.
 \end{theorem}
+
+
+
+\begin{remark}
+	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.%
+	\footnote{We actually thought about that version first. We thank Miguel Ballester for the improved version.}
+	Formally:
+	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
+	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
+\end{remark}
+\commentRS{I propose to make this remark and the thanks to Ballester when we define SRMD.} 
+\commentMN{ I'd rather leave it here. }
+\commentRS{Let's first agree on the content of the remark. What do we wish to say here? To my understanding, to point of Miguel is the following: using the "natural" half instead of our "artificial" one doesn't matter under SRMD (while it matters in other instances). AM I right, Olivier?} 
+
 
 It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
@@ -149,15 +163,7 @@ It follows that the strongest version of $k$-Rawlsianism that is binding at ever
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-\begin{remark}
-	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.%
-	\footnote{We actually thought about that version first. We thank Miguel Ballester for the improved version.}
-	\commentOC{We can choose whether we thank him in the text (as above) or in a footnote (as here), with or without further details.} 
-	Formally:
-	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
-	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
-\end{remark}
-\commentRS{I propose to make this remark and the thanks to Ballester when we define SRMD.} 
+
 
 \begin{theorem}
 	\label{th:inFH}
@@ -634,7 +640,9 @@ The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy
 
 
 
-\color{red} NEW VERSION:More resoluteness can be achieved by adding a requirement that among the Pareto efficient alternatives in the FH. Define to that effect the \emph{resolute RMD} rule as follows. This rule makes a selection of the strong RMD alternatives, by picking the one(s) with the highest sum of losses: thus $f(\prof) = \argmax_{a \in SMRD(\prof)} \lprof(a)_1+\lprof(a)_2 $.\color{black}
+\color{red} NEW VERSION:More resoluteness can be achieved by adding a requirement that among the Pareto efficient alternatives in the FH. Define to that effect the \emph{resolute RMD} rule as follows. This rule makes a selection of the strong RMD alternatives, by picking the one(s) with the highest sum of losses: thus $f(\prof) = \argmax_{a \in SMRD(\prof)} \lprof(a)_1+\lprof(a)_2 $. 
+
+\color{black}
 
 
 \color{blue}OLD VERSION:More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$. It associates to each Paretian alternative $a \in \PE$ in a profile $\prof$ having losses $\lprof(a)$ the score (or “badness”) $s_{\prof}(a) = md(\lprof(a)) + \min\lprof(a) + m^2 \ind_{a \notin H(\prof)}$, where $m = \card{\allalts}$ and $d(l) = \max l - \min l$ as previously and $\ind_{a \notin H(\prof)}$ equals $1$ iff $a \notin H(\prof)$ and $0$ otherwise. The rule picks as winners the Paretian alternatives with minimal score, thus $f(\prof) = \argmin_{a \in \PE} s_{\prof}(a)$.\color{black}
