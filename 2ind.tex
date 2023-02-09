@@ -98,18 +98,16 @@ Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \l
 We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the losses up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
 We now define the SCRs of the literature that we analyze in the paper.
-\commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
-If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
 The \textbf{veto-rank rule} $\VR$ is defined as follows. Each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, then the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
 
-The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$, and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$.
+The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$ (equivalently, that is among the best $\khalf = \khalfAlt$ alternatives of individual $2$), and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$.
 
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
@@ -190,7 +188,7 @@ The following result determines which rules in $\PVcl$ satisfy MR.
 Note that 
 $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ 
 is equivalent to 
-$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalf]$. 
+$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. 
 Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
@@ -361,7 +359,7 @@ SPEL, failed by all rules we consider but one, allows to distinguish $\FB$ from 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
-We show in \cref{sec:spreads} that $d$ coincides with several commonly used spread measures, 
+We show in \cref{sec:spreads} that $d$ coincides with several commonly used spread measures.
 
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
@@ -401,11 +399,11 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
 	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
 	
-	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalf$; whence $t ≥ \khalf$.
-	 \footnote{When $m$ odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalf$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalf$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalf$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalf$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalf$.} 
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$; whence $t ≥ \khalfAlt$.%
+	 \footnote{When $m$ is odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalfAlt$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalfAlt$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalfAlt$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalfAlt$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalfAlt$.} 
 	
 	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
-	Also, $t ≥ \khalf$ thus $m - 1 - t ≤ m - 1 - \khalf = \floor{\frac{m - 1}{2}} ≤ t$.
+	Also, $t ≥ \khalfAlt$ thus $m - 1 - t ≤ m - 1 - \khalfAlt = \floor{\frac{m - 1}{2}} ≤ t$.
 	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - 1 - t ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $d(\lprof(y)) ≤ m - 1 - t$. 
 	
 	Observe now that $\min \lprof(x) ≤ m - 1 - \max \lprof(x)$, by \cref{th:sumlosses}. This yields $d(\lprof(x)) = \max \lprof(x) - \min\lprof(x) ≥ \max \lprof(x) - (m - 1 - \max \lprof(x)) = 2 \lprof(x)_i - m + 1 ≥ 2 (t + 1) - m + 1$.

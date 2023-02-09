@@ -11,7 +11,8 @@
 \NewDocumentCommand{\prof}{}{\bm{P}}
 \NewDocumentCommand{\lprof}{O{\bm{P}}}{\lambda_{#1}}
 \NewDocumentCommand{\lprofinv}{O{\bm{P}}}{\lambda_{#1}^{-1}}
-\NewDocumentCommand{\khalf}{}{\ceil{\frac{m - 1}{2}}}
+\NewDocumentCommand{\khalf}{}{\floor{\frac{m}{2}}}
+\NewDocumentCommand{\khalfAlt}{}{\ceil{\frac{m - 1}{2}}}
 \NewDocumentCommand{\linors}{}{\mathscr{L}(\allalts)}
 \NewDocumentCommand{\wors}{O{\allalts}}{\mathscr{W}(#1)}
 %Thanks to https://tex.stackexchange.com/q/154549
