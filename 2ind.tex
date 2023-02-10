@@ -89,15 +89,16 @@ Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of
 The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \intvl{0, m - 1}^N$, assigns to each individual her loss associated to $x$.
 
 Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. 
-Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$ 
-and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss and the sum of the losses associated to $\lprof(x)$.
+Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$ 
+and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss, maximal loss and the sum of the losses associated to $\lprof(x)$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
 We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the losses up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \lprof(x) ≤ (k, k)}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
-We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the losses up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
+We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
+\commentOC{I added an equivalent statement about UC so as to use it in the proof later (see my related comment later).}
 
 We now define the SCRs of the literature that we analyze in the paper.
 \commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
@@ -132,18 +133,30 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
-	$\forall \prof \in \allprofs,  x, y \in \allalts, \lprof(x) \in \intvl{0, k}^2 \land \lprof(y) \notin \intvl{0, k}^2 ⇒ y \notin f(\prof)$.
+	$\forall \prof \in \allprofs,  x, y \in \allalts, \max \lprof(x) ≤ k \land \max \lprof(y) > k ⇒ y \notin f(\prof)$.
 \end{definition}
 
-$k$-Rawlsianisn is binding at exactly those profiles where some alternative has its losses in $\intvl{0, k}^2$, and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.
-It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
+$k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ has its losses in $\intvl{0, k}^2$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.
+It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”. We include a short proof for completeness.
+\commentOC{We said previously that it would be nice to have a short proof for completeness (it would be a bit sad that the reader needs to refer to their article just for these starting results whereas the rest of our paper is entirely self-contained). I had given up at that time because I thought it would be difficult to prove. But thinking about it again (and borrowing from one of my proofs for our other paper in preparation about compromise rules), I realize that the proof is quite short. So I suggest to include it.}
 \begin{theorem}
-	$\forall \prof: \exists a \in \allalts \suchthat \lprof(a) \in \intvl{0, k}^2 ⇔ k ≥ \khalf$.
+	\label{th:BKkhalf}
+	$\forall \prof: \exists x \in \allalts \suchthat \max \lprof(x) ≤ k ⇔ k ≥ \khalf$.
 \end{theorem}
-
-
+\begin{proof}
+	First, if $k < \khalf$, the left-hand side is false: consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
+	
+	Second, assuming that $k ≥ \khalf$ and given any $\prof \in \allprofs$, let us show that for some $x \in \allalts$, $\max \lprof(x) ≤ k$.
+	Define $A = \set{a \in \allalts \suchthat 0 ≤ \lprof(a)_1 ≤ \khalf}$.
+	Define $B = \set{a \in \allalts \suchthat \khalf < \lprof(a)_2 ≤ m - 1}$.
+	Observe that $\card{A} = \khalf + 1$ and $\card{B} = (m - 1) - \khalf = (m - 1) - \khalfAlt = \khalfC ≤ \khalf$, thus, $\card{B} < \card{A}$.
+	Thus, $\exists x \in A \setminus B$.
+	Thus, $\lprof(x)_1 ≤ \khalf$ (as $x \in A$) and $\lprof(x)_2 ≤ \khalf$ (as $x \notin B$).
+	It follows that $\max \lprof(x) ≤ \khalf$.
+\end{proof}
 
 \begin{remark}
+	\label{rk:variant}
 	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.%
 	\footnote{We actually thought about that version first. We thank Miguel Ballester for the improved version.}
 	Formally:
@@ -152,8 +165,10 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is bind
 \end{remark}
 \commentRS{I propose to make this remark and the thanks to Ballester when we define SRMD.} 
 \commentMN{ I'd rather leave it here. }
+\commentOC{Agreed with Matías: the remark is about an alternative definition of $k$-Rawlsianism, I see no reason to move it much further away.}
 \commentRS{Let's first agree on the content of the remark. What do we wish to say here? To my understanding, to point of Miguel is the following: using the "natural" half instead of our "artificial" one doesn't matter under SRMD (while it matters in other instances). Am I right, Olivier?} 
-
+\commentOC{1. The content of the remark. We wish (rather, I wish) to talk about a variant of $k$-Rawlsianism that the reader may have in mind (or may simply find interesting to think about), to compare it with our definition and convince the reader that our definition is more interesting than the variant but that if she really prefers the variant, it’s all right, as they coincide for our choice of $k$.
+2. The point of Miguel. He made several points. I agree that what you write here was one of his points. And that has to be talked about after defining SRMD. But it’s not an argument for moving \cref{rk:variant}. Or I am missing something.}
 
 It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
@@ -161,14 +176,12 @@ It follows that the strongest version of $k$-Rawlsianism that is binding at ever
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-
-
 \begin{theorem}
 	\label{th:inFH}
 	$\FB, \VR, \SL \in \PEcl \cap \MRcl$. 
 \end{theorem}
  \begin{proof}
-	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, Theorem 1 of \citet{BramsKilgour2001} shows that $\forall \prof \in \allprofs$, $\rhoP ≤ \khalf$.
+	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, \cref{th:BKkhalf} shows that $\forall \prof \in \allprofs$, $\rhoP = \min \max \lprof ≤ \khalf$.
 \end{proof} 
    
 We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
@@ -424,6 +437,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim will be proven by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
 	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
+	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?}
 	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
 	
 	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
@@ -513,6 +527,8 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 \commentRS{A point that Miguel suggested: Does Theorem 15 pave the way to show that one can always ensure a dispersion that is no more than a third of m?} \commentMN{Good point indeed. To be more precise, you mean that : for any profile, one can always find some alternative with a dispersion of at most $m/3$. Is that it?  Olivier, do you some counterexample to that? } \commentRS{Yes, this is what I mean.} \commentMN{This is probably true. Since $FH$ is never empty, the dispersion is at most $m/2$. Now, how to reduce the upper-bound? Should we try a contradiction? I think that this is very interesting. }
+\commentOC{I agree that Miguel suggested to compute that bound, but he didn’t say how much it would be (I suggested one third of $m$ but it was only a rough guess). Why Theorem 15? I don’t see the link with the veto levels. Isn’t the bound $\khalf$, as Matías writes? Consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.}
+
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
