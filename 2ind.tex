@@ -100,6 +100,9 @@ In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$ be the least loss level at which some alternative receives unanimous support.
 
 We now define the SCRs of the literature that we analyze in the paper.
+\commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
+If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
+\commentOC{I have now changed it throughout. However, it is not as nice as I thought: the complement that matters is the one to $m - 1$, not to $m$, so that the complement of $\khalf$ (to $m - 1$, thus) is $\floor{\frac{m - 1}{2}}$, or $\ceil{\frac{m}{2}} - 1$, both being not much intuitive; whereas it is more immediate to see that the complement of $\khalfAlt$ to $m - 1$ is $\floor{\frac{m - 1}{2}}$. However, I considered that the advantages of $\khalf$ over $\khalfAlt$ generally compensates for this nuisance.}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
