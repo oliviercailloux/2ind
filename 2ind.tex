@@ -174,7 +174,7 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is bind
 \commentOC{1. The content of the remark. We wish (rather, I wish) to talk about a variant of $k$-Rawlsianism that the reader may have in mind (or may simply find interesting to think about), to compare it with our definition and convince the reader that our definition is more interesting than the variant but that if she really prefers the variant, it’s all right, as they coincide for our choice of $k$.
 2. The point of Miguel. He made several points. I agree that one of his points was about SRMD. And that has to be talked about after defining SRMD. But it’s not an argument for moving \cref{rk:variant}. Or I am missing something.}
 \commentRS{There are two issues. ISSUE 1: For any k, remarking the difference between Rawlsianism and strict Rawlsianism. This is what Remark 4 says. This remark is unrelated to SRMD and I agree that we can make it here, if it is worth making. However, the paper is already full of concepts and I don't see the utility of introducing a new one which we never use. ISSUE 2: Choosing k as the "true" half is equivalent to our "artificial" half under SRMD. I find this worthy to remark and its place is, naturally, in the section where we define SRMD.} 
-\commentOC{I find \cref{rk:variant} possibly enlightening but I admit that this may be overwhelming for the first reading. So if Remzi is opposed and Matías is not in favor of keeping it, we can delete it. Another possibility is to transform it into a footnote to make it clearer that it can be skipped on first read (though I think that the clear demarcation as a Remark conveys the “can-be-skipped” information equally well).}
+\commentOC{I find \cref{rk:variant} possibly enlightening but I admit that this may be overwhelming for the first reading. So if Remzi is opposed and Matías is not in favor of keeping it, we can delete it. Another possibility is to transform it into a footnote to make it clear that it can be skipped on first read (though I think that the clear demarcation as a Remark conveys the “can-be-skipped” information equally well).} \commentRS{Exactly, my subjective argument is that the cost of overwhelming exceeds the benefit of enlightenment. Let's see what Matias will say.}
 
 It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
@@ -443,7 +443,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim will be proven by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
 	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
-	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?}
+	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.}
 	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
 	
 	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
@@ -533,7 +533,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
 \commentRS{A point that Miguel suggested: Does Theorem 15 pave the way to show that one can always ensure a dispersion that is no more than a third of m?} \commentMN{Good point indeed. To be more precise, you mean that : for any profile, one can always find some alternative with a dispersion of at most $m/3$. Is that it?  Olivier, do you some counterexample to that? } \commentRS{Yes, this is what I mean.} \commentMN{This is probably true. Since $FH$ is never empty, the dispersion is at most $m/2$. Now, how to reduce the upper-bound? Should we try a contradiction? I think that this is very interesting. }
-\commentOC{I agree that Miguel suggested to compute that bound, but he didn’t say how much it would be (I suggested one third of $m$ but it was only a rough guess). Why Theorem 15? I don’t see the link with the veto levels. Isn’t the bound $\khalf$, as Matías writes? Consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.}
+\commentOC{I agree that Miguel suggested to compute that bound, but he didn’t say how much it would be (I suggested one third of $m$ but it was only a rough guess). Why Theorem 15? I don’t see the link with the veto levels. Isn’t the bound $\khalf$, as Matías writes? Consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.} \commentRS{Right, my pointing to Theorem 15 is senseless. As Matias says the dispersion is at most $m/2$ and as your example shows it cannot be guaranteed to be less than $m/2$. Thus, $m/2$ is the maxmin value for dispersion. Miguel suggested to compute this value and proposed the condition to eliminate alternatives whose dispersion exceeds that value. However, as this value is $m/2$, the proposition of Miguel boils down to the first half condition, no? If so, this is an interesting remark to make.}
 
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
@@ -660,7 +660,7 @@ The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy
 
 
 
-\color{red} NEW VERSION:More resoluteness can be achieved by adding a requirement that among the Pareto efficient alternatives in the FH. Define to that effect the \emph{resolute RMD} rule as follows. This rule makes a selection of the strong RMD alternatives, by picking the one(s) with the highest sum of losses: thus $f(\prof) = \argmax_{a \in SMRD(\prof)} \lprof(a)_1+\lprof(a)_2 $. 
+\color{red} NEW VERSION:More resoluteness can be achieved by adding a requirement that among the Pareto efficient alternatives in the FH. Define to that effect the \emph{resolute RMD} rule as follows. This rule makes a selection of the strong RMD alternatives, by picking the one(s) with the highest sum of losses: thus $f(\prof) = \argmax_{a \in SMRD(\prof)} \lprof(a)_1+\lprof(a)_2 $. \commentRS{We mean the lowest sum of losses, no?}
 
 \color{black}
 
