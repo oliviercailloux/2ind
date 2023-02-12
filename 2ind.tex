@@ -96,7 +96,7 @@ Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \l
 We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the losses up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the loss values up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
 \commentOC{I added an equivalent statement about UC so as to use it in the proof later (see my related comment later).}
 
@@ -105,6 +105,7 @@ We now define the SCRs of the literature that we analyze in the paper.
 If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
 \commentOC{I have now changed it throughout. However, it is not as nice as I thought: the complement that matters is the one to $m - 1$, not to $m$, so that the complement of $\khalf$ (to $m - 1$, thus) is $\floor{\frac{m - 1}{2}}$, or $\ceil{\frac{m}{2}} - 1$, both being not much intuitive; whereas it is more immediate to see that the complement of $\khalfAlt$ to $m - 1$ is $\floor{\frac{m - 1}{2}}$. However, I considered that the advantages of $\khalf$ over $\khalfAlt$ generally compensates for this nuisance.}
 \commentRS{I am OK with all the comments until here. They can be deleted whenever the necessary action is taken.} 
+\commentOC{Okay, I wait for Matías’ approval.}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -146,9 +147,9 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is bind
 	$\forall \prof: \exists x \in \allalts \suchthat \max \lprof(x) ≤ k ⇔ k ≥ \khalf$.
 \end{theorem}
 \begin{proof}
-	To prove the "only if" part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
+	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
 	
-	To prove the "if" part, let $k ≥ \khalf$. For any $\prof \in \allprofs$, we show that for some $x \in \allalts$, $\max \lprof(x) ≤ k$.
+	To prove the “if” part, let $k ≥ \khalf$. For any $\prof \in \allprofs$, we show that for some $x \in \allalts$, $\max \lprof(x) ≤ k$.
 	Define $A = \set{a \in \allalts \suchthat 0 ≤ \lprof(a)_1 ≤ \khalf}$.
 	Define $B = \set{a \in \allalts \suchthat \khalf < \lprof(a)_2 ≤ m - 1}$.
 	Observe that $\card{A} = \khalf + 1$ and $\card{B} = (m - 1) - \khalf = (m - 1) - \khalfAlt = \khalfC ≤ \khalf$, thus, $\card{B} < \card{A}$.
@@ -173,6 +174,7 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is bind
 \commentOC{1. The content of the remark. We wish (rather, I wish) to talk about a variant of $k$-Rawlsianism that the reader may have in mind (or may simply find interesting to think about), to compare it with our definition and convince the reader that our definition is more interesting than the variant but that if she really prefers the variant, it’s all right, as they coincide for our choice of $k$.
 2. The point of Miguel. He made several points. I agree that one of his points was about SRMD. And that has to be talked about after defining SRMD. But it’s not an argument for moving \cref{rk:variant}. Or I am missing something.}
 \commentRS{There are two issues. ISSUE 1: For any k, remarking the difference between Rawlsianism and strict Rawlsianism. This is what Remark 4 says. This remark is unrelated to SRMD and I agree that we can make it here, if it is worth making. However, the paper is already full of concepts and I don't see the utility of introducing a new one which we never use. ISSUE 2: Choosing k as the "true" half is equivalent to our "artificial" half under SRMD. I find this worthy to remark and its place is, naturally, in the section where we define SRMD.} 
+\commentOC{I find \cref{rk:variant} possibly enlightening but I admit that this may be overwhelming for the first reading. So if Remzi is opposed and Matías is not in favor of keeping it, we can delete it. Another possibility is to transform it into a footnote to make it clearer that it can be skipped on first read.}
 
 It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
