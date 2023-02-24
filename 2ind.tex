@@ -134,17 +134,22 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \label{sec:minprinc}
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
-	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally:
-	$\forall \prof \in \allprofs,  x, y \in \allalts, \max \lprof(x) ≤ k \land \max \lprof(y) > k ⇒ y \notin f(\prof)$.
+	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
+	$\max \lprof(x) ≤ k < \max \lprof(y) ⇒ y \notin f(\prof)$.
 \end{definition}
 
-$k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ has its losses in $\intvl{0, k}^2$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.
+$k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ has its losses in $\intvl{0, k}^N$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.\footnote{%
+	\label{rk:variant}
+	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.
+	(We actually thought about that version first. We thank Miguel Ballester for the improved version.)
+	Formally:
+	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
+	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
+}
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”. We include a proof for completeness.
-\commentOC{We said previously that it would be nice to have a short proof for completeness (it would be a bit sad that the reader needs to refer to their article just for these starting results whereas the rest of our paper is entirely self-contained). I had given up at that time because I thought it would be difficult to prove. But thinking about it again (and borrowing from one of my proofs for our other paper in preparation about compromise rules), I realize that the proof is quite short. So I suggest to include it.}
-\commentRS{OK. I deleted above the qualification "short" for the proof and made stylistic changes in the proof below.} 
-\begin{theorem}
+\begin{theorem}{(\citeauthor{BramsKilgour2001})}
 	\label{th:BKkhalf}
-	$\forall \prof: \exists x \in \allalts \suchthat \max \lprof(x) ≤ k ⇔ k ≥ \khalf$.
+	$[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
 \end{theorem}
 \begin{proof}
 	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
@@ -157,27 +162,6 @@ It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is bind
 	Thus, $\lprof(x)_1 ≤ \khalf$ (as $x \in A$) and $\lprof(x)_2 ≤ \khalf$ (as $x \notin B$).
 	It follows that $\max \lprof(x) ≤ \khalf$.
 \end{proof}
-
-\begin{remark}
-	\label{rk:variant}
-	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.%
-	\footnote{We actually thought about that version first. We thank Miguel Ballester for the improved version.}
-	Formally:
-	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k} × \intvl{0, k})$.
-	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
-\end{remark}
-\commentRS{I propose to make this remark and the thanks to Ballester when we define SRMD.} 
-\commentMN{ I'd rather leave it here. }
-\commentOC{Agreed with Matías: the remark is about an alternative definition of $k$-Rawlsianism, I see no reason to move it much further away.}
-\commentRS{Let's first agree on the content of the remark. What do we wish to say here? To my understanding, to point of Miguel is the following: using the "natural" half instead of our "artificial" one doesn't matter under SRMD (while it matters in other instances). Am I right, Olivier?} 
-\commentMN{I agree with Remzi's interpretation, even though I did not talk to Miguel}
-\commentOC{1. The content of the remark. We wish (rather, I wish) to talk about a variant of $k$-Rawlsianism that the reader may have in mind (or may simply find interesting to think about), to compare it with our definition and convince the reader that our definition is more interesting than the variant but that if she really prefers the variant, it’s all right, as they coincide for our choice of $k$.
-2. The point of Miguel. He made several points. I agree that one of his points was about SRMD. And that has to be talked about after defining SRMD. But it’s not an argument for moving \cref{rk:variant}. Or I am missing something.}
-\commentRS{There are two issues. ISSUE 1: For any k, remarking the difference between Rawlsianism and strict Rawlsianism. This is what Remark 4 says. This remark is unrelated to SRMD and I agree that we can make it here, if it is worth making. However, the paper is already full of concepts and I don't see the utility of introducing a new one which we never use. ISSUE 2: Choosing k as the "true" half is equivalent to our "artificial" half under SRMD. I find this worthy to remark and its place is, naturally, in the section where we define SRMD.} 
-\commentOC{I find \cref{rk:variant} possibly enlightening but I admit that this may be overwhelming for the first reading. So if Remzi is opposed and Matías is not in favor of keeping it, we can delete it. Another possibility is to transform it into a footnote to make it clear that it can be skipped on first read (though I think that the clear demarcation as a Remark conveys the “can-be-skipped” information equally well).} 
-\commentRS{Exactly, my subjective argument is that the cost of overwhelming exceeds the benefit of enlightenment. Let's see what Matias will say.} 
-\commentMN{Thanks to both of you for this thorough analysis. Making it a footnote seems to me a good compromise. Is it ok?}
-\commentOC{Ok for me.} \commentRS{Ok for me as well.}
 
 It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
@@ -649,6 +633,26 @@ The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 	
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfy Strong RMD.
 \commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.}
+
+\commentRS{Choosing k as the "true" half is equivalent to our "artificial" half under SRMD. I find this worthy to remark and its place is, naturally, in the section where we define SRMD.} 
+Strong RMD implies MR, equivalently, it implies $\khalf$-rawlsianism. It also implies $\floor{\frac{m - 1}{2}}$-rawlsianism \commentOC{Does it?}.
+%\begin{theorem}[false?]
+%	For any rule $f$ satisfying Strong RMD,
+%	$\forall \prof \in \allprofs,  x, y \in \allalts, \max \lprof(x) ≤ \khalf - 1 \land \max \lprof(y) > \khalf - 1 ⇒ y \notin f(\prof)$.
+%\end{theorem}
+%\begin{proof}
+%	\commentOC{This seems false. With $m = 7$, thus $\khalf = 3$ and $\khalf - 1 = 2$, consider $(abcdefg)$ for individual $1$ and $(cefbadg)$ for individual $2$ and $f$ picking $b$.}
+%Pick prof that has some $x$ with $\max \lprof(x) ≤ \khalf - 1$. Is it possible that $f$ picks some $y$ with $\khalf - 1 < \max \lprof(y) ≤ \khalf$? Thus, $\max \lprof(y) = \khalf$? Thus $x ≠ y$.
+%Pareto of $y$ requires that for some $i$, $\lprof(y)_i < \lprof(x)_i$. As $\forall i: \lprof(x)_i ≤ \max \lprof(x) ≤ \khalf - 1$, $i \suchthat \lprof(y)_i < \lprof(x)_i ⇒ i \notin \argmax \lprof(y)$. Thus, $\min \lprof(y) < \min \lprof(x) ≤ \max \lprof(x) < \max \lprof(y)$ but then $y$ is not min spread.
+%\end{proof}
+\begin{theorem}[false?]
+	For any rule $f$ satisfying Strong RMD,
+	$\forall \prof \in \allprofs,  x, y \in \allalts: \max \lprof(x) ≤ \floor{\frac{m - 1}{2}} < \max \lprof(y) ⇒ y \notin f(\prof)$.
+\end{theorem}
+\begin{proof}
+	\commentOC{This seems false. With $m = 8$, thus $\khalf = 4$ and $\floor{\frac{m - 1}{2}} = 3$, consider $(abcdefgh)$ for individual $1$ and $(hdfgcbea)$ for individual $2$ and $f$ picking $c$, forbidden by $\floor{\frac{m - 1}{2}}$-rawlsianism because of $d$.}
+\end{proof}
+
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{theorem}
