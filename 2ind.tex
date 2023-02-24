@@ -658,13 +658,12 @@ The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy
 \end{proof}
 
 More resoluteness can be achieved by introducing the notion of \emph{anonymous dominance} of loss vectors. Given two loss vectors $l, l' \in \lvs$, say that 
-$l$ dominates $l'$, denoted $l ⊲ l'$, iff $\max l ≤ \min l'$ and $\max l' > \min l$ 
-\commentOC{Isn’t this a bit too quick for the reader to realize why this is a reasonable thing to ask and not some arbitrary property? The following version is slower but perhaps more explicit. $l$ weakly dominates $l'$ iff $\max l ≤ \min l'$ and $l$ strictly dominates $l'$, denoted $l ⊲ l'$, iff $l$ weakly dominates $l'$ and $l'$ does not weakly dominate $l$}.
+$l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ and at least one of these inequalities is strict.
 Given a profile $\prof$, let $E(\prof)$ denote the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \suchthat \forall y \in \allalts: \lprof(y) \not⊲ \lprof(x)}$.
 We can then define the \emph{resolute RMD} rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
-Note also that this tie breaking mechanism is equivalent to minimize the sum of losses (equivalently, pick the Borda preferred alternative), within the set of alternatives that have minimum spread: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$.
-\commentOC{To be checked and perhaps rephrased and perhaps proven.}
-
+Note also that this tie breaking mechanism is equivalent, within the set of alternatives that have minimum spread, to minimize the sum of losses (equivalently, pick the Borda preferred alternative), and equivalent to minimize the best loss, and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
+\commentOC{To be checked and perhaps rephrased.}
+\commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.}
 As it satisfies Strong RMD, the resolute RMD picks at most two alternatives.
 
 \section{Concluding remarks}
