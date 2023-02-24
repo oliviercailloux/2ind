@@ -519,14 +519,12 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 %	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{proof}
-\commentRS{A point that Miguel suggested: Does Theorem 15 pave the way to show that one can always ensure a dispersion that is no more than a third of m?} \commentMN{Good point indeed. To be more precise, you mean that : for any profile, one can always find some alternative with a dispersion of at most $m/3$. Is that it?  Olivier, do you some counterexample to that? } \commentRS{Yes, this is what I mean.} \commentMN{This is probably true. Since $FH$ is never empty, the dispersion is at most $m/2$. Now, how to reduce the upper-bound? Should we try a contradiction? I think that this is very interesting. }
-\commentOC{I agree that Miguel suggested to compute that bound, but he didn’t say how much it would be (I suggested one third of $m$ but it was only a rough guess). Why Theorem 15? I don’t see the link with the veto levels. Isn’t the bound $\khalf$, as Matías writes? Consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.} \commentRS{Right, my pointing to Theorem 15 is senseless. As Matias says the dispersion is at most $m/2$ and as your example shows it cannot be guaranteed to be less than $m/2$. Thus, $m/2$ is the maxmin value for dispersion. Miguel suggested to compute this value and proposed the condition to eliminate alternatives whose dispersion exceeds that value. However, as this value is $m/2$, the proposition of Miguel boils down to the first half condition, no? If so, this is an interesting remark to make at the end of this section.}\commentMN{Very smart example Olivier. I am fine with adding a small result. However, I am now a bit confused to write such a result. In your example you have an even number of alternatives. You get that the minimal dispersion is exactly $m/2$. With an odd number of alternatives can one obtain the same example and show that the minimal level is $\khalf$? }
 
 \begin{remark}
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
 
-The final part of this section further analyzes the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
+We now further analyze the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
 
 \begin{remark}
 	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. One may wonder whether these rules also satisfy a stronger version of MD that mandates picking \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$). This is false. To illustrate this, for $m = 5$ consider the rule $PV^{(2, 2)}$ and the profile $\prof$.
@@ -545,6 +543,20 @@ Define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each 
 	As already mentioned, the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, therefore, are distinct from the rule $\MD$. Also,
 the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}.
 	It follows that satisfying MD does not imply being a Pareto-and-veto rule.
+\end{remark}
+
+We end this section by showing that $\khalf$ is also a general bound on dispersion.
+\begin{theorem}
+	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k = \khalf$.
+\end{theorem}
+\begin{proof}
+	\commentOC{TODO}
+	This follows from FH and Pareto not empty and the example above. For the other direction, consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.
+\end{proof}
+
+\begin{remark}
+	\commentOC{TODO phrase this correctly.}
+	the condition “pick always an alternative whose dispersion does not exceed $m/2$” is implied by FH.
 \end{remark}
 
 \section{Reconciling the two principles}
@@ -634,25 +646,6 @@ The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfy Strong RMD.
 \commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.}
 
-\commentRS{Choosing k as the "true" half is equivalent to our "artificial" half under SRMD. I find this worthy to remark and its place is, naturally, in the section where we define SRMD.} 
-Strong RMD implies MR, equivalently, it implies $\khalf$-rawlsianism. It also implies $\floor{\frac{m - 1}{2}}$-rawlsianism \commentOC{Does it?}.
-%\begin{theorem}[false?]
-%	For any rule $f$ satisfying Strong RMD,
-%	$\forall \prof \in \allprofs,  x, y \in \allalts, \max \lprof(x) ≤ \khalf - 1 \land \max \lprof(y) > \khalf - 1 ⇒ y \notin f(\prof)$.
-%\end{theorem}
-%\begin{proof}
-%	\commentOC{This seems false. With $m = 7$, thus $\khalf = 3$ and $\khalf - 1 = 2$, consider $(abcdefg)$ for individual $1$ and $(cefbadg)$ for individual $2$ and $f$ picking $b$.}
-%Pick prof that has some $x$ with $\max \lprof(x) ≤ \khalf - 1$. Is it possible that $f$ picks some $y$ with $\khalf - 1 < \max \lprof(y) ≤ \khalf$? Thus, $\max \lprof(y) = \khalf$? Thus $x ≠ y$.
-%Pareto of $y$ requires that for some $i$, $\lprof(y)_i < \lprof(x)_i$. As $\forall i: \lprof(x)_i ≤ \max \lprof(x) ≤ \khalf - 1$, $i \suchthat \lprof(y)_i < \lprof(x)_i ⇒ i \notin \argmax \lprof(y)$. Thus, $\min \lprof(y) < \min \lprof(x) ≤ \max \lprof(x) < \max \lprof(y)$ but then $y$ is not min spread.
-%\end{proof}
-\begin{theorem}[false?]
-	For any rule $f$ satisfying Strong RMD,
-	$\forall \prof \in \allprofs,  x, y \in \allalts: \max \lprof(x) ≤ \floor{\frac{m - 1}{2}} < \max \lprof(y) ⇒ y \notin f(\prof)$.
-\end{theorem}
-\begin{proof}
-	\commentOC{This seems false. With $m = 8$, thus $\khalf = 4$ and $\floor{\frac{m - 1}{2}} = 3$, consider $(abcdefgh)$ for individual $1$ and $(hdfgcbea)$ for individual $2$ and $f$ picking $c$, forbidden by $\floor{\frac{m - 1}{2}}$-rawlsianism because of $d$.}
-\end{proof}
-
 Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{theorem}
@@ -664,19 +657,16 @@ The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy
 	To conclude, observe that if $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ contain at least two elements (say, $x$ and $y$), one of them, say, $x$, has $\min \lprof(x) = \lprof(x)_i$, the other one has $\min \lprof(y) = \lprof(y)_{\ibar}$, and thus there cannot be a third element $z$ in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as neither $\min \lprof(z) = \lprof(z)_i$ nor $\min \lprof(z) = \lprof(z)_{\ibar}$ is possible, by the above result.
 \end{proof}
 
-
-
-
-\color{green} NEW VERSION:More resoluteness can be achieved by adding a requirement that among the Pareto efficient alternatives in the FH. Define to that effect the \emph{resolute RMD} rule as follows. This rule makes a selection of the strong RMD alternatives, by picking the one(s) with the highest sum of losses: thus $f(\prof) = \argmax_{a \in SMRD(\prof)} \lprof(a)_1+\lprof(a)_2 $. \commentRS{We mean the lowest sum of losses, no?}
-
-\color{black}
-
-
-\color{blue}OLD VERSION:More resoluteness can be achieved by adding a requirement that among the alternatives in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, the rule selects those that dominate considering the anonymous set of losses (thus $\set{\lprof(x)_1, \lprof(x)_2}$), so that for example in $\prof = \set{(1, (a, b, c, d, e, f)), (2, (c, ., ., b, ., .))}$, $c$ with losses $\set{0, 2}$ will be favored over $b$ with losses $\set{1, 3}$. It associates to each Paretian alternative $a \in \PE$ in a profile $\prof$ having losses $\lprof(a)$ the score (or “badness”) $s_{\prof}(a) = md(\lprof(a)) + \min\lprof(a) + m^2 \ind_{a \notin H(\prof)}$, where $m = \card{\allalts}$ and $d(l) = \max l - \min l$ as previously and $\ind_{a \notin H(\prof)}$ equals $1$ iff $a \notin H(\prof)$ and $0$ otherwise. The rule picks as winners the Paretian alternatives with minimal score, thus $f(\prof) = \argmin_{a \in \PE} s_{\prof}(a)$.\color{black}
-
-\commentRS{A possibility is the define the rule as in the old version and characterize it with the lowest sum of losses condition.}
+More resoluteness can be achieved by introducing the notion of \emph{anonymous dominance} of losses. Given two losses $l, l' \in \alllosses$, say that 
+%$l$ weakly dominates $l'$ iff $\max l ≤ \min l'$ and $l$ strictly dominates $l'$, denoted $l ⊲ l'$, iff $l$ weakly dominates $l'$ and $l'$ does not weakly dominate $l$. 
+$l$ dominates $l'$, denoted $l ⊲ l'$, iff $\max l ≤ \min l'$ and $\max l' > \min l$.
+Given a profile $\prof$, let $E(\prof)$ denote the alternatives whose losses are not dominated: $E(\prof) = \set{x \in \allalts \suchthat \forall y \in \allalts: \lprof(y) \not⊲ \lprof(x)}$.
+We can then define the \emph{resolute RMD} rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
+Note also that this tie breaking mechanism is equivalent to minimize the sum of losses (equivalently, pick the Borda preferred alternative), within the set of alternatives that have minimum spread: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$.
+\commentOC{To be checked and perhaps rephrased.}
 
 As it satisfies Strong RMD, the resolute RMD picks at most two alternatives.
+
 To conclude this section, we present a characterization of this rule. The first property, called preorder based in Cailloux and Endriss 2014, mandates that the rule decides who wins according to the losses only, and following a fixed weak order over losses.
 \begin{definition}[Loss vector comparing (LVC)]
 	\label{def:lvc}
