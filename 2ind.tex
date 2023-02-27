@@ -95,16 +95,10 @@ Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \l
 We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the term “half” to mean the smallest integer $k$ that exceeds $m-k$ \commentOC{the current wording is not clearly related to the choice of $\khalf$, I’d say (as “the smallest integer $k$ that exceeds $m-k$” equals “the smallest integer $k$ greater than $\frac{m}{2}$”, that is, $\ceil{\frac{m + 1}{2}}$); perhaps rather write “we use the phrase ‘best half’ to refer to the loss values up to $\khalf$”?} and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
-\commentOC{I added an equivalent statement about UC so as to use it in the proof later (see my related comment later).}
 
 We now define the SCRs of the literature that we analyze in the paper.
-\commentOC{I hope you will not hate me for this late remark, but it suddenly occurs to me that it’s very odd (pun not intended) that we use $\khalf$ throughout instead of the apparently simpler and equivalent $\floor{\frac{m}{2}}$, which has the supplementary advantage of being more obviously a sort of “half”; and whose natural complement to $m$ is the conveniently dual $\ceil{\frac{m}{2}}$ instead of the ugly $\floor{\frac{m - 1}{2}} + 1$. 
-If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
-\commentOC{I have now changed it throughout. However, it is not as nice as I thought: the complement that matters is the one to $m - 1$, not to $m$, so that the complement of $\khalf$ (to $m - 1$, thus) is $\floor{\frac{m - 1}{2}}$, or $\ceil{\frac{m}{2}} - 1$, both being not much intuitive; whereas it is more immediate to see that the complement of $\khalfAlt$ to $m - 1$ is $\floor{\frac{m - 1}{2}}$. However, I considered that the advantages of $\khalf$ over $\khalfAlt$ generally compensates for this nuisance.}
-\commentRS{I am OK with all the comments until here. They can be deleted whenever the necessary action is taken.} 
-\commentOC{Okay, I wait for Matías’ approval.} \commentMN{I agree}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -430,6 +424,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	
 	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
 	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.} \commentMN{OMG!!!}
+\commentOC{Define $t' = \max \set{\khalf, t}$. Do all the argument with $t'$. This shows that a profile exists where $x$ is not in the first $t'$ ranks. Hence, it is not in the first $t ≤ t'$ ranks. Doesn’t that work? Actually, it makes me realize that we can simplify the proof by just treating the case $t = \frac{2m - 5}{3}$, isn’t it?}
 	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
 	
 	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
@@ -560,6 +555,9 @@ We end this section by showing that $\khalf$ is also a general bound on dispersi
 \end{theorem}
 \begin{proof}
 	\commentOC{TODO}
+	If $k = \khalf$, it follows from \cref{th:BKkhalf} that $\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k$, thus the left hand side holds.
+	\commentOC{We actually need to show that some PE alt is such that $\max \lprof(x) ≤ k$, which can of course easily be argued here, but I am pretty sure this argument is already somewhere in the paper, but where? I can’t find it any more now from a cursory look.}
+
 	This follows from FH and Pareto not empty and the example above. For the other direction, consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.
 \end{proof}
 
