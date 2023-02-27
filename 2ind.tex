@@ -105,7 +105,7 @@ We now define the SCRs of the literature that we analyze in the paper.
 If you agree, I’ll take care of trying to change them throughout and check that it does not hurt readability (I expect that it won’t and that it will sometimes help significantly).}\commentMN{Nice remark}
 \commentOC{I have now changed it throughout. However, it is not as nice as I thought: the complement that matters is the one to $m - 1$, not to $m$, so that the complement of $\khalf$ (to $m - 1$, thus) is $\floor{\frac{m - 1}{2}}$, or $\ceil{\frac{m}{2}} - 1$, both being not much intuitive; whereas it is more immediate to see that the complement of $\khalfAlt$ to $m - 1$ is $\floor{\frac{m - 1}{2}}$. However, I considered that the advantages of $\khalf$ over $\khalfAlt$ generally compensates for this nuisance.}
 \commentRS{I am OK with all the comments until here. They can be deleted whenever the necessary action is taken.} 
-\commentOC{Okay, I wait for Matías’ approval.}
+\commentOC{Okay, I wait for Matías’ approval.} \commentMN{I agree}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
 
@@ -430,7 +430,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim will be proven by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
 	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
-	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.}
+	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.} \commentMN{OMG!!!}
 	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
 	
 	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
@@ -524,10 +524,10 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
    As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
 
-We now further analyze the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
+%We now further analyze the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
 
 \begin{remark}
-	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. One may wonder whether these rules also satisfy a stronger version of MD that mandates picking \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$). This is false. To illustrate this, for $m = 5$ consider the rule $PV^{(2, 2)}$ and the profile $\prof$.
+	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. On the other hand, these rules fail two stronger versions of MD, one which mandates to pick \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$) and the other which mandates to pick \emph{only} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$). To illustrate this for the former, for $m = 5$ consider the rule $PV^{(2, 2)}$ and the profile $\prof$.
 	\begin{equation}
 		\begin{array}{*5{l}}
 			a& b & c & d & e \\
@@ -535,14 +535,24 @@ We now further analyze the relationship between the minimal dispersion principle
 		\end{array}.
 	\end{equation}
 	Here, $\argmin_{\PE} (d \circ \lprof) = \set{b, c}$ while $PV^{(2, 2)}(\prof) = \set{c}$.
+
+For the latter, consider the profile $\prof$ with $m=7$:
+
+	\begin{equation}
+		\begin{array}{*7{l}}
+			a& b & c & d & e & f & g\\
+			g& f & e & d & c& b & a \\
+		\end{array}.
+	\end{equation}
+Observe that $PV^{(2, 2)}(\prof)=\{c,d,e\}$  whereas $\argmin_{\PE} (d \circ \lprof) = \set{d}$.
+
 \end{remark}
 
-Define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects each Pareto efficient alternative that minimizes the dispersion. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome. 
+
 
 \begin{remark}
-	As already mentioned, the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, therefore, are distinct from the rule $\MD$. Also,
-the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}.
-	It follows that satisfying MD does not imply being a Pareto-and-veto rule.
+	To ensure $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$ and $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$, one can define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects all Pareto efficient alternatives that minimize the dispersion and only those. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome.
+ As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 
 We end this section by showing that $\khalf$ is also a general bound on dispersion.
