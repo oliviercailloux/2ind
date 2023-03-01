@@ -65,11 +65,11 @@ We now summarize our findings. All rules we consider are Paretian. Unanimity com
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
-\commentRS{I revised and expanded (according to the new findings) \commentMN{I checked and made minor cosmetic changes; thanks it looks good.}the two paragraphs below. Please check.}Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed. The minimal dispersion principle requires that an alternative whose dispersion is minimal is among the outcomes. Not only unanimity compromise fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle.\footnote{Recall that this upper bound is a half for the satisfaction of the (weaker) Paretian equal loss principle.} Nevertheless, these Pareto-and-veto rules fail two stronger versions of the minimal dispersion principle, one that requires to pick all alternatives with minimal dispersion and the other that requires to pick only alternatives with minimal dispersion. As a result, we define the minimal dispersion rule which, at every preference profile, picks precisely the alternatives with minimal dispersion.\footnote{
+Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed. The minimal dispersion principle requires that an alternative whose dispersion is minimal is among the outcomes. Not only unanimity compromise fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle.\footnote{Recall that this upper bound is a half for the satisfaction of the (weaker) Paretian equal loss principle.} Nevertheless, these Pareto-and-veto rules fail two stronger versions of the minimal dispersion principle, one that requires to pick all alternatives with minimal dispersion and the other that requires to pick only alternatives with minimal dispersion. As a result, we define the minimal dispersion rule which, at every preference profile, picks precisely the alternatives with minimal dispersion.\footnote{
 \label{ft:equalarea}
 In a framework with a disagreement outcome, \citet{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} \citep{thomson1994cooperative} minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from their unanimity compromise. In our framework without a disagreement outcome, the equal area rule is equivalent to our minimal dispersion rule.}
 
-Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that it is failed by all social choice rules we consider, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals. The satisfaction $\PVe$ is at the expense of resoluteness, since this rule picks every Pareto efficient alternative within the first half. It is thus natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the strong Rawlsian minimal dispersion principle that requires the outcome to lie within the Rawlsian alternatives whose loss vectors have minimal dispersion. No rule that we have examined satisfies this principle. Therefore, we define the strong Rawlsian minimal dispersion rule as the least resolute rule that satisfies this principle. This new rule appears as a reasonable compromise to satisfy the two main principles we analyze, namely that of being minimally Rawlsian and that of favoring small dispersion alternatives. Moreover, it is also reasonably resolute as it never picks more than two alternatives.
+Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that it is failed by all social choice rules we consider, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals. The satisfaction is at the expense of resoluteness, since this rule picks every Pareto efficient alternative within the first half. It is thus natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the strong Rawlsian minimal dispersion principle that requires the outcome to lie within the Rawlsian alternatives whose loss vectors have minimal dispersion. No rule that we have examined satisfies this principle. Therefore, we define the strong Rawlsian minimal dispersion rule as the least resolute rule that satisfies this principle. This new rule appears as a reasonable compromise to satisfy the two main principles we analyze, namely that of being minimally Rawlsian and that of favoring small dispersion alternatives. Moreover, it is also reasonably resolute as it never picks more than two alternatives.
 
 \Cref{sec:basic} introduces the basic notions and notation. \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
 
@@ -368,48 +368,61 @@ Define the minimal dispersion (MD) condition as follows.
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
-The next theorem will permit to establish the relationship of MD to the rules we consider.
+The next theorem allows to establish the relation of MD to the rules we consider.
+\commentMN{I think that Remark 6 is important and might need to be put here. In particular, the role of 3 and 4 are hard to understand for me and look as intermediary steps. Why not simply putting in the statement of the Theorem than 1 and 2 are equivalent? We can of course let 3 and 4 in the proof.}
+
+\begin{remark}
+	The equivalence $1 ⇔ 2$ says that to ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
+\end{remark}
 
 \begin{theorem}
 	\label{th:caractEmpty}
-	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
+	Given $m ≥ 3$ \commentMN{$m≥ 5$ }, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
 	\begin{enumerate}
-		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$
+		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$ \commentMN{$t ≥ \frac{2m - 5}{3}$ }
 		\item \label{it:Pt} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
 		\item \label{it:Ptbig2} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
 		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
 \end{theorem}
 
+\commentMN{I made several cosmetic changes to the proof of $1 \Longrightarrow 2$, please check that you agree}
 \begin{proof}
-	For the claim $\ref{it:tbound} ⇒ 2$, let us consider any $t ≥ \frac{2m - 4}{3}$ and any profile $\prof$, and let us show that some alternative lies in $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$.
+	For the claim $\ref{it:tbound} ⇒ 2$,  consider any $t ≥ \frac{2m - 4}{3}$ (\commentMN{$t ≥ \frac{2m - 5}{3}$ } ).  We now show that the set $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is non-empty for any profile $\prof$. Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. 
 	
-	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. 
-	Observe that if $\lprof(x)_i ≤ t$, then also $\lprof(x)_{\ibar} ≤ t$ and thus $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, and the proof is done. Thus, assume that $\lprof(x)_i > t$.
-%	The alternative $x$ thus has $k$ alternatives better than it for the individual $i$, and therefore must have at least those $k$ alternatives worst than it for the other individual (otherwise it is Pareto-dominated by at least one of those $k$ alternatives). Thus $\lprof(x)_{\ibar} ≤ m - 1 - k$. In other words, the losses of $x$ are $k$ and at most $m - 1 - k$, with $k$ the highest of these two losses. 
+ 
+ If $\lprof(x)_i ≤ t$ then $\lprof(x)_{\ibar} ≤ t$ so that $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, proving the claim. 
+ 
+ 
+ If $\lprof(x)_i > t$, we let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ be the $t + 1$ top alternatives for $i$. 
+	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for $\ibar$ in $A$. Observe that $y \in \PE$: for $i$, only the alternatives in $A$ can be preferred to $y$, and those are less preferred than $y$ for $\ibar$.
 	
-%	If [equivalently, ], then 
-	Let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ designate the $t + 1$ top alternatives for $i$. 
-	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for individual $\ibar$ among $A$. 
-%	By construction thus, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
+	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i<  \lprof(x)_i$.
+	It follows that $\lprof(x)_{\ibar}<\lprof(y)_{\ibar}  $ to avoid that $y$ Pareto-dominates $x$. Moreover, if $\lprof(y)_{\ibar} \leq \lprof(y)_i $, then $$\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$$ which implies that $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$. Thus, we have $\lprof(y)_i < \lprof(y)_{\ibar}$.
+
+ 
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$ ( (\commentMN{$t ≥ \frac{2m - 5}{3}⇒ t ≥ \ceil{\frac{2m - 5}{3}}$ } ), and when $m ≥ 3$ \commentMN{$m\geq 5$}, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$ ( \commentMN{$\ceil{\frac{2m - 5}{3}} ≥ \khalfAlt$}); whence $t ≥ \khalfAlt$.%
+	 \footnote{(\commentMN{If $m ≥ 7 ⇒ \frac{2m - 5}{3} ≥ \frac{m - 1}{2}$ so that the result directly follows. If $m=5$, $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{10}{3}}=3$ and $\khalfAlt=\ceil{\frac{4}{2}}=2$ and if $m=6$, $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{7}{3}}=3$ and $\khalfAlt=\ceil{\frac{5}{2}}=3$. With $m=4$, the result is not valid since  $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{3}{3}}=1$ while $\khalfAlt=\ceil{\frac{3}{2}}=2$}
+  
+  
+  When $m$ is odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalfAlt$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalfAlt$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalfAlt$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalfAlt$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalfAlt$.} 
 	
-	Towards showing that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, observe that $y \in \PE$: for $i$, only the alternatives in $A$ may be better than $y$, and those are worst than $y$ for $\ibar$ by definition of $y$.
-	
-	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i < \lprof(x)_i$.
-	It follows that $\lprof(x)_{\ibar} < \lprof(y)_{\ibar}$, otherwise $y$ Pareto-dominates $x$; whence $\lprof(y)_i < \lprof(y)_{\ibar}$ otherwise $\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$ and $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$.
-	
-	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$; whence $t ≥ \khalfAlt$.%
-	 \footnote{When $m$ is odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalfAlt$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalfAlt$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalfAlt$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalfAlt$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalfAlt$.} 
-	
-	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - 1 - t$.
-	Also, $t ≥ \khalfAlt$ thus $m - 1 - t ≤ m - 1 - \khalfAlt = \floor{\frac{m - 1}{2}} ≤ t$.
-	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - 1 - t ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $d(\lprof(y)) ≤ m - 1 - t$. 
+	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - t - 1$.
+	Also, $t ≥ \khalfAlt$ thus $m - t - 1 ≤ m - 1 - \khalfAlt = \floor{\frac{m - 1}{2}} ≤ t$.
+	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - t - 1 ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $  m - t - 1 \geq d(\lprof(y))$. 
 	
 	Observe now that $\min \lprof(x) ≤ m - 1 - \max \lprof(x)$, by \cref{th:sumlosses}. This yields $d(\lprof(x)) = \max \lprof(x) - \min\lprof(x) ≥ \max \lprof(x) - (m - 1 - \max \lprof(x)) = 2 \lprof(x)_i - m + 1 ≥ 2 (t + 1) - m + 1$.
 	
-	To conclude, note that the condition $t ≥ \frac{2m - 4}{3}$ is equivalent to $t + 1 ≥ \frac{2m - 1}{3}$, itself equivalent to $2 (t + 1) - m + 1 ≥ m - t - 1$, hence $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
+	To conclude, note that :
+ $$t ≥ \frac{2m - 4}{3} \Longleftrightarrow t + 1 ≥ \frac{2m - 1}{3} \Longleftrightarrow 2 (t + 1) - m + 1 ≥ m - t - 1,$$ 
+
+ \commentMN{$$t ≥ \frac{2m -5}{3} \Longleftrightarrow t + 1 ≥ \frac{2m - 2}{3} \Longleftrightarrow 2 (t + 1) - m + 1 ≥ m - t - 2,$$ }
+
+ \commentMN{Not sure how to continue here since it seems that we really need $\frac{2m-4}{3}$}
+ 
+ and hence $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
 	
-%	\commentOC{It would be more elegant to show that any other alternative than $y$ has either $\max\lprof(x) ≤ t$ or $d(x) ≥ d(y)$.}
+
 	
 	The claims $\ref{it:Pt} ⇒ \ref{it:Ptbig2}$ and $\ref{it:Pt} ⇒ \ref{it:Ptbig1}$ and are seen to hold simply thanks to set inclusion.
 	
@@ -419,11 +432,11 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
 	Define the preference of individual $1$ as $(A, x, C)$ and the preference of individual $2$ as $(C, x, A)$.
 
-	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim will be proven by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
+	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
 	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
 	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.} \commentMN{OMG!!!}
-\commentOC{Define $t' = \max \set{\khalf, t}$. Do all the argument with $t'$. This shows that a profile exists where $x$ is not in the first $t'$ ranks. Hence, it is not in the first $t ≤ t'$ ranks. Doesn’t that work? Actually, it makes me realize that we can simplify the proof by just treating the case $t = \frac{2m - 5}{3}$, isn’t it?}
+\commentOC{Define $t' = \max \set{\khalf, t}$. Do all the argument with $t'$. This shows that a profile exists where $x$ is not in the first $t'$ ranks. Hence, it is not in the first $t ≤ t'$ ranks. Doesn’t that work? Actually, it makes me realize that we can simplify the proof by just treating the case $t = \frac{2m - 5}{3}$, isn’t it?} \commentMN{Do you mean that the equivalence 1-2-3-4 hold when $t\geq (2m-5)/3$? I was following the argument and it makes sense.}
 	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
 	
 	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
@@ -433,9 +446,7 @@ The next theorem will permit to establish the relationship of MD to the rules we
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
-\begin{remark}
-	The equivalence $1 ⇔ 2$ says that in order ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
-\end{remark}
+
 
 The next results follow from \cref{th:caractEmpty}.
 
