@@ -449,7 +449,7 @@ there is some profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m -
 	By the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring the existence of an alternative within the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
 \end{remark}
 
-The next results follow from \cref{th:caractEmpty}.
+The next two results follow from \cref{th:caractEmpty}.
 
 \begin{theorem}
 	\label{th:profsIncompat}
@@ -688,9 +688,9 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
 
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond unanimity compromise, the shortlisting rule, the veto-rank rule, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
-We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can minimize the dispersion of the loss vector.
-\Cref{fig:props} summarizes our findings. It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}.% 
-\footnote{We thank Sylvain Béal for this comment.}
+We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
+\Cref{fig:props} summarizes our findings. 
+\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
 
 \begin{table}
 	\begin{tabular}{cl*{5}{c}}
@@ -712,9 +712,11 @@ We bring a consideration based on a common interpretation and perspective. The a
 
 In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Paretian alternatives that are ranked within the first half of both individuals.
 
-Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that does not exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Aiming at more refined outcomes that minimize loss dispersion, one can directly pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion or the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggest that there is room to conceive and analyze new social choice rules.
-\commentRS{We should add to the conclusion our findings about the strong RMD rule. We should compare it to the VR rule. Should we mention the rule proposed by Hillas?}
-\commentMN{Yes, The Hillas rule is a good idea.}
+Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that does not exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Moreover, they fail two stronger versions of the minimal dispersion condition, one which mandates to pick all minimal dispersion alternatives and the other which mandates to pick only minimal dispersion alternatives.
+
+Therefore, it is of interest to introduce rules that are compatible with the minimal dispersion principle. One possibility is to pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion and only those. This rule is the finite version of Thomson’s [1994]
+equal area rule in our framework with no disagreement outcome. By the incompatibility we establish, this rule will be incompatible with the minimal Rawlsian principle. Another possibility that allows to comply with the minimal Rawlsian principle is to pick the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. This rule is somehow a counterpart of the veto rank rule that picks the Pareto efficient alternatives within the first half of both individuals that maximize average rank. However, it is more resolute, as it picks at most two alternatives at any given preference profile. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggests that there is room to conceive and analyze new social choice rules.
+
 
 \appendix
 
