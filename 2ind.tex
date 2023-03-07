@@ -368,27 +368,24 @@ Define the minimal dispersion (MD) condition as follows.
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
-The next theorem allows to establish the relation of MD to the rules we consider.
-\commentMN{I think that Remark 6 is important and might need to be put here. In particular, the role of 3 and 4 are hard to understand for me and look as intermediary steps. Why not simply putting in the statement of the Theorem than 1 and 2 are equivalent? We can of course let 3 and 4 in the proof.}
+The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
-\begin{remark}
-	The equivalence $1 ⇔ 2$ says that to ensure that there is an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. In fact, by the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring this existence for the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
-\end{remark}
 
 \begin{theorem}
 	\label{th:caractEmpty}
-	Given $m ≥ 3$ \commentMN{$m≥ 5$ }, $\forall t \in \intvl{0, m - 1}$, the following statements are logically equivalent: 
+	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following two statements are logically equivalent: 
 	\begin{enumerate}
-		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$ \commentMN{$t ≥ \frac{2m - 5}{3}$ }
+		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$ 
 		\item \label{it:Pt} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
-		\item \label{it:Ptbig2} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
-		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
 \end{theorem}
 
-\commentMN{I made several cosmetic changes to the proof of $1 \Longrightarrow 2$, please check that you agree}
 \begin{proof}
-	For the claim $\ref{it:tbound} ⇒ 2$,  consider any $t ≥ \frac{2m - 4}{3}$ (\commentMN{$t ≥ \frac{2m - 5}{3}$ } ).  We now show that the set $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is non-empty for any profile $\prof$. Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. 
+We use a proof strategy that establishes the equivalence if four statements, namely the two stated by the theorem and also the following two statements which we respectively denote by 3 and 4: $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$
+and \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$. The proof establishes the equivalence of 1, 2, 3 and 4.
+
+
+	For the claim $\ref{it:tbound} ⇒ 2$,  consider any $t ≥ \frac{2m - 4}{3}$ .  We now show that the set $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is non-empty for any profile $\prof$. Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. 
 	
  
  If $\lprof(x)_i ≤ t$ then $\lprof(x)_{\ibar} ≤ t$ so that $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, proving the claim. 
@@ -401,8 +398,8 @@ The next theorem allows to establish the relation of MD to the rules we consider
 	It follows that $\lprof(x)_{\ibar}<\lprof(y)_{\ibar}  $ to avoid that $y$ Pareto-dominates $x$. Moreover, if $\lprof(y)_{\ibar} \leq \lprof(y)_i $, then $$\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i$$ which implies that $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$. Thus, we have $\lprof(y)_i < \lprof(y)_{\ibar}$.
 
  
-	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$ ( (\commentMN{$t ≥ \frac{2m - 5}{3}⇒ t ≥ \ceil{\frac{2m - 5}{3}}$ } ), and when $m ≥ 3$ \commentMN{$m\geq 5$}, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$ ( \commentMN{$\ceil{\frac{2m - 5}{3}} ≥ \khalfAlt$}); whence $t ≥ \khalfAlt$.%
-	 \footnote{(\commentMN{If $m ≥ 7 ⇒ \frac{2m - 5}{3} ≥ \frac{m - 1}{2}$ so that the result directly follows. If $m=5$, $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{10}{3}}=3$ and $\khalfAlt=\ceil{\frac{4}{2}}=2$ and if $m=6$, $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{7}{3}}=3$ and $\khalfAlt=\ceil{\frac{5}{2}}=3$. With $m=4$, the result is not valid since  $\ceil{\frac{2m - 5}{3}}=\ceil{\frac{3}{3}}=1$ while $\khalfAlt=\ceil{\frac{3}{2}}=2$}
+	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$ ; whence $t ≥ \khalfAlt$.%
+	 
   
   
   When $m$ is odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalfAlt$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalfAlt$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalfAlt$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalfAlt$; when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalfAlt$.} 
@@ -416,37 +413,41 @@ The next theorem allows to establish the relation of MD to the rules we consider
 	To conclude, note that :
  $$t ≥ \frac{2m - 4}{3} \Longleftrightarrow t + 1 ≥ \frac{2m - 1}{3} \Longleftrightarrow 2 (t + 1) - m + 1 ≥ m - t - 1,$$ 
 
- \commentMN{$$t ≥ \frac{2m -5}{3} \Longleftrightarrow t + 1 ≥ \frac{2m - 2}{3} \Longleftrightarrow 2 (t + 1) - m + 1 ≥ m - t - 2,$$ }
 
- \commentMN{Not sure how to continue here since it seems that we really need $\frac{2m-4}{3}$}
+
+
  
  and hence $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
 	
 
-	
-	The claims $\ref{it:Pt} ⇒ \ref{it:Ptbig2}$ and $\ref{it:Pt} ⇒ \ref{it:Ptbig1}$ and are seen to hold simply thanks to set inclusion.
-	
-	Turning now to the claim $\ref{it:Ptbig2} ⇒ \ref{it:tbound}$, assume, considering the contrapositive, that $t < \frac{2m - 4}{3}$, and let us define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. (That proof applies equally to the claim $\ref{it:Ptbig1} ⇒ \ref{it:tbound}$ by inverting the role of individuals 1 and 2.)
-	
-	Observing that $m = t + 1 + (m - t - 2) + 1$, let us name the alternatives $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$.
-	Define the sequences of alternatives $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. 
-	Define the preference of individual $1$ as $(A, x, C)$ and the preference of individual $2$ as $(C, x, A)$.
 
-	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
+
+	The claims $\ref{it:Pt} ⇒ 3$ and $\ref{it:Pt} ⇒ 4$ and hold thanks to set inclusion.
 	
-	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$.
-	\commentOC{There seems to be a problem here: we don’t have that $t ≥ \khalf$. I don’t remember what I had in mind when writing this. Do you see a way of saving this argument?} \commentRS{OMG.} \commentMN{OMG!!!}
-\commentOC{Define $t' = \max \set{\khalf, t}$. Do all the argument with $t'$. This shows that a profile exists where $x$ is not in the first $t'$ ranks. Hence, it is not in the first $t ≤ t'$ ranks. Doesn’t that work? Actually, it makes me realize that we can simplify the proof by just treating the case $t = \frac{2m - 5}{3}$, isn’t it?} \commentMN{Do you mean that the equivalence 1-2-3-4 hold when $t\geq (2m-5)/3$? I was following the argument and it makes sense.}
-	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
+	Turning now to the claim $3 ⇒ \ref{it:tbound}$ (a similar claim shows that $3\Longrightarrow 4$ by exchanging the role of individuals), consider some $t < \frac{2m - 4}{3}$. Our aim is to prove that there is some profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$, violating 3. To this end, we define $t' = \max \set{\khalf, t}$.
+ 
+	Observe that $m = t' + 1 + (m - t' - 2) + 1$.  We label the alternatives as $\set{a_1, …, a_{t' + 1}, c_1, …, c_{m - t' - 2}, x}$ and consider the sequences $A = (a_1, …, a_{t' + 1})$ and $C = (c_1, …, c_{m - t - 2})$. Assume that the preferences of individual $1$ (resp. individual 2) are $(A, x, C)$ (resp.  $(C, x, A)$).
+
+	Observe that as $\lprof(x)_1 = t' + 1$, $x \notin \lprofinv(\intvl{0, t'} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
-	Considering $a_i \in A$, $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ thus $d(\lprof(a_i)) = m - t - 1$.
-	It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t - 1 > 2t + 3 - m$, as $3t < 2m - 4$ by hypothesis.
+	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t' + 1 - (m - t' - 2) = 2t' + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$ where we rely on the equality $\floor{\frac{m}{2}}=\ceil{\frac{m-1}{2}}$ which holds for any integer $m$.
 	
-	And considering $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
+
+	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t' + 3 - m$.
+	
+	For any $a_i \in A$, observe that $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ which implies that $d(\lprof(a_i)) = m - t' - 1$. It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t' - 1 > 2t' + 3 - m$, as $3t' < 2m - 4$ by hypothesis.
+	
+	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t' + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
+
+ Thus, we have proved that there is some profile $\prof$ such that $\lprofinv(\intvl{0, t'} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. Since $t'\geq t$ by construction, it follows that 
+there is some profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$, proving that 3. fails to hold, as desired.
+ 
 \end{proof}
 
-
+\begin{remark}
+	By the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring the existence of an alternative within the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
+\end{remark}
 
 The next results follow from \cref{th:caractEmpty}.
 
@@ -514,7 +515,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 		\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) \subseteq \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof).
 	\end{equation}
 	
-	It follows from \cref{th:caractEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+	It follows from  \cref{th:caractEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$\footnote{The second equivalence is obtained in the proof of \cref{th:caractEmpty}, when showing that $(3) \Longrightarrow (1)$.}, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 %	Assume that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ (thus $t ≥ \frac{2m - 4}{3}$).
 %	Note that 
 %	We can apply \cref{th:caractEmpty} to obtain $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, whence $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ and thus $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
@@ -660,13 +661,10 @@ The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 	As $\SRMDcl \subseteq \MRcl$, we have $[\SRMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
 \end{proof}
 	
-It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD.
-\commentOC{We might want to choose the name once we understand the rule a bit better, perhaps.} \commentRS{Yes. We now also mention the rule at the introduction.}
-
-Define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
-The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
+It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
+The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{theorem}
-	The Strong RMD rule $f$ selects at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
+	The SRMD rule $f$ selects at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
 \end{theorem}
 \begin{proof}
 	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
@@ -677,7 +675,7 @@ The Strong RMD rule (or SMRD) might appear as a reasonable compromise to satisfy
 More resoluteness can be achieved by introducing the notion of \emph{anonymous dominance} of loss vectors. Given two loss vectors $l, l' \in \lvs$, say that 
 $l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ and at least one of these inequalities is strict.
 Given a profile $\prof$, let $E(\prof)$ denote the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \suchthat \forall y \in \allalts: \lprof(y) \not⊲ \lprof(x)}$.
-We can then define the \emph{resolute RMD} rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
+We can then define a refinement of the SRMD rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
 Note also that this tie breaking mechanism is equivalent, within the set of alternatives that have minimum spread, to minimize the sum of losses (equivalently, pick the Borda preferred alternative), and equivalent to minimize the best loss, and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
 \commentOC{To be checked and perhaps rephrased.}
 \commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.}
