@@ -371,13 +371,64 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
 \begin{lemma}
-	\label{th:caractEmptyL}
-	Given $m ≥ 3$, the following hold:
-	\begin{enumerate}
-		\item \label{it:Pnonem} $\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$,
-		\item \label{it:Pem2} $\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-	\end{enumerate}
+	\label{th:PNonEmpty}
+	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 \end{lemma}
+\begin{proof}
+	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$ and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. In the sake of brevity, define $t = \ceil{\frac{2m - 4}{3}}$.
+	
+	If $\lprof(x)_i ≤ t$ then $\lprof(x)_{\ibar} ≤ t$ so that $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, proving the claim. 
+ 
+	If $\lprof(x)_i > t$, let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ be the $t + 1$ top alternatives for $i$. 
+	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for $\ibar$ in $A$. Observe that $y \in \PE$: for $i$, only the alternatives in $A$ can be preferred to $y$, and those are less preferred than $y$ for $\ibar$.
+	
+	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i<  \lprof(x)_i$.
+	It follows that $\lprof(x)_{\ibar}<\lprof(y)_{\ibar}  $ to avoid that $y$ Pareto-dominates $x$. Moreover, if $\lprof(y)_{\ibar} \leq \lprof(y)_i $, then \[\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i\] which implies that $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$. Thus, we have $\lprof(y)_i < \lprof(y)_{\ibar}$.
+
+	Observe that $2(m - t - 1) ≤ t + 2$.
+	Indeed, $\frac{2m - 4}{3} ≤ t = \ceil{\frac{2m - 4}{3}}$, thus $2m - 4 ≤ 3t$.
+	 
+	Also,  when $m ≥ 3$, $m - t - 1 ≤ t$.
+	Indeed, define $\epsilon = \ceil{\frac{2m - 4}{3}} - \frac{2m - 4}{3}$, then $m - 1 ≤ 2t$ iff $5 ≤ m + 6 ε$ which holds as when $m = 3$, $ε = 1/3$ and when $m = 4$, $ε = 2/3$.
+	
+	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - t - 1$.
+	We obtain that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - t - 1 ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $d(\lprof(y)) ≤ m - t - 1$. 
+	
+	We also have that $m - t - 1 ≤ d(\lprof(x))$:
+	from $2(m - t - 1) ≤ t + 2$, $m - t - 1 ≤ t + 2 - (m - t - 1) = 2(t + 1) - m + 1 ≤ 2 \lprof(x)_i - m + 1 = 2 \max \lprof(x) - m + 1$; 
+	and by \cref{th:sumlosses}, 
+	$\max \lprof(x) ≤ m - 1 - \min \lprof(x)$, whence 
+	$2 \max \lprof(x) - m + 1 ≤ \max \lprof(x) - m + 1 + m - 1 - \min \lprof(x) = d(\lprof(x))$.
+	
+	To conclude, note that $d(\lprof(y)) ≤ m - t - 1 ≤ d(\lprof(x))$ implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
+\end{proof}
+
+\begin{lemma}
+	\label{th:PEmpty}
+	Given $m ≥ 2$, $\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+\end{lemma}
+\begin{proof}
+	When $2 ≤ m ≤ 3$, the claim holds because $\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1} = \emptyset$.
+	
+	Defining $t = \max \set{\khalf, \ceil{\frac{2m - 7}{3}}}$ and considering $4 ≤ m$,
+	we will define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$, which implies that $\lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+
+ 	Observe that $\ceil{\frac{2m - 7}{3}} < \frac{2m - 4}{3} ≤ m - 2$ (the latter inequality being equivalent to $2 ≤ m$) and $\khalf ≤ \frac{m}{2} ≤ m - 2$ (the latter inequality being equivalent to $4 ≤ m$). Thus, $0 ≤ m - t - 2$.
+
+	Observe that $m = t + 1 + (m - t - 2) + 1$.
+	We label the alternatives as $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$ and consider the sequences $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. Define $\prof$ as associating to individual $1$ (resp. individual 2) the preference order $(A, x, C)$ (resp. $(C, x, A)$).
+
+	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
+	
+	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$ where we rely on the equality $\floor{\frac{m}{2}}=\ceil{\frac{m-1}{2}}$ which holds for any integer $m$.
+	
+	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
+	
+	For any $a_i \in A$, observe that $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ which implies that $d(\lprof(a_i)) = m - t - 1$. It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t - 1 > 2t + 3 - m$, as $3t < 2m - 4$ by hypothesis.
+	
+	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
+	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
+\end{proof}
 
 \begin{theorem}
 	\label{th:caractEmpty}
@@ -393,50 +444,7 @@ The following theorem shows that to ensure the existence of an alternative withi
 		\item \label{it:Ptbig2} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$,
 		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
-
-	For the claim $\ref{it:tbound} ⇒ \ref{it:Pt}$, consider any $t ≥ \frac{2m - 4}{3}$ and any $\prof \in \allprofs$; let us show that the set $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$ is non-empty. Consider any $x \in \argmin_{\PE} (d \circ \lprof)$, and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. 
-	
-	If $\lprof(x)_i ≤ t$ then $\lprof(x)_{\ibar} ≤ t$ so that $x \in \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof)$, proving the claim. 
- 
-	If $\lprof(x)_i > t$, let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ be the $t + 1$ top alternatives for $i$. 
-	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for $\ibar$ in $A$. Observe that $y \in \PE$: for $i$, only the alternatives in $A$ can be preferred to $y$, and those are less preferred than $y$ for $\ibar$.
-	
-	Since $\lprof(x)_i > t$ and $y \in A$, we see that $\lprof(y)_i<  \lprof(x)_i$.
-	It follows that $\lprof(x)_{\ibar}<\lprof(y)_{\ibar}  $ to avoid that $y$ Pareto-dominates $x$. Moreover, if $\lprof(y)_{\ibar} \leq \lprof(y)_i $, then \[\lprof(x)_{\ibar} < \lprof(y)_{\ibar} ≤ \lprof(y)_i < \lprof(x)_i\] which implies that $d(\lprof(y)) < d(\lprof(x))$, contradicting $x \in \argmin_{\PE} (d \circ \lprof)$. Thus, we have $\lprof(y)_i < \lprof(y)_{\ibar}$.
-
- 	 Observe that as $t \in \N$, $t ≥ \frac{2m - 4}{3} ⇒ t ≥ \ceil{\frac{2m - 4}{3}}$, and when $m ≥ 3$, $\ceil{\frac{2m - 4}{3}} ≥ \khalfAlt$.
-	Indeed, when $m$ is odd, $m ≥ 5 ⇒ \frac{2m - 4}{3} ≥ \frac{m - 1}{2} = \khalfAlt$ and when $m$ is even, $m ≥ 8 ⇒ \frac{2m - 4}{3} ≥ \frac{m}{2} = \khalfAlt$; when $m = 3$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{2}{3}} = 1 = \khalfAlt$; when $m = 4$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{4}{3}} = 2 = \khalfAlt$ and when $m = 6$, $\ceil{\frac{2m - 4}{3}} = \ceil{\frac{8}{3}} = 3 = \khalfAlt$. 
-	We obtain that $t ≥ \khalfAlt$.
-	
-	By construction, $\forall a ≠ y \in A: \lprof(y)_{\ibar} < \lprof(a)_{\ibar}$, hence, $\lprof(y)_{\ibar} ≤ m - 1 - \card{(A \setminus \set{y})} = m - t - 1$.
-	Also, $t ≥ \khalfAlt$ thus $m - t - 1 ≤ m - 1 - \khalfAlt = \floor{\frac{m - 1}{2}} ≤ t$.
-	These two facts, together with $\lprof(y)_i < \lprof(y)_{\ibar}$, establish that $\lprof(y)_i < \lprof(y)_{\ibar}≤ m - t - 1 ≤ t$, which yields that $y \in \lprofinv(\intvl{0, t} × \intvl{0, t})$ and that $  m - t - 1 \geq d(\lprof(y))$. 
-	
-	By \cref{th:sumlosses}, $\min \lprof(x) ≤ m - 1 - \max \lprof(x)$, whence $d(\lprof(x)) = \max \lprof(x) - \min\lprof(x) ≥ \max \lprof(x) - (m - 1 - \max \lprof(x)) = 2 \lprof(x)_i - m + 1 ≥ 2 (t + 1) - m + 1$.
-	
-	To conclude, note that :
-\[t ≥ \frac{2m - 4}{3} \Longleftrightarrow t + 1 ≥ \frac{2m - 1}{3} ⇔ 2 (t + 1) - m + 1 ≥ m - t - 1,\]
-	 and hence $d(\lprof(x)) ≥ m - t - 1 ≥ d(\lprof(y))$, which implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
-	
-	The claims $\ref{it:Pt} ⇒ \ref{it:Ptbig2}$ and $\ref{it:Pt} ⇒ \ref{it:Ptbig1}$ hold thanks to set inclusion.
-	
-	Turning now to the claim $\ref{it:Ptbig2} ⇒ \ref{it:tbound}$ (a similar claim shows that $\ref{it:Ptbig1} ⇒ \ref{it:tbound}$ by swapping the role of the individuals), consider some $t < \frac{2m - 4}{3}$ so that \ref{it:tbound} fails. Our aim is to prove that there is some profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$, violating \ref{it:Ptbig2}. 
-	To this end, we define $t' = \max \set{\khalf, t}$
-	and prove the stronger claim that $\lprofinv(\intvl{0, t'} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. 
- 
-	Observe that $m = t' + 1 + (m - t' - 2) + 1$.  We label the alternatives as $\set{a_1, …, a_{t' + 1}, c_1, …, c_{m - t' - 2}, x}$ and consider the sequences $A = (a_1, …, a_{t' + 1})$ and $C = (c_1, …, c_{m - t' - 2})$. Define the preferences of individual $1$ (resp. individual 2) as $(A, x, C)$ (resp. $(C, x, A)$).
-
-	Observe that as $\lprof(x)_1 = t' + 1$, $x \notin \lprofinv(\intvl{0, t'} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
-	
-	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t' + 1 - (m - t' - 2) = 2t' + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$ where we rely on the equality $\floor{\frac{m}{2}}=\ceil{\frac{m-1}{2}}$ which holds for any integer $m$.
-	
-	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t' + 3 - m$.
-	
-	For any $a_i \in A$, observe that $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ which implies that $d(\lprof(a_i)) = m - t' - 1$. It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t' - 1 > 2t' + 3 - m$, as $3t' < 2m - 4$ by hypothesis.
-	
-	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t' + 2$.
-	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
- \end{proof}
+\end{proof}
 
 \begin{remark}
 	By the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring the existence of an alternative within the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
