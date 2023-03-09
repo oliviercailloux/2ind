@@ -370,7 +370,15 @@ Define the minimal dispersion (MD) condition as follows.
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
 The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
-%We should really write that prof for t = 2m-4/3 ceil is not empty and exists prof with t = 2m-5/3 floor empty (or t = max(…)).
+\begin{lemma}
+	\label{th:caractEmptyL}
+	Given $m ≥ 3$, the following hold:
+	\begin{enumerate}
+		\item \label{it:Pnonem} $\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$,
+		\item \label{it:Pem2} $\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	\end{enumerate}
+\end{lemma}
+
 \begin{theorem}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following two statements are logically equivalent: 
