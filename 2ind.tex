@@ -405,9 +405,16 @@ The following theorem shows that to ensure the existence of an alternative withi
 
 \begin{lemma}
 	\label{th:PEmpty}
-	Given $m ≥ 2$, $\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	Given $m ≥ 2$, 
+	$\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. Equivalently, given $t \in \N$, $t < \frac{2m - 4}{3} ⇒ \exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	Similarly,
+	$\exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, \ceil{\frac{2m - 7}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$
+	and
+	$t < \frac{2m - 4}{3} ⇒ \exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 \end{lemma}
 \begin{proof}
+	We prove only the first two sentences of the claim, the other one admits a similar proof swapping the roles of individuals 1 and 2.
+	
 	When $2 ≤ m ≤ 3$, the claim holds because $\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1} = \emptyset$.
 	
 	Defining $t = \max \set{\khalf, \ceil{\frac{2m - 7}{3}}}$ and considering $4 ≤ m$,
@@ -428,34 +435,26 @@ The following theorem shows that to ensure the existence of an alternative withi
 	
 	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
+	
+	The second sentence of the claim is equivalent because $\forall t \in \N$, $t < \frac{2m - 4}{3} ⇔ t ≤ \ceil{\frac{2m - 7}{3}}$: if $\frac{2m - 4}{3} \in \N$, $t < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} ⇔ t ≤ \ceil{\frac{2m - 4}{3}} - 1$; and otherwise, for some $0 < ε < 1$, $t < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} - ε ⇔ t ≤ \ceil{\frac{2m - 4}{3}} - 1$.
 \end{proof}
 
-\begin{theorem}
+The next result follows from \cref{th:PNonEmpty,th:PEmpty}.
+\begin{lemma}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following two statements are logically equivalent: 
 	\begin{enumerate}
 		\item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$,
 		\item \label{it:Pt} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	\end{enumerate}
-\end{theorem}
-\begin{proof}
-	We in fact prove a slightly stronger claim, namely the equivalence of the two statements in the theorem and the following two:
-	\begin{enumerate}[start=3]
-		\item \label{it:Ptbig2} $\forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$,
-		\item \label{it:Ptbig1} $\forall \prof: \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
-	\end{enumerate}
-\end{proof}
+\end{lemma}
 
-\begin{remark}
-	By the anonymity of $\argmin_{\PE} (d \circ \lprof)$, ensuring the existence of an alternative within the first $t$ alternatives for both players is equivalent to ensure it for the first $t$ alternatives for one of the players, as expressed by the equivalences $2 ⇔ 3$ and $2 ⇔ 4$. Thus, considering $1 ⇔ 3$ or $1 ⇔ 4$,  in order to ensure  that an alternative that minimizes dispersion among the Pareto ones exists within the first $t$ alternatives for one of the players, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$.
-\end{remark}
+\Cref{th:caractEmpty} in turns permits to characterize the cases (according to the number of alternatives) in which a paretian minimizer of dispertion is guaranteed to be found in the first half.
 
-The next two results follow from \cref{th:caractEmpty}.
-
-\begin{theorem}
+\begin{lemma}
 	\label{th:profsIncompat}
 	$\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
-\end{theorem}
+\end{lemma}
 \begin{proof}
 	When $m = 2$, $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
@@ -516,14 +515,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 		\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) \subseteq \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof).
 	\end{equation}
 	
-	It follows from  \cref{th:caractEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$\footnote{The second equivalence is obtained in the proof of \cref{th:caractEmpty}, when showing that $(3) \Longrightarrow (1)$.}, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
-%	Assume that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ (thus $t ≥ \frac{2m - 4}{3}$).
-%	Note that 
-%	We can apply \cref{th:caractEmpty} to obtain $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, whence $\lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \PE \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$ and thus $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
-%
-%	Assume that $\max_{i \in \set{1, 2}} v_i > \frac{m + 1}{3}$ (thus $t < \frac{2m - 4}{3}$).
-%	By \cref{th:caractEmpty}, $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-%	It follows from $\PVv[(v_1, v_2)](\prof) \subseteq \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$ that $\PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	It follows from \cref{th:caractEmpty,th:PEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvl{0, t} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 \end{proof}
 
 \begin{remark}
@@ -543,14 +535,13 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 	Here, $\argmin_{\PE} (d \circ \lprof) = \set{b, c}$ while $PV^{(2, 2)}(\prof) = \set{c}$.
 
 For the latter, consider the profile $\prof$ with $m=7$:
-
 	\begin{equation}
 		\begin{array}{*7{l}}
 			a& b & c & d & e & f & g\\
 			g& f & e & d & c& b & a \\
 		\end{array}.
 	\end{equation}
-Observe that $PV^{(2, 2)}(\prof)=\{c,d,e\}$  whereas $\argmin_{\PE} (d \circ \lprof) = \set{d}$.
+Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\prof)=\{c,d,e\}$.
 
 \end{remark}
 
@@ -561,6 +552,7 @@ Observe that $PV^{(2, 2)}(\prof)=\{c,d,e\}$  whereas $\argmin_{\PE} (d \circ \lp
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 \commentRS{We made changes in Remarks 9 and 10.}
+\commentOC{I suppose that the numbers have changed since, but I suppose it’s fine.}
 We end this section by showing that $\khalf$ is also a general bound on dispersion.
 \begin{theorem}
 	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k = \khalf$.
@@ -568,7 +560,7 @@ We end this section by showing that $\khalf$ is also a general bound on dispersi
 \begin{proof}
 	\commentOC{TODO}
 	If $k = \khalf$, it follows from \cref{th:BKkhalf} that $\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k$, thus the left hand side holds.
-	\commentOC{We actually need to show that some PE alt is such that $\max \lprof(x) ≤ k$, which can of course easily be argued here, but I am pretty sure this argument is already somewhere in the paper, but where? I can’t find it any more now from a cursory look.}
+	\commentOC{We actually need to show that some PE alt is such that $\max \lprof(x) ≤ k$, which can of course easily be argued here, but I am pretty sure this argument is already somewhere in the paper, but where? I can’t find it any more now from a cursory look. (Actually, it follows from $\sum \lprof ≤ m - 1$ that all are, I suppose?)}
 
 	This follows from FH and Pareto not empty and the example above. For the other direction, consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.
 \end{proof}
