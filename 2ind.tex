@@ -36,6 +36,16 @@
 
 \section{Introduction}
 \label{sec:intro}
+\commentOC{Propositions avec Remzi. Renommer PEL en PEL-compatible et SPEL en PEL. J’ai pour le moment renommé PEL en PEL-compatible (il faudra reformuler certaines phrases concernées), mais pas encore SPEL en PEL pour éviter les confusions.
+Théorèmes :
+	\begin{itemize}
+		\item relations entre règles connues (\cref{th:comparKnown})
+		\item quelles règles satisfont MR : les sous-correspondances de $\PVe$ (\cref{th:knownInMr})
+		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
+		\item MR et MD sont compatibles slmt pour $m$ petit (\cref{th:noMRMD})
+		\item quelles règles satisfont RMD (\cref{th:compatRMD})
+	\end{itemize}
+J’ai modifié les catégories de résultat (proposition VS thm) en fonction.} 
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
 
 \Citet{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \citet{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \citet{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -139,10 +149,10 @@ $k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ 
 	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
 }
 It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”. We include a proof for completeness.
-\begin{theorem}{(\citeauthor{BramsKilgour2001})}
+\begin{proposition}{(\citeauthor{BramsKilgour2001})}
 	\label{th:BKkhalf}
 	$[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
 	
@@ -161,10 +171,10 @@ It follows that the strongest version of $k$-Rawlsianism that is binding at ever
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-\begin{theorem}
+\begin{proposition}
 	\label{th:inFH}
 	$\FB, \VR, \SL \in \PEcl \cap \MRcl$. 
-\end{theorem}
+\end{proposition}
  \begin{proof}
 	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, \cref{th:BKkhalf} shows that $\forall \prof \in \allprofs$, $\rhoP = \min \max \lprof ≤ \khalf$.
 \end{proof} 
@@ -175,10 +185,10 @@ Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
 The following result determines which rules in $\PVcl$ satisfy MR.
 
-\begin{theorem}
+\begin{proposition}
 	\label{th:pvmr}
 	$\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
-\end{theorem}
+\end{proposition}
  \begin{proof}
 	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -193,10 +203,10 @@ Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only
 We now establish the relationship of  $\VR, \SL, \FB$ to the class $\PVcl$. Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(\prof) = f(\prof) \cup f'(\prof)$. 
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
 
-\begin{theorem}
+\begin{proposition}
 	\label{th:equal}
 	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Note that $\bigcup(\PEcl \cap \MRcl)$ is, by definition, the SCR that, for each profile, picks all Pareto alternatives that are in the first half of both individuals’ preferences and only those alternatives. 
 	We thus have to show that $\forall \prof: \PVe(\prof) = \PE \cap H(\prof)$. By definition of $\PVe$, it suffices to prove that $\cap_i\set{x \in \allalts \suchthat \lprof(x)_i ≤ m - \floor{\frac{m - 1}{2}} - 1} = H(\prof)$. This in turn follows from the definition of $H(\prof)$.
@@ -208,9 +218,9 @@ The observation below follows from \cref{th:equal}.
 \end{corollary}
 
 We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
-\begin{theorem}\label{th:different}
+\begin{proposition}\label{th:different}
 There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$ and $\PVe(\prof) ≠ \SL(\prof)$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Consider the following profile $\prof$:
 	\begin{equation}
@@ -241,6 +251,16 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 	Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
 \end{remark}
 
+We summarize the results of this section in the following two theorems.
+\begin{theorem}
+	\label{th:comparKnown}
+	$\FB, \VR, \SL \subset \PVe$, these rules differ from each other, the union of $\FB$, $\VR$ and $\SL$ is a strict subcorrespondance of $\PVe$. 
+\end{theorem}
+\begin{theorem}
+	\label{th:knownInMr}
+	A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$; in particular, $\FB, \VR, \SL \in \PEcl \cap \MRcl$ and a rule $\PVv \in \PVcl$ is in $\MRcl$ iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$. 
+\end{theorem}
+
 \section{The equal loss principle}
 \label{sec:eqprinc}
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
@@ -250,10 +270,9 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 \end{definition}
 
 The equal loss principle is incompatible with the one of Pareto efficiency as formally stated by the next proposition. 
-\begin{theorem}
+\begin{proposition}
 	$\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
-\end{theorem}
-
+\end{proposition}
 \begin{proof}
 Consider the following profile:
 	\begin{equation}
@@ -273,13 +292,13 @@ Thus, Pareto efficiency is a fortiori incompatible with the following stronger v
 
 We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
 
-\begin{definition}[Paretian equal loss (PEL)]
+\begin{definition}[Paretian equal loss compatible (PEL-compatible)]
 	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) \cap \PE ≠ \emptyset$.
 \end{definition}
 
-\begin{theorem}
-	$\VR$ and $\SL$ fail PEL.
-\end{theorem}
+\begin{proposition}
+	$\VR$ and $\SL$ fail PEL-compatible.
+\end{proposition}
 \begin{proof}
 	Consider the profile $\prof$ stated in \eqref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
 	\begin{equation}
@@ -288,48 +307,48 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 			g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array}.
 	\end{equation}
-	PEL requires to choose $d$.
+	PEL-compatible requires to choose $d$.
 \end{proof}
 
 The following result will be useful throughout.
-\begin{theorem}
+\begin{lemma}
 	\label{th:sumlosses} 
 	For any $\prof$, if $x \in \PE$ then $\lprof(x)_1+\lprof(x)_2 \leq m-1$.
-\end{theorem}
+\end{lemma}
 \begin{proof}
 Since $x \in \PE$, $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\} =  \emptyset$, which implies $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\} \leq m - 1$.
 \end{proof}
 
-Some rules from the class $\PVcl$ satisfy PEL, $\PVe$ being among those.
-\begin{theorem}
+Some rules from the class $\PVcl$ satisfy PEL-compatible, $\PVe$ being among those.
+\begin{proposition}
 	\label{th:pel}	
-	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
-\end{theorem}
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
+\end{proposition}
 \begin{proof}
 	For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, as follows from \cref{th:sumlosses}.
-	A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL.
+	A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL-compatible.
 	
 	For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\khalf = \floor{\frac{m}{2}}$ positions behind $x$).
-	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL.
+	A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL-compatible.
 \end{proof}
 
 \Cref{th:pel} leads to the following corollary for the binding Pareto-and-veto rules.
 
 \begin{corollary}
 	\label{th:pvbpel}
-	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ satisfies PEL iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ satisfies PEL-compatible iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
 \end{corollary}
 
-The rules that fail PEL will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, be the unique outcome.
+The rules that fail PEL-compatible will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, be the unique outcome.
 
 \begin{definition}[Strong Paretian equal loss (SPEL)]
 	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) = S(\prof) \cap \PE$.
 \end{definition}
-Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furthermore, as we state and show below, even the rules in $\PVcl$ that satisfy PEL fail SPEL.
-\begin{theorem}
+Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL-compatible all fail SPEL. Furthermore, as we state and show below, even the rules in $\PVcl$ that satisfy PEL-compatible fail SPEL.
+\begin{proposition}
 	\label{th:PVnotSPEL}
 	When $m ≥ 4$, all rules in $\PVcl$ fail SPEL.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
 	Consider the following profile $\prof$: 
@@ -347,14 +366,14 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that fail PEL all fail SPEL. Furth
 When $m = 3$, $\PVv[(1, 1)]$ satisfies SPEL.
 \end{remark}
 
-\begin{theorem}
+\begin{proposition}
 	$\FB$ satisfies SPEL.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Pick any profile $\prof$ and any $x \in PE(\prof)$ with $\lprof(x) = (k, k)$ for some $k \in \intvl{0, m - 1}$. Let us show that $\FB(\prof) = \set{x}$. Consider any $y \in \FB(\prof)$. As $\FB$ minimizes the maximal loss, $\max \lprof(y) ≤ \max \lprof(x) = k$. Since $x \in PE(\prof)$, we have $\max \lprof(y) ≥ k$ (otherwise $\min \lprof(y) ≤ \max \lprof(y) < k$ and $y$ Pareto-dominates $x$). Hence, $\max \lprof(y) = k$, thus $x = y$.
 \end{proof}
 
-SPEL, failed by all rules we consider but one, allows to distinguish $\FB$ from the rest. Moreover, by satisfying both conditions, $\FB$ establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL is adopted. 
+SPEL, failed by all rules we consider but one, allows to distinguish $\FB$ from the rest. Moreover, by satisfying both conditions, $\FB$ establishes the compatibility between SPEL and MR. However, as discussed below, this compatibility vanishes when another stronger version of PEL-compatible is adopted. 
 
 Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 - l_2}$. 
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
@@ -367,7 +386,7 @@ Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
+MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatible while it is logically independent of SPEL. Nevertheless, although there are rules that satisfy both SPEL and MR, MD turns out to be logically incompatible with MR. 
 The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
 \begin{lemma}
@@ -488,10 +507,10 @@ The minimal Rawlsian and minimal dispersion principles being logically incompati
 
 Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following result determines the subclass of $\PVcl$ satisfying MD. 
 
-\begin{theorem}
+\begin{proposition}
 	\label{th:pvMD}
 	For $m ≥ 3$, $\PVv[(v_1, v_2)]$ satisfies MD iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Define $t = \min_{i \in \set{1, 2}} (m - 1 - v_i) \in \N$.
 	Observe that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: m - 1 - v_i ≥ \frac{2m - 4}{3} ⇔ t ≥ \frac{2m - 4}{3}$.
@@ -519,7 +538,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 \end{proof}
 
 \begin{remark}
-   As MD implies PEL, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
+   As MD implies PEL-compatible, the class of PV rules that satisfy MD is a subclass of those that satisfy PEL-compatible. This relationship can be more precisely observed by comparing \cref{th:pel} and \cref{th:pvMD}. 
 \end{remark}
 
 %We now further analyze the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
@@ -548,12 +567,24 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
 	To ensure $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$ and $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$, one can define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects all Pareto efficient alternatives that minimize the dispersion and only those. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome.
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies SPEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
+
+Summarizing, we obtain the following result.
+\begin{theorem}
+	\label{th:PELAndCo}
+	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
+	$\VR$ and $\SL$ fail PEL-compatible.
+
+	$\FB$ satisfies SPEL, therefore, is PEL-compatible.
+	
+	Among those, for $m ≥ 3$, only the rules $\PVv[(v_1, v_2)]$ with $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ satisfy MD.
+\end{theorem}
+
 \commentRS{We made changes in Remarks 9 and 10.}
 \commentOC{I suppose that the numbers have changed since, but I suppose it’s fine.}
 We end this section by showing that $\khalf$ is also a general bound on dispersion.
-\begin{theorem}
+\begin{proposition}
 	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k = \khalf$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	\commentOC{TODO}
 	If $k = \khalf$, it follows from \cref{th:BKkhalf} that $\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k$, thus the left hand side holds.
@@ -580,10 +611,10 @@ Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives�
 
 RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, by \cref{th:profsIncompat}).
 Summarizing, when $m$ is small enough ($m ≤ 6$ or $m = 8$), and only then, first, RMD implies MD, and second, some rules are both RMD and MD.
-\begin{theorem}
+\begin{proposition}
 	\label{th:RMDMD}
 	$[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. \Cref{th:profsIncompat} indicates that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$. 
 	And $[H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset] ⇒ [\argmin_{H(\prof) \cap \PE} (d \circ \lprof) \subseteq \argmin_{\PE} (d \circ \lprof)]$.
@@ -639,9 +670,9 @@ $\PVe$ satisfies the RMD principle at the expense of resoluteness, since it pick
 \end{definition}
 
 The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
-\begin{theorem}
+\begin{proposition}
 	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	First, it follows from $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$ (by \cref{th:RMDMD}) and $\SRMDcl \subseteq \RMDcl$ that $[m ≤ 6 \lor m = 8] ⇒ \SRMDcl \subseteq \MDcl$. 
 	
@@ -653,9 +684,9 @@ The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 	
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
-\begin{theorem}
+\begin{proposition}
 	The SRMD rule $f$ selects at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
 	
@@ -685,7 +716,7 @@ We bring a consideration based on a common interpretation and perspective. The a
 \begin{table}
 	\begin{tabular}{cl*{5}{c}}
 		\toprule
-		& MR & PEL & SPEL & MD & RMD\\
+		& MR & PEL-compatible & SPEL & MD & RMD\\
 		\midrule
 		$FB$ & ✓ & ✓ & ✓\\
 		$VR$ & ✓ & \\
