@@ -405,20 +405,22 @@ The following theorem shows that to ensure the existence of an alternative withi
 
 \begin{lemma}
 	\label{th:PEmpty}
-	Given $m ≥ 2$, 
-	$\exists \prof \suchthat \lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. Equivalently, given $t \in \N$, $t < \frac{2m - 4}{3} ⇒ \exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
-	Similarly,
-	$\exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, \ceil{\frac{2m - 7}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$
-	and
-	$t < \frac{2m - 4}{3} ⇒ \exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	Given $m ≥ 2, t \in \N$, $t < \frac{2m - 4}{3}$ implies the following two statements:
+	\begin{itemize}
+		\item $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$;
+		\item $\exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	\end{itemize}
 \end{lemma}
 \begin{proof}
-	We prove only the first two sentences of the claim, the other one admits a similar proof swapping the roles of individuals 1 and 2.
+	We prove only the first implication: the other one admits a similar proof by swapping the roles of individuals 1 and 2.
 	
+	Note that $\forall k \in \N$, $k < \frac{2m - 4}{3} ⇔ k ≤ \ceil{\frac{2m - 7}{3}}$: if $\frac{2m - 4}{3} \in \N$, $k < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} ⇔ k ≤ \ceil{\frac{2m - 4}{3}} - 1$; and otherwise, for some $0 < ε < 1$, $k < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} - ε ⇔ k ≤ \ceil{\frac{2m - 4}{3}} - 1$.
+	Thus, suffices to show that for some $t' ≥ \ceil{\frac{2m - 7}{3}}, \exists \prof \suchthat \lprofinv(\intvl{0, t'} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$. This proves the claim as, with $t < \frac{2m - 4}{3}$ (thus $t ≤ \ceil{\frac{2m - 7}{3}}$), $\intvl{0, t} × \intvl{0, m - 1} \subseteq \intvl{0, t'} × \intvl{0, m - 1}$.
+
 	When $2 ≤ m ≤ 3$, the claim holds because $\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1} = \emptyset$.
 	
-	Defining $t = \max \set{\khalf, \ceil{\frac{2m - 7}{3}}}$ and considering $4 ≤ m$,
-	we will define a profile $\prof$ such that $\lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$, which implies that $\lprofinv(\intvl{0, \ceil{\frac{2m - 7}{3}}} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
+	Defining $t' = \max \set{\khalf, \ceil{\frac{2m - 7}{3}}}$ and considering $4 ≤ m$,
+	we will define a profile $\prof$ such that $\lprofinv(\intvl{0, t'} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 
  	Observe that $\ceil{\frac{2m - 7}{3}} < \frac{2m - 4}{3} ≤ m - 2$ (the latter inequality being equivalent to $2 ≤ m$) and $\khalf ≤ \frac{m}{2} ≤ m - 2$ (the latter inequality being equivalent to $4 ≤ m$). Thus, $0 ≤ m - t - 2$.
 
@@ -435,8 +437,6 @@ The following theorem shows that to ensure the existence of an alternative withi
 	
 	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
-	
-	The second sentence of the claim is equivalent because $\forall t \in \N$, $t < \frac{2m - 4}{3} ⇔ t ≤ \ceil{\frac{2m - 7}{3}}$: if $\frac{2m - 4}{3} \in \N$, $t < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} ⇔ t ≤ \ceil{\frac{2m - 4}{3}} - 1$; and otherwise, for some $0 < ε < 1$, $t < \frac{2m - 4}{3} = \ceil{\frac{2m - 4}{3}} - ε ⇔ t ≤ \ceil{\frac{2m - 4}{3}} - 1$.
 \end{proof}
 
 The next result follows from \cref{th:PNonEmpty,th:PEmpty}.
