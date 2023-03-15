@@ -422,20 +422,20 @@ The following theorem shows that to ensure the existence of an alternative withi
 	Defining $t' = \max \set{\khalf, \ceil{\frac{2m - 7}{3}}}$ and considering $4 ≤ m$,
 	we will define a profile $\prof$ such that $\lprofinv(\intvl{0, t'} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
 
- 	Observe that $\ceil{\frac{2m - 7}{3}} < \frac{2m - 4}{3} ≤ m - 2$ (the latter inequality being equivalent to $2 ≤ m$) and $\khalf ≤ \frac{m}{2} ≤ m - 2$ (the latter inequality being equivalent to $4 ≤ m$). Thus, $0 ≤ m - t - 2$.
+ 	Observe that $\ceil{\frac{2m - 7}{3}} < \frac{2m - 4}{3} ≤ m - 2$ (the latter inequality being equivalent to $2 ≤ m$) and $\khalf ≤ \frac{m}{2} ≤ m - 2$ (the latter inequality being equivalent to $4 ≤ m$). Thus, $0 ≤ m - t' - 2$.
 
-	Observe that $m = t + 1 + (m - t - 2) + 1$.
-	We label the alternatives as $\set{a_1, …, a_{t + 1}, c_1, …, c_{m - t - 2}, x}$ and consider the sequences $A = (a_1, …, a_{t + 1})$ and $C = (c_1, …, c_{m - t - 2})$. Define $\prof$ as associating to individual $1$ (resp. individual 2) the preference order $(A, x, C)$ (resp. $(C, x, A)$).
+	Observe that $m = t' + 1 + (m - t' - 2) + 1$.
+	We label the alternatives as $\set{a_1, …, a_{t' + 1}, c_1, …, c_{m - t' - 2}, x}$ and consider the sequences $A = (a_1, …, a_{t' + 1})$ and $C = (c_1, …, c_{m - t' - 2})$. Define $\prof$ as associating to individual $1$ (resp. individual 2) the preference order $(A, x, C)$ (resp. $(C, x, A)$).
 
-	Observe that as $\lprof(x)_1 = t + 1$, $x \notin \lprofinv(\intvl{0, t} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
+	Observe that as $\lprof(x)_1 = t' + 1$, $x \notin \lprofinv(\intvl{0, t'} × \intvl{0, m - 1})$, and $x \in \PE$, so the claim is proved by showing that $\forall y \in A \cup C: d(\lprof(y)) > d(\lprof(x))$, so that $\forall y \in A \cup C: y \notin \argmin_{\PE} (d \circ \lprof)$.
 	
-	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t + 1 - (m - t - 2) = 2t + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$ where we rely on the equality $\floor{\frac{m}{2}}=\ceil{\frac{m-1}{2}}$ which holds for any integer $m$.
+	Note that $\card{A} - \card{C} ≥ 0$ as $\card{A} - \card{C} = t' + 1 - (m - t' - 2) = 2t' + 3 - m ≥ 2\khalf + 3 - m ≥ 2 \frac{m - 1}{2} + 3 - m = 2$ where we rely on the equality $\floor{\frac{m}{2}}=\ceil{\frac{m-1}{2}}$ which holds for any integer $m$.
 	
-	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t + 3 - m$.
+	Thus, $d(\lprof(x)) = \card{A} - \card{C} = 2t' + 3 - m$.
 	
-	For any $a_i \in A$, observe that $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ which implies that $d(\lprof(a_i)) = m - t - 1$. It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t - 1 > 2t + 3 - m$, as $3t < 2m - 4$ by hypothesis.
+	For any $a_i \in A$, observe that $\lprof(a_i) = (i - 1, \card{C} + 1 + i - 1)$ which implies that $d(\lprof(a_i)) = m - t' - 1$. It follows that $d(\lprof(a_i)) > d(\lprof(x))$, equivalently, $m - t' - 1 > 2t' + 3 - m$, as $3t' < 2m - 4$ by hypothesis.
 	
-	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t + 2$.
+	Likewise, for any $c_i \in C$, $\lprof(c_i) = (\card{A} + 1 + (i - 1), i - 1)$ thus $d(\lprof(c_i)) = t' + 2$.
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
