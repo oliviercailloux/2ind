@@ -71,7 +71,7 @@ Although the minimal Rawlsian and equal loss principles cover many of the two-pe
 The veto-rank rule and the shortlisting rule are used for the selection of arbitrators and their strategic aspects are comprehensively analyzed by \citet{Clippel}% 
 \footnote{\Citet{Clippel} present the shortlisting mechanism, whose equilibrium outcome corresponds to what we call the shortlisting rule.}. Our class of Pareto-and-veto rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$. These rules we consider cover most of the ordinal two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \citet{anbarci1993noncooperative, anbarci2006finite} and \citet{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the unanimity compromise alternatives. 
 
-We now summarize our findings. All rules we consider are Paretian. Unanimity compromise, the veto-rank rule and the shortlisting rule are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that gives the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, unanimity compromise, the veto-rank rule and the shortlisting rule are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
+We now summarize our findings. All rules we consider are Paretian. Unanimity compromise, the veto-rank rule and the shortlisting rule are minimally Rawlsian. The class of minimally Rawlsian Pareto-and-veto rules is restricted to those that give the highest (almost) equal veto power to both individuals. Moreover, when the veto power is equal, the corresponding Pareto-and-veto rule is a super correspondence of every Paretian and minimally Rawlsian social choice rule. Thus, unanimity compromise, the veto-rank rule and the shortlisting rule are all sub correspondences of the Pareto-and-veto rule with the highest equal veto power.
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
@@ -237,10 +237,12 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 
 \Cref{th:inFH}, \cref{th:subPVe} and \cref{th:different} lead to the corollary below.
 \begin{corollary}
+    \label{th:subcorr}
    	$\FB, \VR, \SL \subset \PVe$.
 \end{corollary}
 
 \begin{remark}
+    \label{th:unionKnown}
 	The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
 	\begin{equation}
 		\begin{array}{lllll|llll}
@@ -252,6 +254,8 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{remark}
 
 We summarize the results of this section in the following two theorems.
+\Cref{th:comparKnown} results from \cref{th:subcorr,th:different,th:unionKnown};
+\cref{th:knownInMr} results from \cref{th:subPVe,th:inFH,th:pvmr}.
 \begin{theorem}
 	\label{th:comparKnown}
 	$\FB, \VR, \SL \subset \PVe$, these rules differ from each other, the union of $\FB$, $\VR$ and $\SL$ is a strict subcorrespondance of $\PVe$. 
