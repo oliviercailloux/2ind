@@ -105,11 +105,33 @@ We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
-We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
+We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \min_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
 
-We now define the SCRs of the literature that we analyze in the paper.
+\section{SCRs in the literature}
+
+We start by defining the SCRs of the literature that we analyze in the paper.
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
+
+\begin{remark}
+	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\FB(\prof) \subseteq H(\prof) \: \forall \prof$. The final observation comes from the fact that $\rhoP\leq \khalf$ for any profile $\prof$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
+\end{remark}
+
+ \begin{proposition}{(\citeauthor{BramsKilgour2001})}
+	\label{th:BKkhalf}
+	$[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
+\end{proposition}
+\begin{proof}
+	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
+	
+	To prove the “if” part, let $k ≥ \khalf$. For any $\prof \in \allprofs$, we show that for some $x \in \allalts$, $\max \lprof(x) ≤ k$.
+	Define $A = \set{a \in \allalts \suchthat 0 ≤ \lprof(a)_1 ≤ \khalf}$.
+	Define $B = \set{a \in \allalts \suchthat \khalf < \lprof(a)_2 ≤ m - 1}$.
+	Observe that $\card{A} = \khalf + 1$ and $\card{B} = (m - 1) - \khalf = (m - 1) - \khalfAlt = \khalfC ≤ \khalf$, thus, $\card{B} < \card{A}$.
+	Thus, $\exists x \in A \setminus B$.
+	Thus, $\lprof(x)_1 ≤ \khalf$ (as $x \in A$) and $\lprof(x)_2 ≤ \khalf$ (as $x \notin B$).
+	It follows that $\max \lprof(x) ≤ \khalf$.
+\end{proof}
 
 The \textbf{veto-rank rule} $\VR$ is defined as follows. Each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, then the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
 
@@ -117,20 +139,78 @@ The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(
 
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
+\begin{remark}
+	$\VR$, $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\VR(\prof),\SL(\prof)\subseteq H(\prof) \: \forall \prof$.
+\end{remark}
+
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
+
+
+
+
 
 \begin{remark}
 	All $\PVv$ rules differ. Formally: $\forall v ≠ v', \PVv ≠ \PVv[v']$. This is readily visible by considering a profile $\prof$ composed of a preference ordering $(a_1, …, a_m)$ and the inverse preference ordering $(a_m, …, a_1)$: $\set{a_{v_2 + 1}, …, a_{m - v_1}} = \PVv(\prof) ≠ \PVv[v'](\prof) = \set{a_{v'_2 + 1}, …, a_{m - v'_1}}$.
 \end{remark}
 
 \begin{remark}
-	$\FB$, $\VR$, $\SL$ and all SCRs in $\PVcl$ are  neutral.
+	All SCRs in $\PVcl$ are  neutral, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
+
+
+
+
+
+We now explore the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
+\begin{proposition}\label{th:different}
+There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$.
+\end{proposition}
+\begin{proof}
+	Consider the following profile $\prof$:
+	\begin{equation}
+		\label{eq:distinct}
+		\begin{array}{llll lll | llll ll}
+			a&b&c&d&e&f&g&h&i&j&k&l&m\\
+			g&h&i&d&b&j&a&c&e&f&k&l&m\\
+		\end{array},
+	\end{equation}
+	where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
+	The bar shows the “half” position.
+	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
+\end{proof}
+A particular member of the class of Pareto-and-veto rules is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to a property that will be introduced in the next section. We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd.
+\begin{theorem}
+  \label{th:subcorr}
+   	$\FB, \VR, \SL \subset \PVe$.   
+\end{theorem}
+\begin{proof} Observe that $\PVe(\prof)=H(\prof)\cap PE(\prof)$ for each $\prof$. xxxx
+
+
+$UC$ picks all alternatives with unanimous support $\rho_{\prof}$: \cref{th:BKkhalf} implies that  $\rho_{\prof}\geq \floor{\frac{m}{2}}$, which ensures that any alternative selected by $UC$
+is Pareto efficient and in $H(P)$, as desired. 
+
+Likewise, $\VR$ selects only the Borda winners which are not among the worst  $\floor{\frac{m - 1}{2}}$ alternatives; each such winner thus belongs to $\PVe(\prof)$.
+
+Finally, $\SL$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$ and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$. Again, by construction, both alternatives are Pareto efficient and in the best-half.
+
+To see the strictness of the inclusion, consider the profile
+	\begin{equation}
+		\begin{array}{lllll|llll}
+			a&b&c&d&e&f&g&h&i\\
+			e&c&d&b&a&f&g&h&i\\
+		\end{array}.
+	\end{equation}
+	where $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$.
+\end{proof}
+
 \begin{remark}
-	$\FB$, $\VR$ and $\SL$ are anonymous, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
+ The proof of Theorem xxxx shows that the union of $\FB, \VR, \SL$ is a proper subset of $\PVe$ as well.   
 \end{remark}
+    
+  
+
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
@@ -148,47 +228,29 @@ $k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ 
 	(We actually thought about that version first. We thank Miguel Ballester for the improved version.)
 	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
 }
-It follows from \citet[Theorem 1]{BramsKilgour2001} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”. We include a proof for completeness.
-\begin{proposition}{(\citeauthor{BramsKilgour2001})}
-	\label{th:BKkhalf}
-	$[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
-\end{proposition}
-\begin{proof}
-	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
-	
-	To prove the “if” part, let $k ≥ \khalf$. For any $\prof \in \allprofs$, we show that for some $x \in \allalts$, $\max \lprof(x) ≤ k$.
-	Define $A = \set{a \in \allalts \suchthat 0 ≤ \lprof(a)_1 ≤ \khalf}$.
-	Define $B = \set{a \in \allalts \suchthat \khalf < \lprof(a)_2 ≤ m - 1}$.
-	Observe that $\card{A} = \khalf + 1$ and $\card{B} = (m - 1) - \khalf = (m - 1) - \khalfAlt = \khalfC ≤ \khalf$, thus, $\card{B} < \card{A}$.
-	Thus, $\exists x \in A \setminus B$.
-	Thus, $\lprof(x)_1 ≤ \khalf$ (as $x \in A$) and $\lprof(x)_2 ≤ \khalf$ (as $x \notin B$).
-	It follows that $\max \lprof(x) ≤ \khalf$.
-\end{proof}
 
-It follows that the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
+It follows from \cref{th:BKkhalf} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
+Thus, the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
 	A SCR $f$ satisfies \MRprop{} iff 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
-
-\begin{proposition}
+\begin{theorem}\label{th:subPVe}
+	A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$.
+\end{theorem}
+\begin{corollary}
+    
 	\label{th:inFH}
 	$\FB, \VR, \SL \in \PEcl \cap \MRcl$. 
-\end{proposition}
- \begin{proof}
-	For $\VR$ and $\SL$, the proof follows from the definition of the SCRs since each of them selects only alternatives among the top-half alternatives of both individuals. For $\FB$, \cref{th:BKkhalf} shows that $\forall \prof \in \allprofs$, $\rhoP = \min \max \lprof ≤ \khalf$.
-\end{proof} 
+\end{corollary}
+
    
-We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. To this end, we define $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the Pareto-and-veto rule that gives the highest equal veto power to both individuals. 
-Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. 
-Note that $PV^=\in\PVbcl$ iff $m$ is odd.
+We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. The following result determines which rules in $\PVcl$ satisfy MR.
 
-The following result determines which rules in $\PVcl$ satisfy MR.
-
-\begin{proposition}
+\begin{theorem}
 	\label{th:pvmr}
 	$\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
-\end{proposition}
+\end{theorem}
  \begin{proof}
 	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -213,53 +275,11 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 \end{proof}
 
 The observation below follows from \cref{th:equal}.
-\begin{corollary}\label{th:subPVe}
-	A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$.
-\end{corollary}
 
-We now establish the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
-\begin{proposition}\label{th:different}
-There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Furthermore, $\PVe(\prof) ≠ \FB(\prof)$, $\PVe(\prof) ≠ \VR(\prof)$ and $\PVe(\prof) ≠ \SL(\prof)$.
-\end{proposition}
-\begin{proof}
-	Consider the following profile $\prof$:
-	\begin{equation}
-		\label{eq:distinct}
-		\begin{array}{llll lll | llll ll}
-			a&b&c&d&e&f&g&h&i&j&k&l&m\\
-			g&h&i&d&b&j&a&c&e&f&k&l&m\\
-		\end{array},
-	\end{equation}
-	where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
-	The bar shows the “half” position.
-	The theorem is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$, $\SL(\prof) = \set{a, g}$ and $\PVe(\prof) = \set{a, b, d, g}$.
-\end{proof}
 
-\Cref{th:inFH}, \cref{th:subPVe} and \cref{th:different} lead to the corollary below.
-\begin{corollary}
-    \label{th:subcorr}
-   	$\FB, \VR, \SL \subset \PVe$.
-\end{corollary}
+Note that \cref{th:inFH}, \cref{th:subPVe} and \cref{th:different} together provide a different proof of \cref{th:subcorr}.
 
-\begin{remark}
-    \label{th:unionKnown}
-	The rule $\PVe$ is not merely the union of $\FB$, $\VR$ and $\SL$, as the following profile illustrates.
-	\begin{equation}
-		\begin{array}{lllll|llll}
-			a&b&c&d&e&f&g&h&i\\
-			e&c&d&b&a&f&g&h&i\\
-		\end{array}.
-	\end{equation}
-	Here, $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. In fact, no variant of $\VR$ (changing the scoring vector) would elect $b$: its losses are $(1, 3)$ whereas $c$ has losses $(2, 1)$.
-\end{remark}
-
-We summarize the results of this section in the following two theorems.
-\Cref{th:comparKnown} results from \cref{th:subcorr,th:different,th:unionKnown};
 \cref{th:knownInMr} results from \cref{th:subPVe,th:inFH,th:pvmr}.
-\begin{theorem}
-	\label{th:comparKnown}
-	$\FB, \VR, \SL \subset \PVe$, these rules differ from each other, the union of $\FB$, $\VR$ and $\SL$ is a strict subcorrespondance of $\PVe$. 
-\end{theorem}
 \begin{theorem}
 	\label{th:knownInMr}
 	A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$; in particular, $\FB, \VR, \SL \in \PEcl \cap \MRcl$ and a rule $\PVv \in \PVcl$ is in $\MRcl$ iff $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$. 
