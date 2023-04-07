@@ -270,7 +270,6 @@ $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
 \commentRS{I think the observation made by the remark above must be the statement of the theorem.}
-\commentMN{Do you mean "" I agree, it makes the result much more attractive to read.} \commentRS{Yes, I mean that.}
 \commentOC{I have rephrased accordingly.}
 
 \section{The equal loss principle}
@@ -404,7 +403,7 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
 \commentRS{I propose to put Theorem 4 right after and Lemmata 2, 3, 4, 5 later, if possible to an appendix.}\commentMN{I agree}
-
+\commentOC{We refer to these lemmas in several proofs of theorems that will not go to the appendix. Is this a problem?}
 \begin{lemma}
 	\label{th:PNonEmpty}
 	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
@@ -584,6 +583,8 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies PEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 \commentRS{I propose to delete the theorem below but call Propositions 5, 6, 7, 8, 9 theorems.}\commentMN{I agree with deleting the theorem. However, I suggest that Propositions 5-9 remain propositions to avoid having too many theorems}
+\commentOC{I had in mind that we agreed to use what is now in a comment at the start of this article as the “selling argument” for the article. Thus, that we stick to five theorems that should correspond to the story that the selling argument describes. Do we want to adopt another approach instead?}
+
 Summarizing, we obtain the following result.
 \begin{theorem}
 	\label{th:PELAndCo}
