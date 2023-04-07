@@ -39,13 +39,13 @@
 \commentOC{Propositions avec Remzi. Renommer PEL en PEL-compatible et SPEL en PEL. J’ai pour le moment renommé PEL en PEL-compatible (il faudra reformuler certaines phrases concernées), mais pas encore SPEL en PEL pour éviter les confusions.
 Théorèmes :
 	\begin{itemize}
-		\item relations entre règles connues (\cref{th:comparKnown})
-		\item quelles règles satisfont MR : les sous-correspondances de $\PVe$ (\cref{th:knownInMr})
+		\item relations entre règles connues (cref{th:comparKnown})
+		\item quelles règles satisfont MR : les sous-correspondances de $\PVe$ (cref{th:knownInMr})
 		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
 		\item MR et MD sont compatibles slmt pour $m$ petit (\cref{th:noMRMD})
 		\item quelles règles satisfont RMD (\cref{th:compatRMD})
 	\end{itemize}
-J’ai modifié les catégories de résultat (proposition VS thm) en fonction.} 
+Écrirait-on l’introduction et la conclusion autour de ce plan ?} 
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
 
 \Citet{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \citet{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \citet{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -106,15 +106,19 @@ Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof:
 
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \min_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
+\commentOC{I think that defining $\rhoP$ here is not helpful and is one more (unuseful) thing that the reader has to remember. I suggest to replace this sentence with “Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; in other words, $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$. See also below the comment that I have added at the sole place where we currently use $\rhoP$.}
 
 \section{SCRs in the literature}
 
 We start by defining the SCRs of the literature that we analyze in the paper.
+\commentOC{… and with some preliminary / basic observations about these rules?}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
-
+\commentOC{I suggest replacing with “… with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$: $\FB(\prof) = U(\prof, \rhoP)$”.}
 \begin{remark}
-	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\FB(\prof) \subseteq H(\prof) \: \forall \prof$. The final observation comes from the fact that $\rhoP\leq \khalf$ for any profile $\prof$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
+	\label{th:FBH}
+	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\rhoP\leq \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
+\commentOC{I suggest to replace $\rhoP$ in the last sentence with $\min_{x \in \allalts} \set{\max \lprof(x)}$, which I believe will help the reader see the link between the statement and the proposition.}
 \end{remark}
 
  \begin{proposition}{(\citeauthor{BramsKilgour2001})}
@@ -140,16 +144,13 @@ The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
 \begin{remark}
-	$\VR$, $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\VR(\prof),\SL(\prof)\subseteq H(\prof) \: \forall \prof$.
+	\label{th:VRSLH}
+	$\VR$, $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\forall \prof$, $\VR(\prof) \subseteq H(\prof)$ and $\SL(\prof)\subseteq H(\prof)$.
 \end{remark}
 
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
 Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
-
-
-
-
 
 \begin{remark}
 	All $\PVv$ rules differ. Formally: $\forall v ≠ v', \PVv ≠ \PVv[v']$. This is readily visible by considering a profile $\prof$ composed of a preference ordering $(a_1, …, a_m)$ and the inverse preference ordering $(a_m, …, a_1)$: $\set{a_{v_2 + 1}, …, a_{m - v_1}} = \PVv(\prof) ≠ \PVv[v'](\prof) = \set{a_{v'_2 + 1}, …, a_{m - v'_1}}$.
@@ -158,10 +159,6 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \begin{remark}
 	All SCRs in $\PVcl$ are  neutral, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
-
-
-
-
 
 We now explore the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
 \begin{proposition}\label{th:different}
@@ -182,33 +179,31 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{proof}
 A particular member of the class of Pareto-and-veto rules is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
-\begin{proposition}\label{prop:intersection}
-$\PVe(\prof)=H(\prof)\cap PE(\prof)$ for each $\prof$.
+\begin{proposition}\label{th:intersection}
+For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
 \end{proposition}
 \begin{proof}
-At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
+At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
 \end{proof}
 
 \begin{theorem}
   \label{th:subcorr}
    	$\FB, \VR, \SL \subset \PVe$.   
 \end{theorem}
-\begin{proof} Proposition \ref{prop:intersection}, together with Remarks 1 and 2 establishes $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
+\begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
 		\begin{array}{lllll|llll}
 			a&b&c&d&e&f&g&h&i\\
 			e&c&d&b&a&f&g&h&i\\
-		\end{array}.
+		\end{array}
 	\end{equation}
 	where $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. 
  \end{proof}
 
 \begin{remark}
- The proof of Theorem \ref{th:subcorr} shows that the union of $\FB, \VR, \SL$ is a proper subset of $\PVe$ as well.   
+ The proof of Theorem \ref{th:subcorr} shows that the union of $\FB, \VR, \SL$ is a proper subset of $\PVe$ as well.
 \end{remark}
-    
-  
-
+\commentOC{Can we integrate this remark into the statement of the theorem, by adding: “and $\FB \cup \VR \cup \SL \subset \PVe$”?}
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
@@ -242,7 +237,7 @@ Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least
 	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
 \end{theorem}
 \begin{proof}
-	Observe that at each profile, $\bigcup(\PEcl \cap \MRcl)$ picks all Pareto alternatives, and only those, that are in the first half of both individuals’ preferences. This observation combined with Proposition \ref{prop:intersection} establishes the result.
+	Observe that at each profile, $\bigcup(\PEcl \cap \MRcl)$ picks all Pareto alternatives, and only those, that are in the first half of both individuals’ preferences. This observation combined with \cref{th:intersection} establishes the result.
 \end{proof}
 Theorem \ref{th:equal} admits the corollary below.
 \begin{corollary}\label{th:subPVe}
@@ -262,20 +257,21 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
 
 \begin{theorem}
 	\label{th:pvmr}
-	$\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$.
+	Among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.
 \end{theorem}
  \begin{proof}
-	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
+	Note that $[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ 
+is equivalent to 
+$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. Thus, the claim is equivalent to the claim $\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$, which we now prove.
+
+	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. 
+
+	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
-\begin{remark}
-$[\forall i: v_i ≥ \floor{\frac{m - 1}{2}} \land \sum_i v_i ≤ m - 1]$ 
-is equivalent to 
-$[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. 
-Thus, \cref{th:pvmr} implies that among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it.   
-\end{remark}
 \commentRS{I think the observation made by the remark above must be the statement of the theorem.}
-\commentMN{Do you mean "Among the class $\PVcl$, when $m$ is odd, only the rule $PV^=$ satisfies MR, and when $m$ is even, only the three rules $\set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ satisfy it." I agree, it makes the result much more attractive to read.} \commentRS{Yes, I mean that.}
+\commentMN{Do you mean "" I agree, it makes the result much more attractive to read.} \commentRS{Yes, I mean that.}
+\commentOC{I have rephrased accordingly.}
 
 \section{The equal loss principle}
 \label{sec:eqprinc}
@@ -285,6 +281,7 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 \commentRS{To be coherent with our new terminology PEL-Compatible and PEL, I renamed EL as EL compatible and the stronger version as EL. In the proposition below, the set EL must be ELC. There were phrasing issues with EL compatibility, which I tried to fix. I also changed SPEL to PEL.}\commentMN{Thanks}
+\commentOC{Then the EL in the following proposition should be changed to ELC, shouldn’t it?}
 Equal loss compatibility is logically incompatible with Pareto efficiency as formally stated by the next proposition. 
 \begin{proposition}
 	$\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
@@ -308,7 +305,7 @@ Thus, Pareto efficiency is a fortiori incompatible with the following stronger v
 
 We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
 
-\begin{definition}[Paretian equal loss compatibility (PEL-compatible)]
+\begin{definition}[Paretian equal loss compatibility (PEL-compatibility)]
 	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) \cap \PE ≠ \emptyset$.
 \end{definition}
 
@@ -399,6 +396,7 @@ Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as t
 
 Define the minimal dispersion (MD) condition as follows.
 \commentRS{Shouldn't we call this MD compatible?}
+\commentOC{I agree that “MD compatibility” is more coherent, but it is not a nice name (and impractical to use). I favor sticking to MD as we do not need the stronger one, but I do not object strongly if you prefer it otherwise.}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -599,9 +597,10 @@ Summarizing, we obtain the following result.
 
 We end this section by showing that $\khalf$ is also a general bound on dispersion.
 \begin{proposition}
-	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k = \khalf$.
+	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \commentRS{Are we sure that the statement of the proposition is true. We can take k greater than half and the left side will still hold. Shouldn't we say k is at least $\khalf$?}\commentMN{Olivier may be better than me in this one.}
+\commentOC{You are right. Also, perhaps the statement “$\forall P, \min_{\PE} (d \circ \lprof) ≤ k$” (for the LHS) is simpler?}
 \begin{proof}
 	\commentOC{TODO}
 	If $k = \khalf$, it follows from \cref{th:BKkhalf} that $\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k$, showing the "if" part. 
