@@ -71,7 +71,7 @@ Although the minimal Rawlsian and equal loss principles cover many of the two-pe
 The veto-rank rule and the shortlisting rule are used for the selection of arbitrators and their strategic aspects are comprehensively analyzed by \citet{Clippel}% 
 \footnote{\Citet{Clippel} present the shortlisting mechanism, whose equilibrium outcome corresponds to what we call the shortlisting rule.}. Our class of Pareto-and-veto rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$. These rules we consider cover most of the ordinal two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \citet{anbarci1993noncooperative, anbarci2006finite} and \citet{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the unanimity compromise alternatives. 
 
-A rule of specific interest is the Pareto-and-veto rule that gives the highest equal veto power to both individuals. This rule yields all Pareto efficient alternatives that are in the upper half of both individuals. In fact, it can be expressed the union all Pareto efficient and minimally Rawlsian rules. Unanimity compromise, the veto-rank rule and the shortlisting rule are all sub correspondences of this rule, hence they are minimally Rawlsian. When $m$ is odd, Within the class of Pareto-and-veto rules, the one with highest equal veto power is unique in being minimally Rawlsian while when $m$ is even, there are two other that give the highest almost equal veto power to both individuals. \commentRS{I made a change here accordingto the change in the paper.}\commentMN{I made some editing}
+A rule of specific interest is the Pareto-and-veto rule that gives the highest equal veto power to both individuals. This rule yields all Pareto efficient alternatives that are in the upper half of both individuals. In fact, it can be expressed the union all Pareto efficient and minimally Rawlsian rules. Unanimity compromise, the veto-rank rule and the shortlisting rule are all sub correspondences of this rule, hence they are minimally Rawlsian. When $m$ is odd, Within the class of Pareto-and-veto rules, the one with highest equal veto power is unique in being minimally Rawlsian while when $m$ is even, there are two other that give the highest almost equal veto power to both individuals.
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
@@ -106,19 +106,19 @@ Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof:
 
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
 We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \min_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
-\commentOC{I think that defining $\rhoP$ here is not helpful and is one more (unuseful) thing that the reader has to remember. I suggest to replace this sentence with “Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; in other words, $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$. See also below the comment that I have added at the sole place where we currently use $\rhoP$.}
+\commentOC{I think that defining $\rhoP$ here is not helpful and is one more (unuseful) thing that the reader has to remember. I suggest to replace this sentence with “Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; in other words, $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$. See also below the comment that I have added at the sole place where we currently use $\rhoP$.}  \commentRS{OK}
 
 \section{SCRs in the literature}
 
 We start by defining the SCRs of the literature that we analyze in the paper.
-\commentOC{… and with some preliminary / basic observations about these rules?}
+\commentOC{… and with some preliminary / basic observations about these rules?} \commentRS{OK}
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
-\commentOC{I suggest replacing with “… with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$: $\FB(\prof) = U(\prof, \rhoP)$”.}
+\commentOC{I suggest replacing with “… with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$: $\FB(\prof) = U(\prof, \rhoP)$”.} \commentRS{OK}
 \begin{remark}
 	\label{th:FBH}
 	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\rhoP\leq \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
-\commentOC{I suggest to replace $\rhoP$ in the last sentence with $\min_{x \in \allalts} \set{\max \lprof(x)}$, which I believe will help the reader see the link between the statement and the proposition.}
+\commentOC{I suggest to replace $\rhoP$ in the last sentence with $\min_{x \in \allalts} \set{\max \lprof(x)}$, which I believe will help the reader see the link between the statement and the proposition.} \commentRS{OK}
 \end{remark}
 
  \begin{proposition}{(\citeauthor{BramsKilgour2001})}
@@ -203,7 +203,7 @@ At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not 
 \begin{remark}
  The proof of Theorem \ref{th:subcorr} shows that the union of $\FB, \VR, \SL$ is a proper subset of $\PVe$ as well.
 \end{remark}
-\commentOC{Can we integrate this remark into the statement of the theorem, by adding: “and $\FB \cup \VR \cup \SL \subset \PVe$”?}
+\commentOC{Can we integrate this remark into the statement of the theorem, by adding: “and $\FB \cup \VR \cup \SL \subset \PVe$”?} \commentRS{OK}
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
@@ -269,8 +269,6 @@ $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}
 	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
-\commentRS{I think the observation made by the remark above must be the statement of the theorem.}
-\commentOC{I have rephrased accordingly.}
 
 \section{The equal loss principle}
 \label{sec:eqprinc}
@@ -280,7 +278,7 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 \commentRS{To be coherent with our new terminology PEL-Compatible and PEL, I renamed EL as EL compatible and the stronger version as EL. In the proposition below, the set EL must be ELC. There were phrasing issues with EL compatibility, which I tried to fix. I also changed SPEL to PEL.}\commentMN{Thanks}
-\commentOC{Then the EL in the following proposition should be changed to ELC, shouldn’t it?}
+\commentOC{Then the EL in the following proposition should be changed to ELC, shouldn’t it?} \commentRS{Yes}
 Equal loss compatibility is logically incompatible with Pareto efficiency as formally stated by the next proposition. 
 \begin{proposition}
 	$\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
@@ -395,7 +393,7 @@ Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as t
 
 Define the minimal dispersion (MD) condition as follows.
 \commentRS{Shouldn't we call this MD compatible?}
-\commentOC{I agree that “MD compatibility” is more coherent, but it is not a nice name (and impractical to use). I favor sticking to MD as we do not need the stronger one, but I do not object strongly if you prefer it otherwise.}
+\commentOC{I agree that “MD compatibility” is more coherent, but it is not a nice name (and impractical to use). I favor sticking to MD as we do not need the stronger one, but I do not object strongly if you prefer it otherwise.} \commentRS{I prefer coherence which simplifies the reading of the paper but let you to decide}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -403,7 +401,7 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
 \commentRS{I propose to put Theorem 4 right after and Lemmata 2, 3, 4, 5 later, if possible to an appendix.}\commentMN{I agree}
-\commentOC{We refer to these lemmas in several proofs of theorems that will not go to the appendix. Is this a problem?}
+\commentOC{We refer to these lemmas in several proofs of theorems that will not go to the appendix. Is this a problem?} \commentRS{To some extent, yes. However, I think putting the theorem before the lemmata simplifies the reading considerably.}
 \begin{lemma}
 	\label{th:PNonEmpty}
 	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
@@ -583,7 +581,7 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies PEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 \commentRS{I propose to delete the theorem below but call Propositions 5, 6, 7, 8, 9 theorems.}\commentMN{I agree with deleting the theorem. However, I suggest that Propositions 5-9 remain propositions to avoid having too many theorems}
-\commentOC{I had in mind that we agreed to use what is now in a comment at the start of this article as the “selling argument” for the article. Thus, that we stick to five theorems that should correspond to the story that the selling argument describes. Do we want to adopt another approach instead?}
+\commentOC{I had in mind that we agreed to use what is now in a comment at the start of this article as the “selling argument” for the article. Thus, that we stick to five theorems that should correspond to the story that the selling argument describes. Do we want to adopt another approach instead?} \commentRS{Sorry, I didn't mean to change our approach. I let you to decide.}
 
 Summarizing, we obtain the following result.
 \begin{theorem}
