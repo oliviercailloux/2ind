@@ -39,7 +39,8 @@
 \commentOC{Propositions avec Remzi. Renommer PEL en PEL-compatible et SPEL en PEL. J’ai pour le moment renommé PEL en PEL-compatible (il faudra reformuler certaines phrases concernées), mais pas encore SPEL en PEL pour éviter les confusions.
 Théorèmes :
 	\begin{itemize}
-		\item relations entre règles connues (\cref{th:subcorr})
+	        \item Étude de PV= (\cref{th:intersection})
+	\item relations entre règles connues (\cref{sec:lit})
 		\item quelles règles satisfont MR (\cref{th:equal,th:pvmr})
 		\item MR et MD sont compatibles slmt pour $m$ petit (\cref{th:noMRMD})
 		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
@@ -109,11 +110,10 @@ We say that such alternatives receive unanimous support at level $k$.
 Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
 
 \section{SCRs in the literature}
-
+\label{sec:lit}
 We start by defining the SCRs of the literature that we analyze in the paper and giving some preliminary observations about these rules.
 
 \textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.
-\commentOC{I added the part $ = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.}
 \begin{remark}
 	\label{th:FBH}
 	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
@@ -177,17 +177,20 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{proof}
 A particular member of the class of Pareto-and-veto rules is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd.
 
-\begin{proposition}\label{th:intersection}
+\commentRS{Switch Proposition 3 and Theorem 1 and transform Proposition 2 into a remark????}
+
+\begin{theorem}\label{th:intersection}
 For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
 \end{proof}
 
-\begin{theorem}
+The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their union is a strict sub-correspondence of $\PVe$.
+\begin{proposition}
   \label{th:subcorr}
-   	$\FB, \VR, \SL \subset \PVe$ and $\FB \cup \VR \cup \SL \subset \PVe$.   
-\end{theorem}
+   	$\FB \cup \VR \cup \SL \subset \PVe$.
+\end{proposition}
 \begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
 		\begin{array}{lllll|llll}
@@ -382,20 +385,20 @@ We show in \cref{sec:spreads} that $d$ coincides with several commonly used spre
 Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
 
 Define the minimal dispersion (MD) condition as follows.
-\commentRS{Shouldn't we call this MD compatible?}
-\commentOC{I agree that “MD compatibility” is more coherent, but it is not a nice name (and impractical to use). I favor sticking to MD as we do not need the stronger one, but I do not object strongly if you prefer it otherwise.} \commentRS{I prefer coherence which simplifies the reading of the paper but let you to decide}
-\commentOC{You do have a point, but by lazyness I must say I’d rather leave it as it is if I am the one to change stuff and check thoroughfully that we didn’t miss one renaming. However I don’t object if anybody wants to change it! :-)}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
 MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR. 
-The following theorem shows that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. 
 
-\commentRS{I propose to put Theorem 4 right after and Lemmata 2, 3, 4, 5 later, if possible to an appendix.}\commentMN{I agree}
-\commentOC{We refer to these lemmas in several proofs of theorems that will not go to the appendix. Is this a problem?} \commentRS{To some extent, yes. However, I think putting the theorem before the lemmata simplifies the reading considerably.}
-\commentOC{I am not against the principle of this idea, but I currently fail to see how to implement it. Are you suggesting that we simply move these Lemmas to the appendix and change nothing else? Then here we will have Theorem 4 whose proof starts with referring to a Lemma that will not have been introduced anyhow, which looks very odd and will appear as a mistake to the reader, I suppose. Should we write before “The proofs below use several lemmas that are stated and proven in the appendix”? But isn’t it still odd even with that sentence that the proof starts with referring to a lemma that has not even been stated? Or should we just state the lemmas and leave the proofs in appendix?
-Again, I don’t object in principle so please just implement your idea if you have something concrete in mind.}
-\begin{lemma}
+\commentRS{I implemented the change we discussed. A verbal explanation ıf each lemma may help:}\commentMN{ FOR LemmaS 2 and 3, main result of the paper is Theorem 4 // theorems and propositions }
+\begin{theorem}
+	\label{th:noMRMD}
+	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
+\end{theorem}
+\begin{proof}
+	We prove the theorem through four lemmata.
+
+ \begin{lemma}
 	\label{th:PNonEmpty}
 	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 \end{lemma}
@@ -464,7 +467,7 @@ Again, I don’t object in principle so please just implement your idea if you h
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
-The next result follows from \cref{th:PNonEmpty,th:PEmpty}.
+The next lemma states that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. This follows from \cref{th:PNonEmpty,th:PEmpty}.
 \begin{lemma}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following two statements are logically equivalent: 
@@ -489,14 +492,13 @@ The next result follows from \cref{th:PNonEmpty,th:PEmpty}.
 	\end{equation}
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
 \end{proof}
-
-\begin{theorem}
-	\label{th:noMRMD}
-	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
-\end{theorem}
-\begin{proof}
-	It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
+ 
+ It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
+
+
+
+
  
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
