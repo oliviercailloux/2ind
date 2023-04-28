@@ -105,20 +105,18 @@ We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
 
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
-We say that such alternatives receive unanimous support at level $k$. Let $\rhoP = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset} = \min_{x \in \allalts} \set{\max \lprof(x)}$ be the least loss level at which some alternative receives unanimous support.
-\commentOC{I think that defining $\rhoP$ here is not helpful and is one more (unuseful) thing that the reader has to remember. I suggest to replace this sentence with “Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; in other words, $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$. See also below the comment that I have added at the sole place where we currently use $\rhoP$.}  \commentRS{OK}
+We say that such alternatives receive unanimous support at level $k$. 
+Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
 
 \section{SCRs in the literature}
 
-We start by defining the SCRs of the literature that we analyze in the paper.
-\commentOC{… and with some preliminary / basic observations about these rules?} \commentRS{OK}
+We start by defining the SCRs of the literature that we analyze in the paper and giving some preliminary observations about these rules.
 
-\textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at $\rhoP$: $\FB(\prof) = U(\prof, \rhoP)$. 
-\commentOC{I suggest replacing with “… with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$: $\FB(\prof) = U(\prof, \rhoP)$”.} \commentRS{OK}
+\textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP)$.
+\commentOC{I may be missing the obvious, but shouldn’t we, instead of $\FB(\prof) = U(\prof, \rhoP)$, simply write $\FB(\prof) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ (and get altogether rid of $\rhoP$)? If deemed useful, we could add a small remark, for the readers who know $\FB$ by another definition, stating that this definition is equivalent to define first $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$ then $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$, and finally $\FB(\prof) = U(\prof, \rhoP)$ (essentially thus moving in this new remark the end of the current last § of the previous section).}
 \begin{remark}
 	\label{th:FBH}
-	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\rhoP\leq \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
-\commentOC{I suggest to replace $\rhoP$ in the last sentence with $\min_{x \in \allalts} \set{\max \lprof(x)}$, which I believe will help the reader see the link between the statement and the proposition.} \commentRS{OK}
+	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
 \end{remark}
 
  \begin{proposition}{(\citeauthor{BramsKilgour2001})}
