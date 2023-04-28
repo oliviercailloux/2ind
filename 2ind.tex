@@ -39,10 +39,10 @@
 \commentOC{Propositions avec Remzi. Renommer PEL en PEL-compatible et SPEL en PEL. J’ai pour le moment renommé PEL en PEL-compatible (il faudra reformuler certaines phrases concernées), mais pas encore SPEL en PEL pour éviter les confusions.
 Théorèmes :
 	\begin{itemize}
-		\item relations entre règles connues (cref{th:comparKnown})
-		\item quelles règles satisfont MR : les sous-correspondances de $\PVe$ (cref{th:knownInMr})
-		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
+		\item relations entre règles connues (\cref{th:subcorr})
+		\item quelles règles satisfont MR (\cref{th:equal,th:pvmr})
 		\item MR et MD sont compatibles slmt pour $m$ petit (\cref{th:noMRMD})
+		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
 		\item quelles règles satisfont RMD (\cref{th:compatRMD})
 	\end{itemize}
 Écrirait-on l’introduction et la conclusion autour de ce plan ?} 
@@ -112,8 +112,8 @@ Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “mini
 
 We start by defining the SCRs of the literature that we analyze in the paper and giving some preliminary observations about these rules.
 
-\textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP)$.
-\commentOC{I may be missing the obvious, but shouldn’t we, instead of $\FB(\prof) = U(\prof, \rhoP)$, simply write $\FB(\prof) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$ (and get altogether rid of $\rhoP$)? If deemed useful, we could add a small remark, for the readers who know $\FB$ by another definition, stating that this definition is equivalent to define first $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$ then $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$, and finally $\FB(\prof) = U(\prof, \rhoP)$ (essentially thus moving in this new remark the end of the current last § of the previous section).}
+\textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.
+\commentOC{I added the part $ = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.}
 \begin{remark}
 	\label{th:FBH}
 	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
@@ -186,7 +186,7 @@ At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not 
 
 \begin{theorem}
   \label{th:subcorr}
-   	$\FB, \VR, \SL \subset \PVe$.   
+   	$\FB, \VR, \SL \subset \PVe$ and $\FB \cup \VR \cup \SL \subset \PVe$.   
 \end{theorem}
 \begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
@@ -197,11 +197,6 @@ At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not 
 	\end{equation}
 	where $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. 
  \end{proof}
-
-\begin{remark}
- The proof of Theorem \ref{th:subcorr} shows that the union of $\FB, \VR, \SL$ is a proper subset of $\PVe$ as well.
-\end{remark}
-\commentOC{Can we integrate this remark into the statement of the theorem, by adding: “and $\FB \cup \VR \cup \SL \subset \PVe$”?} \commentRS{OK}
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
@@ -230,7 +225,6 @@ Considering two SCRs $f$ and $f'$, let $f \cup f'$ denote the rule $(f \cup f')(
 Given any non empty class of SCRs $F$, let $\bigcup F$ denote the maximal (least resolute) SCR that can be formed by unions of rules of $F$.
 
 \begin{theorem}
-    
 	\label{th:equal}
 	$\bigcup(\PEcl \cap \MRcl) = \PVe$.
 \end{theorem}
@@ -275,11 +269,9 @@ Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \l
 \begin{definition}[Equal loss compatibility (ELC)]
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
-\commentRS{To be coherent with our new terminology PEL-Compatible and PEL, I renamed EL as EL compatible and the stronger version as EL. In the proposition below, the set EL must be ELC. There were phrasing issues with EL compatibility, which I tried to fix. I also changed SPEL to PEL.}\commentMN{Thanks}
-\commentOC{Then the EL in the following proposition should be changed to ELC, shouldn’t it?} \commentRS{Yes}
-Equal loss compatibility is logically incompatible with Pareto efficiency as formally stated by the next proposition. 
+Equal loss compatibility is logically incompatible with Pareto efficiency, as formally stated by the next proposition. 
 \begin{proposition}
-	$\forall m ≥ 3: \PEcl ∩ \ELcl = \emptyset$.
+	$\forall m ≥ 3: \PEcl ∩ \ELCcl = \emptyset$.
 \end{proposition}
 \begin{proof}
 Consider the following profile:
@@ -392,6 +384,7 @@ Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as t
 Define the minimal dispersion (MD) condition as follows.
 \commentRS{Shouldn't we call this MD compatible?}
 \commentOC{I agree that “MD compatibility” is more coherent, but it is not a nice name (and impractical to use). I favor sticking to MD as we do not need the stronger one, but I do not object strongly if you prefer it otherwise.} \commentRS{I prefer coherence which simplifies the reading of the paper but let you to decide}
+\commentOC{You do have a point, but by lazyness I must say I’d rather leave it as it is if I am the one to change stuff and check thoroughfully that we didn’t miss one renaming. However I don’t object if anybody wants to change it! :-)}
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
@@ -400,6 +393,8 @@ The following theorem shows that to ensure the existence of an alternative withi
 
 \commentRS{I propose to put Theorem 4 right after and Lemmata 2, 3, 4, 5 later, if possible to an appendix.}\commentMN{I agree}
 \commentOC{We refer to these lemmas in several proofs of theorems that will not go to the appendix. Is this a problem?} \commentRS{To some extent, yes. However, I think putting the theorem before the lemmata simplifies the reading considerably.}
+\commentOC{I am not against the principle of this idea, but I currently fail to see how to implement it. Are you suggesting that we simply move these Lemmas to the appendix and change nothing else? Then here we will have Theorem 4 whose proof starts with referring to a Lemma that will not have been introduced anyhow, which looks very odd and will appear as a mistake to the reader, I suppose. Should we write before “The proofs below use several lemmas that are stated and proven in the appendix”? But isn’t it still odd even with that sentence that the proof starts with referring to a lemma that has not even been stated? Or should we just state the lemmas and leave the proofs in appendix?
+Again, I don’t object in principle so please just implement your idea if you have something concrete in mind.}
 \begin{lemma}
 	\label{th:PNonEmpty}
 	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
@@ -580,6 +575,8 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
 \end{remark}
 \commentRS{I propose to delete the theorem below but call Propositions 5, 6, 7, 8, 9 theorems.}\commentMN{I agree with deleting the theorem. However, I suggest that Propositions 5-9 remain propositions to avoid having too many theorems}
 \commentOC{I had in mind that we agreed to use what is now in a comment at the start of this article as the “selling argument” for the article. Thus, that we stick to five theorems that should correspond to the story that the selling argument describes. Do we want to adopt another approach instead?} \commentRS{Sorry, I didn't mean to change our approach. I let you to decide.}
+\commentOC{I still like the idea of introducing our article as stating these five points as written in my introductory comment. 
+Also, if we like it, then perhaps it’d better to have just five theorems (instead of six currently) to match these five points.}
 
 Summarizing, we obtain the following result.
 \begin{theorem}
@@ -587,6 +584,7 @@ Summarizing, we obtain the following result.
 	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
 	$\VR$ and $\SL$ fail PEL-compatible.
 
+\commentOC{(A stupid question but just to be sure) we mean PEL instead of SPEL, right?}
 	$\FB$ satisfies SPEL, therefore, is PEL-compatible.
 	
 	Among those, for $m ≥ 3$, only the rules $\PVv[(v_1, v_2)]$ with $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ satisfy MD.
@@ -725,6 +723,7 @@ The richness of the non-strategic axiomatic analysis of collective choice with t
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:props} summarizes our findings. 
 \footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
+\commentOC{In the table, we mean PEL instead of SPEL, right?}
 
 \begin{table}
 	\begin{tabular}{cl*{5}{c}}
