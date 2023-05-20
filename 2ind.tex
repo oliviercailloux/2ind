@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-    We consider two-person ordinal collective choice from an axiomatic perspective. We identify two principles: minimal Rawlsianism (the chosen alternatives should be in the upper-half of both individuals’ preferences) and the equal loss principle (the chosen alternatives must ensure that both individuals concede “as equally as possible” from their highest ranked alternative). The equal loss principle has variants of different strength, depending on the precise definition of “as equally as possible”. We consider all prominent ordinal two-person social choice rules of the literature and explore which of these principles they satisfy. Moreover, we show that minimal Rawlsianism is logically incompatible with one version of the equal loss principle that we call the minimal dispersion principle. On the other hand, there are social choice rules that satisfy the Rawlsian minimal dispersion principle where the minimal dispersion principle is restricted to alternatives within the upper-half of both individuals’ preferences.
+    We consider two-person ordinal collective choice from an axiomatic perspective. We identify two principles: minimal Rawlsianism (the chosen alternatives belong to the upper-half of both individuals’ preferences) and the equal loss principle (the chosen alternatives ensure that both individuals concede “as equally as possible” from their highest ranked alternative). The equal loss principle has variants of different strength, depending on the precise definition of “as equally as possible”. We consider all prominent ordinal two-person social choice rules of the literature and explore which of these principles they satisfy. Moreover, we show that minimal Rawlsianism is logically incompatible with one version of the equal loss principle that we call the minimal dispersion principle. On the other hand, there are social choice rules that satisfy the Rawlsian minimal dispersion principle where the minimal dispersion principle is restricted to alternatives within the upper-half of both individuals’ preferences.
 \end{abstract}
 
 \section{Introduction}
@@ -74,7 +74,7 @@ The veto-rank rule and the shortlisting rule are used for the selection of arbit
 
 A rule of specific interest is the Pareto-and-veto rule that gives the highest equal veto power to both individuals. This rule yields all Pareto efficient alternatives that are in the upper half of both individuals. In fact, it can be expressed the union all Pareto efficient and minimally Rawlsian rules. Unanimity compromise, the veto-rank rule and the shortlisting rule are all sub correspondences of this rule, hence they are minimally Rawlsian. When $m$ is odd, Within the class of Pareto-and-veto rules, the one with highest equal veto power is unique in being minimally Rawlsian while when $m$ is even, there are two other that give the highest almost equal veto power to both individuals.
 
-The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Paretian version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
+The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Pareto efficient version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
 Within the spirit of equal loss, we propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed. The minimal dispersion principle requires that an alternative whose dispersion is minimal is among the outcomes. Not only unanimity compromise fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle.\footnote{Recall that this upper bound is a half for the satisfaction of the (weaker) Paretian equal loss principle.} Nevertheless, these Pareto-and-veto rules fail two stronger versions of the minimal dispersion principle, one that requires to pick all alternatives with minimal dispersion and the other that requires to pick only alternatives with minimal dispersion. As a result, we define the minimal dispersion rule which, at every preference profile, picks precisely the alternatives with minimal dispersion.\footnote{
 \label{ft:equalarea}
@@ -87,26 +87,23 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 \section{Basic notions and notation}
 \label{sec:basic}
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ stand for the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
+Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
 
-A SCR $f$ is anonymous iff $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ for all $({\prefi[1]}, {\prefi[2]}) \in \allprofs$.
-A SCR $f$ is neutral iff for all permutations $\sigma$ over $\allalts$ and profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
+A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$.
+A SCR $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integer numbers between $p$ and $q$. The loss of individual $i$ at preference profile $\prof$ for alternative $x$ is defined as the number of alternatives that the individual prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$.
-The loss vector of $x$ at $\prof$, $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$, assigns to each individual her loss associated to $x$.
-
-Given two loss vectors $l, l' \in \lvs$, we say that $l$ is weakly smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, weakly smaller and different. 
+Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integers between $p$ and $q$. The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different. 
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$ 
-and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$ denote, respectively, the minimal loss, maximal loss and the sum of the losses associated to $\lprof(x)$.
+and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.
 
-Let $\PE = \set{x \in \allalts \suchthat \nexists y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
-We say that $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
-Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property. Similarly, we systematically use calligraphic letters to denote the class of rules satisfying a given property.
+Let $\PE = \set{x \in \allalts \suchthat \nexists \: y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
+The SCR $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
+Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property.\footnote{We systematically use calligraphic letters to denote the class of rules satisfying a given property.}
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use the phrase “best half” to refer to the loss values up to $\khalf$ and for every profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k \in \losses$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives imposing losses not higher than $k$ for all individuals. 
-We say that such alternatives receive unanimous support at level $k$. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$. For any profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals. 
+An alternative receives unanimous support at level $k$ iff it belongs to $U(\prof, k)$. 
 Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
 
 \section{SCRs in the literature}
@@ -121,7 +118,8 @@ We start by defining the SCRs of the literature that we analyze in the paper and
 
  \begin{proposition}{(\citeauthor{BramsKilgour2001})}
 	\label{th:BKkhalf}
-	$[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
+
+ $[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
 	To prove the “only if” part, let $k < \khalf$ and consider the profile $\prof$ composed of an arbitrary ordering $\prefi$ over $\allalts$ and its inverse ordering $\prefiinv$ and observe that $\min \max \lprof = \khalf > k$.
@@ -135,35 +133,19 @@ We start by defining the SCRs of the literature that we analyze in the paper and
 	It follows that $\max \lprof(x) ≤ \khalf$.
 \end{proof}
 
-The \textbf{veto-rank rule} $\VR$ is defined as follows. Each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, then the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
+In the \textbf{veto-rank rule} $\VR$, each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, and the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
 
-The \textbf{shortlisting rule} $\SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$ picks the best alternative of individual $1$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$ (equivalently, that is among the best $\khalf = \khalfAlt$ alternatives of individual $2$), and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$.
+In the \textbf{shortlisting rule} $\SL$, the best alternative of individual $1$  that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$  and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$ are selected: $SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
 \begin{remark}
 	\label{th:VRSLH}
-	$\VR$, $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\forall \prof$, $\VR(\prof) \subseteq H(\prof)$ and $\SL(\prof)\subseteq H(\prof)$.
+Both	$\VR$ and $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\forall \prof$, $\VR(\prof) \subseteq H(\prof)$ and $\SL(\prof)\subseteq H(\prof)$.
 \end{remark}
 
-The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
-Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$. For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
-The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
-
-\begin{remark}
-	All $\PVv$ rules differ. Formally: $\forall v ≠ v', \PVv ≠ \PVv[v']$. This is readily visible by considering a profile $\prof$ composed of a preference ordering $(a_1, …, a_m)$ and the inverse preference ordering $(a_m, …, a_1)$: $\set{a_{v_2 + 1}, …, a_{m - v_1}} = \PVv(\prof) ≠ \PVv[v'](\prof) = \set{a_{v'_2 + 1}, …, a_{m - v'_1}}$.
-\end{remark}
-
-\begin{remark}
-	All SCRs in $\PVcl$ are  neutral, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
-\end{remark}
-
-We now explore the relationship between $\FB$, $\VR$ and $\SL$ and show that they can pick disjoint winners.
-\begin{proposition}\label{th:different}
-There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$.
-\end{proposition}
-\begin{proof}
-	Consider the following profile $\prof$:
+\begin{remark}\label{th:different}
+There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Consider the following profile $\prof$:
 	\begin{equation}
 		\label{eq:distinct}
 		\begin{array}{llll lll | llll ll}
@@ -171,26 +153,43 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 			g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array},
 	\end{equation}
-	where the first individual prefers $a$ to $b$, $b$ to $c$, etc., and the second individual prefers $g$ to $h$, $h$ to $i$, etc. 
-	The bar shows the “half” position.
+	where alternatives are ranked from left to right and the bar shows the “half” position.
 	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
-\end{proof}
-A particular member of the class of Pareto-and-veto rules is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd.
+\end{remark}
 
-\commentRS{Switch Proposition 3 and Theorem 1 and transform Proposition 2 into a remark????}
+\commentRS{I moved the remark above here where it is better placed, I think.}
 
-\begin{theorem}\label{th:intersection}
+The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
+\commentMN{Do we need this? It looks a bit redundant Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.} For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
+The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
+
+\begin{remark}
+	All $\PVv$ rules differ. To see why, consider a profile $\prof$ with a preference ordering $(a_1, …, a_m)$ and the inverse preference ordering $(a_m, …, a_1)$: $\set{a_{v_2 + 1}, …, a_{m - v_1}} = \PVv(\prof) ≠ \PVv[v'](\prof) = \set{a_{v'_2 + 1}, …, a_{m - v'_1}}$.
+\end{remark}
+
+\begin{remark}
+	All SCRs in $\PVcl$ are  neutral, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
+\end{remark}
+
+
+
+
+We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
+
+\commentRS{I suggest to call the proposition below a theorem and the theorem that follows it a proposition.} \commentMN{What about a single theorem that includes both results? It makes sense since both deal with $PV^=$}
+
+\begin{proposition}\label{th:intersection}
 For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
-\end{theorem}
+\end{proposition}
 \begin{proof}
 At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
 \end{proof}
 
 The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their union is a strict sub-correspondence of $\PVe$.
-\begin{proposition}
+\begin{theorem}
   \label{th:subcorr}
    	$\FB \cup \VR \cup \SL \subset \PVe$.
-\end{proposition}
+\end{theorem}
 \begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
 		\begin{array}{lllll|llll}
@@ -203,6 +202,8 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
+
+This section focuses on the notion of Rawlsianism, which aims at maximizing the welfare of the worst-off individual. 
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
@@ -267,7 +268,10 @@ $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}
 
 \section{The equal loss principle}
 \label{sec:eqprinc}
-Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the set of alternatives that are ranked at the same position by both individuals.
+
+This section introduces the second fairness criteria of this work, based on the idea of equal sacrifice by both players or equal loss.
+
+Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the alternatives ranked at the same position by both individuals.
 
 \begin{definition}[Equal loss compatibility (ELC)]
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
@@ -293,7 +297,7 @@ Thus, Pareto efficiency is a fortiori incompatible with the following stronger v
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \subseteq S(\prof)$.
 \end{definition}
 
-We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked at the same position by both individuals, if there is one.
+We now embed Pareto efficiency into the equal loss requirement by mandating $f$ to pick the (unique) Pareto efficient alternative that is ranked equally by both individuals, if any.
 
 \begin{definition}[Paretian equal loss compatibility (PEL-compatibility)]
 	$\forall \prof \in \allprofs: [S(\prof) \cap \PE ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) \cap \PE ≠ \emptyset$.
@@ -382,21 +386,24 @@ Call the dispersion of a loss vector $l$ at $\prof$ the value $d(l) = \abs{l_1 -
 Thus, $(d \circ \lprof)(x) = \max\lprof(x) - \min\lprof(x)$.
 We show in \cref{sec:spreads} that $d$ coincides with several commonly used spread measures.
 
-Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Paretian alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Paretian alternatives whose loss vectors have minimal dispersion among Paretian alternatives.
+Given a profile $\prof \in \allprofs$, define $\min_{\PE} (d \circ \lprof)$ as the minimal dispersion obtained by loss vectors of Pareto efficient alternatives in that profile, and $\argmin_{\PE} (d \circ \lprof)$ as the Pareto efficient alternatives whose loss vectors have minimal dispersion among Pareto efficient alternatives.
 
 Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Paretian alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR. 
+MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR. 
 
-\commentRS{I implemented the change we discussed. A verbal explanation ıf each lemma may help:}\commentMN{ FOR LemmaS 2 and 3, main result of the paper is Theorem 4 // theorems and propositions }
+\commentRS{A verbal explanation ıf each lemma may help.}\commentMN{Done} \commentRS{OK. I made minor cosmetic changes.}
 \begin{theorem}
 	\label{th:noMRMD}
 	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
 \end{theorem}
 \begin{proof}
-	We prove the theorem through four lemmata.
+	We prove the theorem through four lemmata. 
+
+\color{red} Lemma \ref{th:PNonEmpty} states that a Pareto efficient alternative that minimizes dispersion among the top $\ceil{\frac{2m - 4}{3}}$ of both individuals always exists.
+\color{black}
 
  \begin{lemma}
 	\label{th:PNonEmpty}
@@ -431,9 +438,12 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 	To conclude, note that $d(\lprof(y)) ≤ m - t - 1 ≤ d(\lprof(x))$ implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
 \end{proof}
 
+\color{red}
+Lemma \ref{th:PEmpty} shows the existence of some profile where there is a Pareto efficient and dispersion minimizing alternative among the top $t$ alternatives of one of the individuals, as long as $t<\frac{2m-4}{3}$.
+\color{black}
 \begin{lemma}
 	\label{th:PEmpty}
-	Given $m ≥ 2, t \in \N$, $t < \frac{2m - 4}{3}$ implies the following two statements:
+	For any $t \in \N$ with $t < \frac{2m - 4}{3}$, we have the following two impliciations:
 	\begin{itemize}
 		\item $\exists \prof \suchthat \lprofinv(\intvl{0, t} × \intvl{0, m - 1}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$;
 		\item $\exists \prof \suchthat \lprofinv(\intvl{0, m - 1} × \intvl{0, t}) \cap \argmin_{\PE} (d \circ \lprof) = \emptyset$.
@@ -467,7 +477,7 @@ MD requires the outcome to contain some Paretian alternatives whose loss vectors
 	Using $\card{A} ≥ \card{C}$, it follows that $d(\lprof(c_i)) = \card{A} + 1 ≥ \card{C} + 1 = d(\lprof(a_i)) > d(\lprof(x))$, thus $d(\lprof(c_i)) > d(\lprof(x))$.
 \end{proof}
 
-The next lemma states that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. This follows from \cref{th:PNonEmpty,th:PEmpty}.
+The next lemma states that to ensure the existence of an alternative within the first $t$ alternatives for both players that minimizes dispersion among the Pareto efficient ones, it is necessary and sufficient to set $t$ at least $\frac{2m - 4}{3}$. This follows from \cref{th:PNonEmpty,th:PEmpty}.
 \begin{lemma}
 	\label{th:caractEmpty}
 	Given $m ≥ 3$, $\forall t \in \intvl{0, m - 1}$, the following two statements are logically equivalent: 
@@ -477,7 +487,8 @@ The next lemma states that to ensure the existence of an alternative within the 
 	\end{enumerate}
 \end{lemma}
 
-\Cref{th:caractEmpty} in turns permits to characterize the cases (according to the number of alternatives) in which a paretian minimizer of dispertion is guaranteed to be found in the first half.
+\Cref{th:caractEmpty} in turn
+permits to characterize the number of alternatives in which a Pareto efficient alternative minimizing dispersion is guaranteed to be found in the first half, as stated by Lemma \ref{th:profsIncompat}
 
 \begin{lemma}
 	\label{th:profsIncompat}
@@ -575,10 +586,10 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
 	To ensure $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$ and $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$, one can define the rule $\MD(\prof) = \argmin_{\PE}(d \circ \lprof)$ which selects all Pareto efficient alternatives that minimize the dispersion and only those. As mentioned in \cref{ft:equalarea}, this rule is the finite version of \possessivecite{thomson1994cooperative} equal area rule in our framework with no disagreement outcome.
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies PEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
-\commentRS{I propose to delete the theorem below but call Propositions 5, 6, 7, 8, 9 theorems.}\commentMN{I agree with deleting the theorem. However, I suggest that Propositions 5-9 remain propositions to avoid having too many theorems}
-\commentOC{I had in mind that we agreed to use what is now in a comment at the start of this article as the “selling argument” for the article. Thus, that we stick to five theorems that should correspond to the story that the selling argument describes. Do we want to adopt another approach instead?} \commentRS{Sorry, I didn't mean to change our approach. I let you to decide.}
+
 \commentOC{I still like the idea of introducing our article as stating these five points as written in my introductory comment. 
 Also, if we like it, then perhaps it’d better to have just five theorems (instead of six currently) to match these five points.}
+\commentRS{I see your point but given the propositions of this section, stating the theorem below seems like an unnecessary repetition. One way can be to state the theorem at the very beginning but this risks to be overwhelming to the reader. }
 
 Summarizing, we obtain the following result.
 \begin{theorem}
@@ -615,14 +626,14 @@ We end this section by showing that $\khalf$ is also a general bound on dispersi
 \label{sec:reconc}
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
-Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Paretian alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
+Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Pareto efficient alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
 \begin{definition}[Rawlsian minimal dispersion]
 	$\forall \prof \in \allprofs:
 	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
 	and $f(\prof) \subseteq H(\prof)$.
 \end{definition}
 
-RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Paretian dispersion minimizers are out of the first half, by \cref{th:profsIncompat}).
+RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Pareto efficient dispersion minimizers are out of the first half, by \cref{th:profsIncompat}).
 Summarizing, when $m$ is small enough ($m ≤ 6$ or $m = 8$), and only then, first, RMD implies MD, and second, some rules are both RMD and MD.
 \begin{proposition}
 	\label{th:RMDMD}
@@ -712,7 +723,7 @@ Given a profile $\prof$, let $E(\prof)$ denote the alternatives whose loss vecto
 We can then define a refinement of the SRMD rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
 Note also that this tie breaking mechanism is equivalent, within the set of alternatives that have minimum spread, to minimize the sum of losses (equivalently, pick the Borda preferred alternative), and equivalent to minimize the best loss, and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
 \commentOC{To be checked and perhaps rephrased.}
-\commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.}
+\commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.}\commentMN{Seems fine to me}
 As it satisfies Strong RMD, the resolute RMD picks at most two alternatives.
 
 \section{Concluding remarks}
@@ -725,7 +736,7 @@ The richness of the non-strategic axiomatic analysis of collective choice with t
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:props} summarizes our findings. 
 \footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given problem without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-\commentOC{In the table, we mean PEL instead of SPEL, right?}
+\commentOC{In the table, we mean PEL instead of SPEL, right?}\commentMN{I am confused, not sure which one is the correct one}
 
 \begin{table}
 	\begin{tabular}{cl*{5}{c}}
@@ -745,7 +756,7 @@ We bring a consideration based on a common interpretation and perspective. The a
 	\label{fig:props}
 \end{table}
 
-In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Paretian alternatives that are ranked within the first half of both individuals.
+In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Pareto efficient alternatives that are ranked within the first half of both individuals.
 
 Among the rules we consider, those that minimize loss dispersion are the Pareto-and-veto rules that give each individual a veto power that does not exceed a third of the total number of alternatives. These rules will typically make coarse choices with several tied alternatives. Moreover, they fail two stronger versions of the minimal dispersion condition, one which mandates to pick all minimal dispersion alternatives and the other which mandates to pick only minimal dispersion alternatives.
 
