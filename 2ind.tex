@@ -87,14 +87,13 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 \section{Basic notions and notation}
 \label{sec:basic}
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
-Given $i \in N$, let $\ibar \in N \setminus \set{i}$ denote the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$. Let $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ for a preference profile. 
+For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
-Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a proper subcorrespondence of $f'$.
+Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a \commentMN{proper subcorrespondence, we did not define correspondence, how to do it? Maybe $f$ is a selection of $f'$?} of $f'$.
 
-A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$.
-A SCR $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
+A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integers between $p$ and $q$. The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different. 
+Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integers between $p$ and $q$. The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different. 
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$ 
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.
 
@@ -102,15 +101,15 @@ Let $\PE = \set{x \in \allalts \suchthat \nexists \: y \text{ s.t. } \lprof(y) <
 The SCR $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
 Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property.\footnote{We systematically use calligraphic letters to denote the class of rules satisfying a given property.}
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$. For any profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals. 
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$.  For any profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals. 
 An alternative receives unanimous support at level $k$ iff it belongs to $U(\prof, k)$. 
-Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, that we call the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
+Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
 
 \section{SCRs in the literature}
 \label{sec:lit}
 We start by defining the SCRs of the literature that we analyze in the paper and giving some preliminary observations about these rules.
 
-\textbf{Unanimity compromise} is the SCR $\FB$ that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.
+\textbf{Unanimity compromise or $\FB$} is the SCR that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.
 \begin{remark}
 	\label{th:FBH}
 	$\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
@@ -133,9 +132,9 @@ We start by defining the SCRs of the literature that we analyze in the paper and
 	It follows that $\max \lprof(x) ≤ \khalf$.
 \end{proof}
 
-In the \textbf{veto-rank rule} $\VR$, each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, and the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
+In the \textbf{veto-rank rule} or $\VR$, each individual vetoes her worst $\floor{\frac{m - 1}{2}}$ alternatives, and the Borda winners among the non vetoed alternatives are picked: $\VR(\prof) = \argmin_{H(\prof)} \sum \lprof = \set{x \in H(\prof) \suchthat \forall y \in H(\prof): \sum \lprof(x) ≤ \sum \lprof(y)}$.
 
-In the \textbf{shortlisting rule} $\SL$, the best alternative of individual $1$  that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$  and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$ are selected: $SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
+In the \textbf{shortlisting rule} or $\SL$, the best alternative of individual $1$  that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of individual $2$  and the best alternative of $2$ that is not among the worst $\floor{\frac{m - 1}{2}}$ alternatives of $1$ are selected: $SL(\prof) = \cup_{i \in N} (\argmin_{x \in H^i(\prof)} \lprof(x)_{\ibar})$.
 
 Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
@@ -157,7 +156,7 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
 \end{remark}
 
-\commentRS{I moved the remark above here where it is better placed, I think.}
+\commentRS{I moved the remark above here where it is better placed, I think.}\commentMN{I agree}
 
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
 \commentMN{Do we need this? It looks a bit redundant Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.} For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
@@ -176,7 +175,9 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
 
-\commentRS{I suggest to call the proposition below a theorem and the theorem that follows it a proposition.} \commentMN{What about a single theorem that includes both results? It makes sense since both deal with $PV^=$}
+\commentRS{I suggest to call the proposition below a theorem and the theorem that follows it a proposition.} \commentMN{What about a single theorem that includes both results? It makes sense since both deal with $PV^=$} \commentRS{Still the two results are of different nature, I think.}
+
+\commentMN{Actually, I find confusing Theorem 2, isn'it more or less equivalent to Proposition 2?? } \commentRS{Yes but the two results are in terms of different concepts.}
 
 \begin{proposition}\label{th:intersection}
 For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
@@ -206,7 +207,7 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
 This section focuses on the notion of Rawlsianism, which aims at maximizing the welfare of the worst-off individual. 
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
-	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it favors alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
+	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects alternatives whose losses are within $\intvl{0, k}$ for both individuals. Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
 	$\max \lprof(x) ≤ k < \max \lprof(y) ⇒ y \notin f(\prof)$.
 \end{definition}
 
@@ -394,7 +395,7 @@ Define the minimal dispersion (MD) condition as follows.
 \end{definition}
 MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR. 
 
-\commentRS{A verbal explanation ıf each lemma may help.}\commentMN{Done} \commentRS{OK. I made minor cosmetic changes.}
+\commentRS{A verbal explanation ıf each lemma may help.}\commentMN{Done} \commentRS{OK. I made minor cosmetic changes.}\commentMN{Thanks, I agree with them}
 \begin{theorem}
 	\label{th:noMRMD}
 	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
@@ -590,6 +591,8 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
 \commentOC{I still like the idea of introducing our article as stating these five points as written in my introductory comment. 
 Also, if we like it, then perhaps it’d better to have just five theorems (instead of six currently) to match these five points.}
 \commentRS{I see your point but given the propositions of this section, stating the theorem below seems like an unnecessary repetition. One way can be to state the theorem at the very beginning but this risks to be overwhelming to the reader. }
+
+\commentMN{In my opinion, Theorem 5 and Prop 9 can be removed. They do not add much to the section.}
 
 Summarizing, we obtain the following result.
 \begin{theorem}
