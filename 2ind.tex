@@ -90,6 +90,10 @@ Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alte
 For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a \commentMN{proper subcorrespondence, we did not define correspondence, how to do it? Maybe $f$ is a selection of $f'$?} of $f'$.
+\commentOC{Here is a proposal. And I suggest to write $\subsetneq$ instead of $\subset$ as in some sub-disciplines of mathematics, $\subset$ is the well-established symbol for “subset-in-the-large-sense”, AFAIU.
+If this is adopted, we have to change everywhere accordingly (that is, in one place).
+Also, I have uniformized to the version with an hyphen.}
+\commentOC{Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a sub-correspondance of $f'$.}
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
@@ -156,10 +160,10 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
 \end{remark}
 
-\commentRS{I moved the remark above here where it is better placed, I think.}\commentMN{I agree}
-
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
-\commentMN{Do we need this? It looks a bit redundant Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.} For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
+\commentMN{Do we need this? It looks a bit redundant Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.} 
+\commentOC{I find it slightly helpful.}
+For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
 
 \begin{remark}
@@ -176,6 +180,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
 
 \commentRS{I suggest to call the proposition below a theorem and the theorem that follows it a proposition.} \commentMN{What about a single theorem that includes both results? It makes sense since both deal with $PV^=$} \commentRS{Still the two results are of different nature, I think.}
+\commentOC{I stick to my guns. We should first decide how we want to sell the paper; and we still didn’t find a better approach than the five-points proposal that we used to have, despite its shortcomings. I let you find a better plan as you didn’t like it.}
 
 \commentMN{Actually, I find confusing Theorem 2, isn'it more or less equivalent to Proposition 2?? } \commentRS{Yes but the two results are in terms of different concepts.}
 
@@ -395,7 +400,6 @@ Define the minimal dispersion (MD) condition as follows.
 \end{definition}
 MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR. 
 
-\commentRS{A verbal explanation ıf each lemma may help.}\commentMN{Done} \commentRS{OK. I made minor cosmetic changes.}\commentMN{Thanks, I agree with them}
 \begin{theorem}
 	\label{th:noMRMD}
 	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
@@ -403,10 +407,9 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 \begin{proof}
 	We prove the theorem through four lemmata. 
 
-\color{red} Lemma \ref{th:PNonEmpty} states that a Pareto efficient alternative that minimizes dispersion among the top $\ceil{\frac{2m - 4}{3}}$ of both individuals always exists.
-\color{black}
+\Cref{th:PNonEmpty} states that a Pareto efficient alternative that minimizes dispersion among the top $\ceil{\frac{2m - 4}{3}}$ of both individuals always exists.
 
- \begin{lemma}
+\begin{lemma}
 	\label{th:PNonEmpty}
 	Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvl{0, \ceil{\frac{2m - 4}{3}}} × \intvl{0, \ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 \end{lemma}
@@ -439,9 +442,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 	To conclude, note that $d(\lprof(y)) ≤ m - t - 1 ≤ d(\lprof(x))$ implies that $y \in \argmin_{\PE} (d \circ \lprof)$.
 \end{proof}
 
-\color{red}
-Lemma \ref{th:PEmpty} shows the existence of some profile where there is a Pareto efficient and dispersion minimizing alternative among the top $t$ alternatives of one of the individuals, as long as $t<\frac{2m-4}{3}$.
-\color{black}
+\Cref{th:PEmpty} shows the existence of some profile where there is a Pareto efficient and dispersion minimizing alternative among the top $t$ alternatives of one of the individuals, as long as $t<\frac{2m-4}{3}$.
 \begin{lemma}
 	\label{th:PEmpty}
 	For any $t \in \N$ with $t < \frac{2m - 4}{3}$, we have the following two impliciations:
@@ -489,7 +490,7 @@ The next lemma states that to ensure the existence of an alternative within the 
 \end{lemma}
 
 \Cref{th:caractEmpty} in turn
-permits to characterize the number of alternatives in which a Pareto efficient alternative minimizing dispersion is guaranteed to be found in the first half, as stated by Lemma \ref{th:profsIncompat}
+permits to characterize the number of alternatives in which a Pareto efficient alternative minimizing dispersion is guaranteed to be found in the first half, as stated by \cref{th:profsIncompat}.
 
 \begin{lemma}
 	\label{th:profsIncompat}
@@ -505,6 +506,8 @@ permits to characterize the number of alternatives in which a Pareto efficient a
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
 \end{proof}
  
+\commentOC{I find this lemmas-and-proofs-embedded-in-a-bigger-proof approach a bit hard to parse, and I have never seen this anywhere. I suggest to drop the outer proof environment and instead write here “proof of theorem X”.}
+
  It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
 
@@ -591,8 +594,8 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
 \commentOC{I still like the idea of introducing our article as stating these five points as written in my introductory comment. 
 Also, if we like it, then perhaps it’d better to have just five theorems (instead of six currently) to match these five points.}
 \commentRS{I see your point but given the propositions of this section, stating the theorem below seems like an unnecessary repetition. One way can be to state the theorem at the very beginning but this risks to be overwhelming to the reader. }
-
 \commentMN{In my opinion, Theorem 5 and Prop 9 can be removed. They do not add much to the section.}
+\commentOC{I do not object, considering that the majority is not on my side. I let you find a strategy for naming and presenting our results.}
 
 Summarizing, we obtain the following result.
 \begin{theorem}
