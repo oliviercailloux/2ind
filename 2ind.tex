@@ -89,11 +89,7 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
-Given two SCRs $f$, $f'$, we write $f \subset f'$ to indicate that $f$ is a \commentMN{proper subcorrespondence, we did not define correspondence, how to do it? Maybe $f$ is a selection of $f'$?} of $f'$.
-\commentOC{Here is a proposal. And I suggest to write $\subsetneq$ instead of $\subset$ as in some sub-disciplines of mathematics, $\subset$ is the well-established symbol for “subset-in-the-large-sense”, AFAIU.
-If this is adopted, we have to change everywhere accordingly (that is, in one place).
-Also, I have uniformized to the version with an hyphen.}
-\commentOC{Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a sub-correspondance of $f'$.}
+Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a proper sub-correspondence of $f'$.
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
@@ -161,8 +157,7 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 \end{remark}
 
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvl{0, m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
-\commentMN{Do we need this? It looks a bit redundant Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.} 
-\commentOC{I find it slightly helpful.}
+Given $v_i \in \intvl{0, m - 1}$, define $a_i = m - v_i - 1 \in \intvl{0, m - 1}$ as the highest acceptable loss level for individual $i$.
 For $v=(v_1,v_2)$, the rule $\PVv(\prof) = \cap_{i \in N}\set{x \in \allalts \suchthat \lprof(x)_i ≤ a_i} \cap \PE$ picks all Pareto-efficient alternatives that no individual vetoes. 
 The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 \leq m - 1}$ is the set of those rules, and the class $\PVbcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with } v_1 + v_2 = m - 1} \subseteq \PVcl$ is the set of rules where the inequality is binding.
 
@@ -173,9 +168,6 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 \begin{remark}
 	All SCRs in $\PVcl$ are  neutral, while $\PVv \in \PVcl$ is anonymous iff $v_1 = v_2$.
 \end{remark}
-
-
-
 
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
 
@@ -194,7 +186,7 @@ At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not 
 The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their union is a strict sub-correspondence of $\PVe$.
 \begin{theorem}
   \label{th:subcorr}
-   	$\FB \cup \VR \cup \SL \subset \PVe$.
+   	$\FB \cup \VR \cup \SL \subsetneq \PVe$.
 \end{theorem}
 \begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
@@ -405,7 +397,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 	$[\exists f \in \MRcl \cap \MDcl] ⇔ [m ≤ 6 \lor m = 8]$.
 \end{theorem}
 \begin{proof}
-	We prove the theorem through four lemmata. 
+	We prove the theorem through Lemmas 2 to 5. 
 
 \Cref{th:PNonEmpty} states that a Pareto efficient alternative that minimizes dispersion among the top $\ceil{\frac{2m - 4}{3}}$ of both individuals always exists.
 
@@ -489,8 +481,7 @@ The next lemma states that to ensure the existence of an alternative within the 
 	\end{enumerate}
 \end{lemma}
 
-\Cref{th:caractEmpty} in turn
-permits to characterize the number of alternatives in which a Pareto efficient alternative minimizing dispersion is guaranteed to be found in the first half, as stated by \cref{th:profsIncompat}.
+\Cref{th:caractEmpty} in turn permits to characterize the number of alternatives in which a Pareto efficient alternative minimizing dispersion is guaranteed to be found in the first half, as stated by \cref{th:profsIncompat}.
 
 \begin{lemma}
 	\label{th:profsIncompat}
@@ -506,15 +497,9 @@ permits to characterize the number of alternatives in which a Pareto efficient a
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
 \end{proof}
  
-\commentOC{I find this lemmas-and-proofs-embedded-in-a-bigger-proof approach a bit hard to parse, and I have never seen this anywhere. I suggest to drop the outer proof environment and instead write here “proof of theorem X”.}
-
- It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
+It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
 
-
-
-
- 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
 \begin{remark}
@@ -603,24 +588,26 @@ Summarizing, we obtain the following result.
 	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
 	$\VR$ and $\SL$ fail PEL-compatible.
 
-\commentOC{(A stupid question but just to be sure) we mean PEL instead of SPEL, right?}
-	$\FB$ satisfies SPEL, therefore, is PEL-compatible.
+	$\FB$ satisfies PEL, therefore, is PEL-compatible.
 	
 	Among those, for $m ≥ 3$, only the rules $\PVv[(v_1, v_2)]$ with $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ satisfy MD.
 \end{theorem}
 
-We end this section by showing that $\khalf$ is also a general bound on dispersion.
+We end this section by showing that every profile admits some Pareto efficient alternative with a dispersion of at most $\khalf$. Moreover, there is no guarantee of finding an efficient alternative with a dispersion lower than $\khalf$. In other words, $\khalf$ is a general bound on dispersion.
+
 \begin{proposition}
 	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
-\commentRS{Are we sure that the statement of the proposition is true. We can take k greater than half and the left side will still hold. Shouldn't we say k is at least $\khalf$?}\commentMN{Olivier may be better than me in this one.}
-\commentOC{You are right. Also, perhaps the statement “$\forall P, \min_{\PE} (d \circ \lprof) ≤ k$” (for the LHS) is simpler?}
 \begin{proof}
-	\commentOC{TODO}
-	If $k = \khalf$, it follows from \cref{th:BKkhalf} that $\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k$, showing the "if" part. 
-	\commentOC{We actually need to show that some PE alt is such that $\max \lprof(x) ≤ k$, which can of course easily be argued here, but I am pretty sure this argument is already somewhere in the paper, but where? I can’t find it any more now from a cursory look. (Actually, it follows from $\sum \lprof ≤ m - 1$ that all are, I suppose?)}
-
-	This follows from FH and Pareto not empty and the example above. For the other direction, consider $(abcdefgh)$ and $(efghabcd)$ for the other individual.
+    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the "if" part. 
+    For the other direction, consider the profile
+	\begin{equation}
+		\begin{array}{*8{l}}
+			a_1& a_2 & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m\\
+			a_{\khalf + 1}& a_{\khalf + 2} & … & a_m & a_1& a_2 & … & a_{\khalf} \\
+		\end{array}
+	\end{equation}
+   where only $a_1$ and $a_{\khalf + 1}$ are Pareto efficient. Their dispersion is $\khalf$. Thus, one cannot ensure the existence of an efficient alternative with $k < \khalf$.
 \end{proof}
 
 \begin{remark}
