@@ -599,7 +599,7 @@ We end this section by showing that every profile admits some Pareto efficient a
 	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the "if" part. 
+    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the "if" part. \commentOC{Do we mean, the "only if" part?}
     For the other direction, consider the profile
 	\begin{equation}
 		\begin{array}{*8{l}}
@@ -745,7 +745,9 @@ We bring a consideration based on a common interpretation and perspective. The a
 		$\PVe$ & ✓ & & & & ✓ \\
 		\bottomrule
 	\end{tabular}
-	\caption{Summary of the results. A tick means that all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.}
+	\caption{Summary of the results. A tick means that all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$).
+    \commentOC{Is that an iff?}
+    The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.}
 	\label{fig:props}
 \end{table}
 
@@ -755,7 +757,6 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 
 Therefore, it is of interest to introduce rules that are compatible with the minimal dispersion principle. One possibility is to pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion and only those. This rule is the finite version of Thomson’s [1994]
 equal area rule in our framework with no disagreement outcome. By the incompatibility we establish, this rule will be incompatible with the minimal Rawlsian principle. Another possibility that allows to comply with the minimal Rawlsian principle is to pick the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. This rule is somehow a counterpart of the veto rank rule that picks the Pareto efficient alternatives within the first half of both individuals that maximize average rank. However, it is more resolute, as it picks at most two alternatives at any given preference profile. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggests that there is room to conceive and analyze new solutions to the two-person social choice problem.
-
 
 \appendix
 
