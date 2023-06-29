@@ -1,7 +1,7 @@
 %Requires package xcolor.
 \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
 %I observed that two braces around \small are required to make it local.
-\NewDocumentCommand{\commentOC}{O{}m}{\ifx&#1&\else\hl{#1} \fi\textcolor{blue}{{\small$\big[$OC: #2$\big]$}}}
+\NewDocumentCommand{\commentOC}{O{}m}{\ifx&#1&\else\hl{#1 }\fi\textcolor{blue}{{\small$\big[$OC: #2$\big]$}}}
 %Requires package babel and option [french]. According to babel doc, need two braces around \selectlanguage to make the changes really local.
 \NewDocumentCommand{\commentOCf}{O{}m}{\ifx&#1&\else\hl{#1} \fi\textcolor{blue}{{\small\selectlanguage{french}$\big[$OC : #2$\big]$}}}
 \NewDocumentCommand{\commentRS}{O{}m}{\ifx&#1&\else\hl{#1} \fi\textcolor{red}{{\small$\big[$RS: #2$\big]$}}}

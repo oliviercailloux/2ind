@@ -36,17 +36,6 @@
 
 \section{Introduction}
 \label{sec:intro}
-\commentOC{Propositions avec Remzi. Renommer PEL en PEL-compatible et SPEL en PEL. J’ai pour le moment renommé PEL en PEL-compatible (il faudra reformuler certaines phrases concernées), mais pas encore SPEL en PEL pour éviter les confusions.
-Théorèmes :
-	\begin{itemize}
-	        \item Étude de PV= (\cref{th:intersection})
-	\item relations entre règles connues (\cref{sec:lit})
-		\item quelles règles satisfont MR (\cref{th:equal,th:pvmr})
-		\item MR et MD sont compatibles slmt pour $m$ petit (\cref{th:noMRMD})
-		\item quelles règles satisfont PEL-compatible : not VR, not SL and some PV ;  quelles règles satisfont SPEL : UC only ; quelles règles satisfont MD : some PV (\cref{th:PELAndCo})
-		\item quelles règles satisfont RMD (\cref{th:compatRMD})
-	\end{itemize}
-Écrirait-on l’introduction et la conclusion autour de ce plan ?} 
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
 
 \Citet{Mariotti1998} is among the first to relax this assumption by characterizing the Nash solution for a finite set of alternatives. His approach is followed by \citet{nagahisa2002axiomatization} who, again in a finite setting, characterize the solution of \citet{kalai1975other}. Both characterizations are built in a cardinal framework. 
@@ -171,23 +160,18 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvl{0, m - 1} \text{ with
 
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
 
-\commentRS{I suggest to call the proposition below a theorem and the theorem that follows it a proposition.} \commentMN{What about a single theorem that includes both results? It makes sense since both deal with $PV^=$} \commentRS{Still the two results are of different nature, I think.}
-\commentOC{I stick to my guns. We should first decide how we want to sell the paper; and we still didn’t find a better approach than the five-points proposal that we used to have, despite its shortcomings. I let you find a better plan as you didn’t like it.}
-
-\commentMN{Actually, I find confusing Theorem 2, isn'it more or less equivalent to Proposition 2?? } \commentRS{Yes but the two results are in terms of different concepts.} \commentMN{I did not have strong views on that, let's leave it as it is.}
-
-\begin{proposition}\label{th:intersection}
+\begin{theorem}\label{th:intersection}
 For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
-\end{proposition}
+\end{theorem}
 \begin{proof}
 At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
 \end{proof}
 
 The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their union is a strict sub-correspondence of $\PVe$.
-\begin{theorem}
+\begin{proposition}
   \label{th:subcorr}
    	$\FB \cup \VR \cup \SL \subsetneq \PVe$.
-\end{theorem}
+\end{proposition}
 \begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
 		\begin{array}{lllll|llll}
@@ -214,7 +198,7 @@ $k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ 
 	Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k}^N)$.
 	(We actually thought about that version first. We thank Miguel Ballester for the improved version.)
-	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfy $k$-strict-Rawlsianism.
+	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfies $k$-strict-Rawlsianism.
 }
 
 It follows from \cref{th:BKkhalf} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
@@ -258,7 +242,7 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
 is equivalent to 
 $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. Thus, the claim is equivalent to the claim $\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$, which we now prove.
 
-	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(P)$. 
+	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(\prof)$. 
 
 	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -485,14 +469,14 @@ The next lemma states that to ensure the existence of an alternative within the 
 
 \begin{lemma}
 	\label{th:profsIncompat}
-	$\forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
+	$\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
 \end{lemma}
 \begin{proof}
 	When $m = 2$, $H(\prof) = \lprofinv(\intvl{0, 1} × \intvl{0, 1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 	
 	When $m ≥ 3$, fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
 	\begin{equation}
-		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(P) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+		m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
 	\end{equation}
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
 \end{proof}
@@ -576,31 +560,14 @@ Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\pr
  As the rules $\FB$, $\VR$ and $\SL$ fail the MD principle, they are distinct from the rule $\MD$. Also, the rule $\MD$ is not in $\PVcl$: $\MD$ satisfies PEL while no rule in $\PVcl$ does (for $m ≥ 4$), as shown by \cref{th:PVnotSPEL}. It follows that satisfying MD does not imply being a Pareto-and-veto rule.
 \end{remark}
 
-\commentOC{I still like the idea of introducing our article as stating these five points as written in my introductory comment. 
-Also, if we like it, then perhaps it’d better to have just five theorems (instead of six currently) to match these five points.}
-\commentRS{I see your point but given the propositions of this section, stating the theorem below seems like an unnecessary repetition. One way can be to state the theorem at the very beginning but this risks to be overwhelming to the reader. }
-\commentMN{In my opinion, Theorem 5 and Prop 9 can be removed. They do not add much to the section.}
-\commentOC{I do not object, considering that the majority is not on my side. I let you find a strategy for naming and presenting our results.}
-
-Summarizing, we obtain the following result.
-\begin{theorem}
-	\label{th:PELAndCo}
-	For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ satisfies PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
-	$\VR$ and $\SL$ fail PEL-compatible.
-
-	$\FB$ satisfies PEL, therefore, is PEL-compatible.
-	
-	Among those, for $m ≥ 3$, only the rules $\PVv[(v_1, v_2)]$ with $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ satisfy MD.
-\end{theorem}
-
-We end this section by showing that every profile admits some Pareto efficient alternative with a dispersion of at most $\khalf$. Moreover, there is no guarantee of finding an efficient alternative with a dispersion lower than $\khalf$. In other words, $\khalf$ is a general bound on dispersion.
+We end this section by showing that every profile admits some Pareto efficient alternative with a dispersion of at most $\khalf$. Moreover, there is no guarantee of finding an efficient alternative with a dispersion lower than $\khalf$. In other words, $\khalf$ is a general upper bound on dispersion.
 
 \begin{proposition}
-	$[\forall P, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
+    \label{th:dispbound}
+	$[\forall \prof, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the "if" part. \commentOC{Do we mean, the "only if" part?} \commentRS{Tried to clarify.}
-    To show the "only if" part, consider the profile
+    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the "only if" part, consider the profile
 	\begin{equation}
 		\begin{array}{*8{l}}
 			a_1& a_2 & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m\\
@@ -611,8 +578,8 @@ We end this section by showing that every profile admits some Pareto efficient a
 \end{proof}
 
 \begin{remark}
-	\commentOC{TODO phrase this correctly.}
-	the condition “pick always an alternative whose dispersion does not exceed $m/2$” is implied by FH.
+    Given that there is an upper bound on dispersion, one can define the following condition.
+    An SCR $f$ satisfies $k$-bounded dispersion iff $\forall \prof \in \allprofs, \forall x \in f(\prof), d(\lprof(x)) ≤ k$. The condition gets weaker with increasing $k$. Moreover, by \cref{th:dispbound}, it is satisfiable if and only if $k ≥ \khalf$. Therefore, its strongest satisfiable version is $\khalf$-bounded dispersion, which is implied by MR.
 \end{remark}
 
 \section{Reconciling the two principles}
@@ -727,24 +694,22 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond unanimity compromise, the shortlisting rule, the veto-rank rule, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
-\Cref{fig:props} summarizes our findings. 
-\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given \commentOC[problem]{We mean profile, right?} without alluding to the consequences when the given problem is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-\commentOC{In the table, we mean PEL instead of SPEL, right?}\commentMN{I am confused, not sure which one is the correct one}
+\Cref{fig:props} summarizes our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
 \begin{table}
 	\begin{tabular}{cl*{5}{c}}
 		\toprule
-		& MR & PEL-compatible & SPEL & MD & RMD\\
+		& MR & PEL-compatible & PEL & MD & RMD\\
 		\midrule
-		$FB$ & ✓ & ✓ & ✓\\
-		$VR$ & ✓ & \\
-		$SL$ & ✓ & \\
+		$\FB$ & ✓ & ✓ & ✓\\
+		$\VR$ & ✓ & \\
+		$\SL$ & ✓ & \\
 		$\PVcl^=$ & ✓ & \\
 		$\PVcl \suchthat \max v_i ≤ \frac{m}{2}$ & & ✓\\
 		$\PVcl \suchthat \max v_i ≤ \frac{m + 1}{3}$ & & ✓ & & ✓\\
 		$\PVe$ & ✓ & & & & ✓ \\
 		\bottomrule
 	\end{tabular}
-	\caption{Summary of the results. \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$).
+	\caption{Summary of the results. \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
 		The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.}
 	\label{fig:props}
 \end{table}
