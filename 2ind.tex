@@ -5,6 +5,12 @@
 \input{preamble/math_basics}
 \input{preamble/math_mine}
 \usepackage{bbm}
+\usepackage{makecell}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
@@ -26,7 +32,7 @@
 	pdfsubject={},
 	pdfkeywords={},
 }
-
+\usepackage{multirow}
 \begin{document}
 \maketitle
 
@@ -242,7 +248,7 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
 is equivalent to 
 $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. Thus, the claim is equivalent to the claim $\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$, which we now prove.
 
-	To show the “if” part, note that given any profile, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(\prof)$. 
+	To show the “if” part, note that the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that  $\PVv(\prof) \subseteq H(\prof)$ for any profile . 
 
 	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -669,22 +675,33 @@ The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
 It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{proposition}
-	The SRMD rule $f$ selects at most two alternatives, i.e., $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
+	The SRMD rule $f$ selects at most two alternatives: $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
 \end{proposition}
 \begin{proof}
-	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ and any $i \suchthat \min \lprof(x) = \lprof(x)_i$. Consider any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
+	Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, any $i \suchthat \min \lprof(x) = \lprof(x)_i$ and  any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
 	
 	To conclude, observe that if $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ contain at least two elements (say, $x$ and $y$), one of them, say, $x$, has $\min \lprof(x) = \lprof(x)_i$, the other one has $\min \lprof(y) = \lprof(y)_{\ibar}$, and thus there cannot be a third element $z$ in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as neither $\min \lprof(z) = \lprof(z)_i$ nor $\min \lprof(z) = \lprof(z)_{\ibar}$ is possible, by the above result.
 \end{proof}
 
-More resoluteness can be achieved by introducing the notion of \emph{anonymous dominance} of loss vectors. Given two loss vectors $l, l' \in \lvs$, say that 
-$l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ and at least one of these inequalities is strict.
-Given a profile $\prof$, let $E(\prof)$ denote the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \suchthat \forall y \in \allalts: \lprof(y) \not⊲ \lprof(x)}$.
-We can then define a refinement of the SRMD rule as $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$.
-Note also that this tie breaking mechanism is equivalent, within the set of alternatives that have minimum spread, to minimize the sum of losses (equivalently, pick the Borda preferred alternative), and equivalent to minimize the best loss, and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
-\commentOC{To be checked and perhaps rephrased.}
-\commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.}\commentMN{Seems fine to me}
-As it satisfies Strong RMD, the resolute RMD picks at most two alternatives.
+One can define a refinement of the SRMD rule through the notion of \emph{anonymous dominance} of loss vectors. 
+
+
+Given two loss vectors $l, l' \in \lvs$, say that 
+$l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ with one of these inequalities being strict.
+For any profile $\prof$, $E(\prof)$ denotes the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \mid \nexists y \in \allalts: \lprof(y) ⊲ \lprof(x)}$.
+
+
+ The rule SRMD$^*$ that selects $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$ is then a refinement of the SRMD rule, since the anonymous dominance is used as a tie-breaker, and thus picks at most two alternatives.
+ 
+Note also that this rule is equivalent, within the set of alternatives with minimal dispersion, to minimize the sum of losses (equivalently, pick the Borda preferred alternative). 
+
+This is also equivalent to minimize the best loss and in turn  and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
+
+
+
+%\commentOC{To be checked and perhaps rephrased.}
+%commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.
+
 
 \section{Concluding remarks}
 \label{sec:concl}
@@ -709,8 +726,33 @@ We bring a consideration based on a common interpretation and perspective. The a
 		$\PVe$ & ✓ & & & & ✓ \\
 		\bottomrule
 	\end{tabular}
-	\caption{Summary of the results. \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually some of the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
-		The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.}
+	\caption{Summary of the results. 
+        \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually some of the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
+        \commentOC{Seems to me that the class $\PVcl^=$ should have a tick at PEL-compatible.}
+        The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
+    }
+	\label{fig:props}
+\end{table}
+
+
+\begin{table}
+\begin{tabular}{ |c|c|c|c|c|c|c| } 
+\hline 
+ & MR & PEL-compatible & PEL & MD & RMD \\
+\hline
+UC & ✓ & ✓ & ✓ & &\\ 
+\hline
+VR & ✓ &  & & &\\ 
+\hline
+SL & ✓ &  & & &\\ 
+\hline
+\multirow{2}{*}{$\mathcal{PV}$} & $m$ odd, $PV^=$ & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$} &  & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$}&\multirow{2}{*}{$PV^=$}\\  \cline{2-2}
+& $m$ even, $\PVcl^=$ & & & &\\ 
+\hline
+\end{tabular}
+	\caption{Summary of the results.
+ For the first three rows, a tick means that the SCR satisfies the corresponding property for any value of $m$ and $n$. For the class $\mathcal{PV}$, each cell specifies those members that satisfy the corresponding property. The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
+    }
 	\label{fig:props}
 \end{table}
 
