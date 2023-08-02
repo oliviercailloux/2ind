@@ -712,48 +712,48 @@ The richness of the non-strategic axiomatic analysis of collective choice with t
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:props} summarizes our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-\begin{table}
-	\begin{tabular}{cl*{5}{c}}
-		\toprule
-		& MR & PEL-compatible & PEL & MD & RMD\\
-		\midrule
-		$\FB$ & ✓ & ✓ & ✓\\
-		$\VR$ & ✓ & \\
-		$\SL$ & ✓ & \\
-		$\PVcl^=$ & ✓ & \\
-		$\PVcl \suchthat \max v_i ≤ \frac{m}{2}$ & & ✓\\
-		$\PVcl \suchthat \max v_i ≤ \frac{m + 1}{3}$ & & ✓ & & ✓\\
-		$\PVe$ & ✓ & & & & ✓ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Summary of the results. 
-        \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually some of the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
-        \commentOC{Seems to me that the class $\PVcl^=$ should have a tick at PEL-compatible.}
-        The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-    }
-	\label{fig:props}
-\end{table}
+%\begin{table}
+%	\begin{tabular}{cl*{5}{c}}
+%		\toprule
+%		& MR & PEL-compatible & PEL & MD & RMD\\
+%		\midrule
+%		$\FB$ & ✓ & ✓ & ✓\\
+%		$\VR$ & ✓ & \\
+%		$\SL$ & ✓ & \\
+%		$\PVcl^=$ & ✓ & \\
+%		$\PVcl \suchthat \max v_i ≤ \frac{m}{2}$ & & ✓\\
+%		$\PVcl \suchthat \max v_i ≤ \frac{m + 1}{3}$ & & ✓ & & ✓\\
+%		$\PVe$ & ✓ & & & & ✓ \\
+%		\bottomrule
+%	\end{tabular}
+%	\caption{Summary of the results. 
+ %       \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually some of the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
+%        \commentOC{Seems to me that the class $\PVcl^=$ should have a tick at PEL-compatible.}
+ %       The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
+    %}
+%	\label{fig:props}
+%\end{table}
 
-
+%
 \begin{table}
-\begin{tabular}{ |c|c|c|c|c|c|c| } 
+\begin{tabular}{ ccccccc} 
 \hline 
  & MR & PEL-compatible & PEL & MD & RMD \\
 \hline
 UC & ✓ & ✓ & ✓ & &\\ 
-\hline
+
 VR & ✓ &  & & &\\ 
-\hline
+
 SL & ✓ &  & & &\\ 
-\hline
-\multirow{2}{*}{$\mathcal{PV}$} & $m$ odd, $PV^=$ & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$} &  & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$}&\multirow{2}{*}{$PV^=$}\\  \cline{2-2}
-& $m$ even, $\PVcl^=$ & & & &\\ 
+
+\multirow{2}{*}{$\mathcal{PV}$} & \multirow{2}{*}{ $\PVcl^=$} & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$} &  & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$}&\multirow{2}{*}{$PV^=$}\\  
+&  & & & &\\ 
 \hline
 \end{tabular}
 	\caption{Summary of the results.
  For the first three rows, a tick means that the SCR satisfies the corresponding property for any value of $m$ and $n$. For the class $\mathcal{PV}$, each cell specifies those members that satisfy the corresponding property. The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-\commentOC{I suggest to write only $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ (or alternatively $\PVcl^=$) in the PV/MR cell (instead of the split for even and odd).}
-\commentOC{Typographers recommend to use light tables rather than heavy ones (in terms of borders of the cell), which is also my preference (though I realize that this is somewhat subjective of course). Can we reduce those?}
+%\commentOC{I suggest to write only $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ (or alternatively $\PVcl^=$) in the PV/MR cell (instead of the split for even and odd).}
+%\commentOC{Typographers recommend to use light tables rather than heavy ones (in terms of borders of the cell), which is also my preference (though I realize that this is somewhat subjective of course). Can we reduce those?}
     }
 	\label{fig:props2}
 \end{table}
