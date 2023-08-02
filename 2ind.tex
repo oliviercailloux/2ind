@@ -685,77 +685,59 @@ The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to sa
 
 One can define a refinement of the SRMD rule through the notion of \emph{anonymous dominance} of loss vectors. 
 
-
 Given two loss vectors $l, l' \in \lvs$, say that 
 $l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ with one of these inequalities being strict.
 For any profile $\prof$, $E(\prof)$ denotes the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \mid \nexists y \in \allalts: \lprof(y) ⊲ \lprof(x)}$.
 
-
- The rule SRMD$^*$ that selects $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$ is then a refinement of the SRMD rule, since the anonymous dominance is used as a tie-breaker, and thus picks at most two alternatives.
+The rule SRMD$^*$ that selects $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$ is then a refinement of the SRMD rule, since the anonymous dominance is used as a tie-breaker, and thus picks at most two alternatives.
  
 Note also that this rule is equivalent, within the set of alternatives with minimal dispersion, to minimize the sum of losses (equivalently, pick the Borda preferred alternative). 
 
-This is also equivalent to minimize the best loss and in turn  and equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
-
-
-
-%\commentOC{To be checked and perhaps rephrased.}
-%commentOC{Shall we prove the last claim? The proof is that, observing that $\sum l = \min l + \min l + d(l)$ and $\sum l = \max l + \max l - d(l)$, when $d(l) = d(l')$, the statement $\sum l < \sum l'$ is equivalent both to $\min l < \min l'$ and to $\max l < \max l'$.
-
+This is also equivalent to minimize the best loss and in turn equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
 
 \section{Concluding remarks}
 \label{sec:concl}
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.%
 \footnote{While we will not restate here the relevant papers already cited in the introduction, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of \citet{HurwiczSchmeidler78} and \citet{Maskin99} on the impossibility of Nash implementing Pareto efficient two-person social choice rules.} 
 
+\begin{table}
+	\begin{tabular}{cl*{5}{c}}
+		\toprule
+		& MR & PEL-compatible & PEL & MD & RMD\\
+		\midrule
+		$\FB$ & ✓ & ✓ & ✓\\
+		$\VR$ & ✓ & \\
+		$\SL$ & ✓ & \\
+		\bottomrule
+	\end{tabular}
+	\caption{Summary of the results about $\FB$, $\VR$ and $\SL$. 
+	A tick means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ and $n$.}
+	\label{fig:propsR}
+\end{table}
+
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond unanimity compromise, the shortlisting rule, the veto-rank rule, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:props} summarizes our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-%\begin{table}
-%	\begin{tabular}{cl*{5}{c}}
-%		\toprule
-%		& MR & PEL-compatible & PEL & MD & RMD\\
-%		\midrule
-%		$\FB$ & ✓ & ✓ & ✓\\
-%		$\VR$ & ✓ & \\
-%		$\SL$ & ✓ & \\
+
+\begin{table}
+	\begin{tabular}{cl*{5}{c}}
+		\toprule
+		& MR & PEL-compatible & PEL & MD & RMD\\
+		\midrule
+$\PVcl$ & $\PVcl^=$ & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$ &  & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ & $\PVe$\\
 %		$\PVcl^=$ & ✓ & \\
 %		$\PVcl \suchthat \max v_i ≤ \frac{m}{2}$ & & ✓\\
 %		$\PVcl \suchthat \max v_i ≤ \frac{m + 1}{3}$ & & ✓ & & ✓\\
 %		$\PVe$ & ✓ & & & & ✓ \\
-%		\bottomrule
-%	\end{tabular}
-%	\caption{Summary of the results. 
- %       \commentOC[A tick means that]{Is that an iff?} all members of the corresponding class of rules satisfy the corresponding property (for $m ≥ 4$). \commentOC{Actually some of the non-ticked cells of the table create difficulties because some rules satisfy or fail some properties depending on the value of $m$. It seems to me that taking this into account would make the table less readable. Therefore, I suggest to simply leave it as it is now, that is, not stating anything about the empty cells.}
-%        \commentOC{Seems to me that the class $\PVcl^=$ should have a tick at PEL-compatible.}
- %       The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-    %}
-%	\label{fig:props}
-%\end{table}
-
-%
-\begin{table}
-\begin{tabular}{ ccccccc} 
-\hline 
- & MR & PEL-compatible & PEL & MD & RMD \\
-\hline
-UC & ✓ & ✓ & ✓ & &\\ 
-
-VR & ✓ &  & & &\\ 
-
-SL & ✓ &  & & &\\ 
-
-\multirow{2}{*}{$\mathcal{PV}$} & \multirow{2}{*}{ $\PVcl^=$} & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$} &  & \multirow{2}{*}{$\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$}&\multirow{2}{*}{$PV^=$}\\  
-&  & & & &\\ 
-\hline
-\end{tabular}
-	\caption{Summary of the results.
- For the first three rows, a tick means that the SCR satisfies the corresponding property for any value of $m$ and $n$. For the class $\mathcal{PV}$, each cell specifies those members that satisfy the corresponding property. The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-%\commentOC{I suggest to write only $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ (or alternatively $\PVcl^=$) in the PV/MR cell (instead of the split for even and odd).}
-%\commentOC{Typographers recommend to use light tables rather than heavy ones (in terms of borders of the cell), which is also my preference (though I realize that this is somewhat subjective of course). Can we reduce those?}
-    }
-	\label{fig:props2}
+		\bottomrule
+	\end{tabular}
+	\caption{Summary of the results about the class $\PVcl$.
+	Each cell specifies those members that satisfy the corresponding property. 
+	The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
+\commentOC{I wonder if writing $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ instead of $\PVcl^=$ would be better? It permits easier comparison with the other cases; OTOH it is probably less nice to read and perhaps more difficult to understand.}
+	}
+	\label{fig:propsC}
 \end{table}
 
 In front of this incompatibility, the literature seems to favor the minimally Rawlsian principle, as unanimity compromise, the shortlisting rule and the veto-rank rule are minimally Rawlsian. Moreover, within the class of Pareto-and-veto rules, perhaps the most prominent ones, namely those which give both individuals the highest equal or almost equal veto power are minimally Rawlsian. By the established incompatibility, these rules cannot minimize loss dispersion but, except the Pareto-and-veto rule that gives the highest equal veto power, they do not even minimize loss dispersion among the Pareto efficient alternatives that are ranked within the first half of both individuals.
@@ -764,6 +746,26 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 
 Therefore, it is of interest to introduce rules that are compatible with the minimal dispersion principle. One possibility is to pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion and only those. This rule is the finite version of Thomson’s [1994]
 equal area rule in our framework with no disagreement outcome. By the incompatibility we establish, this rule will be incompatible with the minimal Rawlsian principle. Another possibility that allows to comply with the minimal Rawlsian principle is to pick the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. This rule is somehow a counterpart of the veto rank rule that picks the Pareto efficient alternatives within the first half of both individuals that maximize average rank. However, it is more resolute, as it picks at most two alternatives at any given preference profile. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggests that there is room to conceive and analyze new solutions to the two-person social choice problem.
+
+\begin{table}
+	\begin{tabular}{cl*{5}{c}}
+		\toprule
+		& MR & PEL-compatible & PEL & MD & RMD\\
+		\midrule
+		$\FB$ & ✓ & ✓ & ✓\\
+		$\VR$ & ✓ & \\
+		$\SL$ & ✓ & \\
+		\midrule
+$\PVcl$ & $\PVcl^=$ & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$ &  & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ & $\PVe$\\
+		\bottomrule
+	\end{tabular}
+	\caption{Summary of the results. 
+	For the first three rows, a tick means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ and $n$. 
+	For the class $\mathcal{PV}$, each cell specifies those members that satisfy the corresponding property. 
+	The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
+	}
+	\label{fig:props}
+\end{table}
 
 \appendix
 
