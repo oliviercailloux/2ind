@@ -206,16 +206,16 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
-This section focuses on the notion of Rawlsianism, which aims at \commentOC[maximizing the welfare of the worst-off individual]{This wording suggests the rule that, given a profile, minimizes the worst loss, thus, $\FB$; whereas we mean that this principle gives an a priori bound on losses that, given a profile, will be satisfied if possible. In hindsight, I do not think that the name “Rawlsian” for this is deserved, as Rawlsianism to me invokes an idea of “worst off is as good as possible” (that is, $\FB$), rather than “a priori bounded loss” (though I agree with the term “minimal Rawlsianism” as it is weaker than a truly Rawlsian principle). But if you think that it is now too late to change the name (which admittedly would be boring now that we are about to submit), I will not object. Anyway, we can at least slightly change the verbal description of it, I suppose}.
+This section focuses on the notion of Rawlsianism, which aims at \commentOC[maximizing the welfare of the worst-off individual]{This wording suggests the rule that, given a profile, minimizes the worst loss, thus, $\FB$; whereas we mean that this principle gives an a priori bound on losses that, given a profile, will be satisfied if possible. In hindsight, I do not think that the name “Rawlsian” for this is deserved, as Rawlsianism to me invokes an idea of “worst off is as good as possible” (that is, $\FB$), rather than “a priori bounded loss” (though I agree with the term “minimal Rawlsianism” as it is weaker than a truly Rawlsian principle). But if you think that it is now too late to change the name (which admittedly would be boring now that we are about to submit), I will not object. Anyway, we can at least slightly change the verbal description of it, I suppose}. \commentRS{Isn't it unfair to qualify the bound imposed by the MR principle as "a priori"? After all, this bound of "half" is a consequence of Rawlsianisn and UC, which makes me feel comfortable with calling the concept "MR".}
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
-	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects alternatives whose losses are within $\intvl{0, k}$ for both individuals. 
-	\commentOC{That does not match the formal definition, and does not match the informal description that follows the definition}
+	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects among alternatives whose losses are within $\intvl{0, k}$ for both individuals, whenever such alternatives exist. 
+	\commentOC{That does not match the formal definition, and does not match the informal description that follows the definition} \commentRS{You're right. I tried to revise accordingly.}
 	Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
 	$\max \lprof(x) ≤ k < \max \lprof(y) ⇒ y \notin f(\prof)$.
 \end{definition}
 
-$k$-Rawlsianism is binding at exactly those profiles where some alternative $x$ has its loss vector in $\intvl{0, k}^N$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.\footnote{%
+$k$-Rawlsianism is binding at exactly those profiles where there is an alternative $x$ whose loss vector is in $\intvl{0, k}^N$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.\footnote{%
 	\label{rk:variant}
 	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.
 	Formally:
@@ -397,7 +397,7 @@ Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR \commentOC{I suggest to add, to avoid confusion: “(except for sufficiently low values of $m$)”, or something similar}. 
+MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR \commentOC{I suggest to add, to avoid confusion: “(except for sufficiently low values of $m$)”, or something similar}. \commentRS{I agree.} 
 
 \begin{theorem}
 	\label{th:noMRMD}
@@ -736,7 +736,7 @@ The richness of the non-strategic axiomatic analysis of collective choice with t
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:propsR,fig:propsC} summarize our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-\commentOC{What do you think about replacing \cref{fig:propsC} by \cref{fig:propsCexplicit}?}
+\commentOC{What do you think about replacing \cref{fig:propsC} by \cref{fig:propsCexplicit}?} \commentRS{I would go for a mixture! Table 2 for MR and RMD; Table 3 for PEL-compatible and MD.}
 
 \begin{table}
 	\begin{tabular}{l*{5}{c}}
