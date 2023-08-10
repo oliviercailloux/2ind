@@ -207,10 +207,10 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
 This section focuses on the notion of Rawlsianism, which aims at \commentOC[maximizing the welfare of the worst-off individual]{This wording suggests the rule that, given a profile, minimizes the worst loss, thus, $\FB$; whereas we mean that this principle gives an a priori bound on losses that, given a profile, will be satisfied if possible. In hindsight, I do not think that the name “Rawlsian” for this is deserved, as Rawlsianism to me invokes an idea of “worst off is as good as possible” (that is, $\FB$), rather than “a priori bounded loss” (though I agree with the term “minimal Rawlsianism” as it is weaker than a truly Rawlsian principle). But if you think that it is now too late to change the name (which admittedly would be boring now that we are about to submit), I will not object. Anyway, we can at least slightly change the verbal description of it, I suppose}. \commentRS{Isn't it unfair to qualify the bound imposed by the MR principle as "a priori"? After all, this bound of "half" is a consequence of Rawlsianisn and UC, which makes me feel comfortable with calling the concept "MR".}
+\commentOC{Maybe the word “a priori” is not most appropriate, I meant that the bound is given so as to work for all profiles, whereas one could also logically desire that, given the profile, we pick the alternative that minimizes the worst loss. What do you mean with UC as a principle, in “this bound of "half" is a consequence of Rawlsianisn and UC”? (In my previous comment, I was referring to “Unanimity Compromise”, that is, FB.)}
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects among alternatives whose losses are within $\intvl{0, k}$ for both individuals, whenever such alternatives exist. 
-	\commentOC{That does not match the formal definition, and does not match the informal description that follows the definition} \commentRS{You're right. I tried to revise accordingly.}
 	Formally, $\forall \prof \in \allprofs,  x, y \in \allalts$:
 	$\max \lprof(x) ≤ k < \max \lprof(y) ⇒ y \notin f(\prof)$.
 \end{definition}
@@ -397,7 +397,7 @@ Define the minimal dispersion (MD) condition as follows.
 \begin{definition}[Minimal dispersion]
 	$f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, $\forall \prof \in \allprofs$.
 \end{definition}
-MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR \commentOC{I suggest to add, to avoid confusion: “(except for sufficiently low values of $m$)”, or something similar}. \commentRS{I agree.} 
+MD requires the outcome to contain some Pareto efficient alternatives whose loss vectors have minimal dispersion. As such, MD is another strengthening of PEL-compatibility while it is logically independent of PEL. Nevertheless, although there are rules that satisfy both PEL and MR, MD turns out to be logically incompatible with MR (except for sufficiently low values of $m$).
 
 \begin{theorem}
 	\label{th:noMRMD}
