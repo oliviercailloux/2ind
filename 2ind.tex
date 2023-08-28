@@ -22,12 +22,16 @@
 	%Reduces verbosity about the underful vboxes.
 	\vbadness=1300
 
+\linenumbers
+
 \title{Two principles for two-person social choice \thanks{Earlier versions of this paper have been presented at CRESE, Université de Franche-Comté and CMSS, the University of Auckland. We thank both institutions. We also thank Miguel Ballester, Sylvain Béal, Danilo Santa Cruz Coelho, John Hillas, Jean-François Laslier, Clemens Puppe, Arkadii Slinko and Yves Sprumont for useful exchanges we had.}}
 \author[*]{Olivier Cailloux}
 \author[**]{Matías Núñez}
 \author[*]{M. Remzi Sanver}
-\affil[*]{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE}
+\affil[*]{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 Paris, France.}
 \affil[**]{CREST, CNRS, École Polytechnique, GENES, ENSAE Paris, Institut Polytechnique de Paris, 91120 Palaiseau, France.}
+\date{}
+
 \hypersetup{
 	pdfsubject={},
 	pdfkeywords={},
@@ -206,8 +210,7 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
 
 \section{The minimal Rawlsian principle}
 \label{sec:minprinc}
-This section focuses on the notion of Rawlsianism, which aims at \commentOC[maximizing the welfare of the worst-off individual]{This wording suggests the rule that, given a profile, minimizes the worst loss, thus, $\FB$; whereas we mean that this principle gives an a priori bound on losses that, given a profile, will be satisfied if possible. In hindsight, I do not think that the name “Rawlsian” for this is deserved, as Rawlsianism to me invokes an idea of “worst off is as good as possible” (that is, $\FB$), rather than “a priori bounded loss” (though I agree with the term “minimal Rawlsianism” as it is weaker than a truly Rawlsian principle). But if you think that it is now too late to change the name (which admittedly would be boring now that we are about to submit), I will not object. Anyway, we can at least slightly change the verbal description of it, I suppose}. \commentRS{Isn't it unfair to qualify the bound imposed by the MR principle as "a priori"? After all, this bound of "half" is a consequence of Rawlsianisn and UC, which makes me feel comfortable with calling the concept "MR".}
-\commentOC{Maybe the word “a priori” is not most appropriate, I meant that the bound is given so as to work for all profiles, whereas one could also logically desire that, given the profile, we pick the alternative that minimizes the worst loss. What do you mean with UC as a principle, in “this bound of "half" is a consequence of Rawlsianisn and UC”? (In my previous comment, I was referring to “Unanimity Compromise”, that is, FB.)}\commentMN{I really like MR for Rawlsianism, I think that many people like to think of this in this manner, I would leave it as it is.} \commentRS{So MR wins with a majority!}
+This section focuses on the notion of Rawlsianism, which aims at maximizing the welfare of the worst-off individual.
 \begin{definition}[$k$-Rawlsianism] 
 	\label{def:kr}
 	Given $k \in \intvl{0, m - 1}$, a SCR is $k$-Rawlsian iff it selects among alternatives whose losses are within $\intvl{0, k}$ for both individuals, whenever such alternatives exist. 
@@ -677,7 +680,7 @@ $\PVe$ satisfies the RMD principle at the expense of resoluteness, since it pick
 	f(\prof) \subseteq \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
 \end{definition}
 
-The following theorem is the counterpart to \cref{th:RMDMD} for SRMD.
+The following result is the counterpart to \cref{th:RMDMD} for SRMD.
 \begin{proposition}
 	$[m ≤ 6 \lor m = 8] ⇔ \SRMDcl \subseteq \MDcl ⇔ \SRMDcl \cap \MDcl ≠ \emptyset$.
 \end{proposition}
@@ -735,23 +738,8 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
 The richness of the non-strategic axiomatic analysis of collective choice with three or more individuals is accompanied by a wealthy list of conceived social choice rules. On the other hand, for two individuals, it is hard to name a prominent social choice rule beyond unanimity compromise, the shortlisting rule, the veto-rank rule, and the class of Pareto-and-veto rules. Moreover, these social choice rules are conceived under different interpretations of the two-person collective choice model, thus being analyzed from somewhat different perspectives.
 
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
-\Cref{fig:propsR,fig:propsC} summarize our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:props} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
-\commentOC{What do you think about replacing \cref{fig:propsC} by \cref{fig:propsCexplicit}?} \commentRS{I would go for a mixture! Table 2 for MR and RMD; Table 3 for PEL-compatible and MD.} \commentMN{But a mixture would imply three tables in the same conclusion which seems a lot, right? I am not sure of the difference between Table 2 and 3, with Table 3 being slightly better. } \commentRS{I didn't mean an additional table. I was thinking of one table that combines some features of Table 2 and 3. Anyway, I don't have any strong feeling about this. Whatever you prefer is fine for me.}
+\Cref{fig:propsR,fig:propsCexplicit} summarize our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:propsR} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
 
-\begin{table}
-	\begin{tabular}{l*{5}{c}}
-		\toprule
-		& MR & PEL-compatible & PEL & MD & RMD\\
-		\midrule
-		$\PVcl$ & $\PVcl^=$ & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$ &  & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ & $\PVe$\\
-		\bottomrule
-	\end{tabular}
-	\caption{Summary of the results about the class $\PVcl$.
-	Each cell specifies those members that satisfy the corresponding property. 
-	The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-	}
-	\label{fig:propsC}
-\end{table}
 
 \begin{table}
 	\begin{tabular}{l*{5}{c}}
@@ -774,25 +762,6 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 Therefore, it is of interest to introduce rules that are compatible with the minimal dispersion principle. One possibility is to pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion and only those. This rule is the finite version of Thomson’s [1994]
 equal area rule in our framework with no disagreement outcome. By the incompatibility we establish, this rule will be incompatible with the minimal Rawlsian principle. Another possibility that allows to comply with the minimal Rawlsian principle is to pick the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. This rule is somehow a counterpart of the veto rank rule that picks the Pareto efficient alternatives within the first half of both individuals that maximize average rank. However, it is more resolute, as it picks at most two alternatives at any given preference profile. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggests that there is room to conceive and analyze new solutions to the two-person social choice problem.
 
-\begin{table}
-	\begin{tabular}{cl*{5}{c}}
-		\toprule
-		& MR & PEL-compatible & PEL & MD & RMD\\
-		\midrule
-		$\FB$ & ✓ & ✓ & ✓\\
-		$\VR$ & ✓ & \\
-		$\SL$ & ✓ & \\
-		\midrule
-$\PVcl$ & $\PVcl^=$ & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$ &  & $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3}$ & $\PVe$\\
-		\bottomrule
-	\end{tabular}
-	\caption{Summary of the results. 
-	For the first three rows, a tick means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ and $n$. 
-	For the class $\mathcal{PV}$, each cell specifies those members that satisfy the corresponding property. 
-	The notation $\PVcl^=$ designates the class referred to by \cref{th:pvmr}.
-	}
-	\label{fig:props}
-\end{table}
 
 \appendix
 
