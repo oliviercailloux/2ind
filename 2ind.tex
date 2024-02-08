@@ -87,7 +87,7 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 \label{sec:basic} 
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile. 
-A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
+A social choice rule (SCR) is a correspondance $f: \allprofs → \powersetz{\allalts}$.
 Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a proper sub-correspondence of $f'$.
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f(\hspace{-0.6pt}{\prefi[2]}, {\prefi[1]}\hspace{-0.6pt})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
