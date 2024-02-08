@@ -14,9 +14,9 @@
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
-	\tolerance=2000
+	%\tolerance=2000
 	%Accept overfull hbox up to...
-	\hfuzz=2cm
+	%\hfuzz=2cm
 	%Reduces verbosity about the bad line breaks.
 	\hbadness 5000
 	%Reduces verbosity about the underful vboxes.
@@ -84,13 +84,13 @@ Given the incompatibility between the two principles, we introduce the Rawlsian 
 \Cref{sec:basic} introduces the basic notions and notation. \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
 
 \section{Basic notions and notation}
-\label{sec:basic}
+\label{sec:basic} 
 Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ be a set of alternatives, with $\card{\allalts} = m\geq 2$. 
 For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile. 
 A social choice rule (SCR) is a function $f: \allprofs → \powersetz{\allalts}$.
 Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a proper sub-correspondence of $f'$.
 
-A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f({\prefi[2]}, {\prefi[1]})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
+A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f(\hspace{-0.6pt}{\prefi[2]}, {\prefi[1]}\hspace{-0.6pt})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
 Given $p, q \in \R$, let $\intvl{p, q} = [p, q] \cap \N $ denote the interval of integers between $p$ and $q$. The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different. 
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$ 
@@ -615,9 +615,10 @@ Given the incompatibility between MR and MD, one can attempt to reconcile the tw
 
 Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Pareto efficient alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
 \begin{definition}[Rawlsian minimal dispersion]
-	$\forall \prof \in \allprofs:
-	f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$
-	and $f(\prof) \subseteq H(\prof)$.
+	$\forall \prof \in \allprofs$:
+	$f(\prof) \subseteq H(\prof)$
+	and 
+	$f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$.
 \end{definition}
 
 RMD strengthens MR. On the other hand, the relationship between RMD and MD depends on $m$: when $m$ is small, RMD is stronger than MD while when $m$ is large, no rule can satisfy both RMD and MD (because there are profiles where all Pareto efficient dispersion minimizers are out of the first half, by \cref{th:profsIncompat}).
