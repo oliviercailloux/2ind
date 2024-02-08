@@ -218,17 +218,20 @@ This section focuses on the notion of Rawlsianism, which aims at maximizing the 
 	$\max \lprof(x) ≤ k < \max \lprof(y) ⇒ y \notin f(\prof)$.
 \end{definition}
 
-$k$-Rawlsianism is binding at exactly those profiles where there is an alternative $x$ whose loss vector is in $\intvl{0, k}^N$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.\footnote{%
+$k$-Rawlsianism is binding at exactly those profiles where there is an alternative $x$ whose loss vector is in $\intvl{0, k}^N$ (equivalently, satisfies $\max \lprof(x) ≤ k$), and is void at the other profiles. It is thus natural to wonder which values of $k$ make the constraint binding at every profile, so as to guarantee a minimal possible loss to every individual  whatever the profile.
+
+It follows from \cref{th:BKkhalf} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
+Thus, the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$.%
+\footnote{%
 	\label{rk:variant}
 	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvl{0, k}$ for both individuals.
 	Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvl{0, k}^N)$.
 	(We actually thought about that version first. We thank Miguel Ballester for the improved version.)
-	By the reasoning above, $\khalf$-Rawlsianism is equivalent to $\khalf$-strict-Rawlsianism, whereas for $k < \khalf$, no rule satisfies $k$-strict-Rawlsianism.
-}
-
-It follows from \cref{th:BKkhalf} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
-Thus, the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$. On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$. Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
+	By the reasoning above, $k$-Rawlsianism is equivalent to $k$-strict-Rawlsianism for all $k \geq \khalf$, whereas for $k < \khalf$, no rule satisfies $k$-strict-Rawlsianism.
+} 
+On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$.
+Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
 \begin{definition}[Minimal Rawlsianism (\MRprop)] 
 	A SCR $f$ satisfies \MRprop{} iff 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
@@ -510,6 +513,11 @@ The next lemma states that to ensure the existence of an alternative within the 
  
 It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
+
+\begin{remark}
+TODO k strict Rawls and MD are incompat for the values of k given by Lemma 4. Equivalently, k R and MD are.
+Thank the reviewer.
+\end{remark}
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
