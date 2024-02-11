@@ -50,6 +50,7 @@
 \commentOC{Borda winners (R1 remark 6): I am against adding a footnote because the definition is just there already!}
 \commentOC{R1 remark 9: we chose to keep Def 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.}
 \commentOC{R1 r 10: I find this hurts readability, especially on \cref{fig:propsCexplicit} where the letter X might be thought to refer to something.}
+\commentOC{R1 comment c: I find this suggestion completely silly. We sometimes use natural language to describe some statements, and sometimes, mathematics, wherever we see fit. For example, from times to times, we use the phrase “in the set”, or “such that”, or “among the worst”. It is not adequate to choose to be only purely formal all the time for some symbols or purely informal.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. \footnote{\color{red}Remark that the convexity assumption in the Nash bargaining problem may be natural if the bargaining solution admits lotteries on a finite set of alternatives. But
 then, preferences should be cardinal. We focus here on ordinal preferences - we thank the associated editor for pointing this out.\color{black}} Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
 
@@ -75,7 +76,7 @@ Although the minimal Rawlsian and equal loss principles cover many of the two-pe
 
 The veto-rank rule and the shortlisting rule are used for the selection of arbitrators\footnote{\Citet{Clippel} present the shortlisting mechanism, whose equilibrium outcome corresponds to what we call the shortlisting rule.} and their strategic aspects are comprehensively analyzed by \citet{Clippel}. Our class of Pareto-and-veto rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$. These rules we consider cover most of the ordinal two-person social choice rules in the literature. The literature also admits various interesting real-life procedures expressed as extensive form games, such as those in \citet{anbarci1993noncooperative, anbarci2006finite} and \citet{barbera2022compromising}. However, as shown in these papers, the subgame perfect equilibrium outcomes of these games are always among the unanimity compromise alternatives. 
 
-A rule of specific interest is the Pareto-and-veto rule that gives the highest equal veto power to both individuals. This rule yields all Pareto efficient alternatives that are in the upper half of both individuals. In fact, it can be expressed the union of all Pareto efficient and minimally Rawlsian rules. Unanimity compromise, the veto-rank rule and the shortlisting rule are all sub-correspondences of this rule, hence they are minimally Rawlsian. When $m$ is odd, within the class of Pareto-and-veto rules, the one with highest equal veto power is unique in being minimally Rawlsian while when $m$ is even, there are two other rules that give the highest almost equal veto power to both individuals.
+A rule of specific interest is the Pareto-and-veto rule that gives the highest equal veto power to both individuals. This rule yields all Pareto efficient alternatives that are in the upper half of both individuals. In fact, it can be expressed as the union of all Pareto efficient and minimally Rawlsian rules. Unanimity compromise, the veto-rank rule and the shortlisting rule are all sub-correspondences of this rule, hence they are minimally Rawlsian. When $m$ is odd, within the class of Pareto-and-veto rules, the one with highest equal veto power is unique in being minimally Rawlsian while when $m$ is even, there are two other rules that give the highest almost equal veto power to both individuals.
 
 The equal loss principle we consider favors outcomes that have the same rank for both individuals. Without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Pareto efficient version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if it exists, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals must be uniquely chosen. Under the weaker version, it suffices that this alternative be among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
  
@@ -171,7 +172,7 @@ There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\pr
 		\end{array},
 	\end{equation}
 	where alternatives are ranked from left to right and the bar shows the “half” position.
-	The proposition is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
+	The remark is proven by noting that $\FB(\prof) = \set{d}$, $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$.
 \end{remark}
 
 The class of \textbf{Pareto-and-veto rules}, $\PVcl$, contains rules parametrized by $v_1, v_2 \in \intvlz{m - 1}$ with $v_1 + v_2 ≤ m - 1$ where $v_i$ represents the number of alternatives vetoed by individual $i \in N$ (individuals veto the alternatives at the bottom of their preference).
@@ -235,7 +236,7 @@ Thus, the strongest version of $k$-Rawlsianism that is binding at every profile 
 } 
 On the other hand, this choice of $k$ reflects a general bound that makes $k$-Rawlsianism systematically constraining while there are several profiles where the minimal loss is lower than $k$.
 Thus, we qualify $\khalf$-Rawlsianism as “minimal Rawlsianism”, which we formally define as follows.
-\begin{definition}[Minimal Rawlsianism (\MRprop)] 
+\begin{definition}[Minimal Rawlsianism, \MRprop] 
 	A SCR $f$ satisfies \MRprop{} iff 
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq H(\prof)$.
 \end{definition}
@@ -276,7 +277,7 @@ $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}
 
 	To show the “if” part, note that the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that  $\PVv(\prof) \subseteq H(\prof)$ for any profile . 
 
-	To see the “only if” part, consider an arbitrary ordering $\prefi$ over $\allalts$, let $\prefiinv$ denote its inverse, and consider the profile $\prof = (\prefi, \prefiinv)$.
+	To see the “only if” part, consider an arbitrary ordering $\prefi[1]$ over $\allalts$, let $\prefiinv[1]$ denote its inverse, and consider the profile $\prof = (\pref_1, \pref_2)$ where ${\pref_2} = {\prefiinv[1]}$.
 	Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
 \end{proof} 
 
@@ -287,7 +288,7 @@ This section introduces the second fairness criteria of this work, based on the 
 
 Given $\prof \in \allprofs$, define $S(\prof) = \set{x \in \allalts \suchthat \lprof(x)_1 = \lprof(x)_2}$ as the alternatives ranked at the same position by both individuals.
 
-\begin{definition}[Equal loss compatibility (ELC)]
+\begin{definition}[Equal loss compatibility, ELC]
 	$\forall \prof \in \allprofs: [S(\prof) ≠ \emptyset] ⇒ f(\prof) \cap S(\prof) ≠ \emptyset$.
 \end{definition}
 Equal loss compatibility is logically incompatible with Pareto efficiency, as formally stated by the next proposition. 
@@ -625,7 +626,7 @@ We end this section by showing that every profile admits some Pareto efficient a
 Given the incompatibility between MR and MD, one can attempt to reconcile the two principles by imposing minimal dispersion over the alternatives that are minimally Rawlsian. 
 
 Given a profile, let us call “Rawlsian minimal dispersion (RMD) alternatives” those that minimize dispersion among the Pareto efficient alternatives within the first half. As every profile admits RMD alternatives, we can define the RMD principle as the requirement that the social choice always contains an RMD alternative while remaining within the first half.
-\begin{definition}[Rawlsian minimal dispersion]
+\begin{definition}[Rawlsian minimal dispersion, RMD]
 	$\forall \prof \in \allprofs$:
 	$f(\prof) \subseteq H(\prof)$
 	and 
@@ -687,7 +688,7 @@ By \cref{th:equal}, $\PVe(\prof) = H(\prof) \cap \PE$, thus, it satisfies RMD.
 \end{proof}
 
 $\PVe$ satisfies the RMD principle at the expense of resoluteness, since it picks every Pareto efficient alternative within the first half. It is thus natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the Strong RMD principle, which requires to pick only RMD alternatives.
-\begin{definition}[Strong Rawlsian minimal dispersion]
+\begin{definition}[Strong Rawlsian minimal dispersion, SRMD]
 	$\forall \prof \in \allprofs:
 	f(\prof) \subseteq \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
 \end{definition}
@@ -705,7 +706,7 @@ The following result is the counterpart to \cref{th:RMDMD} for SRMD.
 	As $\SRMDcl \subseteq \MRcl$, we have $[\SRMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
 \end{proof}
 	
-It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as the least resolute rule satisfying Strong RMD. 
+It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ for each $\prof \in \allprofs$ as the least resolute rule satisfying Strong RMD. 
 The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{proposition}
 	The SRMD rule $f$ selects at most two alternatives: $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
@@ -761,7 +762,7 @@ We bring a consideration based on a common interpretation and perspective. The a
 		\toprule
 		& MR & PEL-comp. & PEL & MD & RMD\\
 		\midrule
-		$\PVcl$ & $v_1, v_2 ≥ \floor{\frac{m - 1}{2}}$ & $\max v_i ≤ \frac{m}{2}$ &  & $\max v_i ≤ \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \floor{\frac{m - 1}{2}}$\\
+		$\PVcl$ & $\min v_i ≥ \floor{\frac{m - 1}{2}}$ & $\max v_i ≤ \frac{m}{2}$ &  & $\max v_i ≤ \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \floor{\frac{m - 1}{2}}$\\
 		\bottomrule
 	\end{tabular}
 	\caption{Summary of the results about the class $\PVcl$.
