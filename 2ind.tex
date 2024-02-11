@@ -48,6 +48,8 @@
 \label{sec:intro}
 \commentOC{I do 6 to 10 and 14. I’ll also take care of the minor comments of R1 and R2.}
 \commentOC{Borda winners (R1 remark 6): I am against adding a footnote because the definition is just there already!}
+\commentOC{R1 remark 9: we chose to keep Def 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.}
+\commentOC{R1 r 10: I find this hurts readability, especially on \cref{fig:propsCexplicit} where the letter X might be thought to refer to something.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. \footnote{\color{red}Remark that the convexity assumption in the Nash bargaining problem may be natural if the bargaining solution admits lotteries on a finite set of alternatives. But
 then, preferences should be cardinal. We focus here on ordinal preferences - we thank the associated editor for pointing this out.\color{black}} Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
 
@@ -160,12 +162,12 @@ Both	$\VR$ and $\SL$ are anonymous and neutral. They satisfy the Pareto property
 \end{remark}
 
 \begin{remark}\label{th:different}
-There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Consider the following profile $\prof$:
+There is some $\prof$ such that $\FB(\prof) \cap \VR(\prof) = \emptyset, \FB(\prof) \cap \SL(\prof) = \emptyset$ and $\VR(\prof) \cap \SL(\prof) = \emptyset$. Consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
 		\label{eq:distinct}
-		\begin{array}{llll lll | llll ll}
-			a&b&c&d&e&f&g&h&i&j&k&l&m\\
-			g&h&i&d&b&j&a&c&e&f&k&l&m\\
+		\begin{array}{l @{:\hskip 2em} *{7}l | *{6}l}
+			\pref_1&a&b&c&d&e&f&g&h&i&j&k&l&m\\
+			\pref_2&g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array},
 	\end{equation}
 	where alternatives are ranked from left to right and the bar shows the “half” position.
@@ -188,7 +190,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvlz{m - 1} \text{ with }
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section. 
 
 \begin{theorem}\label{th:intersection}
-For each $\prof$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
+For each $\prof \in \allprofs$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
 \end{theorem}
 \begin{proof}
 At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
@@ -200,11 +202,11 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
    	$\FB \cup \VR \cup \SL \subsetneq \PVe$.
 \end{proposition}
 \begin{proof} 
-	\Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
+	\Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{lllll|llll}
-			a&b&c&d&e&f&g&h&i\\
-			e&c&d&b&a&f&g&h&i\\
+		\begin{array}{l @{:\hskip 2em} lllll|llll}
+			\pref_1&a&b&c&d&e&f&g&h&i\\
+			\pref_2&e&c&d&b&a&f&g&h&i\\
 		\end{array}
 	\end{equation}
 	where $\FB(\prof) = \set{c}$, $\VR(\prof) = \set{c}$, $\SL(\prof) = \set{a, e}$ but $\PVe(\prof) = \set{a, b, c, e}$. 
@@ -293,11 +295,11 @@ Equal loss compatibility is logically incompatible with Pareto efficiency, as fo
 	$\forall m ≥ 3: \PEcl ∩ \ELCcl = \emptyset$.
 \end{proposition}
 \begin{proof}
-Consider the following profile:
+	Consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{lll ll}
-			a_1&a_2 &a_3 & \ldots &a_m \\
-			a_2& a_1 &a_3&\ldots&a_m \\
+		\begin{array}{l @{:\hskip 2em} lll ll}
+			\pref_1&a_1&a_2 &a_3 & \ldots &a_m \\
+			\pref_2&a_2& a_1 &a_3&\ldots&a_m \\
 		\end{array}.
 	\end{equation}
   Observe that $a_1$ and $a_2$ are the only Pareto efficient alternatives.
@@ -319,11 +321,11 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 	$\VR$ and $\SL$ are not PEL-compatible.
 \end{proposition}
 \begin{proof}
-	Consider the profile $\prof$ stated in \eqref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
+	Consider the profile $\prof = (\pref_1, \pref_2)$ stated in \eqref{eq:distinct}, where $\VR(\prof) = \set{b}$ and $\SL(\prof) = \set{a, g}$:
 	\begin{equation}
-		\begin{array}{llll lll | llll ll}
-			a&b&c&d&e&f&g&h&i&j&k&l&m\\
-			g&h&i&d&b&j&a&c&e&f&k&l&m\\
+		\begin{array}{l @{:\hskip 2em} llll lll | llll ll}
+			\pref_1&a&b&c&d&e&f&g&h&i&j&k&l&m\\
+			\pref_2&g&h&i&d&b&j&a&c&e&f&k&l&m\\
 		\end{array}.
 	\end{equation}
 	PEL-compatibility requires to choose $d$.
@@ -370,11 +372,11 @@ Thus, $\VR$, $\SL$ and those rules in $\PVcl$ that are not PEL-compatible all fa
 \end{proposition}
 \begin{proof}
 	Let $\allalts = \set{a, b, c, a_4, a_5, …}$.
-	Consider the following profile $\prof$: 
+	Consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{*6{l}}
-			a&b&c&a_4&a_5&…\\
-			c&b&a&a_4&a_5&…\\
+		\begin{array}{l @{:\hskip 2em} *6{l}}
+			\pref_1&a&b&c&a_4&a_5&…\\
+			\pref_2&c&b&a&a_4&a_5&…\\
 		\end{array}.
 	\end{equation}
 	PEL requires to pick solely $b$.
@@ -523,11 +525,11 @@ Thank the reviewer.
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
 
 \begin{remark}
-	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails $\MD$. The following profile $\prof$ (built using the proof of \cref{th:caractEmpty}) illustrates this failure for $m = 7$.
+	As $\FB$ has a strong egalitarian flavor, it may be surprising that it fails $\MD$. The following profile $\prof = (\pref_1, \pref_2)$ (built using the proof of \cref{th:caractEmpty}) illustrates this failure for $m = 7$.
 	\begin{equation}
-		\begin{array}{*7{l}}
-			y& a_1 & a_2 & a_3 & x & c_1 & c_2\\
-			c_1& c_2 & x & y & a_1 & a_2 & a_3\\
+		\begin{array}{l @{:\hskip 2em} *7{l}}
+			\pref_1&y& a_1 & a_2 & a_3 & x & c_1 & c_2\\
+			\pref_2&c_1& c_2 & x & y & a_1 & a_2 & a_3\\
 		\end{array}.
 	\end{equation}
 	Observe that $\FB(\prof) = \set{y}$ while the $\MD$ principle mandates $x$ to be picked.
@@ -572,20 +574,20 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
 %We now further analyze the relationship between the minimal dispersion principle and Pareto-and-veto rules, beyond the proximity suggested by \cref{th:pvMD}. 
 
 \begin{remark}
-	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. On the other hand, these rules fail two stronger versions of MD, one which mandates to pick \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$) and the other which mandates to pick \emph{only} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$). To illustrate this for the former, for $m = 5$, consider the rule $PV^{(2, 2)}$ and the profile $\prof$.
+	\Cref{th:pvMD} shows that PV rules with $\max_i v_i ≤ \frac{m + 1}{3}$ satisfy MD. On the other hand, these rules fail two stronger versions of MD, one which mandates to pick \emph{all} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \subseteq f(\prof)$) and the other which mandates to pick \emph{only} minimal dispersion alternatives (thus $\argmin_{\PE} (d \circ \lprof) \supseteq f(\prof)$). To illustrate this for the former, for $m = 5$, consider the rule $PV^{(2, 2)}$ and the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{*5{l}}
-			a& b & c & d & e \\
-			c& d & e & b & a\\
+		\begin{array}{l @{:\hskip 2em} *5{l}}
+			\pref_1&a& b & c & d & e \\
+			\pref_2&c& d & e & b & a\\
 		\end{array}.
 	\end{equation}
 	Here, $\argmin_{\PE} (d \circ \lprof) = \set{b, c}$ while $PV^{(2, 2)}(\prof) = \set{c}$.
 
-For the latter, consider the profile $\prof$ with $m=7$:
+For the latter, consider the profile $\prof = (\pref_1, \pref_2)$ with $m=7$ such that
 	\begin{equation}
-		\begin{array}{*7{l}}
-			a& b & c & d & e & f & g\\
-			g& f & e & d & c& b & a \\
+		\begin{array}{l @{:\hskip 2em} *7{l}}
+			\pref_1&a& b & c & d & e & f & g\\
+			\pref_2&g& f & e & d & c& b & a \\
 		\end{array}.
 	\end{equation}
 Observe that $\argmin_{\PE} (d \circ \lprof) = \set{d}$ whereas $PV^{(2, 2)}(\prof)=\{c,d,e\}$.
@@ -603,11 +605,11 @@ We end this section by showing that every profile admits some Pareto efficient a
 	$[\forall \prof, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the "only if" part, consider the profile
+    \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the "only if" part, consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{*8{l}}
-			a_1& a_2 & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m\\
-			a_{\khalf + 1}& a_{\khalf + 2} & … & a_m & a_1& a_2 & … & a_{\khalf} \\
+		\begin{array}{l @{:\hskip 2em} *8{l}}
+			\pref_1&a_1& a_2 & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m\\
+			\pref_2&a_{\khalf + 1}& a_{\khalf + 2} & … & a_m & a_1& a_2 & … & a_{\khalf} \\
 		\end{array}
 	\end{equation}
    where only $a_1$ and $a_{\khalf + 1}$ are Pareto efficient. Their dispersion is $\khalf$. Thus, one cannot ensure the existence of an efficient alternative with $k < \khalf$.
@@ -652,11 +654,11 @@ Summarizing, when $m$ is small enough ($m ≤ 6$ or $m = 8$), and only then, fir
 	 $\FB$, $\VR$, $\SL$ fail RMD, and $\PVcl \cap \RMDcl = \set{\PVe}$.
 \end{theorem}
 \begin{proof}
-	Consider the following profile $\prof$ with 11 alternatives, $\set{a, b, c, d, e, f, g, h,\allowbreak w, x, y}$ (the bar indicates the “half” position).
+	Consider the profile $\prof = (\pref_1, \pref_2)$ with 11 alternatives, $\set{a, b, c, d, e, f, g, h,\allowbreak w, x, y}$, such that (the bar indicates the “half” position)
 	\begin{equation}
-		\begin{array}{*6{l}|ll}
-			x&a&b&c&d&y&w&\ldots \\
-			e&f&g&y&x&h&w&\ldots
+		\begin{array}{l @{:\hskip 2em} *6{l}|ll}
+			\pref_1&x&a&b&c&d&y&w&\ldots \\
+			\pref_2&e&f&g&y&x&h&w&\ldots
 		\end{array}.
 	\end{equation}
 
@@ -665,18 +667,18 @@ $H(\prof)=\{x, y\}$ which are both Pareto efficient. For a SCR $f$ to satisfy RM
 To see that $\SL$ fails RMD, consider the following profile $\prof$ with $\SL(\prof)=\set{a, c}$ while RMD requires $b \in \SL(\prof)$. 
 
 	\begin{equation}
-		\begin{array}{lll|ll}
-			a&b&c&d&e \\
-			c&b&a&d&e
+		\begin{array}{l @{:\hskip 2em} lll|ll}
+			\pref_1&a&b&c&d&e \\
+			\pref_2&c&b&a&d&e
 		\end{array}.
 	\end{equation}
 
 We now turn to the rules in $\PVcl$. As RMD implies MR, $\PVcl ∩ \RMDcl \subseteq \PVcl ∩ \MRcl$, and by \cref{th:pvmr}, $\PVcl ∩ \MRcl = \set{\PVe}$ when $m$ is odd and $\PVcl ∩ \MRcl = \set{\PVe, \PVv[(\frac{m}{2}, \frac{m}{2} - 1)], \PVv[(\frac{m}{2} - 1, \frac{m}{2})]}$ when $m$ is even.
-Thus, we need only prove that for $m$ even, $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fail RMD. To see this, consider the profile $\prof$
+Thus, we need only prove that for $m$ even, $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)]$ and $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fail RMD. To see this, consider the profile $\prof = (\pref_1, \pref_2)$ such that
 	\begin{equation}
-		\begin{array}{llll}
-			a&b&c&d \\
-			d&c&a&b
+		\begin{array}{l @{:\hskip 2em} llll}
+			\pref_1&a&b&c&d \\
+			\pref_2&d&c&a&b
 		\end{array}
 	\end{equation}
 where $\PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)=\{a\}$ while RMD requires $c \in \PVv[(\frac{m}{2}, \frac{m}{2} - 1)](\prof)$. A similar argument shows that $\PVv[(\frac{m}{2} - 1, \frac{m}{2})]$ fails RMD.
@@ -737,7 +739,10 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
 		\midrule
 		$\FB$ & ✓ & ✓ & ✓\\
 		$\VR$ & ✓ & \\
-		$\SL$ & ✓ & \\
+		$\SL$ & ✓ & \\[2em]
+		$\FB$ & ✓ & ✓ & ✓ & X & X\\
+		$\VR$ & ✓ & X & X & X & X\\
+		$\SL$ & ✓ & X & X & X & X\\
 		\bottomrule
 	\end{tabular}
 	\caption{Summary of the results about $\FB$, $\VR$ and $\SL$. 
