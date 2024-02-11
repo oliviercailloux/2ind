@@ -16,7 +16,7 @@
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
 	%\tolerance=2000
 	%Accept overfull hbox up to...
-	%\hfuzz=2cm
+	\hfuzz=2cm
 	%Reduces verbosity about the bad line breaks.
 	\hbadness 5000
 	%Reduces verbosity about the underful vboxes.
@@ -199,7 +199,8 @@ The next proposition shows that each of $\FB$, $\VR$ and $\SL$, as well as their
   \label{th:subcorr}
    	$\FB \cup \VR \cup \SL \subsetneq \PVe$.
 \end{proposition}
-\begin{proof} \Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
+\begin{proof} 
+	\Cref{th:intersection}, together with \cref{th:FBH,th:VRSLH}, establishes that $\FB, \VR, \SL \subseteq \PVe$. To see the strictness of the inclusion, consider the profile
 	\begin{equation}
 		\begin{array}{lllll|llll}
 			a&b&c&d&e&f&g&h&i\\
