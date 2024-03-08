@@ -24,7 +24,7 @@
 
 \linenumbers
 
-\title{Two principles for two-person social choice \thanks{Earlier versions of this paper have been presented at CRESE, Université de Franche-Comté and CMSS, the University of Auckland. We thank both institutions. We also thank Miguel Ballester, Sylvain Béal, Danilo Santa Cruz Coelho, John Hillas, Jean-François Laslier, Clemens Puppe, Arkadii Slinko and Yves Sprumont for useful exchanges we had.}}
+\title{Answer to the reviews}
 \author[*]{Olivier Cailloux}
 \author[**]{Matías Núñez}
 \author[*]{M. Remzi Sanver}
@@ -40,12 +40,16 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}
-    We consider two-person ordinal collective choice from an axiomatic perspective. We identify two principles: minimal Rawlsianism (the chosen alternatives belong to the upper-half of both individuals’ preferences) and the equal loss principle (the chosen alternatives ensure that both individuals concede “as equally as possible” from their highest ranked alternative). The equal loss principle has variants of different strength, depending on the precise definition of “as equally as possible”. We consider all prominent ordinal two-person social choice rules of the literature and explore which of these principles they satisfy. Moreover, we show that minimal Rawlsianism is logically incompatible with one version of the equal loss principle that we call the minimal dispersion principle. On the other hand, there are social choice rules that satisfy the Rawlsian minimal dispersion principle where the minimal dispersion principle is restricted to alternatives within the upper-half of both individuals’ preferences.
-\end{abstract}
-
-\section{Introduction}
+\section{R1}
 \label{sec:intro}
+Borda winners (R1 remark 6): the definition is just there already.
+
+\commentOC{R1 remark 9: we chose to keep Def 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.} 
+
+\commentOC{R1 comment c: I find this suggestion completely silly. We sometimes use natural language to describe some statements, and sometimes, mathematics, wherever we see fit. For example, from times to times, we use the phrase “in the set”, or “such that”, or “among the worst”. It is not adequate to choose to be only purely formal all the time for some symbols or purely informal.} \commentRS{I agree but let's say this nicely!}\commentMN{This is a very standard referee request. But it's true that he is too tight. We should answer nicely since reports were particularly nice to us!}
+
+\section{R2}
+a: I have specified that $\N$ includes zero
 \commentOC{R2 c: I believe that she is wrong. We could add this to the text, but is it more helpful than confusing? “Note that this is equivalent because $H(P)$ picks the winners among the first $\khalf + 1 = \khalfAlt + 1$ ranks, whose complement to $m$ is $\floor{\frac{m - 1}{2}}$.” This applies similarly to R2 d.} \commentRS{VR and SL are defined for an odd number of alternatives, no?} \commentMN{Not sure here, it might be worthy to discuss. When looking at our paper, it looks to be defined for any number of alternatives.}
 Two-person discrete social choice models allow a specific interpretation of collective decision making: bargaining over a finite set of alternatives. Since the seminal model of \citet{Nash1950}, for a long time, bargaining problems were formulated by assuming a convex set of alternatives. However, there are many instances where bargaining takes place over a finite set of alternatives. \footnote{\color{red}Remark that the convexity assumption in the Nash bargaining problem may be natural if the bargaining solution admits lotteries on a finite set of alternatives. But
 then, preferences should be cardinal. We focus here on ordinal preferences - we thank the associated editor for pointing this out.\color{black}} Thus, this simplifying assumption of \citeauthor{Nash1950} excludes several real-life situations. 
@@ -735,13 +739,16 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
 		\toprule
 		& MR & PEL-compatible & PEL & MD & RMD\\
 		\midrule
-		$\FB$ & ✓ & ✓ & ✓ & ✕ & ✕\\
-		$\VR$ & ✓ & ✕ & ✕ & ✕ & ✕\\
-		$\SL$ & ✓ & ✕ & ✕ & ✕ & ✕\\
+		$\FB$ & ✓ & ✓ & ✓\\
+		$\VR$ & ✓ & \\
+		$\SL$ & ✓ & \\[2em]
+		$\FB$ & ✓ & ✓ & ✓ & X & X\\
+		$\VR$ & ✓ & X & X & X & X\\
+		$\SL$ & ✓ & X & X & X & X\\
 		\bottomrule
 	\end{tabular}
 	\caption{Summary of the results about $\FB$, $\VR$ and $\SL$. 
-	A tick (✓) means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ and $n$.}%; a cross (✕) means that the opposite holds.}
+	A tick means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ and $n$.}
 	\label{fig:propsR}
 \end{table}
 
@@ -752,12 +759,11 @@ We bring a consideration based on a common interpretation and perspective. The a
 
 
 \begin{table}
-	\small
 	\begin{tabular}{l*{5}{c}}
 		\toprule
 		& MR & PEL-comp. & PEL & MD & RMD\\
 		\midrule
-		$\PVcl$ & $\min v_i ≥ \floor{\frac{m - 1}{2}}$ & $\max v_i ≤ \frac{m}{2}$ & ✕ & $\max v_i ≤ \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \floor{\frac{m - 1}{2}}$\\
+		$\PVcl$ & $\min v_i ≥ \floor{\frac{m - 1}{2}}$ & $\max v_i ≤ \frac{m}{2}$ &  & $\max v_i ≤ \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \floor{\frac{m - 1}{2}}$\\
 		\bottomrule
 	\end{tabular}
 	\caption{Summary of the results about the class $\PVcl$.
