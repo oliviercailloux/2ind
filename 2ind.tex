@@ -225,7 +225,8 @@ $k$-Rawlsianism is binding at exactly those profiles where there is an alternati
 It follows from \cref{th:BKkhalf} that $k$-Rawlsianism is binding at every profile if and only if $k$ is at least “half”.
 Thus, the strongest version of $k$-Rawlsianism that is binding at every profile is when $k$ equals $\khalf$.%
 \footnote{
-	A variant of $k$-Rawlsianism that \label{rk:variant} may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvlz{k}$ for both individuals.
+  \label{ft:variant}
+	A variant of $k$-Rawlsianism that may come to mind is to mandate that the rule be $k$-strict-Rawlsian iff it selects its winners among those alternatives whose losses are within $\intvlz{k}$ for both individuals.
 	Formally:
 	$\forall \prof \in \allprofs,  f(\prof) \subseteq \lprofinv(\intvlz{k}^N)$.
 	(We actually thought about that version first. We thank Miguel Ballester for the improved version.)
@@ -516,8 +517,10 @@ It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR 
 \end{proof}
 
 \begin{remark}
-TODO k strict Rawls and MD are incompat for the values of k given by Lemma 4. Equivalently, k R and MD are.
-Thank the reviewer.
+  It follows from \cref{th:caractEmpty} that for $m ≥ 3$, $k$-Rawlsianism (\cref{def:kr}) and MD are compatible for $k \geq \frac{2m - 4}{3}$ and incompatible for $k < \frac{2m - 4}{3}$.
+  \footnote{Similarly, $k$-strict-Rawlsianism (\cref{ft:variant}) and MD are compatible for $k \geq \frac{2m - 4}{3}$ and incompatible for $k ≤ \frac{2m - 4}{3}$.}
+  We thank an anonymous reviewer for a question that lead to this observation.
+  \commentOC{Dear colleagues, please check this remark and the footnote (both new).}
 \end{remark}
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD. 
