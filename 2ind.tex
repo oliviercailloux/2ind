@@ -103,6 +103,7 @@ A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, 
 Given $p, q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $p$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different. 
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$ 
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.
+Let $\min \max \lprof = \min_{x \in \allalts} \max \lprof(x)$ denote the minimal (across alternatives) worst (across individuals) loss at $\prof$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists \: y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
 The SCR $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
@@ -111,7 +112,7 @@ Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof:
 In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$, where $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x$.  For any profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals. 
 It follows that $H(\prof) = U(\prof, \khalf)$.
 An alternative receives unanimous support at level $k$ iff it belongs to $U(\prof, k)$. 
-Note that $\min_{x \in \allalts} \set{\max \lprof(x)}$, the “minimal worst loss”, represents the least loss level at which some alternative receives unanimous support; formally: $\min_{x \in \allalts} \set{\max \lprof(x)} = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
+Note that the minimal worst loss $\min \max \lprof$ also represents the least loss level at which some alternative receives unanimous support; formally: $\min \max \lprof = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
 
 \section{SCRs in the literature}
 \label{sec:lit}
