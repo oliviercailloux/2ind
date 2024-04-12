@@ -4,13 +4,6 @@
 \input{preamble/redac}
 \input{preamble/math_basics}
 \input{preamble/math_mine}
-\usepackage{bbm}
-\usepackage{makecell}
-
-\renewcommand\theadalign{bc}
-\renewcommand\theadfont{\bfseries}
-\renewcommand\theadgape{\Gape[4pt]}
-\renewcommand\cellgape{\Gape[4pt]}
 
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
@@ -21,8 +14,6 @@
 	\hbadness 5000
 	%Reduces verbosity about the underful vboxes.
 	\vbadness=1300
-
-\linenumbers
 
 \title{Answer to the reviewers}
 \author[*]{Olivier Cailloux}
@@ -36,7 +27,6 @@
 	pdfsubject={},
 	pdfkeywords={},
 }
-\usepackage{multirow}
 \begin{document}
 \maketitle
 
@@ -44,21 +34,45 @@
 We wish to thank the editor and both reviewers for their helpful comments. We have revised the paper accordingly. Here are our answers to the reviewers’ comments.
 
 \section{R1}
-\begin{enumerate}
+We thank the reviewer for the positive evaluation and the constructive suggestions.
+
+Here are our replies to the reviewer’s main comments.
+\begin{enumerate}[label=({\arabic*})]
   \item We have reorganized the introduction thoroughfully.
   \item Our article aims at filling a gap in the literature as much analysis is devoted to the case of three agents or more and the case of two agents is often neglected. It seems to us that returning to the case of more than two agents would hurt the clarity of the paper.
-  \item 
+  \item We now present the SCR as a correspondence instead of as a function.
+  \item The reviewer is right, the notation $\intvlz{p}$ is simpler than $\intvl{0, p}$ that we used unnecessarily. We have changed accordingly.
+  \item We have defined the notation $\min \max \lprof$ in the preliminaries, and have made explicit that the inverse ordering ${\prefiinv}$ is associated to the other individual preferences ${\prefi[\ibar]}$ in Proposition 1.
+  \item The definition of Borda winners is given in passing as part of the definition of $\VR$.
+  \item We now indicate systematically the preference of each agents in our profiles.
+  \item We have completed the sentence.
+  \item We chose to keep Definition 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. \commentOC{TODO Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.}
+  \item We have completed the tables to avoid blank entries.
+  \item \commentOC{Table 1 to be checked?}
+  \item \commentOC{Table 2 hyp?}
+  \item We have made this consistent.
+  \item We have completed the sentence.
+\end{enumerate}
 
-Borda winners (R1 remark 6): the definition is just there already.
-
-\commentOC{R1 remark 9: we chose to keep Def 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.} 
-
+About the other comments: we have implemented all the suggested changes, except for comment (c).
+About the latter, …
 \commentOC{R1 comment c: I find this suggestion completely silly. We sometimes use natural language to describe some statements, and sometimes, mathematics, wherever we see fit. For example, from times to times, we use the phrase “in the set”, or “such that”, or “among the worst”. It is not adequate to choose to be only purely formal all the time for some symbols or purely informal.} \commentRS{I agree but let's say this nicely!}\commentMN{This is a very standard referee request. But it's true that he is too tight. We should answer nicely since reports were particularly nice to us!}
+\commentOC{Sure, I was not trying to suggest to answer not nicely!}
 
 \section{R2}
-a: I have specified that $\N$ includes zero
-\commentOC{R2 c: I believe that she is wrong. We could add this to the text, but is it more helpful than confusing? “Note that this is equivalent because $H(P)$ picks the winners among the first $\khalf + 1 = \khalfAlt + 1$ ranks, whose complement to $m$ is $\floor{\frac{m - 1}{2}}$.” This applies similarly to R2 d.} \commentRS{VR and SL are defined for an odd number of alternatives, no?} \commentMN{Not sure here, it might be worthy to discuss. When looking at our paper, it looks to be defined for any number of alternatives.}
+We thank the reviewer for the evaluation and the constructive suggestions.
 
-\bibliography{bibliototal}
+We agree that the incompatibility between MR and MD can be viewed as one of the main results in the article. However, we think that exploring the relationship between these axioms and most rules that have been considered in the literature about two agents social choice is also a significant contribution. It also helps highlighting how these rules differ. Furthermore, we think that it is interesting to observe that no rule that has been considered in the context of two agents satisfies the MD axiom, an observation which covers, perhaps surprisingly, the well-known Fallback Bargaining rule, which could be superficially considered as very egalitarianism-oriented. 
+\commentOC{Dear team, could we try to phrase all of this better together? Should we insist on this in our introduction or conclusion? Should we answer here that we have added a point about that?}
+
+We thank the reviewer for the question about compatibility of $k$-strict Rawlsianism with MD; which has lead to a new remark and footnote (Remark 7 and Footnote 9).
+
+Here are our replies to the reviewer’s main comments.
+\begin{enumerate}[label={\alph*})]
+  \item We have now specified that $\N$ includes zero.
+  \item We have added this observation.
+  \item It is in fact equivalent.\commentOC{R2 c: I believe that she is wrong. We could add this to the text, but is it more helpful than confusing? “Note that this is equivalent because $H(P)$ picks the winners among the first $\khalf + 1 = \khalfAlt + 1$ ranks, whose complement to $m$ is $\floor{\frac{m - 1}{2}}$.” This applies similarly to R2 d.} \commentRS{VR and SL are defined for an odd number of alternatives, no?} \commentMN{Not sure here, it might be worthy to discuss. When looking at our paper, it looks to be defined for any number of alternatives.}
+  \item It is in fact equivalent.\commentOC{Could someone confirm that this is true as well?}
+\end{enumerate}
 \end{document}
 
