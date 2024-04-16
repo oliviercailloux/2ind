@@ -46,29 +46,19 @@
 
 \section{Introduction}
 \label{sec:intro}
-
-
 Since the classic model of \citet{Nash1950}, most of the literature in bargaining assumes the existence of a convex set of alternatives. However, there are many instances where convexity need not hold. For instance, when bargaining takes place over a finite set of alternatives and lotteries are not admissible, such as in a legal setting, the assumption of convexity is not relevant.\footnote{Remark that the convexity assumption in the Nash bargaining problem may be natural if the bargaining solution admits lotteries on a finite set of alternatives. But
 then, preferences should be cardinal. We focus here on ordinal preferences - we thank the associate editor for pointing this out.} Our axiomatic approach tries to fill this gap: that is, it presents some axioms that help understanding bargaining over a finite set of alternatives (or two-person discrete social choice).
 
-
 \color{red} Within the paper, we often refer to the most well-known rules in this environment: the Unanimity compromise, the veto-rank, the shortlisting and the Pareto-and-veto ones. We refer the reader to the review of the literature for a description of these rules. \color{black}
-
 
 Our first axiom is the \textit{equal loss principle} that favors outcomes that have the same rank for both individuals, out of fairness. However, without imposing Pareto optimality separately, this principle may lead to Pareto dominated outcomes. Thus, we consider a Pareto efficient version that favors, among the Pareto optimal outcomes, the one that has the same rank for both individuals. Note that such an alternative, if any, will be unique. We define two versions of the Paretian equal loss principle, one being stronger than the other. The stronger version requires that the Pareto optimal alternative that has the same rank for both individuals is uniquely chosen. Under the weaker version, it suffices that this alternative is among the outcomes. The veto-rank rule and the shortlisting rule both fail the weak (hence strong) version of the Paretian equal loss principle. While Pareto-and-veto rules that endow individuals with a veto power that does not exceed $\floor{\frac{m}{2}}$ satisfy the weak Paretian equal loss principle, all of them fail the strong version. On the other hand, unanimity compromise satisfies the strong Paretian equal loss principle, thus showing that this principle is compatible with being minimally Rawlsian.
 
-
- 
 Within the spirit of equal loss, we also propose the \textit{minimal dispersion principle} as another strengthening of the (weak) Paretian equal loss principle. The \textit{dispersion} of an alternative is the difference between the two ranks at which is it placed. The minimal dispersion principle requires that an alternative whose dispersion is minimal is among the outcomes. Not only unanimity compromise fails this principle, but the minimal dispersion principle turns out to be logically incompatible with the minimal Rawlsian principle. As a result, among the social choice rules we consider, the only candidates to satisfy the minimal dispersion principle are the Pareto-and-veto rules that fail the minimal Rawlsian principle. As a matter of fact, those that endow individuals with a veto power that does not exceed a third of the available alternatives turn out to satisfy the minimal dispersion principle.\footnote{Recall that this upper bound is a half for the satisfaction of the (weaker) Paretian equal loss principle.} Nevertheless, these Pareto-and-veto rules fail two stronger versions of the minimal dispersion principle, one that requires to pick all alternatives with minimal dispersion and the other that requires to pick only alternatives with minimal dispersion. As a result, we define the minimal dispersion rule which, at every preference profile, picks precisely the alternatives with minimal dispersion.\footnote{
 In a framework \label{ft:equalarea} with a disagreement outcome, \citet{KibrisSertel2007} argue that the finite version of the \textit{equal area rule} \citep{thomson1994cooperative} minimizes the difference between losses with respect to individually rational alternatives. They also show that this rule differs from their unanimity compromise. In our framework without a disagreement outcome, the equal area rule is equivalent to our minimal dispersion rule.}
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It turns out that it is failed by all social choice rules we consider, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals. The satisfaction is at the expense of resoluteness, since this rule picks every Pareto efficient alternative within the first half. It is thus natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the strong Rawlsian minimal dispersion principle that requires the outcome to lie within the Rawlsian alternatives whose loss vectors have minimal dispersion. No rule that we have examined satisfies this principle. Therefore, we define the strong Rawlsian minimal dispersion rule as the least resolute rule that satisfies this principle. This new rule appears as a reasonable compromise to satisfy the two main principles we analyze, namely that of being minimally Rawlsian and that of favoring small dispersion alternatives. Moreover, it is also reasonably resolute as it never picks more than two alternatives.
 
 \Cref{sec:rev} reviews the most closely related literature and \Cref{sec:basic} introduces the basic notions and notation. \Cref{sec:lit} presents several social choice rules. \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
-
-
-
-
 
 \section{Review of literature \label{sec:rev}}
 While the literature on bargaining is large, the one with finitely many alternatives is relatively scant. We review here the main works in the latter field.
@@ -436,7 +426,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 	Consider any $x \in \argmin_{\PE} (d \circ \lprof)$ and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. In the sake of brevity, define $t = \ceil{\frac{2m - 4}{3}}$.
 	
 	If $\lprof(x)_i ≤ t$ then $\lprof(x)_{\ibar} ≤ t$ so that $x \in \lprofinv(\intvlz{t} × \intvlz{t}) \cap \argmin_{\PE} (d \circ \lprof)$, proving the claim. 
- 
+
 	If $\lprof(x)_i > t$, let $A = \set{a \suchthat \lprof(a)_i ≤ t}$ be the $t + 1$ top alternatives for $i$. 
 	Define $y = \argmin_A \lprof(.)_{\ibar}$ as the best alternative for $\ibar$ in $A$. Observe that $y \in \PE$: for $i$, only the alternatives in $A$ can be preferred to $y$, and those are less preferred than $y$ for $\ibar$.
 	
@@ -524,7 +514,7 @@ The next lemma states that to ensure the existence of an alternative within the 
 	\end{equation}
 	The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
 \end{proof}
- 
+
 It follows from \cref{th:profsIncompat} that when $m ≤ 6$ or $m = 8$, the SCR $H(\prof) \cap \argmin_{\PE} (d \circ \lprof)$ is well-defined and satisfies MR and MD by construction; and when $m = 7$ or $m ≥ 9$, there is no $f \in \MRcl$ that satisfies MD.
 \end{proof}
 
@@ -736,7 +726,7 @@ $l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤
 For any profile $\prof$, $E(\prof)$ denotes the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \mid \nexists y \in \allalts: \lprof(y) ⊲ \lprof(x)}$.
 
 The rule SRMD$^*$ that selects $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$ is then a refinement of the SRMD rule, since the anonymous dominance is used as a tie-breaker, and thus picks at most two alternatives.
- 
+
 Note also that this rule is equivalent, within the set of alternatives with minimal dispersion, to minimize the sum of losses (equivalently, pick the Borda preferred alternative). 
 This is also equivalent to minimize the best loss and in turn equivalent to minimize the worst loss: given two losses $l, l'$ with $d(l) = d(l')$, $l$ dominates $l'$ iff $\sum l < \sum l'$ iff $\min l < \min l'$ iff $\max l < \max l'$.
 
@@ -765,7 +755,6 @@ The richness of the non-strategic axiomatic analysis of collective choice with t
 We bring a consideration based on a common interpretation and perspective. The axiomatic analysis we propose is free of strategic concerns and relies on two basic principles that we identify: the minimally Rawlsian principle and the equal loss principle. These two principles that emerge from the existing literature exhibit an incompatibility. More precisely, no minimally Rawlsian social choice rule can ensure to pick an alternative that minimize the dispersion of the loss vector.
 \Cref{fig:propsR,fig:propsCexplicit} summarize our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:propsR} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
 
-
 \begin{table}
 	\small
 	\begin{tabular}{l*{5}{c}}
@@ -787,7 +776,6 @@ Among the rules we consider, those that minimize loss dispersion are the Pareto-
 
 Therefore, it is of interest to introduce rules that are compatible with the minimal dispersion principle. One possibility is to pick at every preference profile the Pareto efficient alternatives that minimize loss dispersion and only those. This rule is the finite version of Thomson’s [1994]
 equal area rule in our framework with no disagreement outcome. By the incompatibility we establish, this rule will be incompatible with the minimal Rawlsian principle. Another possibility that allows to comply with the minimal Rawlsian principle is to pick the Pareto efficient alternatives within the first half of both individuals that minimize loss dispersion. This rule is somehow a counterpart of the veto rank rule that picks the Pareto efficient alternatives within the first half of both individuals that maximize average rank. However, it is more resolute, as it picks at most two alternatives at any given preference profile. Seemingly none of these two rules are considered in the literature and their properties are not known, which suggests that there is room to conceive and analyze new solutions to the two-person social choice problem.
-
 
 \appendix
 
