@@ -62,8 +62,8 @@ They cover most of the ordinal two-person social choice rules in the literature.
 In the \textit{unanimity compromise} \citep{BramsKilgour2001} rule, each of the two bargainers begins by claiming the best outcome with respect to his ranking of alternatives. When the claims of the two bargainers differ, they continue by falling back, in lockstep, to lower ranked alternatives until a mutually (hence unanimously) agreed outcome is found.
 
 The next two rules are used for the selection of arbitrators \citep{Clippel}.
-The \textit{veto-rank rule} where, for a number of alternatives $m$ being odd, each individual vetoes $(m - 1) / 2$ alternatives and ranks the remaining $(m+1) / 2$. The selected alternatives are those with the minimal sum of ranks among those that have not been vetoed.
-The \textit{shortlisting rule} where, for $m$ odd, one individual selects her best $(m+1) / 2$ alternatives and the rule picks the best alternative of the other individual out of that shortlist.
+The \textit{veto-rank rule}, for a number of alternatives $m$ being odd, lets each individual veto $(m - 1) / 2$ alternatives and rank the remaining $(m+1) / 2$; then selects the alternatives with the minimal sum of ranks among those that have not been vetoed.
+The \textit{shortlisting rule}, for $m$ odd, lets one individual select her best $(m+1) / 2$ alternatives; then picks the best alternative of the other individual out of that shortlist.
 
 Finally, we consider the class of \textit{Pareto-and-veto rules} where each individual $i$ vetoes a fixed number $v_i$ of alternatives with $v_1 + v_2$ being at most $m - 1$. The outcome is the set of Pareto optimal alternatives that are not vetoed.
 This class of rules generalizes the Pareto-and-veto rules analyzed by \citet{laslier2021solution} which impose $v_1$ + $v_2$ = $m-1$.
@@ -85,6 +85,7 @@ Since the seminal model of \citet{Nash1950}, bargaining problems were formulated
 
 An ordinal framework of two-person finite bargaining problems is presented by \citet{BramsKilgour2001} who introduce and analyze an ordinal solution, namely \textit{unanimity compromise} (described in the previous section), that the authors called fallback bargaining. A characterization of fallback bargaining is provided by \citet{de2012reason}. Since their model does not admit a disagreement point, fallback bargaining is an arbitration rule in the sense of \citet{Sprumont1993} rather than a bargaining solution. An analysis of fallback bargaining in a model with a disagreement point is made by \citet{KibrisSertel2007} who rebaptize the solution as \textit{unanimity compromise} and define several variants of it.
 They also observe that one of these variants, namely the imputational compromise, is the finite version of the equal length rule by \citet{thomson2019equal}. The imputational compromise is further studied by \citet{ConleyWilkie2012}. In a recent paper, \citet{barbera2022compromising} use the term unanimity compromise in a framework with no disagreement point to refer to fallback bargaining in the sense of \citet{BramsKilgour2001}. We adopt their terminology, to only propose a bargaining solution with a disagreement outcome.
+\commentOC{This phrasing suggests that we propose a bargaining solution with a disagreement outcome. I preferred the previous one: “We adopt their terminology, to avoid proposing a bargaining solution without a disagreement outcome”.}
 
 As a matter of fact, the compromising approach that underlies unanimity compromise was originally used to design voting rules in settings with more than two individuals with the required support varying from unanimity to simple majority, such as the \textit{Kant-Rawls Social Compromise} by \citet{HurwiczSertel1997} and the \textit{majoritarian compromise} by \citet{sertel1999majoritarian}. It also paved the way to new axioms for social choice, such as \textit{majoritarian approval} and \textit{majoritarian optimality} as well as \textit{efficiency in the degree of compromise} by \citet{ozkal2004efficiency}.
 \citet{merlin2019compromise} present a recent comprehensive analysis of voting rules and axioms based on this compromising idea.
@@ -539,8 +540,10 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 
 \begin{remark}
   It follows from \cref{th:caractEmpty} that 
+  \footnote{We thank an anonymous reviewer for a question that lead to this observation.} 
   for $m ≥ 3$, $k$-Rawlsianism (\cref{def:kr}) and MD are compatible for $k \geq \frac{2m - 4}{3}$ and incompatible for $k < \frac{2m - 4}{3}$.
-  \footnote{Similarly, $k$-strict-Rawlsianism (\cref{ft:variant}) and MD are compatible for $k \geq \frac{2m - 4}{3}$ and incompatible for $k ≤ \frac{2m - 4}{3}$. We thank an anonymous reviewer for a question that lead to this observation.} 
+  \footnote{Similarly, $k$-strict-Rawlsianism (\cref{ft:variant}) and MD are compatible for $k \geq \frac{2m - 4}{3}$ and incompatible for $k < \frac{2m - 4}{3}$.}
+  \commentOC{I split into two footnotes. Could we rather write (in both cases) “are compatible iff $k \geq \frac{2m - 4}{3}$”?}
 \end{remark}
 
 The minimal Rawlsian and minimal dispersion principles being logically incompatible, the SCRs that satisfy MR (namely $\FB$, $\VR$, $\SL$ and the rules in $\PVcl$ identified by \cref{th:pvmr}) all fail MD.
@@ -751,7 +754,7 @@ This is also equivalent to minimize the best loss and in turn equivalent to mini
 \section{Concluding remarks}
 \label{sec:concl}
 Axiomatic analysis of social choice rules with or without strategic concerns presents two strands of the literature that complement each other. This complementarity appears less balanced in two-person collective choice problems where there is a clear focus on a strategic analysis that usually adopts subgame perfect equilibrium as the solution concept.%
-\footnote{While we will not restate here the relevant papers already cited in section 2\commentMN{Solved}, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of \citet{HurwiczSchmeidler78} and \citet{Maskin99} on the impossibility of Nash implementing Pareto efficient two-person social choice rules.}
+\footnote{While we will not restate here the relevant papers already cited in \cref{sec:rev}, we wish to remark that the focus on subgame perfect equilibrium can be explained by the classical result of \citet{HurwiczSchmeidler78} and \citet{Maskin99} on the impossibility of Nash implementing Pareto efficient two-person social choice rules.}
 
 \begin{table}
   \begin{tabular}{l*{5}{c}}
