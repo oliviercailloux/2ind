@@ -76,7 +76,9 @@ Within the spirit of equal loss, we propose the \textit{minimal dispersion princ
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It is failed by all social choice rules we consider, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals. The satisfaction is at the expense of resoluteness, since this rule picks every Pareto efficient alternative within the first half. Thus, it is natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the strong Rawlsian minimal dispersion principle that requires the outcome to lie within the Rawlsian alternatives whose loss vectors have minimal dispersion. No rule that we have examined satisfies this principle. Therefore, we define the strong Rawlsian minimal dispersion rule as the least resolute rule that satisfies this principle. This new rule appears as a reasonable compromise to meet the two main principles we analyze, namely that of being minimally Rawlsian and that of favoring small dispersion alternatives. Moreover, it is also reasonably resolute as it never picks more than two alternatives.
 
-\Cref{sec:basic} introduces the basic notions and notation. \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
+\Cref{sec:basic} introduces the basic notions and notation. 
+\commentOC{\Cref{sec:lit} defines the rules that we analyze.}
+\Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
 
 \section{Review of literature}
 \label{sec:rev}
@@ -112,7 +114,7 @@ Viewing such functions as relations on $\allprofs × \allalts$, we can write $f 
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f(\hspace{-0.6pt}{\prefi[2]}, {\prefi[1]}\hspace{-0.6pt})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $p$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$.\footnote{Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
+Given $p, q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $p$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$.\commentOC{I am not enthousiastic about putting some of the related  notations in a footnote as done currently. For example, we use the notation $\sum \lprof$ several times in the paper. Why is this one in a footnote and not others? Also, just after the footnote, we use in the main text the notation “$\max \lprof$”, now defined only in a footnote. Finally, one of the reviewers have asked that we clarify some of those notations, which we have now done, so she would probably be unhappy that we now move these clarifications to a footnote. Therefore, I propose to move the footnote back into the main text.}\footnote{Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.}
 Let $\min \max \lprof = \min_{x \in \allalts} \max \lprof(x)$ denote the minimal (across alternatives) worst (across individuals) loss at $\prof$.
@@ -274,14 +276,11 @@ Theorem \ref{th:equal} admits the corollary below.
   A SCR $f \in \PEcl \cap \MRcl$ if and only if $f \subseteq \PVe$.
 \end{corollary}
 
-Corollary 1 and Theorem 1 lead to the following corollary:
-
+Corollary 1 and Theorem 1 lead to the following corollary.
 \begin{corollary}
-
   \label{th:inFH}
   $\FB, \VR, \SL \in \PEcl \cap \MRcl$.
 \end{corollary}
-
 
 We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. The following result determines which rules in $\PVcl$ satisfy MR.
 
@@ -360,16 +359,16 @@ The following result will be useful throughout.
   Since $x \in \PE$, $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\} =  \emptyset$, which implies $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\} \leq m - 1$.
 \end{proof}
 
-Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.
+Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.%
 \begin{proposition}
   \label{th:pel}
-  For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ is PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
+  For any $m ≥ 3$ \commentOC{Why this restriction? I believe that the statement holds for $m ≥ 2$ and that the proof covers that case.}, a rule $\PVv[(v_1, v_2)] \in \PVcl$ is PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
 \end{proposition}
 \begin{proof}
   For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, as follows from \cref{th:sumlosses}.
   A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL-compatibility.
 
-  For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\khalf = \floor{\frac{m}{2}}$ positions behind $x$).
+  For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\khalfAlt = \khalf$ positions behind $x$).
   A PV rule such that $\max_{i \in \set{1, 2}} v_i > \floor{\frac{m}{2}}$ will thus not include $x$ in the set of winners, hence, the rule will fail PEL-compatibility.
 \end{proof}
 
@@ -377,6 +376,7 @@ Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.
 
 \begin{corollary}
   \label{th:pvbpel}
+  \commentOC{Same comment: this should be $m ≥ 2$.}
   For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ is PEL-compatible iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
 \end{corollary}
 
@@ -433,7 +433,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
   $[\MRcl \cap \MDcl \neq \emptyset] ⇔ [m ≤ 6 \lor m = 8]$.
 \end{theorem}
 \begin{proof}
-  We prove the theorem through Lemmas 2 to 5.
+  We prove the theorem through \cref{th:PNonEmpty,th:PEmpty,th:caractEmpty,th:profsIncompat}.
 
   \Cref{th:PNonEmpty} states that a Pareto efficient alternative that minimizes dispersion among the top $\ceil{\frac{2m - 4}{3}}$ of both individuals always exists.
 
@@ -538,9 +538,9 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 \end{proof}
 
 \begin{remark}
-  It follows from \cref{th:caractEmpty} that 
+  It follows from \cref{th:caractEmpty} that%
   \footnote{We thank an anonymous reviewer for a question that lead to this observation.} 
-  for $m ≥ 3$, $k$-Rawlsianism (\cref{def:kr}) and MD are compatible iff $k \geq \frac{2m - 4}{3}$.
+  for $m ≥ 3$, $k$-Rawlsianism (\cref{def:kr}) and MD are compatible iff $k \geq \frac{2m - 4}{3}$.%
   \footnote{Similarly, $k$-strict-Rawlsianism (\cref{ft:variant}) and MD are compatible iff $k \geq \frac{2m - 4}{3}$.}
 \end{remark}
 
@@ -627,7 +627,7 @@ We end this section by showing that every profile admits some Pareto efficient a
   $[\forall \prof, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-  \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the "only if" part, consider the profile $\prof = (\pref_1, \pref_2)$ defined as
+  \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the “only if” part, consider the profile $\prof = (\pref_1, \pref_2)$ defined as
   \begin{equation}
     \begin{array}{l @{:\hskip 2em} *8{l}}
       \pref_1 & a_1            & a_2            & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m        \\
@@ -735,7 +735,7 @@ The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to sa
 \begin{proof}
   Consider any $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, any $i \suchthat \min \lprof(x) = \lprof(x)_i$ and  any $y \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$. We first prove that $\min \lprof(y) = \lprof(y)_i$ iff $y = x$. Equivalently, we prove that $\forall a \in H(\prof): \lprof(a)_i ≠ \lprof(x)_i ⇒ [a \notin \argmin_{H(\prof) \cap \PE} (d \circ \lprof) \lor \min \lprof(a) ≠ \lprof(a)_i]$. Indeed, consider any $a \in H(\prof) \suchthat \lprof(a)_i < \lprof(x)_i$, then $\lprof(a)_{\ibar} > \lprof(x)_{\ibar}$ (because $x \in \PE$), so $\lprof(a)_i < \lprof(x)_i ≤ \lprof(x)_{\ibar} < \lprof(a)_{\ibar}$ and $(d \circ \lprof)(a) > (d \circ \lprof)(x)$; and considering now any $a \in H(\prof) \suchthat \lprof(a)_i > \lprof(x)_i$, then $\lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ is required for $a \in \PE$, and if $\min \lprof(a) = \lprof(a)_i$ then $\lprof(x)_i < \lprof(a)_i ≤ \lprof(a)_{\ibar} < \lprof(x)_{\ibar}$ and $(d \circ \lprof)(a) < (d \circ \lprof)(x)$, contradicting $x \in \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$, so that again $\min \lprof(a) ≠ \lprof(a)_i$.
 
-  To conclude, observe that if $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ contain at least two elements (say, $x$ and $y$), one of them, say, $x$, has $\min \lprof(x) = \lprof(x)_i$, the other one has $\min \lprof(y) = \lprof(y)_{\ibar}$, and thus there cannot be a third element $z$ in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as neither $\min \lprof(z) = \lprof(z)_i$ nor $\min \lprof(z) = \lprof(z)_{\ibar}$ is possible, by the above result.
+  To conclude, observe that if $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ contains at least two elements (say, $x$ and $y$), one of them, say, $x$, has $\min \lprof(x) = \lprof(x)_i$, the other one has $\min \lprof(y) = \lprof(y)_{\ibar}$, and thus there cannot be a third element $z$ in $\argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ as neither $\min \lprof(z) = \lprof(z)_i$ nor $\min \lprof(z) = \lprof(z)_{\ibar}$ is possible, by the above result.
 \end{proof}
 
 One can define a refinement of the SRMD rule through the notion of \emph{anonymous dominance} of loss vectors.
@@ -765,7 +765,8 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
     \bottomrule
   \end{tabular}
   \caption{Summary of the results about $\FB$, $\VR$ and $\SL$.
-    A tick (✓) means that the SCR satisfies the corresponding property for any value of $m ≥ 4$ \commentMN{and $n$, I think that we should remove it}.}%; a cross (✕) means that the opposite holds.}
+    A tick (✓) means that the SCR satisfies the corresponding property for any value of $m ≥ 4$.
+    \commentOC{I think that it is “for any value of $m ≥ 2$” (or just “for any value of $m$”?).}}
   \label{fig:propsR}
 \end{table}
 
@@ -775,16 +776,14 @@ We bring a consideration based on a common interpretation and perspective. The a
 \Cref{fig:propsR,fig:propsCexplicit} summarize our findings.\footnote{It should be noted that the axioms listed on \Cref{fig:propsR} do not characterize the SCRs that we discuss. This is somehow expected, as these axioms impose conditions at a given profile without alluding to the consequences when the given profile is modified, i.e., they are “punctual” in the sense of \citet{thomson2012axiomatics}. We thank Sylvain Béal for this comment.}
 
 \begin{table}
-  \small
   \begin{tabular}{l*{5}{c}}
     \toprule
-            & MR                                   & PEL-comp.                & PEL & MD                           & RMD                                                         \\
+    & MR                                   & PEL-comp.                & PEL & MD                           & RMD \\
     \midrule
-    $\PVcl$ & $\min v_i ≥ \floor{\frac{m - 1}{2}}$ & $\max v_i ≤ \frac{m}{2}$ & ✕   & $\max v_i ≤ \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \floor{\frac{m - 1}{2}}$ \\
+    $\PVcl$ & $\min v_i \mkern-1mu ≥ \mkern-1mu \floor{\frac{m - 1}{2}}$ & $\max v_i \mkern-1mu ≤ \mkern-1mu \frac{m}{2}$ & ✕   & $\max v_i \mkern-1mu ≤ \mkern-1mu \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \mkern-1mu \floor{\frac{m - 1}{2}}$ \\
     \bottomrule
   \end{tabular}
-  \caption{Summary of the results about the class $\PVcl$ \commentMN{when $m\geq 4$}.  Each cell specifies those members that satisfy the corresponding property .
-  }
+  \caption{Summary of the results about the class $\PVcl$ \commentMN{when $m\geq 4$}. Each cell specifies those members that satisfy the corresponding property.}
   \label{fig:propsCexplicit}
 \end{table}
 
