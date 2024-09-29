@@ -41,7 +41,9 @@
 \maketitle
 
 \begin{abstract}
-  We consider two-person ordinal collective choice from an axiomatic perspective. We identify two principles: minimal Rawlsianism (the chosen alternatives belong to the upper-half of both individuals’ preferences) and the equal loss principle (the chosen alternatives ensure that both individuals concede “as equally as possible” from their highest ranked alternative). The equal loss principle has variants of different strength, depending on the precise definition of “as equally as possible”. We consider all prominent ordinal two-person social choice rules of the literature and explore which of these principles they satisfy. Moreover, we show that minimal Rawlsianism is logically incompatible with one version of the equal loss principle that we call the minimal dispersion principle. On the other hand, there are social choice rules that satisfy the Rawlsian minimal dispersion principle where the minimal dispersion principle is restricted to alternatives within the upper-half of both individuals’ preferences.
+  We 
+  consider 
+  two-person ordinal collective choice from an axiomatic perspective. We identify two principles: minimal Rawlsianism (the chosen alternatives belong to the upper-half of both individuals’ preferences) and the equal loss principle (the chosen alternatives ensure that both individuals concede “as equally as possible” from their highest ranked alternative). The equal loss principle has variants of different strength, depending on the precise definition of “as equally as possible”. We consider all prominent ordinal two-person social choice rules of the literature and explore which of these principles they satisfy. Moreover, we show that minimal Rawlsianism is logically incompatible with one version of the equal loss principle that we call the minimal dispersion principle. On the other hand, there are social choice rules that satisfy the Rawlsian minimal dispersion principle where the minimal dispersion principle is restricted to alternatives within the upper-half of both individuals’ preferences.
 \end{abstract}
 
 \section{Introduction}
@@ -76,8 +78,7 @@ Within the spirit of equal loss, we propose the \textit{minimal dispersion princ
 
 Given the incompatibility between the two principles, we introduce the Rawlsian minimal dispersion principle that requires the outcome to contain the Rawlsian alternatives whose loss vectors have minimal dispersion. It is failed by all social choice rules we consider, except the Pareto-and-veto rule that gives the highest equal veto power to both individuals. The satisfaction is at the expense of resoluteness, since this rule picks every Pareto efficient alternative within the first half. Thus, it is natural to seek for a stronger principle that imposes more resoluteness. To this end, we define the strong Rawlsian minimal dispersion principle that requires the outcome to lie within the Rawlsian alternatives whose loss vectors have minimal dispersion. No rule that we have examined satisfies this principle. Therefore, we define the strong Rawlsian minimal dispersion rule as the least resolute rule that satisfies this principle. This new rule appears as a reasonable compromise to meet the two main principles we analyze, namely that of being minimally Rawlsian and that of favoring small dispersion alternatives. Moreover, it is also reasonably resolute as it never picks more than two alternatives.
 
-\Cref{sec:basic} introduces the basic notions and notation. 
-\commentOC{\Cref{sec:lit} defines the rules that we analyze.}
+\Cref{sec:rev} reviews the literature, \Cref{sec:basic} introduces the basic notions and notations and  \Cref{sec:lit} defines the rules we analyze.
 \Cref{sec:minprinc,sec:eqprinc} are devoted to the minimal Rawlsian and equal loss principles, respectively. \Cref{sec:reconc} introduces the Rawlsian minimal dispersion principle. \Cref{sec:concl} makes some concluding remarks.
 
 \section{Review of literature}
@@ -114,9 +115,9 @@ Viewing such functions as relations on $\allprofs × \allalts$, we can write $f 
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f(\hspace{-0.6pt}{\prefi[2]}, {\prefi[1]}\hspace{-0.6pt})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $p, q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $p$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$.\commentOC{I am not enthousiastic about putting some of the related  notations in a footnote as done currently. For example, we use the notation $\sum \lprof$ several times in the paper. Why is this one in a footnote and not others? Also, just after the footnote, we use in the main text the notation “$\max \lprof$”, now defined only in a footnote. Finally, one of the reviewers have asked that we clarify some of those notations, which we have now done, so she would probably be unhappy that we now move these clarifications to a footnote. Therefore, I propose to move the footnote back into the main text.}\footnote{Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
+Given $p, q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $p$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$
-and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.}
+and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.
 Let $\min \max \lprof = \min_{x \in \allalts} \max \lprof(x)$ denote the minimal (across alternatives) worst (across individuals) loss at $\prof$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists \: y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
@@ -362,7 +363,7 @@ The following result will be useful throughout.
 Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.%
 \begin{proposition}
   \label{th:pel}
-  For any $m ≥ 3$ \commentOC{Why this restriction? I believe that the statement holds for $m ≥ 2$ and that the proof covers that case.}, a rule $\PVv[(v_1, v_2)] \in \PVcl$ is PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
+  For any $m ≥ 2$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ is PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
 \end{proposition}
 \begin{proof}
   For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, as follows from \cref{th:sumlosses}.
@@ -376,8 +377,8 @@ Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.%
 
 \begin{corollary}
   \label{th:pvbpel}
-  \commentOC{Same comment: this should be $m ≥ 2$.}
-  For any $m ≥ 3$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ is PEL-compatible iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
+ 
+  For any $m ≥ 2$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ is PEL-compatible iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
 \end{corollary}
 
 The rules that fail PEL-compatibility will a fortiori fail the following stronger version of the Paretian equal loss property which requires that the Pareto efficient alternative ranked at the same position by both individuals, if it exists, be the unique outcome.
@@ -765,8 +766,8 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
     \bottomrule
   \end{tabular}
   \caption{Summary of the results about $\FB$, $\VR$ and $\SL$.
-    A tick (✓) means that the SCR satisfies the corresponding property for any value of $m ≥ 4$.
-    \commentOC{I think that it is “for any value of $m ≥ 2$” (or just “for any value of $m$”?).}}
+    A tick (✓) means that the SCR satisfies the corresponding property for any  $m $.
+   }
   \label{fig:propsR}
 \end{table}
 
@@ -783,7 +784,7 @@ We bring a consideration based on a common interpretation and perspective. The a
     $\PVcl$ & $\min v_i \mkern-1mu ≥ \mkern-1mu \floor{\frac{m - 1}{2}}$ & $\max v_i \mkern-1mu ≤ \mkern-1mu \frac{m}{2}$ & ✕   & $\max v_i \mkern-1mu ≤ \mkern-1mu \frac{m + 1}{3}$ & $v_1 \mkern-1mu = \mkern-1mu v_2 = \mkern-1mu \floor{\frac{m - 1}{2}}$ \\
     \bottomrule
   \end{tabular}
-  \caption{Summary of the results about the class $\PVcl$ \commentMN{when $m\geq 4$}. Each cell specifies those members that satisfy the corresponding property.}
+  \caption{Summary of the results about the class $\PVcl$ when $m\geq 4$. Each cell specifies those members that satisfy the corresponding property.}
   \label{fig:propsCexplicit}
 \end{table}
 
