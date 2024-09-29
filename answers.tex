@@ -41,12 +41,12 @@ The associate editor suggests to try to deal with all comments,
 suggestions and questions contained in the two reports.
 
 
-(S)he also writes: \color{red}In particular, the authors should try to
+(S)he also writes: In particular, the authors should try to
 make some progress in the analysis that Referee 2 proposes at the end of the third paragraph of
-his/her report as well as to answer the two questions raised at the end of the report.\color{black}
+his/her report as well as to answer the two questions raised at the end of the report.
 
 
-How should we answer here?
+While providing an axiomatization of some rules in the current framework is of clear relevance, we consider that this should be the object of future work. Indeed, one of the main points of this work is to highlight that very few papers have considered ordinal social choice between two players from an axiomatic perspective, and it provides the incompatibility between MR and MD as a potential guideline of what cannot be achieved (in line with the usual impossibility results in Social choice). Moreover, it still needs to be determined which rule should be axiomatized. Our results set a divisive line between some existing rules, and this should be considered as the first step towards a better understanding of these rules.
 
 
 
@@ -71,39 +71,35 @@ Here are our replies to the reviewer’s main comments.
   \item The definition of Borda winners is given in passing as part of the definition of $\VR$.
   \item We now indicate systematically the preference of each agent in our profiles.
   \item We have completed the sentence.
-  \item We chose to keep Definition 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. \commentOC{TODO Def 4: similar IMHO. “all the discussion about the equal loss property could be placed in a footnote.”: I ignore which discussion this refers to.}\commentMN{I think that he refers implies to the notation of loss vectors. I put them in a footnote, please check}
+  \item We chose to keep Definition 1 because of the centrality of this notion and because we have now added a remark following R2’s suggestion that refers to this notion. Moreover, the referee suggested that "Moreover, all the discussion
+about the equal loss property could be placed in a footnote". We are not sure which discussion the referee mentions. The notations and definitions dealing with loss are central in the paper so we decided to let them in the main text. 
   \item We have completed the tables to avoid blank entries.
-  \item \commentOC{Table 1 to be checked?} \commentMN{Checked, please see my comment in Table 1}
-  \item \commentOC{Table 2 hyp?} \commentMN{I think that we can when $m\geq 4$, see the paper}.
+  \item Solved.
+  \item Solved.
   \item We have made this consistent.
   \item We have completed the sentence.
 \end{enumerate}
 
-\commentMN{I suggest the following paragraph:}About the other comments: we have implemented all the suggested changes, except for comment (c) regarding the use of symbols $\forall$ and $\exists$. Indeed, after careful examination of the paper, we think that the current use of these symbols is clear and consistent enough (and the symbols are very standard in the literature). We hope that you agree with this point. 
+About the other comments: we have implemented all the suggested changes, except for comment (c) regarding the use of symbols $\forall$ and $\exists$. Indeed, after careful examination of the paper, we think that the current use of these symbols is clear and consistent enough (and the symbols are very standard in the literature). We hope that you agree with this point. 
 
 \section{Referee 2}
 We thank the reviewer for the evaluation and the constructive suggestions.
 
 We agree that the incompatibility between MR and MD can be viewed as one of the main results in the article. However, we think that exploring the relationship between these axioms and most rules that have been considered in the literature about two agents social choice is also significant. It also helps highlighting how these rules differ. Furthermore, we think that it is interesting to observe that no rule that has been considered in the context of two agents satisfies the MD axiom, an observation which covers, perhaps surprisingly, the well-known Fallback Bargaining rule, which could be superficially considered as very egalitarianism-oriented. 
-\commentOC{Dear team, could we try to phrase all of this better together? Should we insist on this in our introduction or conclusion? Should we answer here that we have added a point about that?}
 
-We thank the reviewer for the question about compatibility of $k$-strict Rawlsianism with MD; which has lead to a new remark and footnote (Remark 7 and Footnote 9).
-\commentOC{Numbers to be checked.}
+While we agree that an axiomatization is relevant here, we prefer to leave this for future work (see our detailed answer to the Associate editor).
+
+We thank the reviewer for the question about compatibility of $k$-strict Rawlsianism with MD; which has lead to a new remark and footnote (Remark 7 and Footnote 4).
+
 
 Here are our replies to the reviewer’s main comments.
 \begin{enumerate}[label={\alph*})]
   \item We have now specified that $\N$ includes zero.
   \item We have added this observation.
-  \item It is in fact equivalent.\commentOC{R2 c: I believe that she is wrong. We could add this to the text, but is it more helpful than confusing? “Note that this is equivalent because $H(P)$ picks the winners among the first $\khalf + 1 = \khalfAlt + 1$ ranks, whose complement to $m$ is $\floor{\frac{m - 1}{2}}$.” This applies similarly to R2 d.} \commentRS{VR and SL are defined for an odd number of alternatives, no?}
+  \item Note that both notions are equivalent. Is is equivalent because $VR$ picks the Borda winners among the first $\khalf + 1 = \khalfAlt + 1$ ranks, whose complement to $m$ is $\floor{\frac{m - 1}{2}}$.” This also applies to R2 d.
 
-  \commentMN{I have been reading the report and I think that the referee might have a point. Observe that he writes "in the formal definitions of the VR correspondence, it is stated that it \emph{selects
-among alternatives in H(P) the ones } with the highest Borda scores. However, in
-the text it is said that each individual vetoes \emph{her worst (m-1)/2 rounded down
-alternatives} before selecting the alternatives with the highest Borda scores." }
+  
 
-\commentMN{I tend to think that he points at an incoherence between the formal definition and the one in the text. Is that it? Do you agree? If you agree, we should simply change the informal definition in the text.}
-
-  \item It is in fact equivalent.\commentOC{Could someone confirm that this is true as well?} \commentMN{Again, I think that the referee's point deals with the definitions of $H(P)$ formal and the informal ones in the text. }
 \end{enumerate}
 \end{document}
 
