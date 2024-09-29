@@ -106,23 +106,23 @@ In a framework with a disagreement outcome, \citet{KibrisSertel2007} argue that 
 
 \section{Basic notions and notation}
 \label{sec:basic}
-Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$  a set of alternatives, with $\card{\allalts} = m\geq 2$.
+Let $N = \set{1, 2}$ be a set of two individuals and $\allalts$ a set of alternatives, with $\card{\allalts} = m\geq 2$.
 For each $i \in N$, we denote by $\ibar \in N \setminus \set{i}$  the other individual. Let $\powersetz{\allalts}$ denote the set of non-empty subsets of $\allalts$ and $\linors$ be the set of linear orders over $\allalts$. We let ${\prefi} \in \linors$ be the preference of individual $i \in N$ and $\prof = ({\prefi[1]}, {\prefi[2]}) \in \allprofs$ a preference profile.
 A social choice rule (SCR) is a correspondence $f: \allprofs → \powersetz{\allalts}$.
 Viewing such functions as relations on $\allprofs × \allalts$, we can write $f \subseteq f'$ to denote a rule that “refines” $f'$, in the sense that $\forall \prof \in \allprofs: f(\prof) \subseteq f'(\prof)$. When $f \subseteq f'$ and $f ≠ f'$, we write $f \subsetneq f'$ and say that $f$ is a proper sub-correspondence of $f'$.
 
 A SCR $f$ is anonymous iff, for any $({\prefi[1]}, {\prefi[2]}) \in \allprofs$, $f({\prefi[1]}, {\prefi[2]}) = f(\hspace{-0.6pt}{\prefi[2]}, {\prefi[1]}\hspace{-0.6pt})$ while $f$ is neutral iff for any permutation $\sigma$ over $\allalts$ and any profile $\prof \in \allprofs$, $\sigma \circ f(\prof) = f(\sigma \circ \prof)$.
 
-Given $q \in \R$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $0$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
+Given $q \in \N$, let $\intvlz{q} = [0, q] \cap \N $ denote the interval of integers between $0$ and $q$ (throughout the article, $\N$ includes zero). The loss of individual $i$ at $\prof$ for alternative $x$ equals the number of alternatives that $i$ prefers to $x$: $\lprof(x)_i = \card{\set{y \in \allalts \suchthat y \prefi x}}$. The loss vector of $x$ at $\prof$ is denoted $\lprof(x)=(\lprof(x)_1, \lprof(x)_2) \in \lvs$. Given two loss vectors $l, l' \in \lvs$, $l$ is smaller than $l'$, denoted $l ≤ l'$, iff $l_i ≤ l'_i$ $\forall i$. We also write $l < l'$ when $l$ is strictly smaller than $l'$, meaning, smaller and different.
 Let $\min \lprof(x) = \min_{i \in N} \lprof(x)_i \in \N$, $\max \lprof(x) = \max_{i \in N} \lprof(x)_i \in \N$
 and $\sum \lprof(x) = \sum_{i \in N} \lprof(x)_i$  respectively denote the minimal loss, the maximal one and the sum of the losses in $\lprof(x)$.
 Let $\min \max \lprof = \min_{x \in \allalts} \max \lprof(x)$ denote the minimal (across alternatives) worst (across individuals) loss at $\prof$.
 
 Let $\PE = \set{x \in \allalts \suchthat \nexists \: y \text{ s.t. } \lprof(y) < \lprof(x)}$ be the set of Pareto efficient alternatives at $\prof$.
 The SCR $f$ satisfies the Pareto property iff it picks only Pareto efficient alternatives.
-Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property.\footnote{We systematically use calligraphic letters to denote the class of rules satisfying a given property.}
+Let $\PEcl = \set{f: \allprofs → \powersetz{\allalts} \suchthat \forall \prof \in \allprofs: f(\prof) \subseteq \PE}$ denote the class of SCRs satisfying the Pareto property.\footnote{We systematically use calligraphic letters to denote the class of rules satisfying a given property.}
 
-In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$, where $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x$.  For any profile $\prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals.
+In concordance with the ceiling established by Theorem 1 of \citet{BramsKilgour2001}, we use  “best half” to refer to the loss values up to $\khalf$, where $\lfloor x \rfloor$ denotes the greatest integer less than or equal to $x$. Accordingly, $\forall \prof \in \allprofs$, we let $H(\prof) = \set{x \in \allalts \suchthat \lprof(x) ≤ (\khalf, \khalf)}$ denote the set of alternatives reaching the best half of every individual’s preference, and $H^i(\prof) = \set{x \in \allalts \suchthat \lprof(x)_i ≤ \khalf}$ those that reach the best half of $i$’s preference. Given $\prof$ and a loss level $k$, define $U(\prof, k) = \set{x \in \allalts \suchthat \max \lprof(x) ≤ k}$ as the alternatives with a loss of at most $k$ for both individuals.
 It follows that $H(\prof) = U(\prof, \khalf)$.
 An alternative receives unanimous support at level $k$ iff it belongs to $U(\prof, k)$.
 Note that the minimal worst loss $\min \max \lprof$ also represents the least loss level at which some alternative receives unanimous support; formally: $\min \max \lprof = \min \set{k \in \losses \suchthat U(\prof, k) ≠ \emptyset}$.
@@ -134,7 +134,7 @@ We start by defining the SCRs of the literature that we analyze in the paper and
 \textbf{Unanimity compromise or $\FB$} is the SCR that picks all alternatives with unanimous support at the minimal worst loss $\rhoP = \min_{x \in \allalts} \set{\max \lprof(x)}$; formally: $\FB(\prof) = U(\prof, \rhoP) = \argmin_{x \in \allalts} \set{\max \lprof(x)}$.
 \begin{remark}
   \label{th:FBH}
-  $\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
+  $\FB$ is anonymous and neutral. It satisfies the Pareto property. Moreover, $\forall \prof \in \allprofs$, $\FB(\prof) \subseteq H(\prof)$. The final observation comes from the fact that $\forall \prof \in \allprofs$, $\min_{x \in \allalts} \set{\max \lprof(x)} ≤ \khalf$, a consequence of the following proposition that is a restatement of \citet[Theorem 1]{BramsKilgour2001}. We include a proof for completeness.
 \end{remark}
 
 %\newtheoremstyle{proposition-then-small-style}%
@@ -155,7 +155,7 @@ We start by defining the SCRs of the literature that we analyze in the paper and
 \fontsize{11.25}{1}
 \begin{proposition}[\citeauthor{BramsKilgour2001}]
   \label{th:BKkhalf}
-  $[\forall \prof, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
+  $[\forall \prof \in \allprofs, \exists x \in \allalts \suchthat \max \lprof(x) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \normalsize
 \begin{proof}
@@ -178,7 +178,7 @@ Both $\VR$ and $\SL$ are defined in \citet{Clippel} for $m$ odd only.
 
 \begin{remark}
   \label{th:VRSLH}
-  Both	$\VR$ and $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\forall \prof$, $\VR(\prof) \subseteq H(\prof)$ and $\SL(\prof)\subseteq H(\prof)$.
+  Both	$\VR$ and $\SL$ are anonymous and neutral. They satisfy the Pareto property. Moreover, $\forall \prof \in \allprofs$, $\VR(\prof) \subseteq H(\prof)$ and $\SL(\prof)\subseteq H(\prof)$.
 \end{remark}
 
 \begin{remark}\label{th:different}
@@ -210,7 +210,7 @@ The class $\PVcl = \set{\PVv \suchthat v_1, v_2 \in \intvlz{m - 1} \text{ with }
 We define the rule $\PVe = \PVv[\left(\floor{\frac{m - 1}{2}}, \floor{\frac{m - 1}{2}}\right)]$ as the rule in $\PVcl$ that gives the highest equal veto power to both individuals. Thus, under $PV^=$, we have $v_1=v_2= \floor{\frac{m - 1}{2}}$, implying $v_1=v_2=\frac{m-1}{2}$ when $m$ is odd and $v_1=v_2= \frac{m}{2}-1$ when $m$ is even. Note that $PV^=\in\PVbcl$ iff $m$ is odd. The rule $PV^=$ is of special interest regarding its relation to $\FB$, $\VR$ and $\SL$ as well as to the minimal Rawlsian principle that will be introduced in the next section.
 
 \begin{theorem}\label{th:intersection}
-  For each $\prof \in \allprofs$, $\PVe(\prof)=H(\prof)\cap PE(\prof)$.
+  $\forall \prof \in \allprofs: \PVe(\prof)=H(\prof)\cap PE(\prof)$.
 \end{theorem}
 \begin{proof}
   At every $\prof$, $\PVe$ selects all Pareto efficient alternatives that are not among the worst $\floor{\frac{m - 1}{2}}$ alternatives for every individual, in other words, those that are among the best $\ceil{\frac{m - 1}{2}} + 1 = \khalf + 1$ ones. This is equivalent to say that $\PVe$ selects every Pareto efficient alternative $x$ with $\lprof(x) ≤ (\khalf, \khalf)$. Yet, this is precisely $H(\prof)\cap PE(\prof)$, as desired.
@@ -292,7 +292,7 @@ We now discuss the relationship of the class $\PVcl$ to the \MRprop{} property. 
   is equivalent to
   $[\exists i \suchthat v_i = \floor{\frac{m - 1}{2}} \land \floor{\frac{m - 1}{2}} ≤ v_{\ibar} ≤ \khalfAlt = \khalf]$. Thus, the claim is equivalent to the claim $\PVcl ∩ \MRcl = \set{\PVv \in \PVcl \suchthat \forall i: v_i ≥ \floor{\frac{m - 1}{2}}}$, which we now prove.
 
-  To show the “if” part, note that the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that  $\PVv(\prof) \subseteq H(\prof)$ for any profile .
+  To show the “if” part, note that $\forall \prof \in \allprofs$, the condition $\forall i: v_i ≥ \floor{\frac{m - 1}{2}}$ suffices to guarantee that $\PVv(\prof) \subseteq H(\prof)$.
 
   To see the “only if” part, consider an arbitrary ordering $\prefi[1]$ over $\allalts$, let $\prefiinv[1]$ denote its inverse, and consider the profile $\prof = (\pref_1, \pref_2)$ where ${\pref_2} = {\prefiinv[1]}$.
   Observe that $\PVv(\prof)$ will exclusively pick winners in the first half of individual $i$ only if $v_i ≥ \floor{\frac{m - 1}{2}}$.
@@ -352,7 +352,7 @@ We now embed Pareto efficiency into the equal loss requirement by mandating $f$ 
 The following result will be useful throughout.
 \begin{lemma}
   \label{th:sumlosses}
-  For any $\prof$, if $x \in \PE$ then $\lprof(x)_1+\lprof(x)_2 \leq m-1$.
+  $\forall \prof \in \allprofs$, if $x \in \PE$ then $\lprof(x)_1+\lprof(x)_2 \leq m-1$.
 \end{lemma}
 \begin{proof}
   Since $x \in \PE$, $\{y\in \mathcal{A}\mid y \succ_1 x\}\cap \{y\in \mathcal{A}\mid y \succ_2 x\} =  \emptyset$, which implies $\#\{y\in \mathcal{A}\mid y \succ_1 x\}+\#\{y\in \mathcal{A}\mid y \succ_2 x\} \leq m - 1$.
@@ -364,7 +364,7 @@ Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.%
   For any $m ≥ 2$, a rule $\PVv[(v_1, v_2)] \in \PVcl$ is PEL-compatible iff its veto levels are both at most $\floor{\frac{m}{2}}$, thus, iff $\max_{i \in \set{1, 2}} v_i ≤ \frac{m}{2}$.
 \end{proposition}
 \begin{proof}
-  For all $\prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, as follows from \cref{th:sumlosses}.
+  We have that $\forall \prof \in \allprofs$, if $x \in S(\prof) \cap \PE$, then $x$ is not among the last $\floor{\frac{m}{2}}$ ranks, as follows from \cref{th:sumlosses}.
   A PV rule with veto parameters at most $\floor{\frac{m}{2}}$ will thus pick all such alternatives $S(\prof) \cap \PE$, as required by PEL-compatibility.
 
   For the other direction, observe that there exists $\prof \in \allprofs$ such that for some $x \in \allalts$, $x \in S(\prof) \cap \PE$ and $x$ is positioned just better than the last $\floor{\frac{m}{2}}$ ranks (thus $\exists \prof \in \allprofs, x \in \allalts \suchthat \forall i \in \set{1, 2}: \lprof(x)_i = \floor{\frac{m - 1}{2}}$, leaving $\khalfAlt = \khalf$ positions behind $x$).
@@ -375,7 +375,6 @@ Some rules from the class $\PVcl$ are PEL-compatible, $\PVe$ being among those.%
 
 \begin{corollary}
   \label{th:pvbpel}
- 
   For any $m ≥ 2$, a rule $\PVv[(v_1, v_2)] \in \PVbcl$ is PEL-compatible iff $v_i = \floor{\frac{m - 1}{2}}$ and $v_{\ibar} = \khalf$ for any $\set{i, \ibar} = \set{1, 2}$.
 \end{corollary}
 
@@ -438,7 +437,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 
   \begin{lemma}
     \label{th:PNonEmpty}
-    Given $m ≥ 3$,$\forall \prof: \lprofinv(\intvlz{\ceil{\frac{2m - 4}{3}}} × \intvlz{\ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+    Given $m ≥ 3$, $\forall \prof \in \allprofs: \lprofinv(\intvlz{\ceil{\frac{2m - 4}{3}}} × \intvlz{\ceil{\frac{2m - 4}{3}}}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
   \end{lemma}
   \begin{proof}
     Consider any $x \in \argmin_{\PE} (d \circ \lprof)$ and let $i$ denote any individual such that $\max \lprof(x) = \lprof(x)_i$. In the sake of brevity, define $t = \ceil{\frac{2m - 4}{3}}$.
@@ -513,7 +512,7 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
     Given $m ≥ 3$, $\forall t \in \intvlz{m - 1}$, the following two statements are logically equivalent:
     \begin{enumerate}
       \item \label{it:tbound} $t ≥ \frac{2m - 4}{3}$,
-      \item \label{it:Pt} $\forall \prof: \lprofinv(\intvlz{t} × \intvlz{t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+      \item \label{it:Pt} $\forall \prof \in \allprofs: \lprofinv(\intvlz{t} × \intvlz{t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
     \end{enumerate}
   \end{lemma}
 
@@ -521,14 +520,14 @@ MD requires the outcome to contain some Pareto efficient alternatives whose loss
 
   \begin{lemma}
     \label{th:profsIncompat}
-    $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
+    $\forall \prof \in \allprofs: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$
   \end{lemma}
   \begin{proof}
     When $m = 2$, $H(\prof) = \lprofinv(\intvlz{1} × \intvlz{1}) = \prof$ thus $H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 
     When $m ≥ 3$, fix $t = \khalf$ and use \cref{th:caractEmpty} to obtain:
     \begin{equation}
-      m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
+      m ≤ \frac{3 \khalf + 4}{2} ⇔ \forall \prof \in \allprofs: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset.
     \end{equation}
     The left hand side is equivalent, when $m$ is odd, to $m ≤ \frac{3m + 5}{4}$ thus $m ≤ 5$, in other words, $m \in \set{3, 5}$, and when $m$ is even, to $m ≤ \frac{3m + 8}{4}$ thus $m ≤ 8$, that is, $m \in \set{4, 6, 8}$.
   \end{proof}
@@ -567,8 +566,8 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
   Observe that $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: v_i ≤ \frac{m + 1}{3} ⇔ \forall i \in \set{1, 2}: m - 1 - v_i ≥ \frac{2m - 4}{3} ⇔ t ≥ \frac{2m - 4}{3}$.
 
   If $t = m - 1 - v_1$, define $S = \intvlz{t} × \intvlz{m - 1}$, otherwise (implying that $t = m - 1 - v_2$), define $S = \intvlz{m - 1} × \intvlz{t}$.
-  By definition, $\forall \prof: \PVv[(v_1, v_2)](\prof) = \lprofinv(\intvlz{m - 1 - v_1} × \intvlz{m - 1 - v_2}) \cap \PE$.
-  It follows that $\forall \prof$:
+  By definition, $\forall \prof \in \allprofs: \PVv[(v_1, v_2)](\prof) = \lprofinv(\intvlz{m - 1 - v_1} × \intvlz{m - 1 - v_2}) \cap \PE$.
+  It follows that $\forall \prof \in \allprofs$:
   \begin{equation}
     \lprofinv(\intvlz{t} × \intvlz{t}) \cap \PE \subseteq \PVv[(v_1, v_2)](\prof)
   \end{equation}
@@ -585,7 +584,7 @@ Since \cref{th:pvmr} shows that most rules in $\PVcl$ fail MR, the following res
     \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) \subseteq \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof).
   \end{equation}
 
-  It follows from \cref{th:caractEmpty,th:PEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \lprofinv(\intvlz{t} × \intvlz{t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
+  It follows from \cref{th:caractEmpty,th:PEmpty} that $t ≥ \frac{2m - 4}{3} ⇔ \forall \prof \in \allprofs: \lprofinv(\intvlz{t} × \intvlz{t}) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ \forall \prof \in \allprofs: \lprofinv(S) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$, and thus $\max_{i \in \set{1, 2}} v_i ≤ \frac{m + 1}{3} ⇔ t ≥ \frac{2m - 4}{3} ⇔ \forall \prof \in \allprofs: \PVv[(v_1, v_2)](\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 \end{proof}
 
 \begin{remark}
@@ -623,10 +622,10 @@ We end this section by showing that every profile admits some Pareto efficient a
 
 \begin{proposition}
   \label{th:dispbound}
-  $[\forall \prof, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
+  $[\forall \prof \in \allprofs, \exists x \in \PE \suchthat d(\lprof(x)) ≤ k] ⇔ k ≥ \khalf$.
 \end{proposition}
 \begin{proof}
-  \Cref{th:intersection} establishes, $\forall \prof$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the “only if” part, consider the profile $\prof = (\pref_1, \pref_2)$ defined as
+  \Cref{th:intersection} establishes, $\forall \prof \in \allprofs$, the existence of an alternative $x \in \PE \cap H(\prof)$. Thus $d(\lprof(x)) ≤ \khalf$, proving the “if” part. To show the “only if” part, consider the profile $\prof = (\pref_1, \pref_2)$ defined as
   \begin{equation}
     \begin{array}{l @{:\hskip 2em} *8{l}}
       \pref_1 & a_1            & a_2            & … & a_{\khalf} & a_{\khalf + 1} & a_{\khalf + 2} & … & a_m        \\
@@ -660,7 +659,7 @@ Summarizing, when $m$ is small enough ($m ≤ 6$ or $m = 8$), and only then, fir
   $[m ≤ 6 \lor m = 8] ⇔ \RMDcl \subseteq \MDcl ⇔ \RMDcl \cap \MDcl ≠ \emptyset$.
 \end{proposition}
 \begin{proof}
-  First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. \Cref{th:profsIncompat} indicates that $\forall \prof: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$.
+  First consider $[m ≤ 6 \lor m = 8] ⇒ \RMDcl \subseteq \MDcl$. \Cref{th:profsIncompat} indicates that $\forall \prof \in \allprofs: H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset ⇔ m ≤ 6 \lor m = 8$.
   And $[H(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset] ⇒ [\argmin_{H(\prof) \cap \PE} (d \circ \lprof) \subseteq \argmin_{\PE} (d \circ \lprof)]$.
   Given $f \in \RMDcl$, $f(\prof) \cap \argmin_{H(\prof) \cap \PE} (d \circ \lprof) ≠ \emptyset$, thus, when $m ≤ 6 \lor m = 8$, $f(\prof) \cap \argmin_{\PE} (d \circ \lprof) ≠ \emptyset$.
 
@@ -726,7 +725,7 @@ The following result is the counterpart to \cref{th:RMDMD} for SRMD.
   As $\SRMDcl \subseteq \MRcl$, we have $[\SRMDcl \cap \MDcl ≠ \emptyset] ⇒ [\MRcl \cap \MDcl ≠ \emptyset]$. And from \cref{th:noMRMD}, the latter implies $[m ≤ 6 \lor m = 8]$.
 \end{proof}
 
-It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule $f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$ for each $\prof \in \allprofs$ as the least resolute rule satisfying Strong RMD.
+It also follows from \cref{th:equal} that $\PVe$ fails Strong RMD. Thus, no rule that we have examined so far satisfies Strong RMD. Now, we define the Strong RMD rule as the least resolute rule satisfying Strong RMD, namely, $\forall \prof \in \allprofs: f(\prof) = \argmin_{H(\prof) \cap \PE} (d \circ \lprof)$.
 The Strong RMD rule (or SRMD rule) might appear as a reasonable compromise to satisfy the two main concepts exposed here (besides Pareto), that of being minimally Rawlsian and that of favoring small dispersion alternatives. It is also reasonably resolute.
 \begin{proposition}
   The SRMD rule $f$ selects at most two alternatives: $\forall \prof \in \allprofs: 1 ≤ \card{f(\prof)} ≤ 2$.
@@ -741,7 +740,7 @@ One can define a refinement of the SRMD rule through the notion of \emph{anonymo
 
 Given two loss vectors $l, l' \in \lvs$, say that
 $l$ dominates $l'$, denoted $l ⊲ l'$, iff $\min l ≤ \min l' \land \max l ≤ \max l'$ with one of these inequalities being strict.
-For any profile $\prof$, $E(\prof)$ denotes the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \mid \nexists y \in \allalts: \lprof(y) ⊲ \lprof(x)}$.
+$\forall \prof \in \allprofs$, $E(\prof)$ denotes the alternatives whose loss vectors are not dominated: $E(\prof) = \set{x \in \allalts \mid \nexists y \in \allalts: \lprof(y) ⊲ \lprof(x)}$.
 
 The rule SRMD$^*$ that selects $\argmin_{H(\prof) \cap \PE \cap E(\prof)} (d \circ \lprof)$ is then a refinement of the SRMD rule, since the anonymous dominance is used as a tie-breaker, and thus picks at most two alternatives.
 
@@ -764,7 +763,7 @@ Axiomatic analysis of social choice rules with or without strategic concerns pre
     \bottomrule
   \end{tabular}
   \caption{Summary of the results about $\FB$, $\VR$ and $\SL$.
-    A tick (✓) means that the SCR satisfies the corresponding property for any  $m $.
+    A tick (✓) means that the SCR satisfies the corresponding property for any $m$.
    }
   \label{fig:propsR}
 \end{table}
